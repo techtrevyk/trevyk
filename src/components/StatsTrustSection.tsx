@@ -106,7 +106,12 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
   ];
 
   const marqueeRow2 = [
-    { label: '450+ Campus Deployments', category: 'institutions', icon: Award, accent: '#B9A6D1' },
+    {
+      label: 'Kiduart School ERP (kiduart.com)',
+      category: 'institutions',
+      icon: Award,
+      accent: '#B9A6D1',
+    },
     { label: 'Kubernetes Multi-Tenant Mesh', category: 'stack', icon: Server, accent: '#E8A9C2' },
     { label: 'Sub-50ms gRPC Micro-Engines', category: 'stack', icon: Zap, accent: '#B9A6D1' },
     { label: 'Stripe & UPI Instant Reconciliation', category: 'compliance', icon: CreditCard, accent: '#E8A9C2' },

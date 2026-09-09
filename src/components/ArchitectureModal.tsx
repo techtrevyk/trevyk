@@ -59,7 +59,7 @@ const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
     role: 'Flagship enterprise school administration engine (kiduart.com)',
     tech: ['Multi-Tenant Isolation', 'Custom Workflow Builder', 'Role-Based RBAC', 'Biometric/RFID Sync'],
     description:
-      'Trevyk’s flagship Kiduart school ERP platform (kiduart.com). Plug-and-play modules for admissions CRM, conflict-free timetable scheduling, automated fee desk, bus GPS fleet tracking, and CBSE/ICSE report cards.',
+      'Trevyk’s flagship Kiduart school ERP (https://kiduart.com) — admissions through fees, attendance, exams, parent communication and more, matching the live product journey on kiduart.com.',
     color: '#5A3875',
   },
   {
@@ -69,7 +69,7 @@ const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
     role: 'Zero-data-loss ACID database tier and document lake',
     tech: ['PostgreSQL Cluster', 'Redis In-Memory Tier', 'Encrypted S3 Blobs', 'Point-In-Time Backup'],
     description:
-      'The bedrock foundation block. Provides encrypted tenant sharding, instantaneous read-replicas, and automated continuous backup with strict FERPA/GDPR compliance.',
+      'Persistent storage with encryption and backups — including exportable school records as published in Kiduart’s founding charter.',
     color: '#E0D8EC',
   },
 ];

@@ -204,7 +204,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                     placeholder={
                       formType === 'services'
                         ? 'Describe your architectural requirements, concurrency targets, tech stack, or cloud timeline...'
-                        : 'Describe your campus strength, current software pain points, and key modules needed (fees, biometric, GPS)...'
+                        : 'Describe your school size, current tools, and which areas matter most (fees, attendance, exams, parent updates)…'
                     }
                     value={formData.scope}
                     onChange={(e) => setFormData({ ...formData, scope: e.target.value })}

@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  GraduationCap, 
-  Bus, 
-  CreditCard, 
-  Calendar, 
-  Smartphone, 
-  FileSpreadsheet, 
-  ShieldCheck, 
-  Users, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles,
-  BarChart3,
+import {
+  GraduationCap,
+  Bus,
+  CreditCard,
+  Calendar,
+  Users,
+  CheckCircle2,
+  ArrowRight,
   Clock,
   Send,
   Building2,
   Check,
-  Brain,
-  AlertTriangle,
-  HeartPulse,
-  Receipt,
-  FileCheck2,
-  Laptop,
+  BookOpen,
+  FileSpreadsheet,
+  Briefcase,
+  BarChart3,
+  ShieldCheck,
+  ExternalLink,
   Layers,
-  Network
+  HeartHandshake,
 } from 'lucide-react';
 import { SiteSettings } from '../types';
 import { BrandGradientDivider } from '../components/BrandGradientBar';
@@ -35,17 +29,158 @@ interface KiduartPageProps {
   settings: SiteSettings;
 }
 
-export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
-  const [activePersona, setActivePersona] = useState<'principal' | 'parent' | 'accountant'>('principal');
-  const [selectedModuleTab, setSelectedModuleTab] = useState<number>(0);
+/** Official product journey — aligned with kiduart.com homepage */
+const SCHOOL_JOURNEY = [
+  {
+    step: '01',
+    title: 'Admissions',
+    tagline: 'Enquiry to registered student',
+    desc: 'The year starts with an enquiry, not a student. Enquiries, applications, interview evaluations and registration run as one pipeline.',
+    highlights: [
+      'Enquiry capture with source and follow-up owner',
+      'Application review with documents attached',
+      'Interview scheduling with recorded evaluation',
+      'Registration that creates the student record',
+    ],
+    icon: Users,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '02',
+    title: 'Student Records',
+    tagline: 'One profile the whole school reads',
+    desc: 'Admission, documents, class and section history, guardians and contacts sit on a single record that follows the student through every session.',
+    highlights: ['Admission to alumni', 'Documents attached', 'Session-wise history'],
+    icon: GraduationCap,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '03',
+    title: 'Classes & Timetable',
+    tagline: 'Sections, class teachers, periods',
+    desc: 'Sections, class teachers and periods stay structured so the rest of the school can schedule around a shared calendar.',
+    highlights: ['Sections & class teachers', 'Period structure', 'Shared school calendar'],
+    icon: Calendar,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '04',
+    title: 'Attendance & Leave',
+    tagline: 'Mark fast, inform parents same day',
+    desc: 'Teachers mark attendance on their own screen. Parents get the update, coordinators see patterns, and reports are ready when needed.',
+    highlights: ['Same-day parent alert', 'Pattern flags', 'Ready reports'],
+    icon: Clock,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '05',
+    title: 'Exams & Results',
+    tagline: 'Schedule, marks, grades, report cards',
+    desc: 'Exams, marks entry, grading and report cards stay on one academic trail instead of scattered sheets.',
+    highlights: ['Exam schedules', 'Marks & grades', 'Report cards'],
+    icon: FileSpreadsheet,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '06',
+    title: 'Fees & Finance',
+    tagline: 'Structure, collection, dues, receipts',
+    desc: 'Fee heads, concessions, instalments, online and counter payments, receipts and outstanding dues stay on one ledger.',
+    highlights: ['Online + counter', 'Auto receipts', 'Live outstanding'],
+    icon: CreditCard,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '07',
+    title: 'Parent Communication',
+    tagline: 'Targeted notices with a record',
+    desc: 'Circulars, fee reminders and attendance alerts go from one place to the right class, section or parent group — with a delivery trail.',
+    highlights: ['Targeted by class', 'Delivery record', 'Templates'],
+    icon: Send,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '08',
+    title: 'Transport',
+    tagline: 'Routes, drivers, vehicles, tracking',
+    desc: 'Routes, drivers and vehicles stay organised so transport is part of the same school record, not a separate spreadsheet.',
+    highlights: ['Routes & vehicles', 'Driver records', 'Tracking where enabled'],
+    icon: Bus,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '09',
+    title: 'Hostel & Campus',
+    tagline: 'Rooms, beds, mess, visitors',
+    desc: 'Boarding operations — rooms, beds, mess and visitors — connected to the student profile when your campus needs them.',
+    highlights: ['Rooms & beds', 'Mess', 'Visitors'],
+    icon: Building2,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '10',
+    title: 'Library',
+    tagline: 'Catalog, circulation, fines',
+    desc: 'Catalog, issue/return and fines stay tied to student records instead of a disconnected register.',
+    highlights: ['Catalog', 'Circulation', 'Fines'],
+    icon: BookOpen,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '11',
+    title: 'HR & Payroll',
+    tagline: 'Staff, leave, salary, appraisal',
+    desc: 'Staff records, leave and payroll workflows for the people who run the school every day.',
+    highlights: ['Staff records', 'Leave', 'Salary & appraisal'],
+    icon: Briefcase,
+    href: 'https://kiduart.com',
+  },
+  {
+    step: '12',
+    title: 'Reports & Leadership',
+    tagline: 'Decisions from live records',
+    desc: 'Collection, attendance, academic and staff data feed views that are current — so leadership questions get answered from live records.',
+    highlights: ['Live dashboards', 'Exportable', 'Multi-campus rollup where applicable'],
+    icon: BarChart3,
+    href: 'https://kiduart.com',
+  },
+];
+
+const CHARTER = [
+  {
+    title: 'We publish only what exists',
+    body: 'Every capability described maps to a screen that is already built. Anything still being made is labelled in development — not switched on, not billed.',
+  },
+  {
+    title: 'No borrowed credibility',
+    body: 'No stock photos posing as schools, no quotes nobody said, no ratings we wrote about ourselves.',
+  },
+  {
+    title: 'Your data leaves with you',
+    body: 'Student records, fee ledgers, attendance and academic data export in CSV, Excel or PDF whenever you ask. We do not sell school data or train models on student records.',
+  },
+  {
+    title: 'Nothing goes live on a guess',
+    body: 'We run attendance and one fee cycle in parallel with your current method first. If the numbers do not agree, the switch waits.',
+  },
+  {
+    title: 'Stories will be attributable',
+    body: 'When school stories appear, each will carry name, city, role, measured number, and written consent — same as on kiduart.com.',
+  },
+];
+
+export const KiduartPage: React.FC<KiduartPageProps> = () => {
+  const [activeStep, setActiveStep] = useState(0);
   const [demoRequested, setDemoRequested] = useState(false);
   const [demoForm, setDemoForm] = useState({
     institution: '',
     contactName: '',
     email: '',
     phone: '',
-    studentCount: '500-1500',
   });
+
+  const active = SCHOOL_JOURNEY[activeStep];
+  const ActiveIcon = active.icon;
 
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,519 +188,380 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
     setDemoRequested(true);
   };
 
-  // Complete 12 Core Kiduart ERP Modules
-  const kiduart12Modules = [
-    {
-      id: 'admissions-crm',
-      title: 'Admissions & CRM Funnel',
-      category: 'Student Lifecycle',
-      icon: Users,
-      desc: 'End-to-end digital prospect registration, entrance assessment scoring, document validation, and automated seat allocation.',
-      badge: 'Zero Paper Admissions',
-      highlights: ['Online application portal', 'Automated enquiry scoring', 'Seat reservation locks', 'Merit list generator'],
-    },
-    {
-      id: 'student-records',
-      title: 'Student Information System (SIS)',
-      category: 'Academics',
-      icon: GraduationCap,
-      desc: 'Holistic student profiles including academic transcripts, health history, disciplinary logs, and national student IDs.',
-      badge: 'Unified Dossier',
-      highlights: ['Digital cumulative records', 'Custom field builder', 'Family tree linking', 'Emergency medical flags'],
-    },
-    {
-      id: 'biometric-attendance',
-      title: 'Biometric & RFID Attendance',
-      category: 'Operations',
-      icon: Clock,
-      desc: 'Seamless integration with campus facial recognition, biometric finger readers, and RFID turnstiles with instant parent alerts.',
-      badge: 'Real-Time Sync',
-      highlights: ['Facial recognition gateway', 'Instant WhatsApp absent alert', 'Staff biometric duty logs', 'Leave approval workflows'],
-    },
-    {
-      id: 'fees-finance',
-      title: 'Fees & Institutional Finance',
-      category: 'Finance',
-      icon: CreditCard,
-      desc: 'Automated quarterly fee billing, concession matrices, multi-channel payment gateways, and real-time ledger accounting.',
-      badge: 'Zero Fee Reconciliation',
-      highlights: ['Live Razorpay/Stripe gateways', 'Auto GST tax invoices', 'Installment fee schedules', 'WhatsApp pay links'],
-    },
-    {
-      id: 'communication-hub',
-      title: 'Omnichannel Communication Hub',
-      category: 'Engagement',
-      icon: Send,
-      desc: 'Targeted broadcast announcements via WhatsApp Business API, SMS, push notifications, and verified email newsletters.',
-      badge: 'Instant Broadcast',
-      highlights: ['Official WhatsApp templates', 'Grade-specific broadcasts', 'Read receipts telemetry', 'Two-way teacher chat'],
-    },
-    {
-      id: 'transport-gps',
-      title: 'Smart Fleet & Live Bus GPS',
-      category: 'Safety & Fleet',
-      icon: Bus,
-      desc: 'Sub-second real-time GPS fleet tracking with geofenced stop approach alerts for parents and driver speed monitoring.',
-      badge: 'Sub-Second GPS',
-      highlights: ['Geofence arrival alerts', 'Driver speed alarms', 'Dynamic route optimizer', 'Parent tracking app'],
-    },
-    {
-      id: 'hostel-management',
-      title: 'Hostel & Residential Boarding',
-      category: 'Residential',
-      icon: Building2,
-      desc: 'Room allocation, warden night check-in logs, biometric out-pass approvals, and student dietary preferences.',
-      badge: 'Campus Boarding',
-      highlights: ['Room & bed allocation', 'Digital out-pass approvals', 'Warden night roll-call', 'Mess billing integration'],
-    },
-    {
-      id: 'library-automation',
-      title: 'Digital Library & Barcoding',
-      category: 'Academics',
-      icon: FileSpreadsheet,
-      desc: 'Complete OPAC cataloging, barcode/RFID book issue & returns, overdue fine calculation, and digital e-book repository.',
-      badge: 'OPAC Catalog',
-      highlights: ['Barcode / RFID book scan', 'Overdue fine ledger', 'E-book PDF repository', 'Book reservation queue'],
-    },
-    {
-      id: 'hr-payroll',
-      title: 'Staff HR & Automated Payroll',
-      category: 'Staff & HR',
-      icon: FileCheck2,
-      desc: 'Teacher biometric attendance, automated salary slip generation with PF/ESI deductions, and performance appraisal tracking.',
-      badge: 'Statutory Payroll',
-      highlights: ['One-click pay slip generator', 'PF / ESI statutory deductions', 'Teacher substitute planner', 'Leave balance ledger'],
-    },
-    {
-      id: 'reports-analytics',
-      title: 'CBSE/ICSE Reports & Analytics',
-      category: 'Academics',
-      icon: BarChart3,
-      desc: 'Configurable grading rubrics, automated GPA/CGPA computation, and one-click printable report cards compliant with board norms.',
-      badge: 'Board Compliant',
-      highlights: ['CBSE / ICSE / IB rubrics', 'One-click PDF report cards', 'Class performance heatmaps', 'Subject mastery metrics'],
-    },
-    {
-      id: 'security-rbac',
-      title: 'Security & Granular RBAC',
-      category: 'Security',
-      icon: ShieldCheck,
-      desc: 'Role-based access control (Trustees, Principals, Accountants, Teachers, Parents) with 2FA and immutable audit logging.',
-      badge: 'Zero-Trust RBAC',
-      highlights: ['256-bit data encryption', 'Granular field permissions', 'Immutable audit trails', 'Two-Factor Authentication'],
-    },
-    {
-      id: 'multicampus-hq',
-      title: 'Multi-Campus HQ Controller',
-      category: 'Enterprise',
-      icon: Network,
-      desc: 'Consolidated executive dashboard aggregating student metrics, revenue collections, and staffing across all trust branches.',
-      badge: 'Multi-Tenant HQ',
-      highlights: ['Consolidated revenue audit', 'Cross-branch comparisons', 'Centralized curriculum sync', 'Single sign-on (SSO)'],
-    },
-  ];
-
   return (
     <div id="kiduart-page" className="w-full min-h-screen pt-28 sm:pt-36 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* ========================================================================= */}
-        {/* 1. HERO SECTION & VALUE PROPOSITION                                      */}
-        {/* ========================================================================= */}
+        {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>FLAGSHIP PRODUCT // KIDUART SCHOOL ERP</span>
+              <span>FLAGSHIP PRODUCT · BUILT BY TREVYK</span>
             </div>
 
             <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] leading-tight">
-              The Intelligent Campus Operating System
+              School ERP software for Indian schools — admissions to parent updates
             </h1>
 
             <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed max-w-2xl">
-              Kiduart (<a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#E8A9C2] hover:underline font-mono-accent">kiduart.com</a>) is Trevyk’s flagship school ERP platform. It unifies 12 essential campus operational domains into a modern, high-availability cloud architecture with real-time financial reconciliation and early-warning AI telemetry.
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+              >
+                Kiduart
+              </a>{' '}
+              is Trevyk’s cloud-based{' '}
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+              >
+                school management system
+              </a>{' '}
+              that connects student records, online fee management, attendance, exams, report cards, transport, library, HR, and parent communication in one school ERP.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#kiduart-demo-section"
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => soundEngine.playClick('hero')}
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
+                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 shadow-lg"
               >
-                <span>Schedule Campus Walkthrough</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Book a free demo on kiduart.com</span>
+                <ExternalLink className="w-4 h-4" />
               </a>
-
               <a
-                href="#kiduart-ai-signals"
+                href="#kiduart-journey"
                 onClick={() => soundEngine.playClick('soft')}
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs transition-colors"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs"
               >
-                <Brain className="w-3.5 h-3.5 text-[#E8A9C2]" />
-                <span>Explore AI Signal Layer</span>
+                <Layers className="w-3.5 h-3.5 text-[#6B4A87]" />
+                <span>See the school-year journey</span>
               </a>
             </div>
           </div>
 
-          {/* Real Product UI Mockup Graphic */}
-          <div className="lg:col-span-5 relative">
-            <div className="rounded-3xl overflow-hidden border-2 border-[#6B4A87]/40 bg-[#FFFFFF] p-2 shadow-2xl relative group">
-              <div className="rounded-2xl overflow-hidden relative">
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-                  alt="Kiduart School ERP Live Interactive Telemetry Dashboard Mockup"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-80 sm:h-96 object-cover object-left-top opacity-75 group-hover:scale-105 transition-transform duration-700"
-                />
-                
-                {/* Floating Telemetry Metric Overlays */}
-                <div className="absolute top-4 left-4 bg-[#FFFFFF]/90 backdrop-blur-md p-3.5 rounded-xl border border-[#6B4A87]/50 shadow-lg">
-                  <div className="text-[10px] font-mono-accent text-[#5C4A6E]">DAILY FEE VELOCITY (₹)</div>
-                  <div className="text-lg font-heading font-bold text-emerald-400">₹ 8.42 Lakhs</div>
-                  <div className="text-[9px] text-emerald-400">100% Auto-Reconciled</div>
-                </div>
-
-                <div className="absolute bottom-4 right-4 bg-[#FFFFFF]/90 backdrop-blur-md p-3.5 rounded-xl border border-[#6B4A87]/50 shadow-lg">
-                  <div className="text-[10px] font-mono-accent text-[#6B4A87]">CAMPUS HEALTH INDEX</div>
-                  <div className="text-lg font-heading font-bold text-[#241428]">98.4 / 100</div>
-                  <div className="text-[9px] text-[#5C4A6E]">Zero Critical Anomalies</div>
-                </div>
+          <div className="lg:col-span-5">
+            <div className="rounded-3xl border border-[#6B4A87]/25 bg-white p-7 sm:p-9 shadow-xl space-y-5">
+              <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87]">
+                From kiduart.com
               </div>
-            </div>
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-20" />
-
-        {/* ========================================================================= */}
-        {/* 2. THE 12-MODULE ENTERPRISE WALKTHROUGH                                  */}
-        {/* ========================================================================= */}
-        <div className="mt-16">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
-              <Layers className="w-3.5 h-3.5" />
-              <span>MODULAR ARCHITECTURE // 12 DOMAINS</span>
-            </div>
-            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428]">
-              Everything Your Institution Needs in One Unified Stack
-            </h2>
-            <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
-              Replace fragmented spreadsheets and disjointed third-party software with Kiduart’s cohesive, single-source-of-truth platform.
-            </p>
-          </div>
-
-          {/* 12-Module Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {kiduart12Modules.map((module, idx) => {
-              const Icon = module.icon;
-              return (
-                <div
-                  key={module.id}
-                  className="p-6 rounded-2xl bg-[#FFFFFF]/90 border border-[#6B4A87]/35 hover:border-[#E8A9C2]/60 hover:bg-[#F5F1F8] transition-all flex flex-col justify-between group shadow-lg"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2] group-hover:scale-110 transition-transform">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono-accent px-2.5 py-0.5 rounded-full bg-[#F7F4FA] text-[#5C4A6E] border border-[#6B4A87]/30">
-                        {module.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading font-bold text-base sm:text-lg text-[#241428] group-hover:text-[#E8A9C2] transition-colors">
-                      {module.title}
-                    </h3>
-
-                    <p className="mt-2 text-xs text-[#5C4A6E]/80 leading-relaxed">
-                      {module.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 pt-4 border-t border-[#6B4A87]/20 space-y-1">
-                    {module.highlights.map((item, hIdx) => (
-                      <div key={hIdx} className="flex items-center space-x-1.5 text-[11px] font-mono-accent text-[#5C4A6E]">
-                        <CheckCircle2 className="w-3 h-3 text-[#E8A9C2] shrink-0" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-20" />
-
-        {/* ========================================================================= */}
-        {/* 3. THE AI SIGNAL LAYER (WHAT MAKES KIDUART DIFFERENT)                     */}
-        {/* ========================================================================= */}
-        <div id="kiduart-ai-signals" className="mt-16 rounded-3xl bg-gradient-to-br from-[#FFFFFF] via-[#F7F4FA] to-[#FFFFFF] border border-[#6B4A87]/40 p-8 sm:p-12 shadow-2xl">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
-              <Brain className="w-3.5 h-3.5" />
-              <span>THE KIDUART DIFFERENTIATOR // AI SIGNAL LAYER</span>
-            </div>
-
-            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428]">
-              Predictive AI Signals: Transforming Data into Actionable Early Warnings
-            </h2>
-
-            <p className="mt-3 text-sm sm:text-base text-[#5C4A6E] leading-relaxed">
-              Traditional ERPs are passive ledgers that only tell you what happened in the past. Kiduart features an active AI signal engine that continuously scans campus telemetry to detect dropout risks, cashflow bottlenecks, and institutional health anomalies before they escalate.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Signal 1: Attendance Dropout Risk Signal */}
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/40 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2]">
-                <AlertTriangle className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-base text-[#241428]">Attendance & Dropout Risk Signal</h3>
-                <p className="text-xs text-[#5C4A6E] mt-1.5 leading-relaxed">
-                  Correlates subtle attendance dips, bus tap absences, and assignment submission delays to flag at-risk students 30 days before potential withdrawal.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-[#FFFFFF] border border-[#6B4A87]/30 text-[11px] font-mono-accent text-amber-300">
-                • Proactive Counselor Alert Pipeline
-              </div>
-            </div>
-
-            {/* Signal 2: Fee Default & Cashflow Risk Signal */}
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/40 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-emerald-400">
-                <Receipt className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-base text-[#241428]">Fee Default & Revenue Forecast</h3>
-                <p className="text-xs text-[#5C4A6E] mt-1.5 leading-relaxed">
-                  Evaluates historic payment behavior to predict quarter-end fee shortfalls in Indian Rupees (₹), automatically triggering staggered WhatsApp reminder schedules.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-[#FFFFFF] border border-[#6B4A87]/30 text-[11px] font-mono-accent text-emerald-400">
-                • 94.2% On-Time Collection Rate
-              </div>
-            </div>
-
-            {/* Signal 3: Composite School Health Score */}
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/40 space-y-4">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2]">
-                <HeartPulse className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-base text-[#241428]">Composite Campus Health Score</h3>
-                <p className="text-xs text-[#5C4A6E] mt-1.5 leading-relaxed">
-                  A continuous 0-100 index weighted across faculty workload, bus route punctuality, syllabus completion rates, and parent sentiment telemetry.
-                </p>
-              </div>
-              <div className="p-3 rounded-lg bg-[#FFFFFF] border border-[#6B4A87]/30 text-[11px] font-mono-accent text-[#6B4A87]">
-                • Real-Time Executive HQ Overview
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-20" />
-
-        {/* ========================================================================= */}
-        {/* 4. LIVE INTEGRATIONS & HARDWARE PROTOCOLS                                 */}
-        {/* ========================================================================= */}
-        <div className="mt-16">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-              Turnkey Payment, Biometric & Communication Integrations
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#5C4A6E]">
-              Plug-and-play integrations with industry-standard payment gateways, IoT hardware, and messaging providers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center">
-              <div className="font-mono-accent font-bold text-base text-[#241428]">Razorpay & Stripe</div>
-              <div className="text-[11px] text-[#5C4A6E] mt-1">UPI, Cards, NetBanking (₹)</div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center">
-              <div className="font-mono-accent font-bold text-base text-[#241428]">WhatsApp Business API</div>
-              <div className="text-[11px] text-[#5C4A6E] mt-1">Direct official notifications</div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center">
-              <div className="font-mono-accent font-bold text-base text-[#241428]">eSSL / ZKTeco Biometrics</div>
-              <div className="text-[11px] text-[#5C4A6E] mt-1">RFID & facial turnstiles</div>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center">
-              <div className="font-mono-accent font-bold text-base text-[#241428]">AIS 140 GPS Devices</div>
-              <div className="text-[11px] text-[#5C4A6E] mt-1">Government compliant fleet tracking</div>
-            </div>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* 5. HONEST TRANSPARENCY & PILOT ENROLLMENT (NO FAKE TESTIMONIALS)           */}
-        {/* ========================================================================= */}
-        <div className="mt-16 p-6 rounded-2xl bg-[#FFFFFF]/60 border border-[#6B4A87]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-3">
-            <ShieldCheck className="w-6 h-6 text-[#E8A9C2] shrink-0" />
-            <div>
-              <div className="font-heading font-semibold text-sm text-[#241428]">
-                Direct Architectural Transparency
-              </div>
-              <div className="text-xs text-[#5C4A6E]">
-                We don’t publish fabricated quotes or mock client logos. Instead, we invite school trustees and principals to test Kiduart on a live demo campus instance with their own real-world syllabus constraints.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-20" />
-
-        {/* ========================================================================= */}
-        {/* 6. BOOK A CAMPUS DEMO (FORM & LINK TO /CONTACT)                          */}
-        {/* ========================================================================= */}
-        <div id="kiduart-demo-section" className="mt-16 p-8 sm:p-12 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/40">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block">
-                CAMPUS ONBOARDING PROGRAM
-              </span>
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-                Experience Kiduart Live on Your Institutional Hardware
+              <h2 className="font-heading font-bold text-xl text-[#241428]">
+                Follow the path your school runs every day
               </h2>
               <p className="text-sm text-[#5C4A6E] leading-relaxed">
-                Schedule a dedicated 45-minute architectural walkthrough with our product team. We will configure a live sandbox reflecting your school’s fee slabs, timetable rules, and bus routes.
+                Pick any step to see what that module does. Each piece hands off to the next, so information entered once keeps moving through the school year.
               </p>
+              <ul className="space-y-2 text-xs text-[#5C4A6E]">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  Built for Indian school reality — fee heads, boards, SMS parents
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  Role panels for teachers, accountants, trustees
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  <span>
+                    Next AI phase (KIDUORBIT) is{' '}
+                    <strong className="text-[#241428]">not launched yet</strong> — ERP baseline first
+                  </span>
+                </li>
+              </ul>
+              <a
+                href="https://kiduart.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
+              >
+                Read the Kiduart story <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-[#5C4A6E]">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Free 14-day full campus trial sandbox</span>
+        <BrandGradientDivider className="mt-20" />
+
+        {/* Journey */}
+        <div id="kiduart-journey" className="mt-16">
+          <div className="max-w-3xl mb-10">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+              <Layers className="w-3.5 h-3.5" />
+              <span>SCHOOL OPERATIONS JOURNEY · 12 STEPS</span>
+            </div>
+            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428]">
+              Modules that follow a real school year
+            </h2>
+            <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
+              Content below mirrors the live product map on{' '}
+              <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                kiduart.com
+              </a>
+              . Open any step for a short description, then continue on the product site for deep module pages.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2 mb-8">
+            {SCHOOL_JOURNEY.map((item, idx) => (
+              <button
+                key={item.step}
+                type="button"
+                onClick={() => {
+                  soundEngine.playClick('soft');
+                  setActiveStep(idx);
+                }}
+                className={`px-3 py-1.5 rounded-full text-[11px] font-mono-accent border transition-all ${
+                  activeStep === idx
+                    ? 'bg-[#6B4A87] text-white border-[#6B4A87]'
+                    : 'bg-white text-[#5C4A6E] border-[#6B4A87]/25 hover:border-[#6B4A87]/50'
+                }`}
+              >
+                {item.step} {item.title}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-white border border-[#6B4A87]/25 shadow-sm">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/30 flex items-center justify-center text-[#6B4A87]">
+                  <ActiveIcon className="w-5 h-5" />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>100% automated Excel / Tally data import</span>
+                <div>
+                  <div className="text-[10px] font-mono-accent text-[#6B4A87] uppercase">
+                    Step {active.step} / 12 · Live module in the product
+                  </div>
+                  <h3 className="font-heading font-bold text-xl text-[#241428]">{active.title}</h3>
+                  <p className="text-xs text-[#5C4A6E]">{active.tagline}</p>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>On-site staff & teacher training</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Dedicated WhatsApp campus support desk</span>
-                </div>
+              </div>
+              <p className="text-sm text-[#5C4A6E] leading-relaxed">{active.desc}</p>
+              <ul className="space-y-2">
+                {active.highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2 text-xs text-[#5C4A6E]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a
+                  href={active.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                >
+                  Open on kiduart.com <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                {activeStep < SCHOOL_JOURNEY.length - 1 && (
+                  <button
+                    type="button"
+                    onClick={() => setActiveStep((s) => Math.min(s + 1, SCHOOL_JOURNEY.length - 1))}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                  >
+                    Next: {SCHOOL_JOURNEY[activeStep + 1].title} <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
               </div>
             </div>
 
-            {/* Interactive Demo Request Box */}
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/50 shadow-xl">
+            <div className="lg:col-span-5 p-5 rounded-2xl bg-[#F7F4FA] border border-[#6B4A87]/20">
+              <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#6B4A87] mb-3">
+                One system vs scattered tools
+              </div>
+              <p className="text-sm text-[#5C4A6E] leading-relaxed mb-4">
+                When records, fees, attendance and communication share one system, the same school day stops bouncing between spreadsheets and WhatsApp.
+              </p>
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
+              >
+                Compare the full “one Kiduart system” view on kiduart.com →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <BrandGradientDivider className="mt-20" />
+
+        {/* Charter */}
+        <div id="kiduart-charter" className="mt-16">
+          <div className="max-w-3xl mb-10">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>FOUNDING-SCHOOL CHARTER</span>
+            </div>
+            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428]">
+              Proof before polish
+            </h2>
+            <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
+              The same honest commitments published on{' '}
+              <a href="https://kiduart.com/about" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                kiduart.com/about
+              </a>
+              . Trevyk lists them here because Kiduart is our flagship product — not a marketing slide.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CHARTER.map((item) => (
+              <div key={item.title} className="p-5 rounded-2xl bg-white border border-[#6B4A87]/25">
+                <h3 className="font-heading font-bold text-sm text-[#241428] mb-2">{item.title}</h3>
+                <p className="text-xs text-[#5C4A6E] leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <BrandGradientDivider className="mt-20" />
+
+        {/* Demo */}
+        <div id="kiduart-demo-section" className="mt-16 p-8 sm:p-12 rounded-3xl bg-white border border-[#6B4A87]/30">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-6 space-y-4">
+              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block">
+                LIVE DEMO
+              </span>
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
+                Ready to see it for your school?
+              </h2>
+              <p className="text-sm text-[#5C4A6E] leading-relaxed">
+                Prefer the official product flow? Book directly on Kiduart. Or leave a note here and the Trevyk / Kiduart team will follow up within one business day.
+              </p>
+              <ul className="space-y-2 text-xs text-[#5C4A6E]">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> 30-minute walkthrough around school hours
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> Run on your fee heads, classes and staff roles
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> No card, no lock-in to see the product
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-3 pt-2">
+                <a
+                  href="https://kiduart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                >
+                  Request demo on kiduart.com <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="mailto:support@kiduart.com"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                >
+                  support@kiduart.com
+                </a>
+                <a
+                  href="tel:+919217534128"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                >
+                  +91 92175 34128
+                </a>
+              </div>
+              <p className="text-[11px] text-[#5C4A6E] flex items-center gap-1.5 pt-2">
+                <HeartHandshake className="w-3.5 h-3.5 text-[#6B4A87]" />
+                Noida, Uttar Pradesh — demos and support with the team that ships the product.
+              </p>
+            </div>
+
+            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#F7F4FA] border border-[#6B4A87]/25">
               {demoRequested ? (
                 <div className="text-center py-8 space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center border border-emerald-500/40">
+                  <div className="w-12 h-12 rounded-full bg-[#E7E1F0] text-[#6B4A87] mx-auto flex items-center justify-center border border-[#6B4A87]/30">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-[#241428]">Demo Invitation Dispatched</h3>
+                  <h3 className="font-heading font-bold text-lg text-[#241428]">Request noted</h3>
                   <p className="text-xs text-[#5C4A6E]">
-                    Thank you, {demoForm.contactName || 'Principal'}. A Kiduart institutional specialist will contact you shortly with sandbox credentials.
+                    Thank you{demoForm.contactName ? `, ${demoForm.contactName}` : ''}. We will reply within one business day. You can also book instantly on{' '}
+                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] underline">
+                      kiduart.com
+                    </a>
+                    .
                   </p>
-                  <Link
-                    to="/contact"
-                    className="inline-block mt-4 text-xs font-mono-accent text-[#6B4A87] underline"
-                  >
-                    Need immediate assistance? Visit our main contact page →
+                  <Link to="/contact" className="inline-block mt-2 text-xs font-mono-accent text-[#6B4A87] underline">
+                    Or use the main contact form →
                   </Link>
                 </div>
               ) : (
                 <form onSubmit={handleDemoSubmit} className="space-y-3.5">
                   <div className="text-xs font-mono-accent text-[#6B4A87] uppercase font-bold">
-                    REQUEST LIVE CAMPUS DEMO
+                    Request a Kiduart walkthrough
                   </div>
-                  
                   <div>
-                    <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Institution Name</label>
+                    <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">School / trust name</label>
                     <input
                       required
                       type="text"
-                      placeholder="e.g. Cambridge International Academy"
+                      placeholder="Your school name"
                       value={demoForm.institution}
                       onChange={(e) => setDemoForm({ ...demoForm, institution: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs focus:outline-none focus:border-[#E8A9C2]"
+                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
                     />
                   </div>
-
                   <div className="grid grid-cols-2 gap-2">
                     <div>
-                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Contact Name</label>
+                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Your name</label>
                       <input
                         required
                         type="text"
-                        placeholder="Principal / Trustee"
+                        placeholder="Principal / admin"
                         value={demoForm.contactName}
                         onChange={(e) => setDemoForm({ ...demoForm, contactName: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs focus:outline-none focus:border-[#E8A9C2]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Official Email</label>
+                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Email</label>
                       <input
                         required
                         type="email"
-                        placeholder="admin@school.edu"
+                        placeholder="you@school.edu"
                         value={demoForm.email}
                         onChange={(e) => setDemoForm({ ...demoForm, email: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs focus:outline-none focus:border-[#E8A9C2]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
                       />
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-2">
-                    <div>
-                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Phone Number</label>
-                      <input
-                        required
-                        type="tel"
-                        placeholder="+91 98765 43210"
-                        value={demoForm.phone}
-                        onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs focus:outline-none focus:border-[#E8A9C2]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Student Strength</label>
-                      <select
-                        value={demoForm.studentCount}
-                        onChange={(e) => setDemoForm({ ...demoForm, studentCount: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs focus:outline-none focus:border-[#E8A9C2]"
-                      >
-                        <option value="under-500">&lt; 500 Students</option>
-                        <option value="500-1500">500 – 1,500 Students</option>
-                        <option value="1500-3500">1,500 – 3,500 Students</option>
-                        <option value="3500+">3,500+ (Multi-Branch Trust)</option>
-                      </select>
-                    </div>
+                  <div>
+                    <label className="block text-[11px] font-mono-accent text-[#5C4A6E] mb-1">Phone</label>
+                    <input
+                      required
+                      type="tel"
+                      placeholder="+91 …"
+                      value={demoForm.phone}
+                      onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
+                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                    />
                   </div>
-
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading font-semibold text-xs shadow-lg hover:opacity-95 transition-opacity"
+                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-white font-heading font-semibold text-xs hover:opacity-95"
                   >
-                    Request Guided Campus Walkthrough
+                    Send request
                   </button>
+                  <p className="text-[10px] text-[#5C4A6E] text-center">
+                    For the fastest path, use{' '}
+                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="underline text-[#6B4A87]">
+                      kiduart.com
+                    </a>
+                    .
+                  </p>
                 </form>
               )}
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   );

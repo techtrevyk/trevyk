@@ -30,13 +30,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navSolutions = [
+  const navSolutions: Array<{
+    label: string;
+    path: string;
+    badge?: string;
+    external?: boolean;
+  }> = [
     { label: 'Kiduart School ERP', path: '/kiduart', badge: 'Flagship' },
+    { label: 'Kiduart official site', path: 'https://kiduart.com', external: true },
     { label: 'Cloud Architecture & DevOps', path: '/services' },
-    { label: 'High-Concurrency Microservices', path: '/services' },
+    { label: 'Custom Software (B2B)', path: '/services' },
     { label: 'Modular Core Technology', path: '/technology', badge: 'Core' },
-    { label: 'Admissions CRM & Student 360', path: '/kiduart' },
-    { label: 'Biometric Attendance & Fleet GPS', path: '/kiduart' },
+    { label: 'Book Consultation', path: '/contact' },
   ];
 
   const navCompany = [
@@ -126,17 +131,28 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
             <ul className="space-y-2.5 text-xs sm:text-sm font-sans">
               {navSolutions.map((link, idx) => (
                 <li key={idx}>
-                  <Link
-                    to={link.path}
-                    className="text-[#5C4A6E]/70 hover:text-[#E8A9C2] transition-colors inline-flex items-center space-x-1.5"
-                  >
-                    <span>{link.label}</span>
-                    {link.badge && (
-                      <span className="text-[9px] font-mono-accent px-1.5 py-0.2 rounded bg-[#E8A9C2]/20 border border-[#E8A9C2]/40 text-[#E8A9C2]">
-                        {link.badge}
-                      </span>
-                    )}
-                  </Link>
+                  {'external' in link && link.external ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#5C4A6E]/70 hover:text-[#E8A9C2] transition-colors inline-flex items-center space-x-1.5"
+                    >
+                      <span>{link.label}</span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      className="text-[#5C4A6E]/70 hover:text-[#E8A9C2] transition-colors inline-flex items-center space-x-1.5"
+                    >
+                      <span>{link.label}</span>
+                      {'badge' in link && link.badge && (
+                        <span className="text-[9px] font-mono-accent px-1.5 py-0.2 rounded bg-[#E8A9C2]/20 border border-[#E8A9C2]/40 text-[#6B4A87]">
+                          {link.badge}
+                        </span>
+                      )}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { 
-  GraduationCap, 
-  ArrowRight, 
-  CheckCircle2, 
-  Calendar, 
-  CreditCard, 
-  Users, 
-  MapPin, 
-  Sparkles,
+import {
+  GraduationCap,
+  ArrowRight,
+  CreditCard,
+  Users,
+  Clock,
+  Send,
   ExternalLink,
-  ShieldAlert,
-  Activity
+  CheckCircle2,
 } from 'lucide-react';
 import { SiteSettings } from '../../types';
 import { soundEngine } from '../../utils/audioEngine';
@@ -21,32 +17,66 @@ interface KiduartTeaserProps {
   settings: SiteSettings;
 }
 
-export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
+export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
+  const features = [
+    {
+      title: 'Admissions → student records',
+      desc: 'Enquiry to registration creates one profile the whole school reads.',
+      icon: Users,
+    },
+    {
+      title: 'Attendance & parent updates',
+      desc: 'Mark fast, inform parents the same day — with a clear trail.',
+      icon: Clock,
+    },
+    {
+      title: 'Fees & finance ledger',
+      desc: 'Structure, collection, dues and receipts in one place.',
+      icon: CreditCard,
+    },
+    {
+      title: 'Parent communication',
+      desc: 'Targeted notices by class or group, with a delivery record.',
+      icon: Send,
+    },
+  ];
+
   return (
     <section
       id="kiduart-teaser"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#E7E1F0] text-[#241428] transition-colors duration-500 overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#E7E1F0] text-[#241428] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        
-        {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end justify-between mb-12">
           <div className="lg:col-span-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#D4C3E3] border border-[#6B4A87]/30 text-[#6B4A87] font-mono-accent text-xs mb-4">
               <GraduationCap className="w-3.5 h-3.5 text-[#6B4A87]" />
-              <span>03 // FLAGSHIP SAAS PRODUCT</span>
+              <span>03 // FLAGSHIP PRODUCT · KIDUART</span>
             </div>
 
             <h2 className="font-heading font-bold text-3xl sm:text-5xl text-[#241428] leading-tight tracking-tight">
-              Kiduart — school ERP from Trevyk
+              School ERP for Indian schools — from Trevyk
             </h2>
 
             <p className="mt-4 text-[#5A3875] text-base sm:text-lg max-w-3xl leading-relaxed">
-              Our flagship product for Indian schools: admissions, student records, attendance, exams, fees, and parent communication in one system. Built by Trevyk — full product details at{' '}
-              <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
-                kiduart.com
-              </a>
-              .
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+              >
+                Kiduart
+              </a>{' '}
+              is a cloud{' '}
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+              >
+                school management system
+              </a>{' '}
+              that connects admissions, records, attendance, exams, fees, transport, library, HR and parent communication — the same product journey published on kiduart.com.
             </p>
           </div>
 
@@ -56,7 +86,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
               onClick={() => soundEngine.playClick('soft')}
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#5A3875] transition-all shadow-md group"
             >
-              <span>Discover Kiduart Platform</span>
+              <span>Explore on Trevyk</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
 
@@ -64,7 +94,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
               href="https://kiduart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#6B4A87] hover:text-[#6B4A87] transition-colors px-2 py-1"
+              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#6B4A87] hover:text-[#241428] transition-colors px-2 py-1"
             >
               <span>Visit kiduart.com</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -72,111 +102,79 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
           </div>
         </div>
 
-        {/* Real Product UI Mockup & Metrics Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          {/* Left Feature Column: 4 Core Modules */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-            {[
-              {
-                title: 'Automated Timetable Generation',
-                desc: 'Conflict-free algorithmic scheduling for teachers, labs, and elective periods.',
-                icon: Calendar,
-              },
-              {
-                title: 'Zero-Reconciliation Fee Gateway',
-                desc: 'Instant UPI & card settlements with auto-generated GST compliance receipts.',
-                icon: CreditCard,
-              },
-              {
-                title: 'Student 360 & Biometric Telemetry',
-                desc: 'Real-time RFID/facial gate attendance with automated parent SMS alerts.',
-                icon: Users,
-              },
-              {
-                title: 'Live GPS School Bus Fleet Tracking',
-                desc: 'Geofenced transit updates with estimated time of arrival notifications.',
-                icon: MapPin,
-              },
-            ].map((feature, idx) => {
+            {features.map((feature) => {
               const Icon = feature.icon;
               return (
                 <div
-                  key={idx}
+                  key={feature.title}
                   className="p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#B9A6D1]/50 shadow-sm hover:shadow-md transition-shadow flex items-start space-x-4"
                 >
                   <div className="p-2.5 rounded-xl bg-[#E7E1F0] text-[#6B4A87] shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-sm text-[#241428]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-xs text-[#5A3875] mt-1 leading-relaxed">
-                      {feature.desc}
-                    </p>
+                    <h3 className="font-heading font-bold text-sm text-[#241428]">{feature.title}</h3>
+                    <p className="text-xs text-[#5A3875] mt-1 leading-relaxed">{feature.desc}</p>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Right Column: Styled Real Product UI Dashboard Graphic */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl sm:rounded-3xl bg-[#FFFFFF] p-3 sm:p-5 border border-[#6B4A87]/30 shadow-2xl overflow-hidden relative group">
-              
-              {/* Window Frame Bar */}
-              <div className="flex items-center justify-between pb-3 border-b border-[#6B4A87]/30 mb-3 text-xs font-mono-accent text-[#5C4A6E]">
-                <div className="flex items-center space-x-1.5">
-                  <div className="w-3 h-3 rounded-full bg-[#E8A9C2]" />
-                  <div className="w-3 h-3 rounded-full bg-[#C89B6C]" />
-                  <div className="w-3 h-3 rounded-full bg-[#6B4A87]" />
-                  <span className="ml-2 text-[11px] text-[#5C4A6E]/70">kiduart.com/portal/dashboard</span>
+            <div className="h-full rounded-2xl sm:rounded-3xl bg-white border border-[#6B4A87]/25 shadow-xl p-6 sm:p-8 flex flex-col justify-between gap-6">
+              <div>
+                <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87] mb-2">
+                  Honest product note
                 </div>
-                <div className="flex items-center space-x-2 text-[10px] text-[#E8A9C2]">
-                  <span className="w-2 h-2 rounded-full bg-[#E8A9C2] animate-pulse" />
-                  <span>CAMPUS LIVE TELEMETRY</span>
-                </div>
+                <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428]">
+                  Built for daily school work — not slide-deck stats
+                </h3>
+                <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
+                  No invented adoption numbers here. Capabilities match screens that ship on{' '}
+                  <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                    kiduart.com
+                  </a>
+                  . KIDUORBIT (AI on school data) is labelled as a next phase — not live yet.
+                </p>
               </div>
 
-              {/* Realistic Dashboard Image with Custom Overlay Panels */}
-              <div className="relative rounded-xl overflow-hidden bg-[#F7F4FA]">
-                <img
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
-                  alt="Kiduart School ERP Management Dashboard"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-64 sm:h-80 object-cover object-left-top opacity-70 group-hover:scale-105 transition-transform duration-700"
-                />
+              <ul className="space-y-2 text-xs text-[#5C4A6E]">
+                {[
+                  '12-step school operations journey on the product site',
+                  'Founding-school charter on kiduart.com/about',
+                  'Demo: +91 92175 34128 · support@kiduart.com',
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
 
-                {/* Overlaid Live KPI Chips */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#FFFFFF] via-transparent to-transparent p-4 sm:p-6 flex flex-col justify-end">
-                  <div className="grid grid-cols-3 gap-2.5 sm:gap-3 bg-[#FFFFFF]/90 backdrop-blur-md p-3 sm:p-4 rounded-xl border border-[#6B4A87]/40">
-                    <div>
-                      <div className="text-[10px] font-mono-accent text-[#5C4A6E]">ATTENDANCE</div>
-                      <div className="font-mono-accent font-bold text-sm sm:text-base text-[#E8A9C2]">98.6%</div>
-                      <div className="text-[9px] text-[#5C4A6E]/60">2,410 Present Today</div>
-                    </div>
-
-                    <div>
-                      <div className="text-[10px] font-mono-accent text-[#5C4A6E]">FEES COLLECTED</div>
-                      <div className="font-mono-accent font-bold text-sm sm:text-base text-[#241428]">$148.2K</div>
-                      <div className="text-[9px] text-[#5C4A6E]/60">Auto-Reconciled</div>
-                    </div>
-
-                    <div>
-                      <div className="text-[10px] font-mono-accent text-[#5C4A6E]">FLEET TRANSIT</div>
-                      <div className="font-mono-accent font-bold text-sm sm:text-base text-[#5C4A6E]">24 / 24</div>
-                      <div className="text-[9px] text-[#5C4A6E]/60">On Route (GPS Live)</div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://kiduart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                >
+                  Book a free demo <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://kiduart.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                >
+                  About Kiduart
+                </a>
               </div>
-
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

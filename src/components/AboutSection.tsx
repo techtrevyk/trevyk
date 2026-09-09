@@ -195,7 +195,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 Kiduart School ERP Platform
               </h3>
               <p className="text-sm text-[#241428]/80 leading-relaxed">
-                Beyond custom client engineering, we power over 450 institutions with our flagship Kiduart multi-tenant ERP platform (kiduart.com), integrating admissions, academics, fee desk, biometrics, and mobile portals.
+                Beyond custom client engineering, we build{' '}
+                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                  Kiduart
+                </a>
+                , our flagship school ERP (kiduart.com), integrating admissions, academics, fee desk, and parent communication — without invented school counts.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#6B4A87]">

@@ -25,7 +25,7 @@ const ROUTE_META: Record<string, MetaConfig> = {
   '/kiduart': {
     title: 'Kiduart School ERP | TREVYK Technologies',
     description:
-      'Kiduart is Trevyk’s school ERP for Indian schools. Explore modules here, then visit kiduart.com for the full product experience and demos.',
+      'Kiduart is Trevyk’s school ERP and school management system for Indian schools — admissions to parent updates. Explore modules here, then visit kiduart.com for demos.',
   },
   '/process': {
     title: 'How We Deliver | TREVYK Technologies',

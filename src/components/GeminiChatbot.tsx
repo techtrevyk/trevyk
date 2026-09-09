@@ -57,9 +57,9 @@ const ROLES: RoleConfig[] = [
     icon: Sparkles,
     color: '#E8A9C2',
     suggestedPrompts: [
-      'What features are included in Kiduart School ERP (kiduart.com)?',
-      'How does Trevyk approach cloud migration for legacy enterprise systems?',
-      'Can you outline the 48-hour onboarding timeline for Kiduart ERP?',
+      'What modules does Kiduart cover on kiduart.com (admissions to reports)?',
+      'How does Trevyk approach custom software vs Kiduart product?',
+      'How do I book a Kiduart demo (kiduart.com / +91 92175 34128)?',
     ],
   },
   {
@@ -72,9 +72,9 @@ const ROLES: RoleConfig[] = [
     icon: Cpu,
     color: '#B9A6D1',
     suggestedPrompts: [
-      'How do you architect zero-downtime database sharding for 50,000+ concurrent students in Kiduart?',
-      'Explain Trevyk’s Core Block modular architecture philosophy in microservices.',
-      'What failover topology guarantees Trevyk’s 99.995% SLA?',
+      'How does Kiduart’s modular school journey map to real campus roles?',
+      'Explain Trevyk’s Core Block modular architecture philosophy.',
+      'What privacy practices does Kiduart publish for school data?',
     ],
   },
   {
@@ -88,8 +88,8 @@ const ROLES: RoleConfig[] = [
     color: '#241428',
     suggestedPrompts: [
       'What privacy controls does Kiduart ship for school data (roles, export, encryption)?',
-      'What are Trevyk’s primary backend and cloud technologies?',
-      'Give me a 3-bullet summary of Kiduart ERP’s zero-setup cost policy.',
+      'Is KIDUORBIT live yet, or still a next-phase label?',
+      'Summarize Kiduart’s founding-school charter in 3 bullets.',
     ],
   },
 ];
