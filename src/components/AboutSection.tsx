@@ -282,15 +282,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
             <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#B9A6D1]/40">
               <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87]">
-                Disaster Recovery (MTTR)
+                Recovery posture
               </span>
               <div className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">
-                {activeComparison === 'modular' ? '< 4 Seconds Auto-Heal' : '45–180 Min Restart'}
+                {activeComparison === 'modular' ? 'Isolated restarts' : 'Full app reboot'}
               </div>
               <p className="text-xs text-[#241428]/70 mt-1">
                 {activeComparison === 'modular'
-                  ? 'Kubernetes container probes spin up replacement blocks instantly.'
-                  : 'Requires manual logs analysis, rollback binaries, and DB locking.'}
+                  ? 'A failing module can be restarted without taking down unrelated surfaces.'
+                  : 'One bad release often forces a full process restart and longer downtime.'}
               </p>
             </div>
 

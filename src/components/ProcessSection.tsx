@@ -119,20 +119,20 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
     },
     {
       number: '05',
-      phase: 'SLA GOVERNANCE',
-      title: 'Continuous Observability & 24/7 Support',
-      tagline: 'Proactive site reliability engineering (SRE) keeping systems pristine round the clock.',
+      phase: 'HANDOFF & SUPPORT',
+      title: 'Handoff, monitoring & honest support',
+      tagline: 'Clear ownership after launch — reply within one business day.',
       description:
-        'Our engagement continues well beyond launch. We supply 24/7 automated monitoring, Prometheus anomaly detection, regular quarterly capacity tuning, and dedicated emergency SRE escalation channels.',
+        'Engagement continues with documentation, basic monitoring where scoped, and a human support path. No invented 15-minute SRE or 99.99% warranty badges.',
       deliverables: [
-        'Real-Time Datadog/Grafana Dashboards',
-        'Guaranteed 15-Minute Critical SLA',
-        'Quarterly Security & Compliance Retests',
+        'Runbooks & source handoff (custom work)',
+        'Monitoring alerts when included in scope',
+        'Business-day support cadence',
       ],
-      duration: 'Ongoing SLA',
+      duration: 'As scoped',
       icon: LifeBuoy,
       color: '#B9A6D1',
-      metrics: { label: 'Guaranteed SLA Uptime', value: '99.99%' },
+      metrics: { label: 'Support reply', value: '1 business day' },
     },
   ];
 
@@ -174,7 +174,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-[#241428] tracking-tight">
               A Structured Engineering Journey From{' '}
               <span className="text-[#6B4A87]">
-                Concept to 99.99% Reliability
+                Discovery to Honest Handoff
               </span>
             </h2>
           </div>

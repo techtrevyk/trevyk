@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { absoluteUrl, KIDUART_URL, SITE_NAME, SITE_ROUTES, SITE_URL } from '../config/site';
 
 interface MetaConfig {
   title: string;
@@ -44,27 +45,135 @@ const ROUTE_META: Record<string, MetaConfig> = {
   },
 };
 
+function upsertMeta(selector: string, attr: string, value: string, createAttrs?: Record<string, string>) {
+  let el = document.querySelector(selector) as HTMLMetaElement | null;
+  if (!el && createAttrs) {
+    el = document.createElement('meta');
+    Object.entries(createAttrs).forEach(([k, v]) => el!.setAttribute(k, v));
+    document.head.appendChild(el);
+  }
+  if (el) el.setAttribute(attr, value);
+}
+
+function upsertLink(rel: string, href: string) {
+  let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+function upsertJsonLd(id: string, data: Record<string, unknown>) {
+  let el = document.getElementById(id) as HTMLScriptElement | null;
+  if (!el) {
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = id;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
+
 export const SEOManager: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const meta = ROUTE_META[pathname] || ROUTE_META['/'];
+    const path = (SITE_ROUTES as readonly string[]).includes(pathname) ? pathname : '/';
+    const meta = ROUTE_META[path] || ROUTE_META['/'];
+    const url = absoluteUrl(path);
+    const image = absoluteUrl('/trevyk-logo.png');
+
     document.title = meta.title;
+    document.documentElement.lang = 'en';
 
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', meta.description);
+    upsertMeta('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large', { name: 'robots' });
+    upsertMeta('meta[property="og:locale"]', 'content', 'en_IN', { property: 'og:locale' });
 
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', meta.title);
+    upsertMeta('meta[property="og:description"]', 'content', meta.description, { property: 'og:description' });
+    upsertMeta('meta[property="og:type"]', 'content', 'website', { property: 'og:type' });
+    upsertMeta('meta[property="og:url"]', 'content', url, { property: 'og:url' });
+    upsertMeta('meta[property="og:image"]', 'content', image, { property: 'og:image' });
+    upsertMeta('meta[property="og:site_name"]', 'content', SITE_NAME, { property: 'og:site_name' });
+    upsertMeta('meta[name="twitter:card"]', 'content', 'summary_large_image', { name: 'twitter:card' });
+    upsertMeta('meta[name="twitter:title"]', 'content', meta.title, { name: 'twitter:title' });
+    upsertMeta('meta[name="twitter:description"]', 'content', meta.description, { name: 'twitter:description' });
+    upsertMeta('meta[name="twitter:image"]', 'content', image, { name: 'twitter:image' });
 
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', meta.description);
+    upsertLink('canonical', url);
 
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) twitterTitle.setAttribute('content', meta.title);
+    upsertJsonLd('ld-organization', {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: image,
+      description:
+        'Parent company of Kiduart School ERP. B2B and B2C software products and IT services. Based in Noida, India.',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Noida',
+        addressRegion: 'Uttar Pradesh',
+        addressCountry: 'IN',
+      },
+      sameAs: [KIDUART_URL],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          email: 'contact@trevyk.com',
+          availableLanguage: ['English', 'Hindi'],
+        },
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          telephone: '+91-92175-34128',
+          email: 'support@kiduart.com',
+          areaServed: 'IN',
+          availableLanguage: ['English', 'Hindi'],
+        },
+      ],
+    });
 
-    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDesc) twitterDesc.setAttribute('content', meta.description);
+    upsertJsonLd('ld-website', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      url: SITE_URL,
+      description: meta.description,
+      publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    });
+
+    if (path === '/kiduart') {
+      upsertJsonLd('ld-software', {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'Kiduart School ERP',
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        url: KIDUART_URL,
+        description:
+          'Cloud school ERP and school management system for Indian schools — admissions, fees, attendance, exams, and parent communication.',
+        offers: {
+          '@type': 'Offer',
+          url: KIDUART_URL,
+          availability: 'https://schema.org/InStock',
+        },
+        provider: {
+          '@type': 'Organization',
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+        isRelatedTo: {
+          '@type': 'WebPage',
+          url: absoluteUrl('/kiduart'),
+          name: 'Kiduart on TREVYK Technologies',
+        },
+      });
+    } else {
+      document.getElementById('ld-software')?.remove();
+    }
   }, [pathname]);
 
   return null;

@@ -92,11 +92,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       tagline: 'Instant online fee collections, automated digital receipts, and split payouts.',
       description:
         'Integrated with certified payment gateways (Razorpay & Stripe live) for UPI, net banking, and cards. Automated receipts, instant WhatsApp/SMS notifications with verifiable delivery trails, and multi-bank settlement.',
-      statNumber: 99.99,
+      statNumber: 2,
       statPrefix: '',
-      statSuffix: '%',
-      decimals: 2,
-      statLabel: 'Payment Reconciliation Accuracy',
+      statSuffix: '+',
+      decimals: 0,
+      statLabel: 'Payment gateway options',
       icon: Zap,
       color: '#E8A9C2',
     },
@@ -232,7 +232,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 FOUNDING SCHOOL CHARTER • DIRECT ARCHITECT ACCESS
               </div>
               <div className="text-xs text-[#5C4A6E]/80 mt-0.5">
-                We believe in total integrity: our founding cohort receives direct SLA attention, tailored data migration, and zero licensing price hikes.
+                We believe in total integrity: founding partners get direct attention, careful migration planning, and clear commercial terms — without invented SLA theatre.
               </div>
             </div>
           </div>
@@ -410,7 +410,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 <div className="flex items-center space-x-1.5 sm:space-x-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[9px] sm:text-[10px] font-mono-accent uppercase tracking-wider text-emerald-400 font-bold">
-                    SECURE INSTANCE • PRIVATE AI
+                    SECURE SCHOOL WORKSPACE
                   </span>
                 </div>
               </div>
@@ -418,8 +418,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               {/* ERP Module Navigation Tabs */}
               <div className="flex items-center border-b border-[#6B4A87]/30 bg-white/90 overflow-x-auto scrollbar-thin">
                 {[
-                  { id: 'fee', label: 'Fees & Razorpay', icon: CreditCard },
-                  { id: 'ai-signals', label: 'On-Instance AI Signals', icon: Sparkles },
+                  { id: 'fee', label: 'Fees & Payments', icon: CreditCard },
+                  { id: 'ai-signals', label: 'Campus Signals', icon: Sparkles },
                   { id: 'attendance', label: 'Attendance & Transport', icon: Radio },
                   { id: 'academics', label: 'Student Records & Exams', icon: Calendar },
                   { id: 'parent', label: 'Parent App & Notices', icon: Smartphone },

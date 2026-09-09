@@ -81,7 +81,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </h1>
 
           <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed">
-            A precise technical taxonomy of our production stack. We select proven, high-concurrency technologies to construct modular, fault-tolerant software systems with measurable performance SLAs.
+            A practical map of how we think about modular software — with Kiduart as the flagship product and security practices we actually ship (RBAC, export, audit), not invented benchmark theatre.
           </p>
         </div>
 
@@ -306,19 +306,19 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                 {activeCubeData.description}
               </p>
 
-              {/* Protocol & SLA Specs */}
+              {/* Protocol & design intent */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
-                  <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">TECH SPEC & PROTOCOLS</div>
+                  <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">PROTOCOLS & INTERFACES</div>
                   <div className="mt-1 text-xs text-[#241428] font-mono-accent">
-                    {activeCubeData.specs?.protocol || 'gRPC / HTTP3 / WireGuard'}
+                    {activeCubeData.specs?.protocol || 'HTTPS / REST'}
                   </div>
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
-                  <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">LATENCY & TARGET SLA</div>
-                  <div className="mt-1 text-xs text-emerald-400 font-mono-accent">
-                    {activeCubeData.specs?.latency || '< 2.4ms P99 Latency'}
+                  <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">DESIGN INTENT</div>
+                  <div className="mt-1 text-xs text-[#6B4A87] font-mono-accent">
+                    {activeCubeData.specs?.latency || 'Responsive product UX'}
                   </div>
                 </div>
               </div>

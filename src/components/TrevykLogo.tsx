@@ -51,6 +51,9 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
           height={iconH}
           className="shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
           draggable={false}
+          decoding="async"
+          loading="eager"
+          fetchPriority="high"
         />
       </div>
     );
@@ -66,6 +69,8 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
           alt="Trevyk Technologies"
           className="h-14 sm:h-16 w-auto max-w-full object-contain"
           draggable={false}
+          decoding="async"
+          loading="lazy"
         />
         {showTagline && (
           <p className="text-sm text-[#5C4A6E] font-medium leading-relaxed font-sans max-w-sm text-center sm:text-left">
@@ -85,6 +90,8 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
           style={{ height: Math.round(logoH * 1.15), width: 'auto', maxWidth: '100%' }}
           className="object-contain"
           draggable={false}
+          decoding="async"
+          loading="lazy"
         />
         {showTagline && (
           <p className="mt-3 text-xs sm:text-sm max-w-xs font-medium leading-relaxed text-[#5C4A6E]">
@@ -104,6 +111,9 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
         style={{ height: logoH, width: 'auto', maxWidth: 'min(100%, 280px)' }}
         className="object-contain object-left transition-opacity duration-300 group-hover:opacity-90"
         draggable={false}
+        decoding="async"
+        loading="eager"
+        fetchPriority="high"
       />
       {showTagline && (
         <span className="text-[10px] sm:text-[11px] font-sans font-medium leading-tight mt-1 text-[#5C4A6E] hidden sm:block">

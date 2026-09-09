@@ -107,26 +107,30 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           })}
         </div>
 
-        {/* Real Engineering Studio Banner with Trevyk Poster Styling */}
-        <div className="mt-10 rounded-2xl overflow-hidden border border-[#6B4A87]/40 bg-[#FFFFFF] p-1 shadow-xl">
-          <div className="relative rounded-xl overflow-hidden h-48 sm:h-64">
-            <img
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80"
-              alt="High-density cloud server racks & datacenter infrastructure"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover opacity-35"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent flex flex-col justify-center px-6 sm:px-10">
+        {/* Brand engagement strip (no stock photography) */}
+        <div className="mt-10 rounded-2xl overflow-hidden border border-[#6B4A87]/40 bg-white p-6 sm:p-8 shadow-xl">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="max-w-2xl">
               <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-widest">
-                ARCHITECTURAL GUARANTEE
+                HOW WE ENGAGE
               </span>
-              <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-1 max-w-xl">
-                100% Code Ownership, CI/CD Gates & Zero Vendor Lock-In
+              <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-1">
+                Source ownership, clear scope, honest handoff
               </h2>
-              <p className="text-xs sm:text-sm text-[#5C4A6E] mt-1.5 max-w-lg">
-                Every project is handed over with complete source IP, containerized runbooks, and automated unit/integration suites.
+              <p className="text-xs sm:text-sm text-[#5C4A6E] mt-1.5">
+                Custom work includes source you own. Product work points to{' '}
+                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                  kiduart.com
+                </a>
+                . No invented SLA theatre.
               </p>
             </div>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold shrink-0"
+            >
+              Talk to us
+            </Link>
           </div>
         </div>
 
@@ -155,24 +159,24 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 TAILORED ENGAGEMENT
               </span>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-                Flexible Delivery Models for Startups to Enterprises
+                Engagement shapes that stay honest
               </h2>
               <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
-                Whether you require a dedicated pod of senior engineers, an end-to-end fixed-scope project delivery, or a fractional CTO architecture audit, we structure engagements to fit your governance requirements.
+                Product demos for Kiduart, scoped custom builds, or advisory — pick the lane that matches the problem. We reply within one business day.
               </p>
               
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
-                  <div className="font-heading font-bold text-sm text-[#241428]">Dedicated Pods</div>
-                  <div className="text-xs text-[#5C4A6E] mt-0.5">Autonomous full-stack engineering pods.</div>
+                  <div className="font-heading font-bold text-sm text-[#241428]">Kiduart product</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">School ERP demos via kiduart.com.</div>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
-                  <div className="font-heading font-bold text-sm text-[#241428]">Fixed Scope</div>
-                  <div className="text-xs text-[#5C4A6E] mt-0.5">Milestone-based delivery with strict SLAs.</div>
+                  <div className="font-heading font-bold text-sm text-[#241428]">Scoped builds</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">Milestone delivery with clear handoff.</div>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
-                  <div className="font-heading font-bold text-sm text-[#241428]">Managed SRE</div>
-                  <div className="text-xs text-[#5C4A6E] mt-0.5">24/7 cloud reliability & incident response.</div>
+                  <div className="font-heading font-bold text-sm text-[#241428]">Advisory</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">Architecture &amp; build-vs-buy reviews.</div>
                 </div>
               </div>
             </div>

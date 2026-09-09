@@ -80,10 +80,10 @@ const ROLES: RoleConfig[] = [
   {
     id: 'quick-assistant',
     name: 'Rapid Assistant',
-    title: 'Fast Q&A, Specs, SLAs & Compliance',
+    title: 'Fast Q&A on product & process',
     model: 'gemini-3.1-flash-lite',
     modelBadge: 'Gemini 3.1 Flash Lite',
-    description: 'Optimized for tasks that should happen fast: quick answers, tech stack verification, and SLA details.',
+    description: 'Quick answers about Kiduart, delivery cadence, and privacy practices we actually ship.',
     icon: Zap,
     color: '#241428',
     suggestedPrompts: [

@@ -179,7 +179,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
               <div>
                 <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
-                  Verified Standard
+                  Typical signal
                 </span>
                 <div className="font-mono-accent font-bold text-base sm:text-lg text-[#E8A9C2] mt-0.5">
                   {service.metrics.value}
