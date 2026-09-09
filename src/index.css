@@ -2,18 +2,18 @@
 
 @layer base {
   :root {
-    /* Brand primary = logo plum (#6B4A87) — keep visible on light surfaces */
+    /* Brand primary = original trevyk.in violet (#8B5CAD), sampled from live/original CTAs */
     --color-bg-primary: #F7F4FA;
     --color-bg-surface: #FFFFFF;
     --color-bg-muted: #EDE8F3;
-    --color-brand-purple: #6B4A87;
-    --color-brand-purple-hover: #8558A5;
-    --color-brand-lavender: #B9A6D1;
+    --color-brand-purple: #8B5CAD;
+    --color-brand-purple-hover: #A078C8;
+    --color-brand-lavender: #BEABD6;
     --color-brand-lilac: #E7E1F0;
     --color-brand-pink: #E8A9C2;
     --color-text-primary: #241428;
     --color-text-muted: #5C4A6E;
-    --shadow-brand: 0 10px 28px rgba(107, 74, 135, 0.18);
+    --shadow-brand: 0 0 28px rgba(139, 92, 173, 0.35);
   }
 
   body {
@@ -37,21 +37,21 @@
 
 /* Soft grain on light surfaces */
 .bg-noise {
-  background-image: radial-gradient(rgba(107, 74, 135, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(rgba(139, 92, 173, 0.05) 1px, transparent 0);
   background-size: 28px 28px;
 }
 
 /* Ambient gradient mesh — light */
 .ambient-gradient-glow {
-  background: radial-gradient(circle at 50% 35%, rgba(185, 166, 209, 0.35) 0%, rgba(247, 244, 250, 0.9) 55%, #F7F4FA 100%);
+  background: radial-gradient(circle at 50% 35%, rgba(190, 171, 214, 0.42) 0%, rgba(247, 244, 250, 0.9) 55%, #F7F4FA 100%);
 }
 
 .glow-pill {
-  box-shadow: 0 0 28px -6px rgba(107, 74, 135, 0.18);
+  box-shadow: 0 0 32px -4px rgba(139, 92, 173, 0.42);
 }
 
 .glow-cube {
-  filter: drop-shadow(0 12px 24px rgba(107, 74, 135, 0.22));
+  filter: drop-shadow(0 12px 28px rgba(139, 92, 173, 0.35));
 }
 
 ::-webkit-scrollbar {
@@ -61,11 +61,11 @@
   background: #EDE8F3;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B9A6D1;
+  background: #BEABD6;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B4A87;
+  background: #8B5CAD;
 }
 
 @media (pointer: fine) {

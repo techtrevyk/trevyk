@@ -44,7 +44,7 @@ export const ARCHITECTURE_CUBES: ArchitectureCubeItem[] = [
     name: 'API Gateway & Access Control',
     cubeIndex: 1,
     role: 'Top-Right Node',
-    color: '#B9A6D1',
+    color: '#BEABD6',
     description:
       'Authentication and authorization boundary — sessions/tokens, role checks, and request validation before business logic runs.',
     specs: {
@@ -66,7 +66,7 @@ export const ARCHITECTURE_CUBES: ArchitectureCubeItem[] = [
     name: 'Application Services',
     cubeIndex: 2,
     role: 'Center Junction',
-    color: '#6B4A87',
+    color: '#8B5CAD',
     description:
       'Modular application services for product and client work — keep domains separable so one feature can ship without rewriting everything.',
     specs: {

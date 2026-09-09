@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({
       {/* 1. Ambient Gradient Mesh & Noise Texture (Calm, stable background) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft radial glow behind 3D object - static and calm */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-gradient-to-tr from-[#6B4A87]/25 via-[#B9A6D1]/10 to-[#E8A9C2]/15 blur-3xl opacity-60" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-gradient-to-tr from-[#8B5CAD]/25 via-[#BEABD6]/10 to-[#E8A9C2]/15 blur-3xl opacity-60" />
         
         {/* Deep plum ambient gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF]/60 via-[#F7F4FA]/80 to-[#FFFFFF]" />
@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-noise opacity-30" />
 
         {/* Diagonal soft gradient sweep */}
-        <div className="absolute -top-[40%] -left-[20%] w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#6B4A87]/15 via-transparent to-transparent rotate-12 pointer-events-none" />
+        <div className="absolute -top-[40%] -left-[20%] w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#8B5CAD]/15 via-transparent to-transparent rotate-12 pointer-events-none" />
       </div>
 
       {/* Main Viewport Content */}
@@ -106,10 +106,10 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#FFFFFF]/90 border border-[#6B4A87]/40 mb-6"
+              className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#FFFFFF]/90 border border-[#8B5CAD]/40 mb-6"
             >
               <span className="w-2 h-2 rounded-full bg-[#E8A9C2]" />
-              <span className="font-mono-accent text-xs tracking-wider text-[#6B4A87] font-semibold uppercase">
+              <span className="font-mono-accent text-xs tracking-wider text-[#8B5CAD] font-semibold uppercase">
                 Turning Vision Into Progress
               </span>
             </motion.div>
@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({
               className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] tracking-tight leading-[1.12]"
             >
               Modular software for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#241428] via-[#6B4A87] to-[#E8A9C2]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#BEABD6] via-[#A078C8] to-[#8B5CAD]">
                 schools and businesses
               </span>
             </motion.h1>
@@ -173,7 +173,7 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 id="toggle-disassemble-btn"
                 onClick={handleDisassembleToggle}
-                className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-medium text-[#5C4A6E] bg-[#FFFFFF]/70 border border-[#6B4A87]/40 hover:border-[#E8A9C2]/60 hover:text-[#241428] transition-all interactive-target"
+                className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-medium text-[#5C4A6E] bg-[#FFFFFF]/70 border border-[#8B5CAD]/40 hover:border-[#E8A9C2]/60 hover:text-[#241428] transition-all interactive-target"
                 data-cursor-label={disassembled ? 'ASSEMBLE' : 'EXPLODE'}
               >
                 <Cpu className="w-4 h-4 text-[#E8A9C2]" />
@@ -186,11 +186,11 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 sm:mt-12 pt-6 border-t border-[#6B4A87]/30 w-full grid grid-cols-3 gap-4"
+              className="mt-10 sm:mt-12 pt-6 border-t border-[#8B5CAD]/30 w-full grid grid-cols-3 gap-4"
             >
               <div>
                 <div className="font-mono-accent font-bold text-lg sm:text-2xl text-[#241428]">
-                  B2B<span className="text-[#6B4A87]">+</span>B2C
+                  B2B<span className="text-[#8B5CAD]">+</span>B2C
                 </div>
                 <div className="text-[11px] sm:text-xs text-[#5C4A6E] mt-0.5">
                   Products &amp; services
@@ -221,7 +221,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
             
             {/* Interactive hint badge */}
-            <div className="absolute top-2 right-2 z-20 hidden sm:flex items-center space-x-2 bg-[#FFFFFF]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#6B4A87]/40 text-[10px] font-mono-accent text-[#5C4A6E]">
+            <div className="absolute top-2 right-2 z-20 hidden sm:flex items-center space-x-2 bg-[#FFFFFF]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#8B5CAD]/40 text-[10px] font-mono-accent text-[#5C4A6E]">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2] animate-ping" />
               <span>CLICK TO DISCOVER RESONANCE (OR TILT)</span>
             </div>
@@ -245,7 +245,7 @@ export const Hero: React.FC<HeroProps> = ({
                 animate={{ opacity: 1, y: 0 }}
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 bg-[#FFFFFF]/90 backdrop-blur-md border border-[#E8A9C2]/60 px-4 py-2 rounded-xl text-center shadow-lg"
               >
-                <span className="text-xs font-mono-accent text-[#6B4A87] block uppercase tracking-wider">
+                <span className="text-xs font-mono-accent text-[#8B5CAD] block uppercase tracking-wider">
                   Hovered Module Block
                 </span>
                 <span className="text-sm font-heading font-semibold text-[#241428]">
@@ -273,7 +273,7 @@ export const Hero: React.FC<HeroProps> = ({
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           className="mt-2 flex flex-col items-center"
         >
-          <div className="w-[1px] h-8 bg-gradient-to-b from-[#E8A9C2] via-[#6B4A87] to-transparent" />
+          <div className="w-[1px] h-8 bg-gradient-to-b from-[#E8A9C2] via-[#8B5CAD] to-transparent" />
           <ChevronDown className="w-4 h-4 text-[#E8A9C2] -mt-1" />
         </motion.div>
       </div>

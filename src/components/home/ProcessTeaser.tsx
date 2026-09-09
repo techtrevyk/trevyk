@@ -32,7 +32,7 @@ export const ProcessTeaser: React.FC<ProcessTeaserProps> = () => {
     >
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <GitBranch className="w-3.5 h-3.5" />
             <span>04 // HOW WE DELIVER</span>
           </div>
@@ -50,7 +50,7 @@ export const ProcessTeaser: React.FC<ProcessTeaserProps> = () => {
           <Link
             to="/process"
             onClick={() => soundEngine.playClick('soft')}
-            className="inline-flex items-center space-x-2 text-xs sm:text-sm font-mono-accent text-[#6B4A87] hover:text-[#241428] transition-colors p-2"
+            className="inline-flex items-center space-x-2 text-xs sm:text-sm font-mono-accent text-[#8B5CAD] hover:text-[#241428] transition-colors p-2"
           >
             <span>See full process</span>
             <ArrowRight className="w-4 h-4" />
@@ -64,14 +64,14 @@ export const ProcessTeaser: React.FC<ProcessTeaserProps> = () => {
           return (
             <div
               key={stage.num}
-              className="p-5 rounded-2xl bg-white/90 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-white transition-all flex flex-col justify-between group"
+              className="p-5 rounded-2xl bg-white/90 border border-[#8B5CAD]/30 hover:border-[#E8A9C2]/60 hover:bg-white transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono-accent font-bold text-xs text-[#6B4A87]">
+                  <span className="font-mono-accent font-bold text-xs text-[#8B5CAD]">
                     STEP {stage.num}
                   </span>
-                  <div className="w-7 h-7 rounded-lg bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#5C4A6E] group-hover:text-[#6B4A87] group-hover:scale-110 transition-all">
+                  <div className="w-7 h-7 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#5C4A6E] group-hover:text-[#8B5CAD] group-hover:scale-110 transition-all">
                     <Icon className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export const ProcessTeaser: React.FC<ProcessTeaserProps> = () => {
                   {stage.title}
                 </h3>
               </div>
-              <div className="mt-4 pt-3 border-t border-[#6B4A87]/20 flex items-center text-[10px] font-mono-accent text-[#5C4A6E]">
+              <div className="mt-4 pt-3 border-t border-[#8B5CAD]/20 flex items-center text-[10px] font-mono-accent text-[#5C4A6E]">
                 <span>
                   {idx + 1} of 5
                 </span>

@@ -58,7 +58,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
         {/* 1. HEADER HERO                                                            */}
         {/* ========================================================================= */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <Mail className="w-3.5 h-3.5" />
             <span>CONTACT // PRODUCT &amp; SERVICES</span>
           </div>
@@ -78,7 +78,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
           {/* Left: Contact Form (7 cols) */}
-          <div className="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/40 shadow-2xl relative">
+          <div className="lg:col-span-7 p-6 sm:p-10 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/40 shadow-2xl relative">
             {submitted ? (
               <div className="text-center py-16 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center border border-emerald-500/40">
@@ -96,7 +96,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       soundEngine.playClick('soft');
                       setSubmitted(false);
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 text-xs font-mono-accent text-[#6B4A87] hover:bg-[#EDE8F3] transition-colors"
+                    className="px-6 py-2.5 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 text-xs font-mono-accent text-[#8B5CAD] hover:bg-[#EDE8F3] transition-colors"
                   >
                     Submit Another Request
                   </button>
@@ -120,7 +120,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       className={`p-3 rounded-xl border text-xs font-mono-accent flex items-center justify-center space-x-2 transition-all ${
                         formType === 'services'
                           ? 'bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2] shadow-md'
-                          : 'bg-[#FFFFFF] text-[#5C4A6E] border-[#6B4A87]/40 hover:border-[#6B4A87]'
+                          : 'bg-[#FFFFFF] text-[#5C4A6E] border-[#8B5CAD]/40 hover:border-[#8B5CAD]'
                       }`}
                     >
                       <Cpu className="w-4 h-4" />
@@ -136,7 +136,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       className={`p-3 rounded-xl border text-xs font-mono-accent flex items-center justify-center space-x-2 transition-all ${
                         formType === 'kiduart'
                           ? 'bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2] shadow-md'
-                          : 'bg-[#FFFFFF] text-[#5C4A6E] border-[#6B4A87]/40 hover:border-[#6B4A87]'
+                          : 'bg-[#FFFFFF] text-[#5C4A6E] border-[#8B5CAD]/40 hover:border-[#8B5CAD]'
                       }`}
                     >
                       <GraduationCap className="w-4 h-4" />
@@ -154,7 +154,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       placeholder="e.g. Dr. Rajesh Verma"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
 
@@ -166,7 +166,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       placeholder="rajesh@enterprise.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       placeholder="Company or Educational Trust"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
 
@@ -191,7 +191,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       placeholder="+91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
                 </div>
@@ -208,14 +208,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                     }
                     value={formData.scope}
                     onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2] resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] text-xs sm:text-sm focus:outline-none focus:border-[#E8A9C2] resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading font-semibold text-xs sm:text-sm shadow-xl hover:opacity-95 transition-opacity flex items-center justify-center space-x-2 disabled:opacity-50"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] font-heading font-semibold text-xs sm:text-sm shadow-xl hover:opacity-95 transition-opacity flex items-center justify-center space-x-2 disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{isSubmitting ? 'Transmitting Inquiries...' : 'Submit Technical Request'}</span>
@@ -227,38 +227,38 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
           {/* Right: Direct Contacts & HQ (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/35 space-y-5">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/35 space-y-5">
               <h3 className="font-heading font-bold text-lg text-[#241428]">
                 Direct Contacts & Support
               </h3>
 
               <div className="space-y-4 text-xs">
                 <div className="flex items-start space-x-3 text-[#5C4A6E]">
-                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD] shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-[#5C4A6E] font-mono-accent text-[11px]">GENERAL INQUIRIES</div>
-                    <a href="mailto:contact@trevyk.com" className="font-mono-accent text-[#6B4A87] hover:underline text-sm">
+                    <a href="mailto:contact@trevyk.com" className="font-mono-accent text-[#8B5CAD] hover:underline text-sm">
                       contact@trevyk.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3 text-[#5C4A6E]">
-                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD] shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-[#5C4A6E] font-mono-accent text-[11px]">KIDUART / PRODUCT DESK</div>
-                    <a href="tel:+919217534128" className="font-mono-accent text-[#241428] text-sm hover:text-[#6B4A87]">
+                    <a href="tel:+919217534128" className="font-mono-accent text-[#241428] text-sm hover:text-[#8B5CAD]">
                       +91 92175 34128
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3 text-[#5C4A6E]">
-                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD] shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -269,7 +269,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                         href="https://kiduart.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                        className="text-[#8B5CAD] font-semibold underline underline-offset-2"
                       >
                         Kiduart
                       </a>
@@ -280,8 +280,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
               </div>
             </div>
 
-            <div className="p-6 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/35 space-y-2">
-              <div className="flex items-center space-x-2 text-xs font-mono-accent text-[#6B4A87]">
+            <div className="p-6 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/35 space-y-2">
+              <div className="flex items-center space-x-2 text-xs font-mono-accent text-[#8B5CAD]">
                 <Clock className="w-4 h-4" />
                 <span className="font-bold">We reply within one business day</span>
               </div>
@@ -291,7 +291,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
             </div>
 
             {/* Core Block Settling Cue */}
-            <div className="p-5 rounded-2xl bg-[#FFFFFF]/80 border border-[#6B4A87]/30 flex items-center space-x-3">
+            <div className="p-5 rounded-2xl bg-[#FFFFFF]/80 border border-[#8B5CAD]/30 flex items-center space-x-3">
               <Layers className="w-5 h-5 text-[#E8A9C2] shrink-0" />
               <div className="text-xs text-[#5C4A6E]">
                 <strong className="text-[#241428] block font-heading font-semibold">Architectural Journey Complete</strong>

@@ -116,14 +116,14 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
           <directionalLight
             position={[-4, -3, -2]}
             intensity={isLightSection ? 1.1 : 0.85}
-            color="#6B4A87"
+            color="#8B5CAD"
           />
 
           {/* Top Soft Lavender Accent Light */}
           <pointLight
             position={[0, 4, 3]}
             intensity={0.9}
-            color="#B9A6D1"
+            color="#BEABD6"
           />
 
           {/* Persistent Core Block 3D Mesh */}

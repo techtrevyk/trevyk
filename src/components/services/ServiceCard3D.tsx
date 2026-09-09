@@ -28,57 +28,57 @@ const ServiceIllustration: React.FC<{ serviceId: string; color: string }> = ({ s
     case 'custom-software-development':
       return (
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
-          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#6B4A87" strokeWidth="1.5" />
+          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#8B5CAD" strokeWidth="1.5" />
           <polygon points="60,25 90,42 60,60 30,42" fill="#E8A9C2" fillOpacity="0.85" />
-          <polygon points="30,42 60,60 60,95 30,77" fill="#6B4A87" />
-          <polygon points="60,60 90,42 90,77 60,95" fill="#6B4A87" />
+          <polygon points="30,42 60,60 60,95 30,77" fill="#8B5CAD" />
+          <polygon points="60,60 90,42 90,77 60,95" fill="#8B5CAD" />
           <line x1="60" y1="25" x2="60" y2="60" stroke="#241428" strokeWidth="1" strokeDasharray="2 2" />
           <circle cx="60" cy="25" r="3" fill="#241428" />
           <circle cx="90" cy="42" r="3" fill="#E8A9C2" />
-          <circle cx="30" cy="42" r="3" fill="#B9A6D1" />
-          <circle cx="60" cy="95" r="3" fill="#6B4A87" />
+          <circle cx="30" cy="42" r="3" fill="#BEABD6" />
+          <circle cx="60" cy="95" r="3" fill="#8B5CAD" />
         </svg>
       );
     case 'web-mobile-app-development':
       return (
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
-          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#B9A6D1" strokeWidth="1.5" />
-          <rect x="25" y="30" width="45" height="60" rx="6" fill="#F7F4FA" stroke="#B9A6D1" strokeWidth="1.5" />
+          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#BEABD6" strokeWidth="1.5" />
+          <rect x="25" y="30" width="45" height="60" rx="6" fill="#F7F4FA" stroke="#BEABD6" strokeWidth="1.5" />
           <rect x="55" y="25" width="40" height="68" rx="8" fill="#FFFFFF" stroke="#E8A9C2" strokeWidth="1.5" />
           <circle cx="75" cy="85" r="3" fill="#E8A9C2" />
-          <rect x="62" y="33" width="26" height="4" rx="2" fill="#6B4A87" />
-          <rect x="62" y="42" width="20" height="4" rx="2" fill="#B9A6D1" />
+          <rect x="62" y="33" width="26" height="4" rx="2" fill="#8B5CAD" />
+          <rect x="62" y="42" width="20" height="4" rx="2" fill="#BEABD6" />
           <rect x="30" y="38" width="16" height="3" rx="1.5" fill="#E8A9C2" />
-          <rect x="30" y="46" width="30" height="3" rx="1.5" fill="#6B4A87" />
+          <rect x="30" y="46" width="30" height="3" rx="1.5" fill="#8B5CAD" />
         </svg>
       );
     case 'cloud-devops':
       return (
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
-          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#6B4A87" strokeWidth="1.5" />
+          <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#8B5CAD" strokeWidth="1.5" />
           <path d="M40 70 C30 70 25 60 32 50 C32 40 45 35 55 42 C62 32 80 32 85 45 C95 45 98 55 92 65 C92 70 85 70 80 70 Z" fill="#F7F4FA" stroke="#E8A9C2" strokeWidth="1.5" />
-          <circle cx="60" cy="55" r="8" fill="#6B4A87" fillOpacity="0.5" stroke="#241428" strokeWidth="1" />
-          <line x1="45" y1="75" x2="75" y2="75" stroke="#B9A6D1" strokeWidth="1.5" strokeDasharray="3 3" />
+          <circle cx="60" cy="55" r="8" fill="#8B5CAD" fillOpacity="0.5" stroke="#241428" strokeWidth="1" />
+          <line x1="45" y1="75" x2="75" y2="75" stroke="#BEABD6" strokeWidth="1.5" strokeDasharray="3 3" />
           <line x1="60" y1="70" x2="60" y2="85" stroke="#E8A9C2" strokeWidth="1.5" />
-          <rect x="40" y="85" width="40" height="10" rx="3" fill="#6B4A87" />
+          <rect x="40" y="85" width="40" height="10" rx="3" fill="#8B5CAD" />
         </svg>
       );
     case 'ai-ml-automation':
       return (
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
           <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#E8A9C2" strokeWidth="1.5" />
-          <circle cx="60" cy="60" r="28" fill="#F7F4FA" stroke="#6B4A87" strokeWidth="1.5" />
+          <circle cx="60" cy="60" r="28" fill="#F7F4FA" stroke="#8B5CAD" strokeWidth="1.5" />
           <circle cx="60" cy="60" r="14" fill="#E8A9C2" fillOpacity="0.4" stroke="#E8A9C2" strokeWidth="1.5" />
           <circle cx="60" cy="60" r="5" fill="#241428" />
           {/* Neural nodes */}
           <line x1="60" y1="32" x2="60" y2="46" stroke="#E8A9C2" strokeWidth="1.5" />
           <line x1="60" y1="74" x2="60" y2="88" stroke="#E8A9C2" strokeWidth="1.5" />
-          <line x1="32" y1="60" x2="46" y2="60" stroke="#B9A6D1" strokeWidth="1.5" />
-          <line x1="74" y1="60" x2="88" y2="60" stroke="#B9A6D1" strokeWidth="1.5" />
+          <line x1="32" y1="60" x2="46" y2="60" stroke="#BEABD6" strokeWidth="1.5" />
+          <line x1="74" y1="60" x2="88" y2="60" stroke="#BEABD6" strokeWidth="1.5" />
           <circle cx="60" cy="32" r="3.5" fill="#E8A9C2" />
           <circle cx="60" cy="88" r="3.5" fill="#E8A9C2" />
-          <circle cx="32" cy="60" r="3.5" fill="#B9A6D1" />
-          <circle cx="88" cy="60" r="3.5" fill="#B9A6D1" />
+          <circle cx="32" cy="60" r="3.5" fill="#BEABD6" />
+          <circle cx="88" cy="60" r="3.5" fill="#BEABD6" />
         </svg>
       );
     case 'erp-crm-solutions':
@@ -99,17 +99,17 @@ const ServiceIllustration: React.FC<{ serviceId: string; color: string }> = ({ s
           <path d="M60 30 C40 30 30 45 30 60 C30 75 42 85 54 85 C60 85 64 80 64 74 C64 68 69 64 75 64 L80 64 C88 64 94 56 94 48 C94 36 78 30 60 30 Z" fill="#F7F4FA" stroke="#E8A9C2" strokeWidth="1.5" />
           <circle cx="45" cy="48" r="4" fill="#E8A9C2" />
           <circle cx="60" cy="42" r="4" fill="#C89B6C" />
-          <circle cx="75" cy="48" r="4" fill="#6B4A87" />
-          <circle cx="50" cy="65" r="4" fill="#B9A6D1" />
+          <circle cx="75" cy="48" r="4" fill="#8B5CAD" />
+          <circle cx="50" cy="65" r="4" fill="#BEABD6" />
         </svg>
       );
     case 'it-consulting-managed-services':
       return (
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
           <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#5A3875" strokeWidth="1.5" />
-          <circle cx="60" cy="60" r="28" fill="#F7F4FA" stroke="#6B4A87" strokeWidth="1.5" />
+          <circle cx="60" cy="60" r="28" fill="#F7F4FA" stroke="#8B5CAD" strokeWidth="1.5" />
           <polygon points="60,40 68,56 60,60 52,56" fill="#E8A9C2" />
-          <polygon points="60,80 68,64 60,60 52,64" fill="#B9A6D1" />
+          <polygon points="60,80 68,64 60,60 52,64" fill="#BEABD6" />
           <circle cx="60" cy="60" r="4" fill="#241428" />
           <line x1="60" y1="26" x2="60" y2="34" stroke="#E8A9C2" strokeWidth="2" />
           <line x1="60" y1="86" x2="60" y2="94" stroke="#E8A9C2" strokeWidth="2" />
@@ -122,14 +122,14 @@ const ServiceIllustration: React.FC<{ serviceId: string; color: string }> = ({ s
         <svg viewBox="0 0 120 120" className="w-16 h-16 shrink-0" fill="none">
           <rect x="15" y="15" width="90" height="90" rx="16" fill="#FFFFFF" stroke="#E0D8EC" strokeWidth="1.5" />
           <path d="M60 28 L85 38 L85 62 C85 78 72 90 60 95 C48 90 35 78 35 62 L35 38 Z" fill="#F7F4FA" stroke="#E8A9C2" strokeWidth="1.5" />
-          <circle cx="60" cy="56" r="8" fill="#6B4A87" />
+          <circle cx="60" cy="56" r="8" fill="#8B5CAD" />
           <rect x="54" y="62" width="12" height="14" rx="2" fill="#E8A9C2" />
           <circle cx="60" cy="68" r="2" fill="#FFFFFF" />
         </svg>
       );
     default:
       return (
-        <div className="w-16 h-16 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2]">
+        <div className="w-16 h-16 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/40 flex items-center justify-center text-[#E8A9C2]">
           <Layers className="w-8 h-8" />
         </div>
       );
@@ -176,7 +176,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
     setRotateY(0);
   };
 
-  const accent = service.color || '#6B4A87';
+  const accent = service.color || '#8B5CAD';
   const isActive = isExpandedInline || isSelected;
 
   return (
@@ -191,7 +191,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
         borderColor: isActive || isHovered ? accent : `${accent}66`,
         boxShadow: isActive || isHovered
           ? `0 16px 40px ${accent}33`
-          : `0 8px 24px rgba(107, 74, 135, 0.10)`,
+          : `0 8px 24px rgba(139, 92, 173, 0.10)`,
       }}
       className={`rounded-3xl border-2 transition-[background-color,box-shadow,border-color] duration-300 flex flex-col justify-between relative overflow-hidden group ${
         isActive
@@ -279,11 +279,11 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 pt-5 border-t border-[#6B4A87]/30 space-y-4"
+            className="mt-6 pt-5 border-t border-[#8B5CAD]/30 space-y-4"
           >
             {/* What It Includes */}
             <div>
-              <span className="text-[11px] font-mono-accent text-[#6B4A87] uppercase tracking-wider block mb-2 font-semibold">
+              <span className="text-[11px] font-mono-accent text-[#8B5CAD] uppercase tracking-wider block mb-2 font-semibold">
                 WHAT IT INCLUDES
               </span>
               <ul className="space-y-1.5 text-xs text-[#5C4A6E]/90">
@@ -297,7 +297,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
             </div>
 
             {/* What Kind of Problem / Client It Fits */}
-            <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+            <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
               <span className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase block mb-1">
                 IDEAL CLIENT & ARCHITECTURAL FIT
               </span>
@@ -314,7 +314,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] font-mono-accent text-[#241428]">
                   {service.deliverables.map((del, dIdx) => (
-                    <div key={dIdx} className="px-2.5 py-1 rounded bg-[#F7F4FA] border border-[#6B4A87]/30">
+                    <div key={dIdx} className="px-2.5 py-1 rounded bg-[#F7F4FA] border border-[#8B5CAD]/30">
                       • {del}
                     </div>
                   ))}

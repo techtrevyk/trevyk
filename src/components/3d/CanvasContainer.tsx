@@ -55,7 +55,7 @@ export const CanvasContainer: React.FC<CanvasContainerProps> = ({
       >
         <div className="relative flex flex-col items-center justify-center">
           {/* Ambient Glow */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#6B4A87]/30 via-[#B9A6D1]/20 to-[#E8A9C2]/20 blur-2xl animate-pulse" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8B5CAD]/30 via-[#BEABD6]/20 to-[#E8A9C2]/20 blur-2xl animate-pulse" />
           
           {/* Official 3D Isometric Trevyk Logo */}
           <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
@@ -108,7 +108,7 @@ export const CanvasContainer: React.FC<CanvasContainerProps> = ({
           <pointLight
             position={[0, -3, 2]}
             intensity={0.8}
-            color="#B9A6D1"
+            color="#BEABD6"
           />
 
           {/* The 3D Core Block Model */}

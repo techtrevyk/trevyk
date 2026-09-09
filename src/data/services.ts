@@ -16,7 +16,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     badge: 'B2B Core',
     tech: ['TypeScript', 'Node', 'Python', 'PostgreSQL', 'REST / GraphQL'],
     metrics: { label: 'Engagement style', value: 'Scoped builds' },
-    color: '#6B4A87',
+    color: '#8B5CAD',
     iconName: 'Code2',
     includes: [
       'Domain modelling and clear API contracts',
@@ -45,7 +45,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     badge: 'Frontline Apps',
     tech: ['React', 'React Native', 'Next.js', 'TypeScript', 'Tailwind'],
     metrics: { label: 'Delivery', value: 'Web + mobile' },
-    color: '#B9A6D1',
+    color: '#BEABD6',
     iconName: 'Smartphone',
     includes: [
       'Responsive web applications',
@@ -74,7 +74,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     badge: 'Cloud',
     tech: ['AWS / GCP', 'Docker', 'CI/CD', 'Terraform (when needed)', 'Monitoring'],
     metrics: { label: 'Goal', value: 'Stable releases' },
-    color: '#6B4A87',
+    color: '#8B5CAD',
     iconName: 'Cloud',
     includes: [
       'Environment setup (dev / staging / production)',

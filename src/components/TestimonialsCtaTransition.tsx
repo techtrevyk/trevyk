@@ -18,7 +18,7 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
     >
       {/* Background Radiance & Horizon Glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[700px] h-32 bg-gradient-to-r from-[#6B4A87]/30 via-[#E8A9C2]/35 to-[#B9A6D1]/30 blur-3xl rounded-full" />
+        <div className="w-[700px] h-32 bg-gradient-to-r from-[#8B5CAD]/30 via-[#E8A9C2]/35 to-[#BEABD6]/30 blur-3xl rounded-full" />
       </div>
 
       {/* SVG Convergence Rays & Final Reassembly Wave */}
@@ -30,8 +30,8 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
         <defs>
           <linearGradient id="ctaConvergenceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E8A9C2" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#B9A6D1" stopOpacity="1" />
-            <stop offset="100%" stopColor="#6B4A87" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#BEABD6" stopOpacity="1" />
+            <stop offset="100%" stopColor="#8B5CAD" stopOpacity="0.8" />
           </linearGradient>
 
           <filter id="ctaGlow" x="-30%" y="-30%" width="160%" height="160%">
@@ -52,7 +52,7 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
         <path
           d="M 310,0 C 380,80 460,160 500,240"
           fill="none"
-          stroke="#B9A6D1"
+          stroke="#BEABD6"
           strokeWidth="2"
           strokeDasharray="6 10"
           opacity="0.45"
@@ -60,14 +60,14 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
         <path
           d="M 500,0 L 500,240"
           fill="none"
-          stroke="#6B4A87"
+          stroke="#8B5CAD"
           strokeWidth="2.5"
           opacity="0.6"
         />
         <path
           d="M 690,0 C 620,80 540,160 500,240"
           fill="none"
-          stroke="#B9A6D1"
+          stroke="#BEABD6"
           strokeWidth="2"
           strokeDasharray="6 10"
           opacity="0.45"
@@ -122,7 +122,7 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
             {/* Shard 2 (from right) */}
             <motion.polygon
               points="496,110 504,102 512,110 504,118"
-              fill="#B9A6D1"
+              fill="#BEABD6"
               filter="url(#ctaGlow)"
               animate={{
                 x: [120, 0],

@@ -45,10 +45,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#FFFFFF] border border-[#6B4A87]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(107,74,135,0.18)] flex flex-col relative"
+          className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#FFFFFF] border border-[#8B5CAD]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(139,92,173,0.18)] flex flex-col relative"
         >
           {/* Header */}
-          <div className="flex items-start justify-between p-6 sm:p-8 border-b border-[#6B4A87]/20 bg-white/70">
+          <div className="flex items-start justify-between p-6 sm:p-8 border-b border-[#8B5CAD]/20 bg-white/70">
             <div className="flex items-start space-x-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border"
@@ -88,7 +88,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           <div className="p-6 sm:p-8 space-y-6">
             
             {/* Tagline Box */}
-            <div className="p-4 rounded-xl bg-[#F7F4FA]/60 border border-[#6B4A87]/30 text-sm sm:text-base text-[#5C4A6E] font-medium leading-relaxed">
+            <div className="p-4 rounded-xl bg-[#F7F4FA]/60 border border-[#8B5CAD]/30 text-sm sm:text-base text-[#5C4A6E] font-medium leading-relaxed">
               "{service.tagline}"
             </div>
 
@@ -121,7 +121,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
             {/* Ideal Client & Problem Fit */}
             {service.fitsFor && (
-              <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/40">
+              <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40">
                 <span className="text-[11px] font-mono-accent text-[#5C4A6E] uppercase tracking-wider block mb-1">
                   Ideal Client & Problem Fit
                 </span>
@@ -139,7 +139,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono-accent text-[#241428]">
                   {service.deliverables.map((item, idx) => (
-                    <div key={idx} className="p-2.5 rounded-lg bg-[#F7F4FA] border border-[#6B4A87]/30 flex items-center space-x-2">
+                    <div key={idx} className="p-2.5 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/30 flex items-center space-x-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2]" />
                       <span>{item}</span>
                     </div>
@@ -157,7 +157,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 {service.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1.5 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] border border-[#6B4A87]/40 text-[#241428] flex items-center space-x-1.5"
+                    className="px-3 py-1.5 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#241428] flex items-center space-x-1.5"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2]" />
                     <span>{t}</span>
@@ -167,7 +167,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
 
             {/* Performance Metric SLA Card */}
-            <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-[#F7F4FA]/40 border border-[#6B4A87]/30">
+            <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-[#F7F4FA]/40 border border-[#8B5CAD]/30">
               <div>
                 <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
                   Target Metric
@@ -188,7 +188,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
 
             {/* Bottom Actions */}
-            <div className="pt-4 border-t border-[#6B4A87]/20 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-4 border-t border-[#8B5CAD]/20 flex flex-wrap items-center justify-between gap-4">
               <button
                 onClick={() => {
                   soundEngine.playClick('soft');

@@ -70,7 +70,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         
         {/* Header Hero Section */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <Cpu className="w-3.5 h-3.5" />
             <span>PRODUCTS &amp; IT SERVICES</span>
           </div>
@@ -85,7 +85,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Category Navigation Bar */}
-        <div className="mt-10 flex flex-wrap gap-2 pb-4 border-b border-[#6B4A87]/25">
+        <div className="mt-10 flex flex-wrap gap-2 pb-4 border-b border-[#8B5CAD]/25">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
@@ -97,8 +97,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 }}
                 className={`px-4 py-2 rounded-full text-xs font-mono-accent transition-all ${
                   isSelected
-                    ? 'bg-[#6B4A87] text-white font-bold shadow-[0_8px_20px_rgba(107,74,135,0.28)]'
-                    : 'bg-white text-[#5C4A6E] hover:text-[#6B4A87] border border-[#6B4A87]/35 hover:border-[#6B4A87] hover:bg-[#EDE8F3]'
+                    ? 'bg-[#8B5CAD] text-white font-bold shadow-[0_8px_20px_rgba(139,92,173,0.28)]'
+                    : 'bg-white text-[#5C4A6E] hover:text-[#8B5CAD] border border-[#8B5CAD]/35 hover:border-[#8B5CAD] hover:bg-[#EDE8F3]'
                 }`}
               >
                 {cat.label}
@@ -108,11 +108,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* Brand engagement strip */}
-        <div className="mt-10 rounded-2xl overflow-hidden border-2 border-[#6B4A87]/45 bg-gradient-to-r from-[#EDE8F3] via-white to-[#F7F4FA] p-6 sm:p-8 shadow-[0_12px_32px_rgba(107,74,135,0.12)] relative">
-          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]" aria-hidden />
+        <div className="mt-10 rounded-2xl overflow-hidden border-2 border-[#8B5CAD]/45 bg-gradient-to-r from-[#EDE8F3] via-white to-[#F7F4FA] p-6 sm:p-8 shadow-[0_12px_32px_rgba(139,92,173,0.12)] relative">
+          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#8B5CAD] to-[#E8A9C2]" aria-hidden />
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pl-2">
             <div className="max-w-2xl">
-              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-widest font-semibold">
+              <span className="text-[10px] font-mono-accent text-[#8B5CAD] uppercase tracking-widest font-semibold">
                 HOW WE ENGAGE
               </span>
               <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-1">
@@ -120,7 +120,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </h2>
               <p className="text-xs sm:text-sm text-[#5C4A6E] mt-1.5">
                 Custom work includes source you own. Product work points to{' '}
-                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] font-semibold underline underline-offset-2">
                   kiduart.com
                 </a>
                 . No invented SLA theatre.
@@ -128,7 +128,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold shrink-0 shadow-[0_8px_22px_rgba(107,74,135,0.28)] hover:bg-[#8558A5] transition-colors"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#8B5CAD] text-white text-xs font-heading font-semibold shrink-0 shadow-[0_8px_22px_rgba(139,92,173,0.28)] hover:bg-[#A078C8] transition-colors"
             >
               Talk to us
             </Link>
@@ -153,10 +153,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <BrandGradientDivider className="mt-20" />
 
         {/* Engagement Models & Architecture Consultation Box */}
-        <div className="mt-16 rounded-3xl bg-gradient-to-br from-[#FFFFFF] via-[#F7F4FA] to-[#FFFFFF] border border-[#6B4A87]/40 p-8 sm:p-12">
+        <div className="mt-16 rounded-3xl bg-gradient-to-br from-[#FFFFFF] via-[#F7F4FA] to-[#FFFFFF] border border-[#8B5CAD]/40 p-8 sm:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8">
-              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block mb-2">
+              <span className="text-xs font-mono-accent text-[#8B5CAD] uppercase tracking-widest block mb-2">
                 TAILORED ENGAGEMENT
               </span>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
@@ -167,15 +167,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </p>
               
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
                   <div className="font-heading font-bold text-sm text-[#241428]">Kiduart product</div>
                   <div className="text-xs text-[#5C4A6E] mt-0.5">School ERP demos via kiduart.com.</div>
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
                   <div className="font-heading font-bold text-sm text-[#241428]">Scoped builds</div>
                   <div className="text-xs text-[#5C4A6E] mt-0.5">Milestone delivery with clear handoff.</div>
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
                   <div className="font-heading font-bold text-sm text-[#241428]">Advisory</div>
                   <div className="text-xs text-[#5C4A6E] mt-0.5">Architecture &amp; build-vs-buy reviews.</div>
                 </div>
@@ -186,7 +186,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <Link
                 to="/contact"
                 onClick={() => soundEngine.playClick('hero')}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg group"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg group"
               >
                 <span>Request Project Proposal</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -197,7 +197,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   soundEngine.playClick('soft');
                   onOpenArchitectureModal();
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/50 text-[#5C4A6E] hover:text-[#241428] hover:border-[#E8A9C2] text-xs font-mono-accent transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/50 text-[#5C4A6E] hover:text-[#241428] hover:border-[#E8A9C2] text-xs font-mono-accent transition-colors"
               >
                 <Sparkles className="w-3.5 h-3.5 text-[#E8A9C2]" />
                 <span>Inspect 3D Core Architecture</span>

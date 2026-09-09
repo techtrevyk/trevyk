@@ -56,8 +56,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         />
 
         {/* Ambient warm plum & blush pink glow in corner */}
-        <div className="absolute -top-24 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-[#B9A6D1]/30 via-[#E8A9C2]/20 to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#6B4A87]/15 via-[#B9A6D1]/20 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-bl from-[#BEABD6]/30 via-[#E8A9C2]/20 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#8B5CAD]/15 via-[#BEABD6]/20 to-transparent blur-3xl pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,7 +67,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           
           <div className="max-w-3xl">
             {/* Reassembled Emblem & Section Tag (Connective Tissue) */}
-            <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-white border border-[#B9A6D1]/60 shadow-[0_4px_16px_rgba(107,74,135,0.08)] mb-6">
+            <div className="inline-flex items-center space-x-3 px-4 py-2 rounded-full bg-white border border-[#BEABD6]/60 shadow-[0_4px_16px_rgba(139,92,173,0.08)] mb-6">
               
               {/* The official 3D isometric emblem */}
               <div 
@@ -78,7 +78,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 <TrevykLogo layout="icon-only" size="xs" />
               </div>
 
-              <span className="font-mono-accent text-xs uppercase tracking-widest text-[#6B4A87] font-semibold">
+              <span className="font-mono-accent text-xs uppercase tracking-widest text-[#8B5CAD] font-semibold">
                 WHY TREVYK • MODULAR PERSISTENCE
               </span>
             </div>
@@ -98,7 +98,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                     }}
                     className={`inline-block ${
                       word === 'Resilient' || word === 'Independent' || word === 'Block.'
-                        ? 'text-[#6B4A87] font-extrabold'
+                        ? 'text-[#8B5CAD] font-extrabold'
                         : ''
                     }`}
                   >
@@ -126,13 +126,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#B9A6D1]/40 shadow-[0_10px_30px_rgba(107,74,135,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(107,74,135,0.12)] transition-all hover:-translate-y-1"
+            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#BEABD6]/40 shadow-[0_10px_30px_rgba(139,92,173,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(139,92,173,0.12)] transition-all hover:-translate-y-1"
           >
             <div>
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#6B4A87] to-[#B9A6D1] text-white flex items-center justify-center mb-6 shadow-md">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#8B5CAD] to-[#BEABD6] text-white flex items-center justify-center mb-6 shadow-md">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87] font-semibold">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD] font-semibold">
                 Pillar 01 • Fault Boundary
               </span>
               <h3 className="font-heading font-bold text-xl text-[#241428] mt-2 mb-3">
@@ -142,7 +142,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 When a payment gateway spikes or third-party API stumbles, our circuit-breaker blocks isolate the anomaly. Core school operations and critical enterprise pipelines continue uninterrupted.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#6B4A87]">
+            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#8B5CAD]">
               <span>Fault Isolation Level</span>
               <span className="font-bold text-[#241428]">Tier 1 Absolute</span>
             </div>
@@ -154,13 +154,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#B9A6D1]/40 shadow-[0_10px_30px_rgba(107,74,135,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(107,74,135,0.12)] transition-all hover:-translate-y-1"
+            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#BEABD6]/40 shadow-[0_10px_30px_rgba(139,92,173,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(139,92,173,0.12)] transition-all hover:-translate-y-1"
           >
             <div>
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#E8A9C2] to-[#B9A6D1] text-[#FFFFFF] flex items-center justify-center mb-6 shadow-md">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#E8A9C2] to-[#BEABD6] text-[#FFFFFF] flex items-center justify-center mb-6 shadow-md">
                 <Cpu className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87] font-semibold">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD] font-semibold">
                 Pillar 02 • High Elasticity
               </span>
               <h3 className="font-heading font-bold text-xl text-[#241428] mt-2 mb-3">
@@ -170,7 +170,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 Add or reallocate individual computing blocks in seconds during peak registration or fee cycles without rebuilding or taking down the underlying infrastructure.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#6B4A87]">
+            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#8B5CAD]">
               <span>Autoscale Velocity</span>
               <span className="font-bold text-[#241428]">&lt; 3.5 Seconds</span>
             </div>
@@ -182,13 +182,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#B9A6D1]/40 shadow-[0_10px_30px_rgba(107,74,135,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(107,74,135,0.12)] transition-all hover:-translate-y-1"
+            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#BEABD6]/40 shadow-[0_10px_30px_rgba(139,92,173,0.06)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(139,92,173,0.12)] transition-all hover:-translate-y-1"
           >
             <div>
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#6B4A87] to-[#6B4A87] text-white flex items-center justify-center mb-6 shadow-md">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-[#8B5CAD] to-[#8B5CAD] text-white flex items-center justify-center mb-6 shadow-md">
                 <Building2 className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87] font-semibold">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD] font-semibold">
                 Pillar 03 • Flagship SaaS
               </span>
               <h3 className="font-heading font-bold text-xl text-[#241428] mt-2 mb-3">
@@ -196,13 +196,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </h3>
               <p className="text-sm text-[#241428]/80 leading-relaxed">
                 Beyond custom client engineering, we build{' '}
-                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] font-semibold underline underline-offset-2">
                   Kiduart
                 </a>
                 , our flagship school ERP (kiduart.com), integrating admissions, academics, fee desk, and parent communication — without invented school counts.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#6B4A87]">
+            <div className="mt-6 pt-4 border-t border-[#241428]/10 flex items-center justify-between text-xs font-mono-accent text-[#8B5CAD]">
               <span>Active Daily Users</span>
               <span className="font-bold text-[#241428]">850,000+</span>
             </div>
@@ -210,12 +210,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         </div>
 
         {/* Interactive Architecture Benchmark / Monolith vs Trevyk Modular Cluster */}
-        <div className="mt-14 sm:mt-20 p-6 sm:p-10 rounded-3xl bg-white border border-[#B9A6D1]/60 shadow-[0_20px_50px_rgba(107,74,135,0.08)]">
+        <div className="mt-14 sm:mt-20 p-6 sm:p-10 rounded-3xl bg-white border border-[#BEABD6]/60 shadow-[0_20px_50px_rgba(139,92,173,0.08)]">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#241428]/10">
             <div>
               <div className="flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-[#6B4A87]" />
-                <span className="font-mono-accent text-xs uppercase tracking-widest text-[#6B4A87] font-bold">
+                <span className="w-2 h-2 rounded-full bg-[#8B5CAD]" />
+                <span className="font-mono-accent text-xs uppercase tracking-widest text-[#8B5CAD] font-bold">
                   LIVE ARCHITECTURAL BENCHMARK
                 </span>
               </div>
@@ -225,12 +225,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </div>
 
             {/* Toggle Buttons */}
-            <div className="flex items-center p-1 rounded-xl bg-[#E7E1F0] border border-[#B9A6D1]/60">
+            <div className="flex items-center p-1 rounded-xl bg-[#E7E1F0] border border-[#BEABD6]/60">
               <button
                 onClick={() => setActiveComparison('modular')}
                 className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-heading font-medium transition-all ${
                   activeComparison === 'modular'
-                    ? 'bg-[#6B4A87] text-white shadow-md'
+                    ? 'bg-[#8B5CAD] text-white shadow-md'
                     : 'text-[#241428]/70 hover:text-[#241428]'
                 }`}
               >
@@ -252,8 +252,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           {/* Benchmark Comparison Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
             
-            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#B9A6D1]/40">
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87]">
+            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#BEABD6]/40">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD]">
                 Single Point of Failure
               </span>
               <div className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">
@@ -266,8 +266,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#B9A6D1]/40">
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87]">
+            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#BEABD6]/40">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD]">
                 Deployment Velocity
               </span>
               <div className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">
@@ -280,8 +280,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#B9A6D1]/40">
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87]">
+            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#BEABD6]/40">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD]">
                 Recovery posture
               </span>
               <div className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">
@@ -294,8 +294,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#B9A6D1]/40">
-              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#6B4A87]">
+            <div className="p-4 rounded-xl bg-[#E7E1F0]/50 border border-[#BEABD6]/40">
+              <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#8B5CAD]">
                 Database Sharding
               </span>
               <div className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">

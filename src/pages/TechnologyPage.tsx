@@ -71,7 +71,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         
         {/* Page Header */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <Terminal className="w-3.5 h-3.5" />
             <span>ENGINEERING SPECIFICATION & CAPABILITY ATLAS</span>
           </div>
@@ -89,7 +89,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         {/* SECTION 1: THE CAPABILITY ATLAS (FILTERABLE FLIP GRID)                   */}
         {/* ========================================================================= */}
         <div className="mt-14">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#6B4A87]/30">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#8B5CAD]/30">
             
             {/* Filter Tabs with FLIP-style Layout Transitions */}
             <div className="flex flex-wrap gap-2">
@@ -109,7 +109,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                     className={`relative px-4 py-2 rounded-full text-xs font-mono-accent transition-all flex items-center space-x-1.5 ${
                       isActive
                         ? 'text-[#241428] font-bold bg-[#E8A9C2] shadow-[0_0_15px_rgba(232,169,194,0.35)]'
-                        : 'bg-[#FFFFFF] text-[#5C4A6E]/70 hover:text-[#241428] border border-[#6B4A87]/35 hover:border-[#6B4A87]'
+                        : 'bg-[#FFFFFF] text-[#5C4A6E]/70 hover:text-[#241428] border border-[#8B5CAD]/35 hover:border-[#8B5CAD]'
                     }`}
                   >
                     <span>{tab.label}</span>
@@ -130,7 +130,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Filter by tech or protocol..."
-                className="w-full bg-[#FFFFFF] border border-[#6B4A87]/40 focus:border-[#E8A9C2] rounded-xl px-3.5 py-2 text-xs font-mono-accent text-[#241428] placeholder-[#5C4A6E]/50 outline-none transition-colors"
+                className="w-full bg-[#FFFFFF] border border-[#8B5CAD]/40 focus:border-[#E8A9C2] rounded-xl px-3.5 py-2 text-xs font-mono-accent text-[#241428] placeholder-[#5C4A6E]/50 outline-none transition-colors"
               />
             </div>
           </div>
@@ -149,12 +149,12 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
-                  className="p-5 rounded-2xl bg-[#FFFFFF]/90 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-[#F5F1F8] transition-all flex flex-col justify-between group shadow-lg"
+                  className="p-5 rounded-2xl bg-[#FFFFFF]/90 border border-[#8B5CAD]/30 hover:border-[#E8A9C2]/60 hover:bg-[#F5F1F8] transition-all flex flex-col justify-between group shadow-lg"
                 >
                   <div>
                     {/* Header Row: Tech Category & Badge */}
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#F7F4FA] text-[#E8A9C2] border border-[#6B4A87]/35 uppercase">
+                      <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#F7F4FA] text-[#E8A9C2] border border-[#8B5CAD]/35 uppercase">
                         {item.category}
                       </span>
                       <span className="text-[10px] font-mono-accent text-[#5C4A6E]">
@@ -178,7 +178,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                   </div>
 
                   {/* Footer Tag */}
-                  <div className="mt-4 pt-3 border-t border-[#6B4A87]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#5C4A6E]">
+                  <div className="mt-4 pt-3 border-t border-[#8B5CAD]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#5C4A6E]">
                     <span>{item.badge}</span>
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] opacity-70 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -188,7 +188,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </motion.div>
 
           {filteredCapabilities.length === 0 && (
-            <div className="text-center py-16 bg-[#FFFFFF]/50 rounded-2xl border border-[#6B4A87]/30 mt-6">
+            <div className="text-center py-16 bg-[#FFFFFF]/50 rounded-2xl border border-[#8B5CAD]/30 mt-6">
               <p className="text-sm font-mono-accent text-[#5C4A6E]">
                 No technologies found matching "{searchQuery}".
               </p>
@@ -197,7 +197,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                   setSearchQuery('');
                   setActiveCategory('all');
                 }}
-                className="mt-3 text-xs font-mono-accent text-[#6B4A87] hover:underline"
+                className="mt-3 text-xs font-mono-accent text-[#8B5CAD] hover:underline"
               >
                 Clear all filters
               </button>
@@ -212,7 +212,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         {/* ========================================================================= */}
         <div className="mt-16">
           <div className="max-w-3xl mb-8">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-3">
               <Layers className="w-3.5 h-3.5" />
               <span>ISOMETRIC 5-LAYER TIERS</span>
             </div>
@@ -245,7 +245,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                     className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between group ${
                       isSelected
                         ? 'bg-[#FFFFFF] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.2)]'
-                        : 'bg-[#FFFFFF]/80 border-[#6B4A87]/30 hover:border-[#6B4A87] hover:bg-[#F7F4FA]'
+                        : 'bg-[#FFFFFF]/80 border-[#8B5CAD]/30 hover:border-[#8B5CAD] hover:bg-[#F7F4FA]'
                     }`}
                   >
                     <div className="flex items-center space-x-3.5">
@@ -263,7 +263,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                       </div>
                     </div>
 
-                    <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#F7F4FA] text-[#5C4A6E] border border-[#6B4A87]/30">
+                    <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#F7F4FA] text-[#5C4A6E] border border-[#8B5CAD]/30">
                       {cube.role}
                     </span>
                   </button>
@@ -273,7 +273,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               <div className="pt-2">
                 <button
                   onClick={() => onOpenArchitectureModal(selectedCube)}
-                  className="w-full py-3 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/50 text-[#E8A9C2] hover:bg-[#EDE8F3] text-xs font-mono-accent flex items-center justify-center space-x-2 transition-colors"
+                  className="w-full py-3 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/50 text-[#E8A9C2] hover:bg-[#EDE8F3] text-xs font-mono-accent flex items-center justify-center space-x-2 transition-colors"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Open Full Architecture Blueprint Modal</span>
@@ -282,8 +282,8 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             </div>
 
             {/* Right Column: Layer Specs & Responsibilities */}
-            <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-[#FFFFFF]/95 border border-[#6B4A87]/40 shadow-2xl space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-[#6B4A87]/30">
+            <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-[#FFFFFF]/95 border border-[#8B5CAD]/40 shadow-2xl space-y-6">
+              <div className="flex items-center justify-between pb-4 border-b border-[#8B5CAD]/30">
                 <div className="flex items-center space-x-3">
                   <div
                     className="w-4 h-4 rounded-full"
@@ -297,7 +297,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                   </div>
                 </div>
 
-                <span className="text-xs font-mono-accent text-[#6B4A87] bg-[#F7F4FA] px-3 py-1 rounded-full border border-[#6B4A87]/40">
+                <span className="text-xs font-mono-accent text-[#8B5CAD] bg-[#F7F4FA] px-3 py-1 rounded-full border border-[#8B5CAD]/40">
                   Cube 0{selectedCube + 1}
                 </span>
               </div>
@@ -308,16 +308,16 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
 
               {/* Protocol & design intent */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
                   <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">PROTOCOLS & INTERFACES</div>
                   <div className="mt-1 text-xs text-[#241428] font-mono-accent">
                     {activeCubeData.specs?.protocol || 'HTTPS / REST'}
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/30">
                   <div className="text-[10px] font-mono-accent text-[#5C4A6E] uppercase">DESIGN INTENT</div>
-                  <div className="mt-1 text-xs text-[#6B4A87] font-mono-accent">
+                  <div className="mt-1 text-xs text-[#8B5CAD] font-mono-accent">
                     {activeCubeData.specs?.latency || 'Responsive product UX'}
                   </div>
                 </div>
@@ -345,7 +345,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                   {activeCubeData.techStack?.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] text-[#E8A9C2] border border-[#6B4A87]/40"
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] text-[#E8A9C2] border border-[#8B5CAD]/40"
                     >
                       {tech}
                     </span>
@@ -374,32 +374,32 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 text-center space-y-2">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div className="font-heading font-bold text-sm text-[#241428]">Role-based access</div>
               <div className="text-[11px] text-[#5C4A6E]">Each school role sees only its own work in Kiduart.</div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 text-center space-y-2">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Lock className="w-5 h-5" />
               </div>
               <div className="font-heading font-bold text-sm text-[#241428]">Encrypted storage</div>
               <div className="text-[11px] text-[#5C4A6E]">Student and fee records protected at rest and in transit.</div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 text-center space-y-2">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Globe2 className="w-5 h-5" />
               </div>
               <div className="font-heading font-bold text-sm text-[#241428]">Data export</div>
               <div className="text-[11px] text-[#5C4A6E]">School data leaves with the school — CSV, Excel, or PDF on request.</div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 text-center space-y-2">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Server className="w-5 h-5" />
               </div>
               <div className="font-heading font-bold text-sm text-[#241428]">Audit logging</div>
@@ -409,7 +409,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         </div>
 
         {/* CTA Footer Block */}
-        <div className="mt-16 text-center p-8 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/35 max-w-3xl mx-auto">
+        <div className="mt-16 text-center p-8 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/35 max-w-3xl mx-auto">
           <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428]">
             Need a Customized Tech Stack Recommendation?
           </h3>
@@ -420,7 +420,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             <Link
               to="/contact"
               onClick={() => soundEngine.playClick('hero')}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs font-semibold hover:opacity-95 transition-opacity"
+              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] font-heading text-xs font-semibold hover:opacity-95 transition-opacity"
             >
               <span>Schedule Architecture Blueprint Call</span>
               <ArrowRight className="w-4 h-4" />

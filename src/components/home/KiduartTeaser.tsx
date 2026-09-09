@@ -49,8 +49,8 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end justify-between mb-12">
           <div className="lg:col-span-8">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#D4C3E3] border border-[#6B4A87]/30 text-[#6B4A87] font-mono-accent text-xs mb-4">
-              <GraduationCap className="w-3.5 h-3.5 text-[#6B4A87]" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#D4C3E3] border border-[#8B5CAD]/30 text-[#8B5CAD] font-mono-accent text-xs mb-4">
+              <GraduationCap className="w-3.5 h-3.5 text-[#8B5CAD]" />
               <span>03 // FLAGSHIP PRODUCT · KIDUART</span>
             </div>
 
@@ -63,7 +63,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#8B5CAD] font-semibold underline underline-offset-2"
               >
                 Kiduart
               </a>{' '}
@@ -72,7 +72,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#8B5CAD] font-semibold underline underline-offset-2"
               >
                 school management system
               </a>{' '}
@@ -84,7 +84,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
             <Link
               to="/kiduart"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#5A3875] transition-all shadow-md group"
+              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#8B5CAD] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#5A3875] transition-all shadow-md group"
             >
               <span>Explore on Trevyk</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -94,7 +94,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
               href="https://kiduart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#6B4A87] hover:text-[#241428] transition-colors px-2 py-1"
+              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#8B5CAD] hover:text-[#241428] transition-colors px-2 py-1"
             >
               <span>Visit kiduart.com</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -109,9 +109,9 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
               return (
                 <div
                   key={feature.title}
-                  className="p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#B9A6D1]/50 shadow-sm hover:shadow-md transition-shadow flex items-start space-x-4"
+                  className="p-4 sm:p-5 rounded-2xl bg-white/80 border border-[#BEABD6]/50 shadow-sm hover:shadow-md transition-shadow flex items-start space-x-4"
                 >
-                  <div className="p-2.5 rounded-xl bg-[#E7E1F0] text-[#6B4A87] shrink-0">
+                  <div className="p-2.5 rounded-xl bg-[#E7E1F0] text-[#8B5CAD] shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
@@ -124,9 +124,9 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="h-full rounded-2xl sm:rounded-3xl bg-white border border-[#6B4A87]/25 shadow-xl p-6 sm:p-8 flex flex-col justify-between gap-6">
+            <div className="h-full rounded-2xl sm:rounded-3xl bg-white border border-[#8B5CAD]/25 shadow-xl p-6 sm:p-8 flex flex-col justify-between gap-6">
               <div>
-                <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87] mb-2">
+                <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#8B5CAD] mb-2">
                   Honest product note
                 </div>
                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428]">
@@ -134,7 +134,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                 </h3>
                 <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
                   No invented adoption numbers here. Capabilities match screens that ship on{' '}
-                  <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                  <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] font-semibold underline underline-offset-2">
                     kiduart.com
                   </a>
                   . KIDUORBIT (AI on school data) is labelled as a next phase — not live yet.
@@ -148,7 +148,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                   'Demo: +91 92175 34128 · support@kiduart.com',
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#8B5CAD] shrink-0 mt-0.5" />
                     <span>{line}</span>
                   </li>
                 ))}
@@ -159,7 +159,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                   href="https://kiduart.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#8B5CAD] text-white text-xs font-heading font-semibold"
                 >
                   Book a free demo <ExternalLink className="w-3.5 h-3.5" />
                 </a>
@@ -167,7 +167,7 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                   href="https://kiduart.com/about"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/25 text-[#5C4A6E] text-xs font-mono-accent"
                 >
                   About Kiduart
                 </a>

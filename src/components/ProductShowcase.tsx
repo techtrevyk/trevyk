@@ -69,7 +69,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       statSuffix: '%',
       statLabel: 'On-Prem / Private Cloud AI Privacy',
       icon: Sparkles,
-      color: '#B9A6D1',
+      color: '#BEABD6',
     },
     {
       id: 'core-modules',
@@ -83,7 +83,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       statSuffix: ' Core Modules',
       statLabel: 'Integrated Campus Systems',
       icon: School,
-      color: '#6B4A87',
+      color: '#8B5CAD',
     },
     {
       id: 'live-integrations',
@@ -118,7 +118,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
     >
       {/* 1. Services → Product Connective Reassembly Anchor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center pointer-events-none">
-        <div className="px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/50 text-[#6B4A87] font-mono-accent text-[10px] sm:text-[11px] uppercase tracking-widest shadow-[0_0_20px_rgba(232,169,194,0.3)] flex items-center space-x-2">
+        <div className="px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/50 text-[#8B5CAD] font-mono-accent text-[10px] sm:text-[11px] uppercase tracking-widest shadow-[0_0_20px_rgba(232,169,194,0.3)] flex items-center space-x-2">
           <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse fill-none stroke-current" strokeWidth="2">
             <rect x="2" y="3" width="20" height="14" rx="2" />
             <line x1="8" y1="21" x2="16" y2="21" />
@@ -130,13 +130,13 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
       {/* 2. Deep Aubergine Spotlight Lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] sm:w-[600px] lg:w-[800px] h-[500px] bg-gradient-to-b from-[#6B4A87]/30 via-[#F7F4FA]/40 to-transparent blur-[120px]" />
-        <div className="absolute bottom-10 right-10 w-[300px] sm:w-[450px] h-[450px] bg-gradient-to-tl from-[#E8A9C2]/15 via-[#6B4A87]/15 to-transparent blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[350px] sm:w-[600px] lg:w-[800px] h-[500px] bg-gradient-to-b from-[#8B5CAD]/30 via-[#F7F4FA]/40 to-transparent blur-[120px]" />
+        <div className="absolute bottom-10 right-10 w-[300px] sm:w-[450px] h-[450px] bg-gradient-to-tl from-[#E8A9C2]/15 via-[#8B5CAD]/15 to-transparent blur-3xl" />
         <div className="absolute top-1/2 left-0 w-[300px] sm:w-[400px] h-[400px] bg-gradient-to-tr from-[#5A3875]/20 to-transparent blur-3xl" />
         <div 
           className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: 'linear-gradient(#B9A6D1 1px, transparent 1px), linear-gradient(90deg, #B9A6D1 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(#BEABD6 1px, transparent 1px), linear-gradient(90deg, #BEABD6 1px, transparent 1px)',
             backgroundSize: '40px 40px'
           }}
         />
@@ -145,14 +145,14 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-[#F7F4FA] border border-[#E8A9C2]/50 text-[#6B4A87] font-mono-accent text-xs mb-4 shadow-[0_4px_20px_rgba(232,169,194,0.15)]">
+          <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-[#F7F4FA] border border-[#E8A9C2]/50 text-[#8B5CAD] font-mono-accent text-xs mb-4 shadow-[0_4px_20px_rgba(232,169,194,0.15)]">
             <GraduationCap className="w-4 h-4" />
             <span>FLAGSHIP PRODUCT • KIDUART.COM</span>
           </div>
 
           <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] tracking-tight leading-[1.15]">
             Kiduart School ERP: Built For{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#B9A6D1] to-[#241428]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#BEABD6] to-[#241428]">
               Indian Schools & Colleges
             </span>
           </h2>
@@ -169,7 +169,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#6B4A87] hover:text-[#241428] bg-[#F7F4FA]/80 hover:bg-[#EDE8F3] border border-[#6B4A87]/50 hover:border-[#E8A9C2] px-3.5 py-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2]"
+              className="inline-flex items-center space-x-1.5 text-xs font-mono-accent text-[#8B5CAD] hover:text-[#241428] bg-[#F7F4FA]/80 hover:bg-[#EDE8F3] border border-[#8B5CAD]/50 hover:border-[#E8A9C2] px-3.5 py-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2]"
             >
               <span>Explore official product at</span>
               <strong className="underline underline-offset-2">kiduart.com</strong>
@@ -180,7 +180,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
         {/* Real Proof Metrics Ribbon (Accurate & Grounded) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6 mb-14 sm:mb-20">
-          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#6B4A87]/40 shadow-[0_10px_30px_rgba(107,74,135,0.10)] flex flex-col justify-between">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#8B5CAD]/40 shadow-[0_10px_30px_rgba(139,92,173,0.10)] flex flex-col justify-between">
             <span className="text-[10px] sm:text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
               Core Modules
             </span>
@@ -190,7 +190,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <span className="text-[11px] sm:text-xs text-[#5C4A6E]/70">Admissions to Transport</span>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#6B4A87]/40 shadow-[0_10px_30px_rgba(107,74,135,0.10)] flex flex-col justify-between">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#8B5CAD]/40 shadow-[0_10px_30px_rgba(139,92,173,0.10)] flex flex-col justify-between">
             <span className="text-[10px] sm:text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
               Private AI Privacy
             </span>
@@ -200,7 +200,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <span className="text-[11px] sm:text-xs text-[#5C4A6E]/70">On-Instance Processing</span>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#6B4A87]/40 shadow-[0_10px_30px_rgba(107,74,135,0.10)] flex flex-col justify-between">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#8B5CAD]/40 shadow-[0_10px_30px_rgba(139,92,173,0.10)] flex flex-col justify-between">
             <span className="text-[10px] sm:text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
               Setup Policy
             </span>
@@ -210,7 +210,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
             <span className="text-[11px] sm:text-xs text-[#5C4A6E]/70">Zero Upfront Licensing</span>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#6B4A87]/40 shadow-[0_10px_30px_rgba(107,74,135,0.10)] flex flex-col justify-between">
+          <div className="p-5 sm:p-6 rounded-2xl bg-white/90 border border-[#8B5CAD]/40 shadow-[0_10px_30px_rgba(139,92,173,0.10)] flex flex-col justify-between">
             <span className="text-[10px] sm:text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
               Live Gateways
             </span>
@@ -222,9 +222,9 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
         </div>
 
         {/* Founding School Charter Banner (Honest & No-Hype) */}
-        <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-[#F7F4FA]/90 border border-[#6B4A87]/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-[#F7F4FA]/90 border border-[#8B5CAD]/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-[#6B4A87]/30 border border-[#E8A9C2]/40 flex items-center justify-center text-[#E8A9C2] shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#8B5CAD]/30 border border-[#E8A9C2]/40 flex items-center justify-center text-[#E8A9C2] shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -239,7 +239,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
           <a
             href="#contact"
             onClick={() => soundEngine.playClick('soft')}
-            className="text-xs font-mono-accent text-[#241428] hover:text-[#E8A9C2] bg-[#FFFFFF] px-3.5 py-2 rounded-xl border border-[#6B4A87]/50 hover:border-[#E8A9C2] shrink-0 transition-all"
+            className="text-xs font-mono-accent text-[#241428] hover:text-[#E8A9C2] bg-[#FFFFFF] px-3.5 py-2 rounded-xl border border-[#8B5CAD]/50 hover:border-[#E8A9C2] shrink-0 transition-all"
           >
             Apply For Founding Cohort →
           </a>
@@ -273,7 +273,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                   className={`p-4 sm:p-6 rounded-2xl border transition-all duration-300 cursor-pointer interactive-target text-left ${
                     isActive
                       ? 'bg-[#F7F4FA] border-[#E8A9C2]/70 shadow-[0_10px_30px_rgba(232,169,194,0.15)] ring-1 ring-[#E8A9C2]/30'
-                      : 'bg-[#FFFFFF]/70 border-[#6B4A87]/30 hover:border-[#B9A6D1]/50 hover:bg-[#EDE8F3]'
+                      : 'bg-[#FFFFFF]/70 border-[#8B5CAD]/30 hover:border-[#BEABD6]/50 hover:bg-[#EDE8F3]'
                   }`}
                   data-cursor-label="EXPLORE"
                 >
@@ -302,7 +302,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
 
                     <ChevronRight
                       className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform shrink-0 mt-1 ${
-                        isActive ? 'rotate-90 text-[#E8A9C2]' : 'text-[#6B4A87]'
+                        isActive ? 'rotate-90 text-[#E8A9C2]' : 'text-[#8B5CAD]'
                       }`}
                     />
                   </div>
@@ -314,13 +314,13 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="mt-3 pt-3 border-t border-[#6B4A87]/30 space-y-3"
+                        className="mt-3 pt-3 border-t border-[#8B5CAD]/30 space-y-3"
                       >
                         <p className="text-xs sm:text-sm text-[#5C4A6E]/85 leading-relaxed">
                           {story.description}
                         </p>
 
-                        <div className="p-2.5 rounded-lg bg-[#FFFFFF] border border-[#6B4A87]/40 flex items-center justify-between text-xs font-mono-accent">
+                        <div className="p-2.5 rounded-lg bg-[#FFFFFF] border border-[#8B5CAD]/40 flex items-center justify-between text-xs font-mono-accent">
                           <span className="text-[#5C4A6E]">{story.statLabel}:</span>
                           <span className="font-bold text-[#E8A9C2]">
                             <CountUpNumber
@@ -366,7 +366,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundEngine.playClick('soft')}
-                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-3 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/60 hover:border-[#E8A9C2] text-[#241428] hover:text-[#E8A9C2] text-xs font-mono-accent transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] interactive-target"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-3 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/60 hover:border-[#E8A9C2] text-[#241428] hover:text-[#E8A9C2] text-xs font-mono-accent transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] interactive-target"
                 data-cursor-label="KIDUART"
               >
                 <span>Visit kiduart.com</span>
@@ -394,14 +394,14 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                 mass: 0.2,
               }}
               style={{ transformStyle: 'preserve-3d' }}
-              className="relative w-full rounded-2xl sm:rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/60 shadow-[0_25px_60px_rgba(107,74,135,0.18)] overflow-hidden"
+              className="relative w-full rounded-2xl sm:rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/60 shadow-[0_25px_60px_rgba(139,92,173,0.18)] overflow-hidden"
             >
               {/* Window Title Bar */}
-              <div className="flex items-center justify-between px-3.5 sm:px-6 py-3 bg-[#F7F4FA] border-b border-[#6B4A87]/40">
+              <div className="flex items-center justify-between px-3.5 sm:px-6 py-3 bg-[#F7F4FA] border-b border-[#8B5CAD]/40">
                 <div className="flex items-center space-x-2">
                   <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#E8A9C2]/60" />
-                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#B9A6D1]/60" />
-                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#6B4A87]/60" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#BEABD6]/60" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#8B5CAD]/60" />
                   <span className="font-mono-accent text-[11px] sm:text-xs text-[#5C4A6E] ml-2 truncate max-w-[140px] sm:max-w-none">
                     app.kiduart.com/dashboard/campus
                   </span>
@@ -416,7 +416,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
               </div>
 
               {/* ERP Module Navigation Tabs */}
-              <div className="flex items-center border-b border-[#6B4A87]/30 bg-white/90 overflow-x-auto scrollbar-thin">
+              <div className="flex items-center border-b border-[#8B5CAD]/30 bg-white/90 overflow-x-auto scrollbar-thin">
                 {[
                   { id: 'fee', label: 'Fees & Payments', icon: CreditCard },
                   { id: 'ai-signals', label: 'Campus Signals', icon: Sparkles },
@@ -458,7 +458,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     className="space-y-4 sm:space-y-5"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <span className="text-[10px] font-mono-accent text-[#5C4A6E]">
                           TODAY RECONCILED (UPI / RAZORPAY)
                         </span>
@@ -470,11 +470,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         </div>
                       </div>
 
-                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <span className="text-[10px] font-mono-accent text-[#5C4A6E]">
                           GATEWAY STATUS
                         </span>
-                        <div className="text-lg sm:text-xl font-bold font-mono-accent text-[#6B4A87] mt-0.5">
+                        <div className="text-lg sm:text-xl font-bold font-mono-accent text-[#8B5CAD] mt-0.5">
                           Razorpay & Stripe
                         </div>
                         <div className="text-[10px] text-[#5C4A6E] font-mono-accent mt-1">
@@ -482,7 +482,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         </div>
                       </div>
 
-                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <span className="text-[10px] font-mono-accent text-[#5C4A6E]">
                           LIVE OUTSTANDING DUES
                         </span>
@@ -495,13 +495,13 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                       </div>
                     </div>
 
-                    <div className="rounded-xl border border-[#6B4A87]/30 bg-white/80 overflow-hidden">
-                      <div className="px-3.5 sm:px-4 py-2.5 bg-[#F7F4FA]/80 border-b border-[#6B4A87]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
+                    <div className="rounded-xl border border-[#8B5CAD]/30 bg-white/80 overflow-hidden">
+                      <div className="px-3.5 sm:px-4 py-2.5 bg-[#F7F4FA]/80 border-b border-[#8B5CAD]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
                         <span>KIDUART LIVE INR TRANSACTION STREAM</span>
                         <span className="text-emerald-400 text-[10px] sm:text-xs">● INSTANT RECEIPT GENERATED</span>
                       </div>
 
-                      <div className="divide-y divide-[#6B4A87]/20 text-xs font-mono-accent">
+                      <div className="divide-y divide-[#8B5CAD]/20 text-xs font-mono-accent">
                         {[
                           { id: 'TX-9042', name: 'Aarav Sharma (Class 10-A)', type: 'Term 2 Tuition + Lab Fee', amt: '₹42,500.00', status: 'Reconciled (UPI)' },
                           { id: 'TX-9041', name: 'Zoya Khan (Class 8-C)', type: 'Annual Transport & Sports Kit', amt: '₹18,200.00', status: 'Reconciled (NetBanking)' },
@@ -551,7 +551,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="p-3.5 rounded-xl bg-white border border-[#6B4A87]/40">
+                      <div className="p-3.5 rounded-xl bg-white border border-[#8B5CAD]/40">
                         <div className="text-[10px] font-mono-accent text-[#5C4A6E]">ATTENDANCE RISK SIGNALS</div>
                         <div className="text-sm font-bold text-[#241428] mt-1">3 Students Flagged</div>
                         <div className="text-[11px] text-[#E8A9C2] mt-1">
@@ -559,7 +559,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         </div>
                       </div>
 
-                      <div className="p-3.5 rounded-xl bg-white border border-[#6B4A87]/40">
+                      <div className="p-3.5 rounded-xl bg-white border border-[#8B5CAD]/40">
                         <div className="text-[10px] font-mono-accent text-[#5C4A6E]">FEE-DEFAULT RISK SCORING</div>
                         <div className="text-sm font-bold text-[#241428] mt-1">98.6% Projected On-Time</div>
                         <div className="text-[11px] text-emerald-400 mt-1">
@@ -579,7 +579,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     className="space-y-4 sm:space-y-5"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-mono-accent text-[#5C4A6E]">SAME-DAY ATTENDANCE LOG</span>
                           <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-mono-accent">
@@ -592,21 +592,21 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         <div className="text-xs text-[#5C4A6E]/70 mt-1">Same-day automated alerts dispatched to parents</div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-mono-accent text-[#5C4A6E]">TRANSPORT & FLEET GPS</span>
-                          <span className="px-2 py-0.5 rounded bg-[#6B4A87]/30 text-[#E8A9C2] text-[10px] font-mono-accent">
+                          <span className="px-2 py-0.5 rounded bg-[#8B5CAD]/30 text-[#E8A9C2] text-[10px] font-mono-accent">
                             ACTIVE
                           </span>
                         </div>
-                        <div className="text-xl sm:text-2xl font-bold font-mono-accent text-[#6B4A87] mt-2">
+                        <div className="text-xl sm:text-2xl font-bold font-mono-accent text-[#8B5CAD] mt-2">
                           Live Vehicle Tracking
                         </div>
                         <div className="text-xs text-[#5C4A6E]/70 mt-1">Routes, stoppages & driver telematics</div>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-white/85 border border-[#6B4A87]/30">
+                    <div className="p-4 rounded-xl bg-white/85 border border-[#8B5CAD]/30">
                       <div className="text-xs font-mono-accent text-[#5C4A6E] mb-2">
                         HOSTEL & LIBRARY MODULE EXTENSIONS
                       </div>
@@ -625,29 +625,29 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     transition={{ duration: 0.3 }}
                     className="space-y-4"
                   >
-                    <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                    <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-xs font-mono-accent text-[#5C4A6E]">STUDENT RECORDS (360° PROFILE)</span>
-                        <span className="text-xs font-mono-accent text-[#6B4A87]">Single Profile Per Student</span>
+                        <span className="text-xs font-mono-accent text-[#8B5CAD]">Single Profile Per Student</span>
                       </div>
                       
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs font-mono-accent">
-                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#6B4A87]/40">
+                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#8B5CAD]/40">
                           <div className="text-[#5C4A6E] text-[10px]">RECORDS</div>
                           <div className="font-bold text-[#241428] mt-0.5 truncate">Academic History</div>
                           <div className="text-[9px] text-[#E8A9C2]">CBSE / ICSE Grades</div>
                         </div>
-                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#6B4A87]/40">
+                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#8B5CAD]/40">
                           <div className="text-[#5C4A6E] text-[10px]">MEDICAL</div>
                           <div className="font-bold text-[#241428] mt-0.5 truncate">Health Records</div>
                           <div className="text-[9px] text-[#E8A9C2]">Allergies & Blood Grp</div>
                         </div>
-                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#6B4A87]/40">
+                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#8B5CAD]/40">
                           <div className="text-[#5C4A6E] text-[10px]">DOCS</div>
                           <div className="font-bold text-[#241428] mt-0.5 truncate">Aadhar & Birth Cert</div>
                           <div className="text-[9px] text-[#E8A9C2]">Secure Vault</div>
                         </div>
-                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#6B4A87]/40">
+                        <div className="p-2 rounded bg-[#FFFFFF] border border-[#8B5CAD]/40">
                           <div className="text-[#5C4A6E] text-[10px]">FEES</div>
                           <div className="font-bold text-[#241428] mt-0.5 truncate">Ledger Summary</div>
                           <div className="text-[9px] text-emerald-400">100% Cleared</div>
@@ -655,7 +655,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-white/80 border border-[#6B4A87]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
+                    <div className="p-3.5 rounded-xl bg-white/80 border border-[#8B5CAD]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
                       <span>HR & PAYROLL SYSTEM</span>
                       <span className="text-[#241428] font-bold">Staff Leaves, Biometrics & Form 16 Automation</span>
                     </div>
@@ -670,8 +670,8 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     transition={{ duration: 0.3 }}
                     className="space-y-4"
                   >
-                    <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40 flex items-center space-x-3.5">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#6B4A87]/30 border border-[#E8A9C2]/40 flex items-center justify-center text-[#E8A9C2] shrink-0">
+                    <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40 flex items-center space-x-3.5">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#8B5CAD]/30 border border-[#E8A9C2]/40 flex items-center justify-center text-[#E8A9C2] shrink-0">
                         <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <div className="min-w-0">
@@ -685,11 +685,11 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono-accent">
-                      <div className="p-3 rounded-lg bg-white border border-[#6B4A87]/30">
+                      <div className="p-3 rounded-lg bg-white border border-[#8B5CAD]/30">
                         <div className="text-[#5C4A6E]">NOTICE CHANNELS</div>
                         <div className="text-base sm:text-lg font-bold text-[#E8A9C2] mt-0.5">In-App, WhatsApp, SMS</div>
                       </div>
-                      <div className="p-3 rounded-lg bg-white border border-[#6B4A87]/30">
+                      <div className="p-3 rounded-lg bg-white border border-[#8B5CAD]/30">
                         <div className="text-[#5C4A6E]">DELIVERY AUDIT LOG</div>
                         <div className="text-base sm:text-lg font-bold text-emerald-400 mt-0.5">100% Timestamped Trail</div>
                       </div>
@@ -706,7 +706,7 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                     className="space-y-4"
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <div className="text-[10px] font-mono-accent text-[#5C4A6E]">ENQUIRY-TO-REGISTRATION PIPELINE</div>
                         <div className="text-lg sm:text-xl font-bold font-mono-accent text-[#241428] mt-1">
                           Admissions CRM
@@ -714,16 +714,16 @@ export const ProductShowcase: React.FC<ProductShowcaseProps> = ({
                         <div className="text-xs text-emerald-400 mt-1">Online form, document upload & token generation</div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#6B4A87]/40">
+                      <div className="p-4 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/40">
                         <div className="text-[10px] font-mono-accent text-[#5C4A6E]">MULTI-CAMPUS HQ CONSOLE</div>
-                        <div className="text-lg sm:text-xl font-bold font-mono-accent text-[#6B4A87] mt-1">
+                        <div className="text-lg sm:text-xl font-bold font-mono-accent text-[#8B5CAD] mt-1">
                           Multi-Branch Groups
                         </div>
                         <div className="text-xs text-[#5C4A6E] mt-1">Consolidated finance, fee audits & campus comparisons</div>
                       </div>
                     </div>
 
-                    <div className="p-3.5 rounded-xl bg-white/80 border border-[#6B4A87]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
+                    <div className="p-3.5 rounded-xl bg-white/80 border border-[#8B5CAD]/30 flex items-center justify-between text-xs font-mono-accent text-[#5C4A6E]">
                       <span className="flex items-center space-x-1.5">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Security: Granular RBAC, Audit Logs & MFA</span>

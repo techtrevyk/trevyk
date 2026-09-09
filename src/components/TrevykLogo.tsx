@@ -62,7 +62,7 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   if (layout === 'card-banner') {
     return (
       <div
-        className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#6B4A87]/20 shadow-sm flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-8 ${className}`}
+        className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#8B5CAD]/20 shadow-sm flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-8 ${className}`}
       >
         <img
           src={LOGO_SRC}

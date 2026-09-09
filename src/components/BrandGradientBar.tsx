@@ -13,7 +13,7 @@ interface BrandGradientBarProps {
 
 /**
  * Trevyk Brand Gradient Furniture Device
- * Sweeps left to right: Deep Plum (#F7F4FA) → Royal Purple (#6B4A87) → Dusty Rose (#C89B6C / #A87088) → Blush Pink (#E8A9C2)
+ * Sweeps left to right: Deep Plum (#F7F4FA) → Royal Purple (#8B5CAD) → Dusty Rose (#C89B6C / #A87088) → Blush Pink (#E8A9C2)
  */
 export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
   height = 5,
@@ -23,7 +23,7 @@ export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
 }) => {
   const barStyle: React.CSSProperties = {
     height: typeof height === 'number' ? `${height}px` : height,
-    background: 'linear-gradient(90deg, #F7F4FA 0%, #6B4A87 18%, #6B4A87 45%, #9E6B8E 68%, #C89B6C 82%, #E8A9C2 100%)',
+    background: 'linear-gradient(90deg, #F7F4FA 0%, #8B5CAD 18%, #8B5CAD 45%, #9E6B8E 68%, #C89B6C 82%, #E8A9C2 100%)',
   };
 
   if (pinnedTop) {
@@ -43,7 +43,7 @@ export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
 
   return (
     <div
-      className={`w-full relative overflow-hidden rounded-full shadow-[0_1px_8px_rgba(107,74,135,0.25)] ${className}`}
+      className={`w-full relative overflow-hidden rounded-full shadow-[0_1px_8px_rgba(139,92,173,0.25)] ${className}`}
       style={barStyle}
       aria-hidden="true"
     >
@@ -64,7 +64,7 @@ export const BrandGradientDivider: React.FC<{ className?: string }> = ({ classNa
         <div 
           className="h-[2px] w-full rounded-full opacity-65"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, #6B4A87 15%, #6B4A87 35%, #C89B6C 65%, #E8A9C2 85%, transparent 100%)'
+            background: 'linear-gradient(90deg, transparent 0%, #8B5CAD 15%, #8B5CAD 35%, #C89B6C 65%, #E8A9C2 85%, transparent 100%)'
           }}
         />
       </div>

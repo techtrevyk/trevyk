@@ -49,7 +49,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 flex flex-col items-start">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <Cpu className="w-3.5 h-3.5" />
             <span>01 // PRODUCTS &amp; SERVICES</span>
           </div>
@@ -66,7 +66,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
             <Link
               to="/services"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#8558A5] transition-all group shadow-[0_10px_28px_rgba(107,74,135,0.28)]"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#8B5CAD] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#A078C8] transition-all group shadow-[0_10px_28px_rgba(139,92,173,0.28)]"
             >
               <span>See all services</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -83,24 +83,24 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
                   key={svc.id}
                   to={svc.href}
                   onClick={() => soundEngine.playClick('soft')}
-                  className="relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#F7F4FA] border-2 border-[#6B4A87]/40 hover:border-[#6B4A87] hover:bg-[#EDE8F3] transition-all flex flex-col justify-between group shadow-[0_8px_22px_rgba(107,74,135,0.10)]"
+                  className="relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#F7F4FA] border-2 border-[#8B5CAD]/40 hover:border-[#8B5CAD] hover:bg-[#EDE8F3] transition-all flex flex-col justify-between group shadow-[0_8px_22px_rgba(139,92,173,0.10)]"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]" aria-hidden />
+                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#8B5CAD] to-[#E8A9C2]" aria-hidden />
                   <div>
-                    <div className="w-9 h-9 rounded-xl bg-[#6B4A87]/15 border border-[#6B4A87]/45 flex items-center justify-center text-[#6B4A87] mb-3 group-hover:scale-105 transition-transform">
+                    <div className="w-9 h-9 rounded-xl bg-[#8B5CAD]/15 border border-[#8B5CAD]/45 flex items-center justify-center text-[#8B5CAD] mb-3 group-hover:scale-105 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-mono-accent text-[#6B4A87] font-semibold block mb-1">
+                    <span className="text-[10px] font-mono-accent text-[#8B5CAD] font-semibold block mb-1">
                       {svc.tag}
                     </span>
-                    <h3 className="font-heading font-bold text-sm text-[#241428] group-hover:text-[#6B4A87] transition-colors leading-snug">
+                    <h3 className="font-heading font-bold text-sm text-[#241428] group-hover:text-[#8B5CAD] transition-colors leading-snug">
                       {svc.title}
                     </h3>
                     <p className="mt-2 text-xs text-[#5C4A6E] leading-relaxed">
                       {svc.desc}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-[#6B4A87]/20 flex items-center text-[11px] font-mono-accent text-[#6B4A87] group-hover:translate-x-0.5 transition-transform">
+                  <div className="mt-4 pt-3 border-t border-[#8B5CAD]/20 flex items-center text-[11px] font-mono-accent text-[#8B5CAD] group-hover:translate-x-0.5 transition-transform">
                     <span>Learn more</span>
                     <ArrowRight className="w-3 h-3 ml-1" />
                   </div>
@@ -109,9 +109,9 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
             })}
           </div>
 
-          <div className="rounded-2xl border border-[#6B4A87]/25 bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="rounded-2xl border border-[#8B5CAD]/25 bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-wider block">
+              <span className="text-[10px] font-mono-accent text-[#8B5CAD] uppercase tracking-wider block">
                 Flagship product
               </span>
               <span className="font-heading font-bold text-base text-[#241428]">
@@ -125,7 +125,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
               href="https://kiduart.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold hover:opacity-95 shrink-0"
+              className="inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-[#8B5CAD] text-white text-xs font-heading font-semibold hover:opacity-95 shrink-0"
             >
               Visit kiduart.com
             </a>

@@ -28,8 +28,8 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
 }) => {
   const cubes = [
     { name: 'Edge Ingress', color: '#E8A9C2', index: 0, tag: 'L7 / DDoS Scrubbing' },
-    { name: 'API Gateway', color: '#B9A6D1', index: 1, tag: 'mTLS / JWT Zero-Trust' },
-    { name: 'Distributed Services', color: '#6B4A87', index: 2, tag: 'gRPC / Kafka Cluster' },
+    { name: 'API Gateway', color: '#BEABD6', index: 1, tag: 'mTLS / JWT Zero-Trust' },
+    { name: 'Distributed Services', color: '#8B5CAD', index: 2, tag: 'gRPC / Kafka Cluster' },
     { name: 'ERP Core Engine', color: '#5A3875', index: 3, tag: 'Domain Rules & IoT' },
     { name: 'Data Lake & SQL', color: '#E0D8EC', index: 4, tag: 'ClickHouse / Aurora' },
   ];
@@ -37,16 +37,16 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
   return (
     <section
       id="technology-teaser"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#FFFFFF] rounded-3xl border border-[#6B4A87]/30 my-8 shadow-2xl overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#FFFFFF] rounded-3xl border border-[#8B5CAD]/30 my-8 shadow-2xl overflow-hidden"
     >
       {/* Background Accent Glow */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#6B4A87]/20 to-[#E8A9C2]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#8B5CAD]/20 to-[#E8A9C2]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
         {/* Left Column: Heading & System Philosophy */}
         <div className="lg:col-span-6 flex flex-col items-start">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <Layers className="w-3.5 h-3.5" />
             <span>02 // THE 5-CUBE ARCHITECTURE</span>
           </div>
@@ -63,7 +63,7 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
             <Link
               to="/technology"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-md"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-md"
             >
               <span>Explore 3D Technology Deep Dive</span>
               <ArrowRight className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
                 soundEngine.playClick('hero');
                 onOpenArchitectureModal(null);
               }}
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] hover:border-[#E8A9C2] font-heading text-xs sm:text-sm font-medium transition-all"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#5C4A6E] hover:text-[#241428] hover:border-[#E8A9C2] font-heading text-xs sm:text-sm font-medium transition-all"
             >
               <Maximize2 className="w-3.5 h-3.5 text-[#E8A9C2]" />
               <span>Launch Interactive Inspector</span>
@@ -106,7 +106,7 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
                 className={`p-3.5 sm:p-4 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
                   isHovered
                     ? 'bg-[#F7F4FA] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.15)] translate-x-1'
-                    : 'bg-[#FFFFFF]/60 border-[#6B4A87]/30 hover:border-[#6B4A87] hover:bg-[#F7F4FA]/80'
+                    : 'bg-[#FFFFFF]/60 border-[#8B5CAD]/30 hover:border-[#8B5CAD] hover:bg-[#F7F4FA]/80'
                 }`}
               >
                 <div className="flex items-center space-x-3.5">
@@ -128,7 +128,7 @@ export const TechnologyTeaser: React.FC<TechnologyTeaserProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-2 text-[11px] font-mono-accent text-[#6B4A87]">
+                <div className="flex items-center space-x-2 text-[11px] font-mono-accent text-[#8B5CAD]">
                   <span className="hidden sm:inline">Tier 0{cube.index + 1}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>

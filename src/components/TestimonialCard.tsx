@@ -82,7 +82,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
           mass: 0.15,
         }}
         style={{ transformStyle: 'preserve-3d' }}
-        className="w-full h-full p-6 sm:p-8 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/50 shadow-[0_20px_50px_rgba(107,74,135,0.14)] flex flex-col justify-between relative overflow-hidden group interactive-target"
+        className="w-full h-full p-6 sm:p-8 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/50 shadow-[0_20px_50px_rgba(139,92,173,0.14)] flex flex-col justify-between relative overflow-hidden group interactive-target"
         data-cursor-label="FEEDBACK"
       >
         {/* Dynamic Specular Glare Reflection on Hover */}
@@ -104,7 +104,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
         {/* Top Meta: Verified Badge, Org Type, Rating */}
         <div>
           <div className="flex items-center justify-between gap-2 mb-5">
-            <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/40 text-xs font-mono-accent text-[#5C4A6E]">
+            <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/40 text-xs font-mono-accent text-[#5C4A6E]">
               <IconOrg className="w-3.5 h-3.5 text-[#E8A9C2]" />
               <span className="truncate max-w-[170px]">{testimonial.organization}</span>
             </div>
@@ -117,7 +117,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </div>
 
           {/* Impact Metric Highlight Ribbon */}
-          <div className="mb-5 p-3 rounded-xl bg-[#F7F4FA]/70 border border-[#6B4A87]/30 flex items-center justify-between text-xs font-mono-accent">
+          <div className="mb-5 p-3 rounded-xl bg-[#F7F4FA]/70 border border-[#8B5CAD]/30 flex items-center justify-between text-xs font-mono-accent">
             <span className="text-[#5C4A6E]">{testimonial.highlightMetric.label}:</span>
             <div className="flex items-center text-[#E8A9C2] font-bold font-mono-accent">
               <TrendingUp className="w-3 h-3 mr-1 text-emerald-400" />
@@ -127,7 +127,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
           {/* Quote Text */}
           <div className="relative">
-            <Quote className="w-6 h-6 text-[#6B4A87]/50 mb-2 rotate-180" />
+            <Quote className="w-6 h-6 text-[#8B5CAD]/50 mb-2 rotate-180" />
             <p className="text-sm sm:text-base text-[#241428]/90 leading-relaxed font-sans italic">
               "{testimonial.quote}"
             </p>
@@ -135,7 +135,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
 
         {/* Bottom Profile: Initials Monogram, Name, Role, Verified Tick */}
-        <div className="mt-6 pt-5 border-t border-[#6B4A87]/30 flex items-center justify-between">
+        <div className="mt-6 pt-5 border-t border-[#8B5CAD]/30 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div
               className="w-11 h-11 rounded-xl flex items-center justify-center font-mono-accent font-bold text-sm shrink-0 border"

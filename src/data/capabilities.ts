@@ -59,7 +59,7 @@ export const CAPABILITIES_DATA: TechCapabilityItem[] = [
     usageNote: 'Unified cross-platform mobile app development delivering native 60 FPS performance on iOS & Android.',
     badge: 'Mobile Engineering',
     tag: 'iOS & Android Native',
-    color: '#B9A6D1',
+    color: '#BEABD6',
     iconType: 'mobile',
   },
 
@@ -101,7 +101,7 @@ export const CAPABILITIES_DATA: TechCapabilityItem[] = [
     usageNote: 'Binary service-to-service communication replacing bulky JSON with sub-millisecond serialization.',
     badge: 'IPC Protocol',
     tag: 'Binary RPC',
-    color: '#B9A6D1',
+    color: '#BEABD6',
     iconType: 'grpc',
   },
   {

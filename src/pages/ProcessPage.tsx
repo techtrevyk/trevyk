@@ -117,7 +117,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
         {/* 1. HEADER HERO                                                            */}
         {/* ========================================================================= */}
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
             <GitMerge className="w-3.5 h-3.5" />
             <span>HOW WE DELIVER // 5 STEPS</span>
           </div>
@@ -134,18 +134,18 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
         {/* ========================================================================= */}
         {/* 2. SVG CONNECTED 5-STEP JOURNEY MAP                                       */}
         {/* ========================================================================= */}
-        <div className="mt-14 p-6 sm:p-10 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/40 shadow-2xl relative overflow-hidden">
+        <div className="mt-14 p-6 sm:p-10 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/40 shadow-2xl relative overflow-hidden">
           
           {/* Visual SVG Line-Draw Step Navigator */}
-          <div className="hidden lg:block mb-10 pb-8 border-b border-[#6B4A87]/30 relative">
+          <div className="hidden lg:block mb-10 pb-8 border-b border-[#8B5CAD]/30 relative">
             
             {/* SVG Connecting Line with Brand Gradient */}
             <svg className="absolute top-1/2 left-0 w-full h-2 -translate-y-1/2 -z-0 pointer-events-none" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="stepConnectorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#F7F4FA" />
-                  <stop offset="25%" stopColor="#6B4A87" />
-                  <stop offset="75%" stopColor="#B9A6D1" />
+                  <stop offset="25%" stopColor="#8B5CAD" />
+                  <stop offset="75%" stopColor="#BEABD6" />
                   <stop offset="100%" stopColor="#E8A9C2" />
                 </linearGradient>
               </defs>
@@ -166,7 +166,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                     className={`flex flex-col items-center text-center p-3 rounded-2xl transition-all ${
                       isActive
                         ? 'bg-[#F7F4FA] border-2 border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.2)]'
-                        : 'bg-[#FFFFFF] border border-[#6B4A87]/30 hover:border-[#6B4A87]'
+                        : 'bg-[#FFFFFF] border border-[#8B5CAD]/30 hover:border-[#8B5CAD]'
                     }`}
                   >
                     <span className={`w-8 h-8 rounded-full flex items-center justify-center font-mono-accent font-bold text-xs mb-2 ${
@@ -198,7 +198,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                   className={`rounded-2xl border transition-all ${
                     isActive
                       ? 'bg-[#F5F1F8] border-[#E8A9C2]/60 p-6 sm:p-8 shadow-xl'
-                      : 'bg-[#FFFFFF]/40 border-[#6B4A87]/20 p-5 cursor-pointer hover:border-[#6B4A87]/60'
+                      : 'bg-[#FFFFFF]/40 border-[#8B5CAD]/20 p-5 cursor-pointer hover:border-[#8B5CAD]/60'
                   }`}
                   onClick={() => {
                     if (!isActive) {
@@ -211,14 +211,14 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                     <div className="flex items-center space-x-4">
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-mono-accent font-bold text-lg ${
                         isActive 
-                          ? 'bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] shadow-md' 
-                          : 'bg-[#F7F4FA] text-[#5C4A6E] border border-[#6B4A87]/40'
+                          ? 'bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] shadow-md' 
+                          : 'bg-[#F7F4FA] text-[#5C4A6E] border border-[#8B5CAD]/40'
                       }`}>
                         <StepIcon className="w-6 h-6" />
                       </div>
                       <div>
                         <div className="flex items-center space-x-2">
-                          <span className="text-xs font-mono-accent text-[#6B4A87]">STAGE {step.number}</span>
+                          <span className="text-xs font-mono-accent text-[#8B5CAD]">STAGE {step.number}</span>
                           <span className="text-xs font-mono-accent text-[#5C4A6E]">({step.timeline})</span>
                         </div>
                         <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-0.5">
@@ -227,7 +227,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                       </div>
                     </div>
 
-                    <span className="text-xs font-mono-accent px-3 py-1 rounded-full bg-[#F7F4FA] text-[#E8A9C2] border border-[#6B4A87]/40 self-start sm:self-center shrink-0">
+                    <span className="text-xs font-mono-accent px-3 py-1 rounded-full bg-[#F7F4FA] text-[#E8A9C2] border border-[#8B5CAD]/40 self-start sm:self-center shrink-0">
                       {step.timeline}
                     </span>
                   </div>
@@ -242,15 +242,15 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       transition={{ duration: 0.3 }}
-                      className="mt-6 pt-6 border-t border-[#6B4A87]/30 space-y-6"
+                      className="mt-6 pt-6 border-t border-[#8B5CAD]/30 space-y-6"
                     >
                       <div>
-                        <div className="text-xs font-mono-accent text-[#6B4A87] uppercase mb-3">
+                        <div className="text-xs font-mono-accent text-[#8B5CAD] uppercase mb-3">
                           CORE ENGINEERING ACTIVITIES & DELIVERABLES:
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                           {step.details.map((detail, idx) => (
-                            <div key={idx} className="flex items-start space-x-2.5 p-3 rounded-xl bg-[#FFFFFF]/80 border border-[#6B4A87]/30 text-xs sm:text-sm text-[#5C4A6E]">
+                            <div key={idx} className="flex items-start space-x-2.5 p-3 rounded-xl bg-[#FFFFFF]/80 border border-[#8B5CAD]/30 text-xs sm:text-sm text-[#5C4A6E]">
                               <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0 mt-0.5" />
                               <span>{detail}</span>
                             </div>
@@ -258,7 +258,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                         </div>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                      <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                         <div className="flex items-center space-x-2">
                           <FileCode className="w-4 h-4 text-[#E8A9C2]" />
                           <span className="text-xs font-mono-accent text-[#5C4A6E] uppercase">
@@ -294,8 +294,8 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Terminal className="w-5 h-5" />
               </div>
               <h3 className="font-heading font-bold text-base text-[#241428]">Review before release</h3>
@@ -304,8 +304,8 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Server className="w-5 h-5" />
               </div>
               <h3 className="font-heading font-bold text-base text-[#241428]">Parallel when it matters</h3>
@@ -314,8 +314,8 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
+            <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/30 space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/40 flex items-center justify-center text-[#8B5CAD]">
                 <Workflow className="w-5 h-5" />
               </div>
               <h3 className="font-heading font-bold text-base text-[#241428]">Written handoff</h3>
@@ -326,7 +326,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
           </div>
         </div>
 
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#F7F4FA] via-white to-[#F7F4FA] border border-[#6B4A87]/40 text-center space-y-6">
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#F7F4FA] via-white to-[#F7F4FA] border border-[#8B5CAD]/40 text-center space-y-6">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
             Ready to start with a clear scope?
           </h2>
@@ -337,7 +337,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
             <Link
               to="/contact"
               onClick={() => soundEngine.playClick('hero')}
-              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
+              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#8B5CAD] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
             >
               <span>Contact Trevyk</span>
               <ArrowRight className="w-4 h-4" />

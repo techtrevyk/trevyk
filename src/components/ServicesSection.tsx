@@ -88,8 +88,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       {/* Background ambient lighting and subtle grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft radial glow centers */}
-        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#6B4A87]/25 via-[#F7F4FA]/40 to-transparent blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-[#E8A9C2]/15 via-[#6B4A87]/20 to-transparent blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#8B5CAD]/25 via-[#F7F4FA]/40 to-transparent blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-[#E8A9C2]/15 via-[#8B5CAD]/20 to-transparent blur-3xl" />
         
         {/* Subtle noise grain */}
         <div className="absolute inset-0 bg-noise opacity-30" />
@@ -98,16 +98,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 sm:pb-12 border-b border-[#6B4A87]/30">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8 sm:pb-12 border-b border-[#8B5CAD]/30">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
               <span className="w-2 h-2 rounded-full bg-[#E8A9C2] animate-pulse" />
               <span>SERVICES & FLAGSHIP PRODUCTS</span>
             </div>
 
             <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-[#241428] tracking-tight">
               Eight Specialized Vectors of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#241428] via-[#B9A6D1] to-[#E8A9C2]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#241428] via-[#BEABD6] to-[#E8A9C2]">
                 Software Excellence
               </span>
             </h2>
@@ -116,7 +116,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           {/* Right Navigation & Horizontal Controls */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             {/* Slide Index Indicator */}
-            <div className="font-mono-accent text-xs text-[#5C4A6E] bg-[#F7F4FA]/80 px-3.5 py-2 rounded-xl border border-[#6B4A87]/40 flex items-center space-x-2">
+            <div className="font-mono-accent text-xs text-[#5C4A6E] bg-[#F7F4FA]/80 px-3.5 py-2 rounded-xl border border-[#8B5CAD]/40 flex items-center space-x-2">
               <span>ACTIVE CARD:</span>
               <span className="text-[#E8A9C2] font-bold">
                 0{currentIndex + 1} / 0{filteredServices.length}
@@ -132,8 +132,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 aria-label="Scroll left"
                 className={`p-3 rounded-xl border transition-all ${
                   canScrollLeft
-                    ? 'bg-[#F7F4FA] border-[#6B4A87]/60 text-[#241428] hover:border-[#E8A9C2] hover:bg-[#6B4A87]/30'
-                    : 'bg-[#FFFFFF] border-[#6B4A87]/20 text-[#5C4A6E]/30 cursor-not-allowed'
+                    ? 'bg-[#F7F4FA] border-[#8B5CAD]/60 text-[#241428] hover:border-[#E8A9C2] hover:bg-[#8B5CAD]/30'
+                    : 'bg-[#FFFFFF] border-[#8B5CAD]/20 text-[#5C4A6E]/30 cursor-not-allowed'
                 }`}
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -146,8 +146,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 aria-label="Scroll right"
                 className={`p-3 rounded-xl border transition-all ${
                   canScrollRight
-                    ? 'bg-[#F7F4FA] border-[#6B4A87]/60 text-[#241428] hover:border-[#E8A9C2] hover:bg-[#6B4A87]/30'
-                    : 'bg-[#FFFFFF] border-[#6B4A87]/20 text-[#5C4A6E]/30 cursor-not-allowed'
+                    ? 'bg-[#F7F4FA] border-[#8B5CAD]/60 text-[#241428] hover:border-[#E8A9C2] hover:bg-[#8B5CAD]/30'
+                    : 'bg-[#FFFFFF] border-[#8B5CAD]/20 text-[#5C4A6E]/30 cursor-not-allowed'
                 }`}
               >
                 <ChevronRight className="w-5 h-5" />
@@ -166,8 +166,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 onClick={() => setActiveCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-heading font-medium transition-all whitespace-nowrap interactive-target ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#6B4A87] to-[#B9A6D1] text-[#241428] shadow-[0_4px_16px_rgba(107,74,135,0.4)]'
-                    : 'bg-[#F7F4FA]/70 text-[#5C4A6E] border border-[#6B4A87]/30 hover:border-[#B9A6D1]/60 hover:text-[#241428]'
+                    ? 'bg-gradient-to-r from-[#8B5CAD] to-[#BEABD6] text-[#241428] shadow-[0_4px_16px_rgba(139,92,173,0.4)]'
+                    : 'bg-[#F7F4FA]/70 text-[#5C4A6E] border border-[#8B5CAD]/30 hover:border-[#BEABD6]/60 hover:text-[#241428]'
                 }`}
                 data-cursor-label={cat.label.toUpperCase()}
               >
@@ -200,7 +200,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* Horizontal Navigation Hint & Pagination Dots */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#6B4A87]/30">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#8B5CAD]/30">
           <div className="flex items-center space-x-2 text-xs font-mono-accent text-[#5C4A6E]">
             <Compass className="w-4 h-4 text-[#E8A9C2]" />
             <span>DRAG OR USE ARROWS TO BROWSE SERVICES • CLICK ANY CARD TO INSPECT SPECS</span>
@@ -222,7 +222,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 className={`h-1.5 rounded-full transition-all ${
                   idx === currentIndex
                     ? 'w-8 bg-[#E8A9C2]'
-                    : 'w-2 bg-[#6B4A87]/50 hover:bg-[#B9A6D1]'
+                    : 'w-2 bg-[#8B5CAD]/50 hover:bg-[#BEABD6]'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

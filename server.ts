@@ -74,7 +74,7 @@ Honesty rules:
 - No fake testimonials, school counts, SOC 2/ISO badges, or 24/7 SRE theatre.
 - Prefer linking to kiduart.com / kiduart.com/about for product depth.
 
-Brand: TREVYK Technologies — "Turning Vision Into Progress." Official logo is the brand mark on trevyk.com (not an AI cube illustration claim).`,
+Brand: TREVYK Technologies — "Turning Vision Into Progress." Official site: trevyk.in. Logo is the brand mark on trevyk.in (not an AI cube illustration claim).`,
   },
   'quick-assistant': {
     roleName: 'Trevyk Rapid Assistant',

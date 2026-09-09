@@ -194,7 +194,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4">
               <GraduationCap className="w-3.5 h-3.5" />
               <span>FLAGSHIP PRODUCT · BUILT BY TREVYK</span>
             </div>
@@ -208,7 +208,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#8B5CAD] font-semibold underline underline-offset-2"
               >
                 Kiduart
               </a>{' '}
@@ -217,7 +217,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#8B5CAD] font-semibold underline underline-offset-2"
               >
                 school management system
               </a>{' '}
@@ -230,7 +230,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundEngine.playClick('hero')}
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 shadow-lg"
+                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#8B5CAD] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 shadow-lg"
               >
                 <span>Book a free demo on kiduart.com</span>
                 <ExternalLink className="w-4 h-4" />
@@ -238,17 +238,17 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               <a
                 href="#kiduart-journey"
                 onClick={() => soundEngine.playClick('soft')}
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs"
               >
-                <Layers className="w-3.5 h-3.5 text-[#6B4A87]" />
+                <Layers className="w-3.5 h-3.5 text-[#8B5CAD]" />
                 <span>See the school-year journey</span>
               </a>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#6B4A87]/25 bg-white p-7 sm:p-9 shadow-xl space-y-5">
-              <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87]">
+            <div className="rounded-3xl border border-[#8B5CAD]/25 bg-white p-7 sm:p-9 shadow-xl space-y-5">
+              <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#8B5CAD]">
                 From kiduart.com
               </div>
               <h2 className="font-heading font-bold text-xl text-[#241428]">
@@ -259,15 +259,15 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </p>
               <ul className="space-y-2 text-xs text-[#5C4A6E]">
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD] shrink-0" />
                   Built for Indian school reality — fee heads, boards, SMS parents
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD] shrink-0" />
                   Role panels for teachers, accountants, trustees
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD] shrink-0" />
                   <span>
                     Next AI phase (KIDUORBIT) is{' '}
                     <strong className="text-[#241428]">not launched yet</strong> — ERP baseline first
@@ -278,7 +278,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 href="https://kiduart.com/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
+                className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#8B5CAD] underline underline-offset-2"
               >
                 Read the Kiduart story <ExternalLink className="w-3 h-3" />
               </a>
@@ -291,7 +291,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
         {/* Journey */}
         <div id="kiduart-journey" className="mt-16">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-3">
               <Layers className="w-3.5 h-3.5" />
               <span>SCHOOL OPERATIONS JOURNEY · 12 STEPS</span>
             </div>
@@ -300,7 +300,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             </h2>
             <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
               Content below mirrors the live product map on{' '}
-              <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+              <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] font-semibold underline underline-offset-2">
                 kiduart.com
               </a>
               . Open any step for a short description, then continue on the product site for deep module pages.
@@ -318,8 +318,8 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 }}
                 className={`px-3 py-1.5 rounded-full text-[11px] font-mono-accent border transition-all ${
                   activeStep === idx
-                    ? 'bg-[#6B4A87] text-white border-[#6B4A87]'
-                    : 'bg-white text-[#5C4A6E] border-[#6B4A87]/25 hover:border-[#6B4A87]/50'
+                    ? 'bg-[#8B5CAD] text-white border-[#8B5CAD]'
+                    : 'bg-white text-[#5C4A6E] border-[#8B5CAD]/25 hover:border-[#8B5CAD]/50'
                 }`}
               >
                 {item.step} {item.title}
@@ -327,14 +327,14 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-white border border-[#6B4A87]/25 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-white border border-[#8B5CAD]/25 shadow-sm">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/30 flex items-center justify-center text-[#6B4A87]">
+                <div className="w-11 h-11 rounded-xl bg-[#F7F4FA] border border-[#8B5CAD]/30 flex items-center justify-center text-[#8B5CAD]">
                   <ActiveIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono-accent text-[#6B4A87] uppercase">
+                  <div className="text-[10px] font-mono-accent text-[#8B5CAD] uppercase">
                     Step {active.step} / 12 · Live module in the product
                   </div>
                   <h3 className="font-heading font-bold text-xl text-[#241428]">{active.title}</h3>
@@ -345,7 +345,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               <ul className="space-y-2">
                 {active.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-2 text-xs text-[#5C4A6E]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#8B5CAD] shrink-0 mt-0.5" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -355,7 +355,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   href={active.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#8B5CAD] text-white text-xs font-heading font-semibold"
                 >
                   Open on kiduart.com <ExternalLink className="w-3.5 h-3.5" />
                 </a>
@@ -363,7 +363,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   <button
                     type="button"
                     onClick={() => setActiveStep((s) => Math.min(s + 1, SCHOOL_JOURNEY.length - 1))}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/25 text-[#5C4A6E] text-xs font-mono-accent"
                   >
                     Next: {SCHOOL_JOURNEY[activeStep + 1].title} <ArrowRight className="w-3.5 h-3.5" />
                   </button>
@@ -371,8 +371,8 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 p-5 rounded-2xl bg-[#F7F4FA] border border-[#6B4A87]/20">
-              <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#6B4A87] mb-3">
+            <div className="lg:col-span-5 p-5 rounded-2xl bg-[#F7F4FA] border border-[#8B5CAD]/20">
+              <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#8B5CAD] mb-3">
                 One system vs scattered tools
               </div>
               <p className="text-sm text-[#5C4A6E] leading-relaxed mb-4">
@@ -382,7 +382,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
+                className="text-xs font-mono-accent text-[#8B5CAD] underline underline-offset-2"
               >
                 Compare the full “one Kiduart system” view on kiduart.com →
               </a>
@@ -395,7 +395,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
         {/* Charter */}
         <div id="kiduart-charter" className="mt-16">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#8B5CAD]/40 text-[#8B5CAD] font-mono-accent text-xs mb-3">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>FOUNDING-SCHOOL CHARTER</span>
             </div>
@@ -404,7 +404,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             </h2>
             <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
               The same honest commitments published on{' '}
-              <a href="https://kiduart.com/about" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+              <a href="https://kiduart.com/about" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] font-semibold underline underline-offset-2">
                 kiduart.com/about
               </a>
               . Trevyk lists them here because Kiduart is our flagship product — not a marketing slide.
@@ -413,7 +413,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CHARTER.map((item) => (
-              <div key={item.title} className="p-5 rounded-2xl bg-white border border-[#6B4A87]/25">
+              <div key={item.title} className="p-5 rounded-2xl bg-white border border-[#8B5CAD]/25">
                 <h3 className="font-heading font-bold text-sm text-[#241428] mb-2">{item.title}</h3>
                 <p className="text-xs text-[#5C4A6E] leading-relaxed">{item.body}</p>
               </div>
@@ -424,10 +424,10 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
         <BrandGradientDivider className="mt-20" />
 
         {/* Demo */}
-        <div id="kiduart-demo-section" className="mt-16 p-8 sm:p-12 rounded-3xl bg-white border border-[#6B4A87]/30">
+        <div id="kiduart-demo-section" className="mt-16 p-8 sm:p-12 rounded-3xl bg-white border border-[#8B5CAD]/30">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block">
+              <span className="text-xs font-mono-accent text-[#8B5CAD] uppercase tracking-widest block">
                 LIVE DEMO
               </span>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
@@ -438,13 +438,13 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </p>
               <ul className="space-y-2 text-xs text-[#5C4A6E]">
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> 30-minute walkthrough around school hours
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD]" /> 30-minute walkthrough around school hours
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> Run on your fee heads, classes and staff roles
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD]" /> Run on your fee heads, classes and staff roles
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> No card, no lock-in to see the product
+                  <CheckCircle2 className="w-4 h-4 text-[#8B5CAD]" /> No card, no lock-in to see the product
                 </li>
               </ul>
               <div className="flex flex-wrap gap-3 pt-2">
@@ -452,50 +452,50 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   href="https://kiduart.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#8B5CAD] text-white text-xs font-heading font-semibold"
                 >
                   Request demo on kiduart.com <ExternalLink className="w-3.5 h-3.5" />
                 </a>
                 <a
                   href="mailto:support@kiduart.com"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/25 text-[#5C4A6E] text-xs font-mono-accent"
                 >
                   support@kiduart.com
                 </a>
                 <a
                   href="tel:+919217534128"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/25 text-[#5C4A6E] text-xs font-mono-accent"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/25 text-[#5C4A6E] text-xs font-mono-accent"
                 >
                   +91 92175 34128
                 </a>
               </div>
               <p className="text-[11px] text-[#5C4A6E] flex items-center gap-1.5 pt-2">
-                <HeartHandshake className="w-3.5 h-3.5 text-[#6B4A87]" />
+                <HeartHandshake className="w-3.5 h-3.5 text-[#8B5CAD]" />
                 Noida, Uttar Pradesh — demos and support with the team that ships the product.
               </p>
             </div>
 
-            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#F7F4FA] border border-[#6B4A87]/25">
+            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#F7F4FA] border border-[#8B5CAD]/25">
               {demoRequested ? (
                 <div className="text-center py-8 space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#E7E1F0] text-[#6B4A87] mx-auto flex items-center justify-center border border-[#6B4A87]/30">
+                  <div className="w-12 h-12 rounded-full bg-[#E7E1F0] text-[#8B5CAD] mx-auto flex items-center justify-center border border-[#8B5CAD]/30">
                     <Check className="w-6 h-6" />
                   </div>
                   <h3 className="font-heading font-bold text-lg text-[#241428]">Request noted</h3>
                   <p className="text-xs text-[#5C4A6E]">
                     Thank you{demoForm.contactName ? `, ${demoForm.contactName}` : ''}. We will reply within one business day. You can also book instantly on{' '}
-                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] underline">
+                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#8B5CAD] underline">
                       kiduart.com
                     </a>
                     .
                   </p>
-                  <Link to="/contact" className="inline-block mt-2 text-xs font-mono-accent text-[#6B4A87] underline">
+                  <Link to="/contact" className="inline-block mt-2 text-xs font-mono-accent text-[#8B5CAD] underline">
                     Or use the main contact form →
                   </Link>
                 </div>
               ) : (
                 <form onSubmit={handleDemoSubmit} className="space-y-3.5">
-                  <div className="text-xs font-mono-accent text-[#6B4A87] uppercase font-bold">
+                  <div className="text-xs font-mono-accent text-[#8B5CAD] uppercase font-bold">
                     Request a Kiduart walkthrough
                   </div>
                   <div>
@@ -506,7 +506,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                       placeholder="Your school name"
                       value={demoForm.institution}
                       onChange={(e) => setDemoForm({ ...demoForm, institution: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#8B5CAD]"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -518,7 +518,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                         placeholder="Principal / admin"
                         value={demoForm.contactName}
                         onChange={(e) => setDemoForm({ ...demoForm, contactName: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#8B5CAD]"
                       />
                     </div>
                     <div>
@@ -529,7 +529,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                         placeholder="you@school.edu"
                         value={demoForm.email}
                         onChange={(e) => setDemoForm({ ...demoForm, email: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#8B5CAD]"
                       />
                     </div>
                   </div>
@@ -541,18 +541,18 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                       placeholder="+91 …"
                       value={demoForm.phone}
                       onChange={(e) => setDemoForm({ ...demoForm, phone: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#6B4A87]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                      className="w-full px-3.5 py-2 rounded-xl bg-white border border-[#8B5CAD]/40 text-[#241428] placeholder-[#5C4A6E]/45 text-xs focus:outline-none focus:border-[#8B5CAD]"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-white font-heading font-semibold text-xs hover:opacity-95"
+                    className="w-full py-3 rounded-xl bg-[#8B5CAD] text-white font-heading font-semibold text-xs hover:opacity-95"
                   >
                     Send request
                   </button>
                   <p className="text-[10px] text-[#5C4A6E] text-center">
                     For the fastest path, use{' '}
-                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="underline text-[#6B4A87]">
+                    <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="underline text-[#8B5CAD]">
                       kiduart.com
                     </a>
                     .

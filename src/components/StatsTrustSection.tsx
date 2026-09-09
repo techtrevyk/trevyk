@@ -53,7 +53,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       description:
         'For custom IT work, you keep the code and docs we deliver. For Kiduart, schools get export paths and support via kiduart.com — not marketing lock-in slogans.',
       icon: Unlock,
-      color: '#B9A6D1',
+      color: '#BEABD6',
       badge: 'Portable work',
       decimals: 0,
     },
@@ -68,7 +68,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       description:
         'We talk about role-based access, data export, and audit trails — the same class of controls Kiduart publishes — not borrowed SOC 2 / ISO badges.',
       icon: ShieldCheck,
-      color: '#6B4A87',
+      color: '#8B5CAD',
       badge: 'Real controls',
       decimals: 0,
     },
@@ -91,23 +91,23 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
 
   const marqueeRow1 = [
     { label: 'Parent of Kiduart School ERP', category: 'institutions', icon: Award, accent: '#E8A9C2' },
-    { label: 'RBAC & role-scoped access', category: 'compliance', icon: Lock, accent: '#B9A6D1' },
+    { label: 'RBAC & role-scoped access', category: 'compliance', icon: Lock, accent: '#BEABD6' },
     { label: 'Data export paths', category: 'compliance', icon: FileCheck, accent: '#E8A9C2' },
-    { label: 'Noida, India base', category: 'institutions', icon: Globe2, accent: '#B9A6D1' },
+    { label: 'Noida, India base', category: 'institutions', icon: Globe2, accent: '#BEABD6' },
     { label: 'B2B custom software', category: 'stack', icon: Server, accent: '#E8A9C2' },
-    { label: 'B2C school product', category: 'institutions', icon: Users, accent: '#B9A6D1' },
+    { label: 'B2C school product', category: 'institutions', icon: Users, accent: '#BEABD6' },
     { label: '1 business-day reply', category: 'compliance', icon: ShieldCheck, accent: '#E8A9C2' },
-    { label: 'Source ownership on builds', category: 'stack', icon: Unlock, accent: '#B9A6D1' },
+    { label: 'Source ownership on builds', category: 'stack', icon: Unlock, accent: '#BEABD6' },
   ];
 
   const marqueeRow2 = [
-    { label: 'kiduart.com product site', category: 'institutions', icon: Award, accent: '#B9A6D1' },
+    { label: 'kiduart.com product site', category: 'institutions', icon: Award, accent: '#BEABD6' },
     { label: 'Admissions → parent updates', category: 'institutions', icon: Globe2, accent: '#E8A9C2' },
-    { label: 'Scoped milestone delivery', category: 'stack', icon: Server, accent: '#B9A6D1' },
+    { label: 'Scoped milestone delivery', category: 'stack', icon: Server, accent: '#BEABD6' },
     { label: 'Practical security controls', category: 'compliance', icon: Lock, accent: '#E8A9C2' },
-    { label: 'Web + mobile engineering', category: 'stack', icon: Server, accent: '#B9A6D1' },
+    { label: 'Web + mobile engineering', category: 'stack', icon: Server, accent: '#BEABD6' },
     { label: 'support@kiduart.com', category: 'compliance', icon: CreditCard, accent: '#E8A9C2' },
-    { label: 'Founding-school charter tone', category: 'institutions', icon: Award, accent: '#B9A6D1' },
+    { label: 'Founding-school charter tone', category: 'institutions', icon: Award, accent: '#BEABD6' },
     { label: 'No invented SLA badges', category: 'compliance', icon: ShieldCheck, accent: '#E8A9C2' },
   ];
 
@@ -123,8 +123,8 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       />
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#6B4A87]/25 via-[#FFFFFF]/40 to-transparent blur-[140px]" />
-        <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-gradient-to-tl from-[#E8A9C2]/10 via-[#6B4A87]/15 to-transparent blur-3xl" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-b from-[#8B5CAD]/25 via-[#FFFFFF]/40 to-transparent blur-[140px]" />
+        <div className="absolute bottom-0 right-10 w-[450px] h-[450px] bg-gradient-to-tl from-[#E8A9C2]/10 via-[#8B5CAD]/15 to-transparent blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -136,14 +136,14 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/40 text-[#6B4A87] font-mono-accent text-xs mb-4 shadow-[0_4px_20px_rgba(232,169,194,0.12)]">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/40 text-[#8B5CAD] font-mono-accent text-xs mb-4 shadow-[0_4px_20px_rgba(232,169,194,0.12)]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>HONEST ENGAGEMENT PRINCIPLES</span>
           </div>
 
           <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] tracking-tight leading-[1.1]">
             Transparent terms.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#B9A6D1] to-[#241428]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#BEABD6] to-[#241428]">
               Claims you can check.
             </span>
           </h2>
@@ -160,7 +160,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
               <div
                 key={stat.id}
                 id={`trust-stat-card-${stat.id}`}
-                className="p-6 sm:p-7 rounded-2xl bg-[#FFFFFF]/85 border border-[#6B4A87]/40 shadow-[0_15px_35px_rgba(107,74,135,0.12)] flex flex-col justify-between transition-all duration-300 hover:border-[#E8A9C2]/60 hover:bg-[#EDE8F3] relative group overflow-hidden"
+                className="p-6 sm:p-7 rounded-2xl bg-[#FFFFFF]/85 border border-[#8B5CAD]/40 shadow-[0_15px_35px_rgba(139,92,173,0.12)] flex flex-col justify-between transition-all duration-300 hover:border-[#E8A9C2]/60 hover:bg-[#EDE8F3] relative group overflow-hidden"
               >
                 <div
                   className="absolute top-0 left-0 right-0 h-1 opacity-80"
@@ -182,7 +182,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
                       <IconComp className="w-5 h-5" />
                     </div>
 
-                    <span className="text-[10px] font-mono-accent uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F7F4FA] border border-[#6B4A87]/40 text-[#5C4A6E]">
+                    <span className="text-[10px] font-mono-accent uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#5C4A6E]">
                       {stat.badge}
                     </span>
                   </div>
@@ -196,7 +196,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
                     />
                   </div>
 
-                  <div className="text-xs font-mono-accent text-[#6B4A87] mt-1 font-semibold">
+                  <div className="text-xs font-mono-accent text-[#8B5CAD] mt-1 font-semibold">
                     {stat.unitLabel}
                   </div>
 
@@ -209,7 +209,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#6B4A87]/30 flex items-center text-[11px] font-mono-accent text-[#5C4A6E] group-hover:text-[#E8A9C2] transition-colors">
+                <div className="mt-6 pt-4 border-t border-[#8B5CAD]/30 flex items-center text-[11px] font-mono-accent text-[#5C4A6E] group-hover:text-[#E8A9C2] transition-colors">
                   <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-emerald-400 shrink-0" />
                   <span className="truncate">{stat.tagline}</span>
                 </div>
@@ -219,7 +219,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
         </div>
       </div>
 
-      <div className="w-full relative mt-6 py-6 bg-[#FFFFFF]/70 border-y border-[#6B4A87]/30 overflow-hidden">
+      <div className="w-full relative mt-6 py-6 bg-[#FFFFFF]/70 border-y border-[#8B5CAD]/30 overflow-hidden">
         <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-44 bg-gradient-to-r from-[#F7F4FA] to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-44 bg-gradient-to-l from-[#F7F4FA] to-transparent z-10 pointer-events-none" />
 
@@ -246,7 +246,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
               return (
                 <div
                   key={`m1-${idx}`}
-                  className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-[#F7F4FA]/90 border border-[#6B4A87]/40 shadow-sm hover:border-[#E8A9C2]/60 hover:bg-[#EDE8F3] transition-all cursor-default whitespace-nowrap"
+                  className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-[#F7F4FA]/90 border border-[#8B5CAD]/40 shadow-sm hover:border-[#E8A9C2]/60 hover:bg-[#EDE8F3] transition-all cursor-default whitespace-nowrap"
                 >
                   <IconComp className="w-4 h-4" style={{ color: item.accent }} />
                   <span className="text-xs font-mono-accent text-[#241428] font-medium">
@@ -275,7 +275,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
               return (
                 <div
                   key={`m2-${idx}`}
-                  className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-[#F7F4FA]/90 border border-[#6B4A87]/40 shadow-sm hover:border-[#B9A6D1]/60 hover:bg-[#EDE8F3] transition-all cursor-default whitespace-nowrap"
+                  className="flex items-center space-x-2.5 px-4 py-2 rounded-xl bg-[#F7F4FA]/90 border border-[#8B5CAD]/40 shadow-sm hover:border-[#BEABD6]/60 hover:bg-[#EDE8F3] transition-all cursor-default whitespace-nowrap"
                 >
                   <IconComp className="w-4 h-4" style={{ color: item.accent }} />
                   <span className="text-xs font-mono-accent text-[#241428] font-medium">

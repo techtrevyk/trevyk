@@ -80,7 +80,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       ],
       duration: 'Week 2 – 4',
       icon: Layers,
-      color: '#B9A6D1',
+      color: '#BEABD6',
       metrics: { label: 'Blueprint Precision', value: 'Zero Ambiguity' },
     },
     {
@@ -97,7 +97,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       ],
       duration: 'Week 4 – 10',
       icon: Cpu,
-      color: '#6B4A87',
+      color: '#8B5CAD',
       metrics: { label: 'Code Test Coverage', value: '> 94% Automated' },
     },
     {
@@ -131,7 +131,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       ],
       duration: 'As scoped',
       icon: LifeBuoy,
-      color: '#B9A6D1',
+      color: '#BEABD6',
       metrics: { label: 'Support reply', value: '1 business day' },
     },
   ];
@@ -157,8 +157,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
         />
 
         {/* Soft, wide ambient lilac mist */}
-        <div className="absolute top-1/3 right-1/4 w-[600px] h-[450px] bg-gradient-to-bl from-[#B9A6D1]/30 via-[#E8A9C2]/20 to-transparent blur-[120px]" />
-        <div className="absolute bottom-10 left-10 w-[500px] h-[450px] bg-gradient-to-tr from-[#6B4A87]/15 via-[#B9A6D1]/20 to-transparent blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-[600px] h-[450px] bg-gradient-to-bl from-[#BEABD6]/30 via-[#E8A9C2]/20 to-transparent blur-[120px]" />
+        <div className="absolute bottom-10 left-10 w-[500px] h-[450px] bg-gradient-to-tr from-[#8B5CAD]/15 via-[#BEABD6]/20 to-transparent blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,14 +166,14 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
         {/* Section Header: Calm, Clear, High-Contrast */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 sm:pb-16 border-b border-[#241428]/10">
           <div>
-            <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-white border border-[#B9A6D1]/60 text-[#6B4A87] font-mono-accent text-xs mb-4 shadow-[0_4px_16px_rgba(107,74,135,0.08)] font-semibold">
-              <span className="w-2 h-2 rounded-full bg-[#6B4A87] animate-pulse" />
+            <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-white border border-[#BEABD6]/60 text-[#8B5CAD] font-mono-accent text-xs mb-4 shadow-[0_4px_16px_rgba(139,92,173,0.08)] font-semibold">
+              <span className="w-2 h-2 rounded-full bg-[#8B5CAD] animate-pulse" />
               <span>HOW WE WORK • PROVEN LIFECYCLE</span>
             </div>
 
             <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-[#241428] tracking-tight">
               A Structured Engineering Journey From{' '}
-              <span className="text-[#6B4A87]">
+              <span className="text-[#8B5CAD]">
                 Discovery to Honest Handoff
               </span>
             </h2>
@@ -195,11 +195,11 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             {/* SVG Connecting Spine (wow #19) */}
             <div className="absolute top-6 bottom-6 left-6 w-1 -translate-x-1/2 pointer-events-none hidden sm:block">
               {/* Static Track */}
-              <div className="absolute inset-0 bg-[#B9A6D1]/40 rounded-full" />
+              <div className="absolute inset-0 bg-[#BEABD6]/40 rounded-full" />
               
               {/* Dynamic Active Filled Line */}
               <motion.div
-                className="absolute top-0 w-full bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2] rounded-full shadow-[0_0_8px_rgba(107,74,135,0.4)]"
+                className="absolute top-0 w-full bg-gradient-to-b from-[#8B5CAD] via-[#BEABD6] to-[#E8A9C2] rounded-full shadow-[0_0_8px_rgba(139,92,173,0.4)]"
                 animate={{
                   height: `${((activeStep + 1) / steps.length) * 100}%`,
                 }}
@@ -221,10 +221,10 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     onClick={() => setActiveStep(index)}
                     className={`w-full p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex items-center space-x-4 text-left interactive-target ${
                       isActive
-                        ? 'bg-white border-[#6B4A87] shadow-[0_10px_25px_rgba(107,74,135,0.15)] ring-1 ring-[#6B4A87]/30 sm:translate-x-2'
+                        ? 'bg-white border-[#8B5CAD] shadow-[0_10px_25px_rgba(139,92,173,0.15)] ring-1 ring-[#8B5CAD]/30 sm:translate-x-2'
                         : isPassed
-                        ? 'bg-white/90 border-[#B9A6D1]/60 hover:bg-[#EDE8F3]'
-                        : 'bg-[#EDE8F3]/80 border-[#B9A6D1]/30 hover:border-[#6B4A87]/40'
+                        ? 'bg-white/90 border-[#BEABD6]/60 hover:bg-[#EDE8F3]'
+                        : 'bg-[#EDE8F3]/80 border-[#BEABD6]/30 hover:border-[#8B5CAD]/40'
                     }`}
                     data-cursor-label={`STEP ${step.number}`}
                   >
@@ -232,10 +232,10 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 border transition-all ${
                         isActive
-                          ? 'bg-[#6B4A87] text-white border-[#6B4A87] shadow-[0_0_15px_rgba(107,74,135,0.35)]'
+                          ? 'bg-[#8B5CAD] text-white border-[#8B5CAD] shadow-[0_0_15px_rgba(139,92,173,0.35)]'
                           : isPassed
-                          ? 'bg-[#E7E1F0] text-[#6B4A87] border-[#B9A6D1]'
-                          : 'bg-white text-[#241428]/50 border-[#B9A6D1]/40'
+                          ? 'bg-[#E7E1F0] text-[#8B5CAD] border-[#BEABD6]'
+                          : 'bg-white text-[#241428]/50 border-[#BEABD6]/40'
                       }`}
                     >
                       {isPassed ? (
@@ -247,7 +247,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center space-x-2">
-                        <span className="text-[10px] font-mono-accent uppercase tracking-wider text-[#6B4A87] font-semibold">
+                        <span className="text-[10px] font-mono-accent uppercase tracking-wider text-[#8B5CAD] font-semibold">
                           STEP {step.number} • {step.phase}
                         </span>
                       </div>
@@ -274,7 +274,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="p-6 sm:p-9 rounded-3xl bg-white border border-[#B9A6D1]/60 shadow-[0_20px_50px_rgba(107,74,135,0.08)] flex flex-col justify-between relative overflow-hidden"
+                className="p-6 sm:p-9 rounded-3xl bg-white border border-[#BEABD6]/60 shadow-[0_20px_50px_rgba(139,92,173,0.08)] flex flex-col justify-between relative overflow-hidden"
               >
                 {/* Ambient Corner Flare */}
                 <div
@@ -287,7 +287,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                   <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#241428]/10">
                     <div className="flex items-center space-x-3">
                       <span
-                        className="px-3 py-1 rounded-full text-xs font-mono-accent font-bold uppercase tracking-wider bg-[#E7E1F0] text-[#6B4A87] border border-[#B9A6D1]/60"
+                        className="px-3 py-1 rounded-full text-xs font-mono-accent font-bold uppercase tracking-wider bg-[#E7E1F0] text-[#8B5CAD] border border-[#BEABD6]/60"
                       >
                         PHASE {steps[activeStep].number}
                       </span>
@@ -296,7 +296,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                       </span>
                     </div>
 
-                    <div className="text-xs font-mono-accent text-[#6B4A87] bg-[#E7E1F0] px-3 py-1 rounded-lg border border-[#B9A6D1]/60 font-semibold">
+                    <div className="text-xs font-mono-accent text-[#8B5CAD] bg-[#E7E1F0] px-3 py-1 rounded-lg border border-[#BEABD6]/60 font-semibold">
                       <span>{steps[activeStep].metrics.label}: </span>
                       <span className="font-bold text-[#241428]">{steps[activeStep].metrics.value}</span>
                     </div>
@@ -307,7 +307,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     <h3 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428] tracking-tight">
                       {steps[activeStep].title}
                     </h3>
-                    <p className="text-sm sm:text-base text-[#6B4A87] font-semibold mt-2 leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#8B5CAD] font-semibold mt-2 leading-relaxed">
                       "{steps[activeStep].tagline}"
                     </p>
                     <p className="text-xs sm:text-sm text-[#241428]/80 mt-4 leading-relaxed font-sans">
@@ -317,8 +317,8 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
 
                   {/* Concrete Engineering Deliverables */}
                   <div className="mt-8">
-                    <div className="font-mono-accent text-xs uppercase tracking-wider text-[#6B4A87] mb-3 flex items-center space-x-2 font-semibold">
-                      <FileCode className="w-3.5 h-3.5 text-[#6B4A87]" />
+                    <div className="font-mono-accent text-xs uppercase tracking-wider text-[#8B5CAD] mb-3 flex items-center space-x-2 font-semibold">
+                      <FileCode className="w-3.5 h-3.5 text-[#8B5CAD]" />
                       <span>CONCRETE TANGIBLE DELIVERABLES</span>
                     </div>
 
@@ -326,9 +326,9 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                       {steps[activeStep].deliverables.map((item, idx) => (
                         <div
                           key={idx}
-                          className="p-3.5 rounded-xl bg-[#E7E1F0]/70 border border-[#B9A6D1]/50 text-xs text-[#241428] flex flex-col justify-between shadow-sm"
+                          className="p-3.5 rounded-xl bg-[#E7E1F0]/70 border border-[#BEABD6]/50 text-xs text-[#241428] flex flex-col justify-between shadow-sm"
                         >
-                          <div className="font-mono-accent text-[10px] text-[#6B4A87] font-bold mb-1">
+                          <div className="font-mono-accent text-[10px] text-[#8B5CAD] font-bold mb-1">
                             ARTIFACT 0{idx + 1}
                           </div>
                           <div className="font-medium leading-snug">
@@ -348,7 +348,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                     className={`text-xs font-mono-accent px-4 py-2 rounded-xl border transition-all ${
                       activeStep === 0
                         ? 'opacity-30 border-transparent cursor-not-allowed'
-                        : 'border-[#B9A6D1]/60 text-[#241428] hover:bg-[#E7E1F0]'
+                        : 'border-[#BEABD6]/60 text-[#241428] hover:bg-[#E7E1F0]'
                     }`}
                   >
                     ← Previous Phase
@@ -360,7 +360,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                         key={i}
                         onClick={() => setActiveStep(i)}
                         className={`h-1.5 rounded-full transition-all ${
-                          i === activeStep ? 'w-6 bg-[#6B4A87]' : 'w-2 bg-[#B9A6D1]'
+                          i === activeStep ? 'w-6 bg-[#8B5CAD]' : 'w-2 bg-[#BEABD6]'
                         }`}
                         aria-label={`Step ${i + 1}`}
                       />
@@ -370,7 +370,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                   {activeStep < steps.length - 1 ? (
                     <button
                       onClick={() => setActiveStep((prev) => Math.min(steps.length - 1, prev + 1))}
-                      className="text-xs font-mono-accent px-4 py-2 rounded-xl bg-[#6B4A87] text-white hover:bg-[#6B4A87] transition-all flex items-center space-x-1 shadow-sm"
+                      className="text-xs font-mono-accent px-4 py-2 rounded-xl bg-[#8B5CAD] text-white hover:bg-[#8B5CAD] transition-all flex items-center space-x-1 shadow-sm"
                     >
                       <span>Next Phase</span>
                       <ArrowRight className="w-3.5 h-3.5 ml-1" />

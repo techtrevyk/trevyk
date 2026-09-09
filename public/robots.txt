@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Prefer the live Kiduart product site for deep product pages
-Sitemap: https://trevyk.com/sitemap.xml
+Sitemap: https://trevyk.in/sitemap.xml

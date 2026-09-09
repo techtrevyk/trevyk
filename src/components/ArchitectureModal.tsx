@@ -40,7 +40,7 @@ const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
     tech: ['Kong API Gateway', 'Kafka Event Stream', 'JWT/OAuth2 Auth', 'Schema Registry'],
     description:
       'Orchestrates asynchronous workloads across microservices and school tenant sub-domains, maintaining zero-loss event pipelines even during peak examination result releases.',
-    color: '#B9A6D1',
+    color: '#BEABD6',
   },
   {
     id: 'services',
@@ -50,7 +50,7 @@ const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
     tech: ['Kubernetes (K8s)', 'Istio Service Mesh', 'Go / Node / Rust', 'Autoscale HPA'],
     description:
       'The central junction block coordinates attendance tracking, billing engines, academic grading algorithms, and real-time parent-teacher communications.',
-    color: '#6B4A87',
+    color: '#8B5CAD',
   },
   {
     id: 'erp-core',
@@ -102,12 +102,12 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#FFFFFF] border border-[#6B4A87]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(107,74,135,0.16)] flex flex-col relative"
+          className="w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#FFFFFF] border border-[#8B5CAD]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(139,92,173,0.16)] flex flex-col relative"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 sm:p-8 border-b border-[#6B4A87]/20 bg-[#EDE8F3]/80">
+          <div className="flex items-center justify-between p-6 sm:p-8 border-b border-[#8B5CAD]/20 bg-[#EDE8F3]/80">
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-xl bg-[#6B4A87]/30 border border-[#6B4A87]/60 text-[#E8A9C2]">
+              <div className="p-2 rounded-xl bg-[#8B5CAD]/30 border border-[#8B5CAD]/60 text-[#E8A9C2]">
                 <Layers className="w-6 h-6" />
               </div>
               <div>
@@ -149,7 +149,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
                     className={`flex items-start text-left p-3.5 rounded-xl border transition-all ${
                       isActive
                         ? 'bg-[#F7F4FA] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.15)]'
-                        : 'bg-[#FFFFFF]/60 border-[#6B4A87]/30 hover:border-[#6B4A87]/70 hover:bg-[#F7F4FA]/40'
+                        : 'bg-[#FFFFFF]/60 border-[#8B5CAD]/30 hover:border-[#8B5CAD]/70 hover:bg-[#F7F4FA]/40'
                     }`}
                   >
                     <div
@@ -175,7 +175,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
             </div>
 
             {/* Right Column: Layer Deep Dive */}
-            <div className="md:col-span-7 bg-[#F7F4FA]/50 border border-[#6B4A87]/30 rounded-2xl p-6 flex flex-col justify-between">
+            <div className="md:col-span-7 bg-[#F7F4FA]/50 border border-[#8B5CAD]/30 rounded-2xl p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center space-x-2">
                   <span
@@ -192,7 +192,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
                 <h4 className="font-heading font-bold text-xl text-[#241428] mt-3">
                   {selectedLayer.name}
                 </h4>
-                <p className="text-xs font-mono-accent text-[#6B4A87] mt-1">
+                <p className="text-xs font-mono-accent text-[#8B5CAD] mt-1">
                   Role: {selectedLayer.role}
                 </p>
 
@@ -209,7 +209,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
                     {selectedLayer.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-3 py-1 rounded-lg text-xs font-mono-accent bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#241428] flex items-center space-x-1.5"
+                        className="px-3 py-1 rounded-lg text-xs font-mono-accent bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[#241428] flex items-center space-x-1.5"
                       >
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2]" />
                         <span>{t}</span>
@@ -220,7 +220,7 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
               </div>
 
               {/* Bottom Quick Metric Card */}
-              <div className="mt-6 pt-4 border-t border-[#6B4A87]/20 flex items-center justify-between text-xs text-[#5C4A6E]">
+              <div className="mt-6 pt-4 border-t border-[#8B5CAD]/20 flex items-center justify-between text-xs text-[#5C4A6E]">
                 <div className="flex items-center space-x-2">
                   <ShieldCheck className="w-4 h-4 text-[#E8A9C2]" />
                   <span>Zero Single Point of Failure Architecture</span>
