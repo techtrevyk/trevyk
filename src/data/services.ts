@@ -1,0 +1,238 @@
+import { ServiceItem } from '../types';
+
+export const SERVICES_DATA: ServiceItem[] = [
+  {
+    id: 'custom-software-development',
+    number: '01',
+    title: 'Custom Software Development',
+    tagline: 'High-throughput, distributed software systems engineered for scale and resilience.',
+    description:
+      'We design, build, and deploy mission-critical software systems from the ground up. Combining clean domain-driven design, event-driven architectures, and microservice meshes, our solutions are built to sustain millions of requests with sub-millisecond execution times.',
+    category: 'custom-software',
+    badge: 'Core Architecture',
+    tech: ['TypeScript', 'Go', 'Rust', 'Python', 'gRPC', 'Apache Kafka', 'Kubernetes'],
+    metrics: { label: 'Throughput Capacity', value: '1.2M req/sec' },
+    color: '#6B4A87',
+    iconName: 'Code2',
+    includes: [
+      'Distributed microservices & asynchronous event streaming (Kafka/NATS)',
+      'High-performance API layers with gRPC and RESTful OpenAPI v3',
+      'Event-sourcing, CQRS patterns, and transactional message queues',
+      'Continuous automated testing, load benchmarks, and SLA validation',
+      'Complete source IP ownership and zero proprietary vendor lock-in',
+    ],
+    fitsFor:
+      'Growing enterprises and high-scale ventures hitting architectural bottlenecks with legacy monolithic systems, needing custom high-throughput transactional backends that scale horizontally.',
+    deliverables: [
+      'Modular Microservice Codebase',
+      'OpenAPI & Protobuf Specifications',
+      'Distributed Tracing & Telemetry Dashboard',
+      'Infrastructure as Code (Terraform)',
+    ],
+  },
+  {
+    id: 'web-mobile-app-development',
+    number: '02',
+    title: 'Web & Mobile App Development',
+    tagline: 'Cross-platform mobile apps and high-velocity web portals with fluid 60 FPS interactions.',
+    description:
+      'We craft native-performance iOS/Android mobile applications and blazing-fast web platforms using modern cross-platform frameworks. Built with offline-first synchronization, touch-optimized ergonomics, and instant time-to-interactive.',
+    category: 'web-mobile',
+    badge: 'Frontline Apps',
+    tech: ['React Native', 'Flutter', 'Next.js', 'Vite', 'TypeScript', 'Tailwind', 'GraphQL'],
+    metrics: { label: 'Interaction Latency', value: '< 16ms' },
+    color: '#B9A6D1',
+    iconName: 'Smartphone',
+    includes: [
+      'Cross-platform iOS and Android apps with unified business logic',
+      'Progressive Web Apps (PWA) with offline caching and background sync',
+      'Real-time WebSocket event feeds and push notification pipelines',
+      'Accessibility (WCAG 2.1 AA) and multi-language internationalization (i18n)',
+      'Automated App Store and Google Play CI/CD distribution',
+    ],
+    fitsFor:
+      'Organizations needing modern, user-facing digital applications that must operate flawlessly across smartphones, tablets, and desktop browsers with offline capabilities.',
+    deliverables: [
+      'Production iOS & Android App Bundles',
+      'Responsive Web Application & SSR Engine',
+      'Design System Component Library',
+      'Automated Release Pipeline',
+    ],
+  },
+  {
+    id: 'cloud-devops',
+    number: '03',
+    title: 'Cloud & DevOps Engineering',
+    tagline: 'Automated multi-region infrastructure, Kubernetes orchestration, and continuous delivery.',
+    description:
+      'We architect, provision, and maintain secure, multi-region cloud infrastructures across AWS, Google Cloud, and Azure. Everything is codified via Infrastructure as Code (Terraform), featuring automated canary rollouts and 24/7 observability.',
+    category: 'cloud-devops',
+    badge: 'Cloud Scale',
+    tech: ['AWS', 'Google Cloud', 'Kubernetes (EKS/GKE)', 'Terraform', 'Docker', 'ArgoCD', 'Prometheus'],
+    metrics: { label: 'Uptime SLA Target', value: '99.99%' },
+    color: '#6B4A87',
+    iconName: 'Cloud',
+    includes: [
+      'Multi-cloud & hybrid cloud architecture design (AWS, GCP, Azure)',
+      'Kubernetes cluster setup with autoscaling, service mesh (Istio), and ingress routing',
+      'Infrastructure as Code (IaC) with modular Terraform and Pulumi',
+      'GitOps CI/CD deployment pipelines with zero-downtime canary rollouts',
+      'Distributed telemetry, Grafana dashboards, and automated anomaly alerting',
+    ],
+    fitsFor:
+      'Teams struggling with brittle manual deployments, cloud overspend, unexpected outages, or scaling challenges during peak traffic surges.',
+    deliverables: [
+      'Reproducible Terraform Modules',
+      'Automated GitOps CI/CD Workflows',
+      'Multi-AZ Kubernetes Cluster Setup',
+      'Grafana/Prometheus Telemetry Suite',
+    ],
+  },
+  {
+    id: 'ai-ml-automation',
+    number: '04',
+    title: 'AI/ML & Intelligent Automation',
+    tagline: 'Production Gemini AI integration, intelligent agents, and automated data pipelines.',
+    description:
+      'We embed state-of-the-art multimodal AI and generative agents directly into existing enterprise workflows. From automated document parsing and smart conversational copilots to predictive analytics and real-time classification.',
+    category: 'ai-ml',
+    badge: 'Intelligence',
+    tech: ['Gemini API', 'Python', 'PyTorch', 'LangChain', 'Vector DBs (Qdrant/Pinecone)', 'FastAPI'],
+    metrics: { label: 'Automation Efficiency', value: '+65% Speedup' },
+    color: '#E8A9C2',
+    iconName: 'Brain',
+    includes: [
+      'Gemini Multimodal AI and LLM integration for enterprise workflows',
+      'Retrieval-Augmented Generation (RAG) over private corporate knowledge bases',
+      'Automated semantic document processing, OCR, and invoice extraction',
+      'Intelligent conversational agents with role-based governance and safety guardrails',
+      'Predictive analytics models and machine learning inference pipelines',
+    ],
+    fitsFor:
+      'Enterprises seeking to automate repetitive operational processes, enhance customer support with contextual AI, or extract actionable intelligence from unstructured data.',
+    deliverables: [
+      'Production AI API Microservices',
+      'Vector Search & RAG Knowledge Pipeline',
+      'Prompt Engineering & Guardrail Suite',
+      'Model Telemetry & Cost Optimization Dashboard',
+    ],
+  },
+  {
+    id: 'erp-crm-solutions',
+    number: '05',
+    title: 'ERP & CRM Institutional Solutions',
+    tagline: 'Modular institutional management platforms, featuring our flagship Kiduart School ERP.',
+    description:
+      'We develop modular, multi-tenant institutional and enterprise management platforms. We are the creators of Kiduart (kiduart.com), our flagship school ERP handling academic scheduling, automated fee reconciliation, and biometric telemetry.',
+    category: 'erp-crm',
+    badge: 'Institutional SaaS',
+    tech: ['Multi-Tenant SaaS', 'PostgreSQL Sharding', 'Biometric IoT', 'Payment Gateways', 'GraphQL'],
+    metrics: { label: 'Campus Institutions', value: '450+ Schools' },
+    color: '#C89B6C',
+    iconName: 'GraduationCap',
+    includes: [
+      'Full deployment and customization of Kiduart School ERP platform',
+      'Conflict-free timetable scheduling algorithms and faculty roster management',
+      'Zero-reconciliation payment gateway integration (UPI, NetBanking, Cards)',
+      'Biometric and RFID attendance hardware sync with automated parent notifications',
+      'Custom CRM workflows, lead tracking, and institutional lifecycle analytics',
+    ],
+    fitsFor:
+      'K-12 schools, multi-campus academies, colleges, and educational trusts requiring a modern, automated campus operating system with zero paper friction.',
+    deliverables: [
+      'White-Labeled Kiduart Institutional Portal',
+      'Mobile Apps for Parents, Teachers & Students',
+      'Biometric Hardware Integration Gateway',
+      'Automated Financial Audit & Report Engine',
+    ],
+  },
+  {
+    id: 'ui-ux-design-systems',
+    number: '06',
+    title: 'UI/UX Design & Design Systems',
+    tagline: 'Spatial, award-winning digital design engineered with strict ergonomic precision.',
+    description:
+      'We create cohesive design systems and spatial digital interfaces that bridge engineering complexity with intuitive user delight. Every component is designed with mathematical spacing, accessible contrast, and tactile micro-interactions.',
+    category: 'ui-ux',
+    badge: 'Spatial Craft',
+    tech: ['Figma Tokens', 'Design Systems', '3D WebGL Prototyping', 'Storybook', 'Tailwind', 'Micro-Interactions'],
+    metrics: { label: 'Accessibility Standard', value: 'WCAG 2.1 AA' },
+    color: '#E8A9C2',
+    iconName: 'Palette',
+    includes: [
+      'Comprehensive enterprise design systems with synchronized code tokens',
+      'User journey mapping, high-fidelity wireframing, and interactive prototypes',
+      'Interactive 3D WebGL moments and spatial UI transitions',
+      'Dark and light mode algorithmic palettes with verified WCAG AA contrast',
+      'Developer handoff documentation and reusable React component libraries',
+    ],
+    fitsFor:
+      'Product companies looking to elevate their user experience from clunky or utilitarian to an award-winning, fluid, enterprise-grade standard.',
+    deliverables: [
+      'Figma Enterprise Design System Library',
+      'Interactive WebGL & Prototype Mockups',
+      'Storybook Component Documentation',
+      'Usability Test & Ergonomic Audit Report',
+    ],
+  },
+  {
+    id: 'it-consulting-managed-services',
+    number: '07',
+    title: 'IT Consulting & Managed Services',
+    tagline: 'Strategic fractional CTO leadership, architectural audits, and 24/7 managed operations.',
+    description:
+      'We provide high-impact technical advisory and managed engineering support. Whether assessing system reliability, performing due-diligence tech audits, or providing SLA-backed 24/7 infrastructure management, we become your trusted technical partners.',
+    category: 'it-consulting',
+    badge: 'Advisory & Ops',
+    tech: ['Architecture Audits', 'Fractional CTO', 'Tech Due Diligence', '24/7 Managed SRE', 'Cost Optimization'],
+    metrics: { label: 'SLA Response Guarantee', value: '< 15 Mins' },
+    color: '#5A3875',
+    iconName: 'HeartHandshake',
+    includes: [
+      'Fractional CTO advisory and technology roadmap strategic planning',
+      'Deep architectural audits: scalability, tech debt, and bottleneck profiling',
+      'Cloud infrastructure cost reduction and license optimization',
+      '24/7 Site Reliability Engineering (SRE) and managed incident response',
+      'Technical due diligence for acquisitions and institutional funding rounds',
+    ],
+    fitsFor:
+      'Founders, corporate executives, and IT leadership requiring senior engineering guidance, third-party code validation, or round-the-clock managed infrastructure care.',
+    deliverables: [
+      'Comprehensive Architectural Audit Report',
+      'Technology Roadmap & Migration Strategy',
+      'Cloud Cost Optimization Blueprint',
+      '24/7 SRE Runbooks & Escalation Matrix',
+    ],
+  },
+  {
+    id: 'cybersecurity-data-protection',
+    number: '08',
+    title: 'Cybersecurity & Data Protection',
+    tagline: 'Zero-trust network architecture, penetration testing, and regulatory compliance hardening.',
+    description:
+      'We safeguard enterprise systems and confidential records with military-grade defense in depth. From mutual TLS and cryptographic key vaults to rigorous penetration testing and ISO 27001 / SOC 2 compliance readiness.',
+    category: 'cybersecurity',
+    badge: 'Security & Trust',
+    tech: ['Zero-Trust mTLS', 'Vault Secrets', 'OWASP Top 10 Hardening', 'SOC 2 / ISO 27001', 'Penetration Testing'],
+    metrics: { label: 'Security Grade', value: 'A+ Rating' },
+    color: '#E0D8EC',
+    iconName: 'ShieldCheck',
+    includes: [
+      'Zero-trust network micro-segmentation and strict mTLS encryption',
+      'Automated secrets management and dynamic key rotation with HashiCorp Vault',
+      'Comprehensive vulnerability assessments and black-box / white-box penetration testing',
+      'Audit readiness preparation for SOC 2 Type II, ISO/IEC 27001, and GDPR/DPDP',
+      'Immutable audit logging and automated compliance reporting',
+    ],
+    fitsFor:
+      'Organizations handling sensitive institutional data, financial transactions, or health/student records requiring provable security governance and regulatory certification.',
+    deliverables: [
+      'Penetration Testing & Remediation Report',
+      'Zero-Trust IAM & mTLS Architecture',
+      'Compliance Readiness Audit Package',
+      'Incident Response & Disaster Recovery Plan',
+    ],
+  },
+];
+
+export const SERVICES = SERVICES_DATA;

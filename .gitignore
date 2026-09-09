@@ -1,0 +1,9 @@
+!.env.example
+*.log
+.DS_Store
+.env*
+.venv-img/
+build/
+coverage/
+dist/
+node_modules/

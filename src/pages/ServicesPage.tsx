@@ -1,0 +1,214 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { 
+  Cpu, 
+  Cloud, 
+  Database, 
+  ShieldCheck, 
+  Smartphone, 
+  Layers, 
+  GitBranch, 
+  CheckCircle2, 
+  ArrowRight, 
+  Sparkles,
+  Server,
+  Zap,
+  Clock,
+  Gauge,
+  Code2,
+  Brain,
+  Palette,
+  HeartHandshake,
+  Lock
+} from 'lucide-react';
+import { SiteSettings, ServiceItem } from '../types';
+import { SERVICES_DATA } from '../data/services';
+import { ServiceCard3D } from '../components/services/ServiceCard3D';
+import { ServiceDetailModal } from '../components/ServiceDetailModal';
+import { MagneticButton } from '../components/MagneticButton';
+import { BrandGradientDivider } from '../components/BrandGradientBar';
+import { soundEngine } from '../utils/audioEngine';
+import { Link } from 'react-router-dom';
+
+interface ServicesPageProps {
+  settings: SiteSettings;
+  onOpenArchitectureModal: () => void;
+}
+
+export const ServicesPage: React.FC<ServicesPageProps> = ({
+  settings,
+  onOpenArchitectureModal,
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [activeModalService, setActiveModalService] = useState<ServiceItem | null>(null);
+  const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
+
+  const categories = [
+    { id: 'all', label: 'All Services (8)' },
+    { id: 'custom-software', label: 'Custom Software' },
+    { id: 'web-mobile', label: 'Web & Mobile' },
+    { id: 'cloud-devops', label: 'Cloud & DevOps' },
+    { id: 'ai-ml', label: 'AI/ML & Automation' },
+    { id: 'erp-crm', label: 'ERP & CRM (Kiduart)' },
+    { id: 'ui-ux', label: 'UI/UX & 3D' },
+    { id: 'it-consulting', label: 'IT Consulting' },
+    { id: 'cybersecurity', label: 'Cybersecurity' },
+  ];
+
+  const filteredServices = SERVICES_DATA.filter((service) => {
+    if (selectedCategory === 'all') return true;
+    return service.category === selectedCategory;
+  });
+
+  const handleToggleExpandInline = (serviceId: string) => {
+    setExpandedCardId((prev) => (prev === serviceId ? null : serviceId));
+  };
+
+  return (
+    <div id="services-page" className="w-full min-h-screen pt-28 sm:pt-36 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header Hero Section */}
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <Cpu className="w-3.5 h-3.5" />
+            <span>ENTERPRISE ENGINEERING & IT SOLUTIONS</span>
+          </div>
+
+          <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] leading-tight">
+            Comprehensive IT Services Engineered for Resilient Scale
+          </h1>
+
+          <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed">
+            From distributed cloud backends to native mobile apps, AI automation pipelines, and campus ERP deployments, we engineer high-throughput systems with zero vendor lock-in and guaranteed SLA benchmarks.
+          </p>
+        </div>
+
+        {/* Category Navigation Bar */}
+        <div className="mt-10 flex flex-wrap gap-2 pb-4 border-b border-[#6B4A87]/25">
+          {categories.map((cat) => {
+            const isSelected = selectedCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  soundEngine.playClick('soft');
+                  setSelectedCategory(cat.id);
+                }}
+                className={`px-4 py-2 rounded-full text-xs font-mono-accent transition-all ${
+                  isSelected
+                    ? 'bg-[#E8A9C2] text-[#241428] font-bold shadow-[0_0_15px_rgba(232,169,194,0.3)]'
+                    : 'bg-[#FFFFFF] text-[#5C4A6E]/70 hover:text-[#241428] border border-[#6B4A87]/30 hover:border-[#6B4A87]'
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Real Engineering Studio Banner with Trevyk Poster Styling */}
+        <div className="mt-10 rounded-2xl overflow-hidden border border-[#6B4A87]/40 bg-[#FFFFFF] p-1 shadow-xl">
+          <div className="relative rounded-xl overflow-hidden h-48 sm:h-64">
+            <img
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80"
+              alt="High-density cloud server racks & datacenter infrastructure"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover opacity-35"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/75 to-transparent flex flex-col justify-center px-6 sm:px-10">
+              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-widest">
+                ARCHITECTURAL GUARANTEE
+              </span>
+              <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-1 max-w-xl">
+                100% Code Ownership, CI/CD Gates & Zero Vendor Lock-In
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5C4A6E] mt-1.5 max-w-lg">
+                Every project is handed over with complete source IP, containerized runbooks, and automated unit/integration suites.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* 8-Card Services Grid with Damped 3D Tilt and Click-to-Expand */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {filteredServices.map((service, index) => (
+            <ServiceCard3D
+              key={service.id}
+              service={service}
+              index={index}
+              isSelected={activeModalService?.id === service.id}
+              onSelect={(s) => setActiveModalService(s)}
+              isExpandedInline={expandedCardId === service.id}
+              onToggleExpandInline={() => handleToggleExpandInline(service.id)}
+            />
+          ))}
+        </div>
+
+        <BrandGradientDivider className="mt-20" />
+
+        {/* Engagement Models & Architecture Consultation Box */}
+        <div className="mt-16 rounded-3xl bg-gradient-to-br from-[#FFFFFF] via-[#F7F4FA] to-[#FFFFFF] border border-[#6B4A87]/40 p-8 sm:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block mb-2">
+                TAILORED ENGAGEMENT
+              </span>
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
+                Flexible Delivery Models for Startups to Enterprises
+              </h2>
+              <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
+                Whether you require a dedicated pod of senior engineers, an end-to-end fixed-scope project delivery, or a fractional CTO architecture audit, we structure engagements to fit your governance requirements.
+              </p>
+              
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                  <div className="font-heading font-bold text-sm text-[#241428]">Dedicated Pods</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">Autonomous full-stack engineering pods.</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                  <div className="font-heading font-bold text-sm text-[#241428]">Fixed Scope</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">Milestone-based delivery with strict SLAs.</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30">
+                  <div className="font-heading font-bold text-sm text-[#241428]">Managed SRE</div>
+                  <div className="text-xs text-[#5C4A6E] mt-0.5">24/7 cloud reliability & incident response.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center space-y-4">
+              <Link
+                to="/contact"
+                onClick={() => soundEngine.playClick('hero')}
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg group"
+              >
+                <span>Request Project Proposal</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <button
+                onClick={() => {
+                  soundEngine.playClick('soft');
+                  onOpenArchitectureModal();
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/50 text-[#5C4A6E] hover:text-[#241428] hover:border-[#E8A9C2] text-xs font-mono-accent transition-colors"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#E8A9C2]" />
+                <span>Inspect 3D Core Architecture</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Service Detail Modal */}
+      <ServiceDetailModal
+        service={activeModalService}
+        onClose={() => setActiveModalService(null)}
+        onOpenArchitecture={onOpenArchitectureModal}
+      />
+    </div>
+  );
+};
