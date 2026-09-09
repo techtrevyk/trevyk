@@ -2,15 +2,18 @@
 
 @layer base {
   :root {
+    /* Brand primary = logo plum (#6B4A87) — keep visible on light surfaces */
     --color-bg-primary: #F7F4FA;
     --color-bg-surface: #FFFFFF;
     --color-bg-muted: #EDE8F3;
     --color-brand-purple: #6B4A87;
+    --color-brand-purple-hover: #8558A5;
     --color-brand-lavender: #B9A6D1;
     --color-brand-lilac: #E7E1F0;
     --color-brand-pink: #E8A9C2;
     --color-text-primary: #241428;
     --color-text-muted: #5C4A6E;
+    --shadow-brand: 0 10px 28px rgba(107, 74, 135, 0.18);
   }
 
   body {

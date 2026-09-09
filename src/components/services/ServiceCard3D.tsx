@@ -176,6 +176,9 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
     setRotateY(0);
   };
 
+  const accent = service.color || '#6B4A87';
+  const isActive = isExpandedInline || isSelected;
+
   return (
     <motion.div
       ref={cardRef}
@@ -185,42 +188,66 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
       style={{
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
         transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out',
+        borderColor: isActive || isHovered ? accent : `${accent}66`,
+        boxShadow: isActive || isHovered
+          ? `0 16px 40px ${accent}33`
+          : `0 8px 24px rgba(107, 74, 135, 0.10)`,
       }}
-      className={`rounded-3xl border transition-colors flex flex-col justify-between relative overflow-hidden group ${
-        isExpandedInline
-          ? 'bg-[#FFFFFF] border-[#E8A9C2] shadow-[0_0_30px_rgba(232,169,194,0.18)]'
-          : isSelected
-          ? 'bg-[#FFFFFF] border-[#E8A9C2]/80'
-          : 'bg-[#FFFFFF]/90 border-[#6B4A87]/35 hover:border-[#E8A9C2]/60 hover:bg-[#221228]'
+      className={`rounded-3xl border-2 transition-[background-color,box-shadow,border-color] duration-300 flex flex-col justify-between relative overflow-hidden group ${
+        isActive
+          ? 'bg-[#EDE8F3]'
+          : 'bg-[#F7F4FA] hover:bg-[#EDE8F3]'
       }`}
     >
-      {/* Background Accent Gradient */}
-      <div 
-        className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#6B4A87]/15 to-transparent rounded-bl-full pointer-events-none transition-opacity group-hover:opacity-100 opacity-60" 
+      {/* Persistent primary accent rail — brand color always visible, not hover-only */}
+      <div
+        className="absolute left-0 top-0 bottom-0 w-1.5 pointer-events-none"
+        style={{ background: `linear-gradient(180deg, ${accent} 0%, #E8A9C2 100%)` }}
+        aria-hidden
       />
 
-      <div className="p-6 sm:p-7">
+      {/* Soft brand wash — stronger at rest so primary never “vanishes” */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(circle at 100% 0%, ${accent}28 0%, transparent 55%)`,
+          opacity: isHovered || isActive ? 1 : 0.85,
+        }}
+        aria-hidden
+      />
+
+      <div className="relative p-6 sm:p-7 pl-7 sm:pl-8">
         
         {/* Top Header Row: Real Graphic Illustration + Service Badge */}
         <div className="flex items-start justify-between mb-5">
-          <ServiceIllustration serviceId={service.id} color={service.color} />
+          <ServiceIllustration serviceId={service.id} color={accent} />
           
           <div className="flex flex-col items-end">
-            <span className="text-[10px] font-mono-accent text-[#6B4A87] bg-[#F7F4FA] px-2.5 py-1 rounded-full border border-[#6B4A87]/40">
+            <span
+              className="text-[10px] font-mono-accent px-2.5 py-1 rounded-full border font-semibold"
+              style={{
+                color: accent,
+                backgroundColor: `${accent}18`,
+                borderColor: `${accent}55`,
+              }}
+            >
               SERVICE {service.number}
             </span>
             <span className="text-[9px] font-mono-accent text-[#5C4A6E] mt-1">
-              {service.badge || 'Enterprise Grade'}
+              {service.badge || 'Scoped offering'}
             </span>
           </div>
         </div>
 
         {/* Service Title & Tagline */}
-        <h3 className="font-heading font-bold text-xl text-[#241428] group-hover:text-[#E8A9C2] transition-colors leading-snug">
+        <h3
+          className="font-heading font-bold text-xl transition-colors leading-snug"
+          style={{ color: isHovered || isActive ? accent : '#241428' }}
+        >
           {service.title}
         </h3>
 
-        <p className="mt-2.5 text-xs sm:text-sm text-[#5C4A6E]/80 leading-relaxed">
+        <p className="mt-2.5 text-xs sm:text-sm text-[#5C4A6E] leading-relaxed">
           {service.tagline}
         </p>
 
@@ -229,13 +256,17 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
           {service.tech.slice(0, 4).map((tech, idx) => (
             <span
               key={idx}
-              className="px-2 py-0.5 rounded text-[10px] font-mono-accent bg-[#F7F4FA] text-[#5C4A6E] border border-[#6B4A87]/30"
+              className="px-2 py-0.5 rounded text-[10px] font-mono-accent bg-white text-[#5C4A6E] border"
+              style={{ borderColor: `${accent}40` }}
             >
               {tech}
             </span>
           ))}
           {service.tech.length > 4 && (
-            <span className="px-1.5 py-0.5 rounded text-[9px] font-mono-accent text-[#6B4A87] bg-[#F7F4FA]">
+            <span
+              className="px-1.5 py-0.5 rounded text-[9px] font-mono-accent font-semibold"
+              style={{ color: accent, backgroundColor: `${accent}14` }}
+            >
               +{service.tech.length - 4} more
             </span>
           )}
@@ -295,20 +326,29 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
 
       </div>
 
-      {/* Card Action Footer Bar */}
-      <div className="px-6 py-4 bg-[#1A0D1F] border-t border-[#6B4A87]/25 flex items-center justify-between">
+      {/* Card Action Footer Bar — light brand strip (no leftover dark theme) */}
+      <div
+        className="relative px-6 py-4 border-t flex items-center justify-between"
+        style={{
+          backgroundColor: `${accent}14`,
+          borderColor: `${accent}33`,
+        }}
+      >
         <div className="text-[11px] font-mono-accent text-[#5C4A6E]">
-          {service.metrics.label}: <span className="text-[#E8A9C2] font-bold">{service.metrics.value}</span>
+          {service.metrics.label}:{' '}
+          <span className="font-bold" style={{ color: accent }}>
+            {service.metrics.value}
+          </span>
         </div>
 
         <div className="flex items-center space-x-2">
-          {/* Toggle Inline Expand on Click */}
           <button
             onClick={() => {
               soundEngine.playClick('soft');
               onToggleExpandInline();
             }}
-            className="px-3 py-1.5 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] hover:bg-[#EDE8F3] text-[#E8A9C2] border border-[#6B4A87]/40 flex items-center space-x-1.5 transition-colors"
+            className="px-3 py-1.5 rounded-lg text-xs font-mono-accent text-white flex items-center space-x-1.5 transition-opacity hover:opacity-90"
+            style={{ backgroundColor: accent }}
           >
             <span>{isExpandedInline ? 'Collapse' : 'Details'}</span>
             {isExpandedInline ? (
@@ -318,14 +358,14 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
             )}
           </button>
 
-          {/* Open Dedicated Deep Inspector Modal */}
           <button
             onClick={() => {
               soundEngine.playClick('hero');
               onSelect(service);
             }}
             title="Inspect Service Specification"
-            className="p-1.5 rounded-lg text-[#5C4A6E] hover:text-[#241428] hover:bg-[#F7F4FA] transition-colors"
+            className="p-1.5 rounded-lg transition-colors bg-white border hover:bg-[#EDE8F3]"
+            style={{ color: accent, borderColor: `${accent}55` }}
           >
             <Maximize2 className="w-4 h-4" />
           </button>

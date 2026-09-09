@@ -66,10 +66,10 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
             <Link
               to="/services"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-white border border-[#6B4A87]/50 text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:border-[#E8A9C2] transition-all group shadow-sm"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:bg-[#8558A5] transition-all group shadow-[0_10px_28px_rgba(107,74,135,0.28)]"
             >
               <span>See all services</span>
-              <ArrowRight className="w-4 h-4 text-[#6B4A87] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
@@ -83,13 +83,14 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
                   key={svc.id}
                   to={svc.href}
                   onClick={() => soundEngine.playClick('soft')}
-                  className="p-5 rounded-2xl bg-white/90 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-white transition-all flex flex-col justify-between group"
+                  className="relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#F7F4FA] border-2 border-[#6B4A87]/40 hover:border-[#6B4A87] hover:bg-[#EDE8F3] transition-all flex flex-col justify-between group shadow-[0_8px_22px_rgba(107,74,135,0.10)]"
                 >
+                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]" aria-hidden />
                   <div>
-                    <div className="w-9 h-9 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] mb-3 group-hover:scale-105 transition-transform">
+                    <div className="w-9 h-9 rounded-xl bg-[#6B4A87]/15 border border-[#6B4A87]/45 flex items-center justify-center text-[#6B4A87] mb-3 group-hover:scale-105 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-[10px] font-mono-accent text-[#5C4A6E] block mb-1">
+                    <span className="text-[10px] font-mono-accent text-[#6B4A87] font-semibold block mb-1">
                       {svc.tag}
                     </span>
                     <h3 className="font-heading font-bold text-sm text-[#241428] group-hover:text-[#6B4A87] transition-colors leading-snug">

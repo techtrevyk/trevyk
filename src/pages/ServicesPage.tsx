@@ -97,8 +97,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 }}
                 className={`px-4 py-2 rounded-full text-xs font-mono-accent transition-all ${
                   isSelected
-                    ? 'bg-[#E8A9C2] text-[#241428] font-bold shadow-[0_0_15px_rgba(232,169,194,0.3)]'
-                    : 'bg-[#FFFFFF] text-[#5C4A6E]/70 hover:text-[#241428] border border-[#6B4A87]/30 hover:border-[#6B4A87]'
+                    ? 'bg-[#6B4A87] text-white font-bold shadow-[0_8px_20px_rgba(107,74,135,0.28)]'
+                    : 'bg-white text-[#5C4A6E] hover:text-[#6B4A87] border border-[#6B4A87]/35 hover:border-[#6B4A87] hover:bg-[#EDE8F3]'
                 }`}
               >
                 {cat.label}
@@ -107,11 +107,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           })}
         </div>
 
-        {/* Brand engagement strip (no stock photography) */}
-        <div className="mt-10 rounded-2xl overflow-hidden border border-[#6B4A87]/40 bg-white p-6 sm:p-8 shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        {/* Brand engagement strip */}
+        <div className="mt-10 rounded-2xl overflow-hidden border-2 border-[#6B4A87]/45 bg-gradient-to-r from-[#EDE8F3] via-white to-[#F7F4FA] p-6 sm:p-8 shadow-[0_12px_32px_rgba(107,74,135,0.12)] relative">
+          <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]" aria-hidden />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pl-2">
             <div className="max-w-2xl">
-              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-widest">
+              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-widest font-semibold">
                 HOW WE ENGAGE
               </span>
               <h2 className="font-heading font-bold text-lg sm:text-2xl text-[#241428] mt-1">
@@ -127,7 +128,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold shrink-0"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold shrink-0 shadow-[0_8px_22px_rgba(107,74,135,0.28)] hover:bg-[#8558A5] transition-colors"
             >
               Talk to us
             </Link>
