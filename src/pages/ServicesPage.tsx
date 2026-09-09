@@ -72,15 +72,15 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <div className="max-w-3xl">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
             <Cpu className="w-3.5 h-3.5" />
-            <span>ENTERPRISE ENGINEERING & IT SOLUTIONS</span>
+            <span>PRODUCTS &amp; IT SERVICES</span>
           </div>
 
           <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] leading-tight">
-            Comprehensive IT Services Engineered for Resilient Scale
+            What Trevyk offers — product and services
           </h1>
 
           <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed">
-            From distributed cloud backends to native mobile apps, AI automation pipelines, and campus ERP deployments, we engineer high-throughput systems with zero vendor lock-in and guaranteed SLA benchmarks.
+            Kiduart School ERP is our flagship product for schools. Alongside it we take on B2B custom software, web/mobile, cloud, design, advisory, and practical security — scoped to what you need, without invented SLA badges.
           </p>
         </div>
 

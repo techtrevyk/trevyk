@@ -60,15 +60,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
         <div className="max-w-3xl">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
             <Mail className="w-3.5 h-3.5" />
-            <span>DIRECT TECHNICAL CONSULTATION & DEMOS</span>
+            <span>CONTACT // PRODUCT &amp; SERVICES</span>
           </div>
 
           <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] leading-tight">
-            Let’s Build Something Enduring Together
+            Tell us what you need
           </h1>
 
           <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed">
-            Whether you are architecting a high-throughput microservices platform, migrating cloud infrastructure, or deploying Kiduart School ERP across educational campuses, our team is ready to evaluate your requirements.
+            Kiduart demos for schools, or custom IT work for your organisation. Choose a lane below — we reply within one business day.
           </p>
         </div>
 
@@ -85,10 +85,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                   <Check className="w-8 h-8" />
                 </div>
                 <h3 className="font-heading font-bold text-2xl text-[#241428]">
-                  Inquiry Dispatched Successfully
+                  Message received
                 </h3>
                 <p className="text-sm text-[#5C4A6E] max-w-md mx-auto leading-relaxed">
-                  Thank you, {formData.name || 'Partner'}. A senior technical architect from Trevyk Technologies has received your requirements and will reply within 24 business hours.
+                  Thank you{formData.name ? `, ${formData.name}` : ''}. Someone from Trevyk will reply within one business day.
                 </p>
                 <div className="pt-4">
                   <button

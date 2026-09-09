@@ -121,9 +121,9 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.7, delay: 0.2 }}
               className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] tracking-tight leading-[1.12]"
             >
-              Modular Architecture for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#241428] via-[#B9A6D1] to-[#E8A9C2]">
-                Resilient Software Systems
+              Modular software for{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#241428] via-[#6B4A87] to-[#E8A9C2]">
+                schools and businesses
               </span>
             </motion.h1>
 
@@ -132,9 +132,9 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg text-[#5C4A6E]/85 max-w-2xl font-normal leading-relaxed"
+              className="mt-6 text-base sm:text-lg text-[#5C4A6E] max-w-2xl font-normal leading-relaxed"
             >
-              Trevyk delivers custom cloud-scale IT engineering and enterprise-grade software products — including our flagship multi-tenant Kiduart School ERP — engineered from robust, independent building blocks.
+              Trevyk Technologies is the parent company behind Kiduart School ERP and a home for B2B and B2C software — products schools can run, and custom builds when you need more.
             </motion.p>
 
             {/* Brand Philosophy Quote / Tagline */}

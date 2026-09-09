@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { 
-  Cpu, 
-  Cloud, 
-  Layers, 
-  ShieldCheck, 
+import {
+  Cpu,
+  Cloud,
+  GraduationCap,
   ArrowRight,
-  Database,
-  Terminal,
-  Zap
+  Briefcase,
 } from 'lucide-react';
 import { SiteSettings } from '../../types';
 import { soundEngine } from '../../utils/audioEngine';
@@ -18,28 +14,31 @@ interface ServicesTeaserProps {
   settings: SiteSettings;
 }
 
-export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
+export const ServicesTeaser: React.FC<ServicesTeaserProps> = () => {
   const previewServices = [
     {
+      id: 'kiduart',
+      title: 'Kiduart School ERP',
+      desc: 'Our flagship product for Indian schools — admissions to fees and parent updates.',
+      tag: '01 / PRODUCT',
+      icon: GraduationCap,
+      href: '/kiduart',
+    },
+    {
       id: 'custom-software',
-      title: 'Distributed Software Architecture',
-      desc: 'Fault-tolerant microservices, event-driven backends, and low-latency API layers.',
-      tag: '01 / ARCHITECTURE',
-      icon: Layers,
+      title: 'Custom software (B2B)',
+      desc: 'Scoped backends, integrations, and tools when you need more than SaaS.',
+      tag: '02 / SERVICES',
+      icon: Briefcase,
+      href: '/services',
     },
     {
-      id: 'cloud-infrastructure',
-      title: 'Cloud Engineering & DevOps',
-      desc: 'Kubernetes orchestration, multi-region failover, and automated CI/CD pipelines.',
-      tag: '02 / CLOUD & K8S',
+      id: 'cloud-apps',
+      title: 'Cloud, web & mobile',
+      desc: 'Apps and hosting setups that stay deployable for staff and customers.',
+      tag: '03 / BUILD',
       icon: Cloud,
-    },
-    {
-      id: 'security-compliance',
-      title: 'Zero-Trust Security & Data Lakes',
-      desc: 'Cryptographic identity verification, role-based governance, and ClickHouse analytics.',
-      tag: '03 / DATA & SECURITY',
-      icon: ShieldCheck,
+      href: '/services',
     },
   ];
 
@@ -49,35 +48,32 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-[#F7F4FA]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        {/* Left Column: Heading, Hook, and Link */}
         <div className="lg:col-span-5 flex flex-col items-start">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
             <Cpu className="w-3.5 h-3.5" />
-            <span>01 // ENTERPRISE SERVICES</span>
+            <span>01 // PRODUCTS &amp; SERVICES</span>
           </div>
 
           <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428] leading-tight">
-            High-Performance IT Engineering
+            B2B services. B2C products. One parent company.
           </h2>
 
           <p className="mt-4 text-[#5C4A6E] text-sm sm:text-base leading-relaxed">
-            We architect, deploy, and operate custom software systems built for heavy transaction volume, zero vendor lock-in, and continuous 99.99% uptime.
+            Trevyk ships Kiduart for schools and takes on custom IT work for organisations that need a tailored build. No invented uptime badges — just clear lanes for product and services.
           </p>
 
           <div className="mt-8">
             <Link
               to="/services"
               onClick={() => soundEngine.playClick('soft')}
-              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/50 text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:border-[#E8A9C2] hover:bg-[#FFFFFF] transition-all group shadow-sm"
+              className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-white border border-[#6B4A87]/50 text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:border-[#E8A9C2] transition-all group shadow-sm"
             >
-              <span>Explore All 6 Enterprise Services</span>
-              <ArrowRight className="w-4 h-4 text-[#E8A9C2] group-hover:translate-x-1 transition-transform" />
+              <span>See all services</span>
+              <ArrowRight className="w-4 h-4 text-[#6B4A87] group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
 
-        {/* Right Column: 3 Compact Cards + High-Tech Graphic Asset */}
         <div className="lg:col-span-7 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {previewServices.map((svc) => {
@@ -85,27 +81,26 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               return (
                 <Link
                   key={svc.id}
-                  to="/services"
+                  to={svc.href}
                   onClick={() => soundEngine.playClick('soft')}
-                  className="p-5 rounded-2xl bg-[#FFFFFF]/80 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-[#FFFFFF] transition-all flex flex-col justify-between group"
+                  className="p-5 rounded-2xl bg-white/90 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-white transition-all flex flex-col justify-between group"
                 >
                   <div>
-                    <div className="w-9 h-9 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2] mb-3 group-hover:scale-105 transition-transform">
+                    <div className="w-9 h-9 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] mb-3 group-hover:scale-105 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
                     <span className="text-[10px] font-mono-accent text-[#5C4A6E] block mb-1">
                       {svc.tag}
                     </span>
-                    <h3 className="font-heading font-bold text-sm text-[#241428] group-hover:text-[#E8A9C2] transition-colors leading-snug">
+                    <h3 className="font-heading font-bold text-sm text-[#241428] group-hover:text-[#6B4A87] transition-colors leading-snug">
                       {svc.title}
                     </h3>
-                    <p className="mt-2 text-xs text-[#5C4A6E]/80 leading-relaxed">
+                    <p className="mt-2 text-xs text-[#5C4A6E] leading-relaxed">
                       {svc.desc}
                     </p>
                   </div>
-                  
                   <div className="mt-4 pt-3 border-t border-[#6B4A87]/20 flex items-center text-[11px] font-mono-accent text-[#6B4A87] group-hover:translate-x-0.5 transition-transform">
-                    <span>Learn More</span>
+                    <span>Learn more</span>
                     <ArrowRight className="w-3 h-3 ml-1" />
                   </div>
                 </Link>
@@ -113,35 +108,28 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
             })}
           </div>
 
-          {/* Real Cloud Datacenter Image Asset with Subtle Overlay */}
-          <div className="relative rounded-2xl overflow-hidden border border-[#6B4A87]/30 h-32 sm:h-36 group">
-            <img
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
-              alt="Trevyk Enterprise Cloud Infrastructure & Datacenter"
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-60"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFFFFF] via-[#FFFFFF]/80 to-transparent p-4 sm:p-5 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-wider block">
-                  Infrastructure Telemetry
-                </span>
-                <span className="font-heading font-bold text-sm sm:text-base text-[#241428]">
-                  Multi-Region High-Availability Infrastructure
-                </span>
-                <p className="text-[11px] text-[#5C4A6E] mt-0.5 hidden sm:block">
-                  Sub-millisecond routing with automated failover across distributed availability zones.
-                </p>
-              </div>
-
-              <div className="hidden sm:flex flex-col items-end text-right font-mono-accent text-xs">
-                <span className="text-[#6B4A87] font-bold">Kiduart</span>
-                <span className="text-[10px] text-[#5C4A6E]">LIVE PRODUCT</span>
-              </div>
+          <div className="rounded-2xl border border-[#6B4A87]/25 bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <span className="text-[10px] font-mono-accent text-[#6B4A87] uppercase tracking-wider block">
+                Flagship product
+              </span>
+              <span className="font-heading font-bold text-base text-[#241428]">
+                Kiduart School ERP
+              </span>
+              <p className="text-[11px] text-[#5C4A6E] mt-1 max-w-md">
+                Cloud school management for Indian schools — see the live product site for modules and demos.
+              </p>
             </div>
+            <a
+              href="https://kiduart.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-4 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold hover:opacity-95 shrink-0"
+            >
+              Visit kiduart.com
+            </a>
           </div>
         </div>
-
       </div>
     </section>
   );

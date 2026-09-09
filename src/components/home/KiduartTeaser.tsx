@@ -38,11 +38,15 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
             </div>
 
             <h2 className="font-heading font-bold text-3xl sm:text-5xl text-[#241428] leading-tight tracking-tight">
-              Kiduart School ERP — Modern Institutional Management
+              Kiduart — school ERP from Trevyk
             </h2>
 
             <p className="mt-4 text-[#5A3875] text-base sm:text-lg max-w-3xl leading-relaxed">
-              Designed specifically for modern K-12 schools, multi-campus academies, and university institutions. Automate timetables, biometric attendance, instant fee reconciliation, and parent communication in one unified platform.
+              Our flagship product for Indian schools: admissions, student records, attendance, exams, fees, and parent communication in one system. Built by Trevyk — full product details at{' '}
+              <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="text-[#6B4A87] font-semibold underline underline-offset-2">
+                kiduart.com
+              </a>
+              .
             </p>
           </div>
 

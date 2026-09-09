@@ -1,22 +1,15 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { 
-  Info, 
-  Target, 
-  Sparkles, 
-  Users, 
-  ShieldCheck, 
-  Award, 
-  Building2, 
+import {
+  ShieldCheck,
+  HeartHandshake,
+  TrendingUp,
+  Layers,
   ArrowRight,
   CheckCircle2,
-  Cpu,
-  Layers,
-  HeartHandshake,
-  Workflow,
   Compass,
-  MapPin,
-  TrendingUp
+  Building2,
+  GraduationCap,
+  Briefcase,
 } from 'lucide-react';
 import { SiteSettings } from '../types';
 import { TrevykLogo } from '../components/TrevykLogo';
@@ -30,27 +23,25 @@ interface AboutPageProps {
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({
-  settings,
   onOpenArchitectureModal,
 }) => {
-  // Brand Culture & Values inspired by Trevyk's creative philosophy
   const coreValues = [
     {
-      title: 'A Bond of Trust',
-      tagline: 'Radical Transparency & Code Ownership',
-      desc: 'We treat every system we build as a critical institutional commitment. You retain 100% intellectual property ownership, zero vendor locks, and direct access to unvarnished code repositories and automated audit traces.',
+      title: 'Publish only what exists',
+      tagline: 'Honest product & service claims',
+      desc: 'We describe capabilities that are built and shippable. Anything still in development is labelled clearly — not billed as live. Same charter our Kiduart product team holds publicly.',
       icon: ShieldCheck,
     },
     {
-      title: 'A Promise of Support',
-      tagline: '24/7 Resilience & Engineering Continuity',
-      desc: 'Our engagement doesn’t conclude at production deployment. We provide guaranteed SLAs, proactive telemetry monitoring, and dedicated SRE rotations so your software thrives as user concurrency surges.',
+      title: 'Support that stays close',
+      tagline: 'Same team for demos and rollout',
+      desc: 'Demos, onboarding, and support run with the people who ship the product. No invented 24/7 SLA theatre — we reply within one business day and stay accountable.',
       icon: HeartHandshake,
     },
     {
-      title: 'A Partnership for Progress',
-      tagline: 'Turning Vision Into Measurable Impact',
-      desc: 'We don’t build software for the sake of complexity. Every line of code, distributed database shard, and AI inference pipeline is engineered to drive tangible operational velocity and institutional growth.',
+      title: 'Partnership for progress',
+      tagline: 'B2B services + B2C products',
+      desc: 'Trevyk is the parent company behind Kiduart and related IT work. We help schools and businesses with real software — products they can buy, and custom builds when a product alone is not enough.',
       icon: TrendingUp,
     },
   ];
@@ -58,13 +49,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   return (
     <div id="about-page" className="w-full min-h-screen pt-28 sm:pt-36 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* ========================================================================= */}
-        {/* 1. HEADER HERO                                                            */}
-        {/* ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
               <Compass className="w-3.5 h-3.5" />
               <span>ABOUT TREVYK TECHNOLOGIES</span>
             </div>
@@ -74,84 +61,92 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </h1>
 
             <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed max-w-2xl">
-              Trevyk Technologies is an enterprise software engineering company based in Pune, India. We partner with ambitious institutions and businesses to architect high-throughput cloud platforms, event-driven microservices, and our proprietary flagship school ERP platform—Kiduart.
+              Trevyk Technologies is the parent company behind{' '}
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+              >
+                Kiduart
+              </a>
+              — a school ERP built for Indian schools — and the home for our wider B2B and B2C software work. Based in Noida, Uttar Pradesh, we ship product and custom IT with the same honesty standard: no invented adoption numbers, no borrowed credibility.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/contact"
                 onClick={() => soundEngine.playClick('hero')}
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
+                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
               >
-                <span>Partner with Trevyk</span>
+                <span>Talk to Trevyk</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
-              <button
-                onClick={onOpenArchitectureModal}
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs transition-colors"
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#5C4A6E] hover:text-[#241428] font-mono-accent text-xs transition-colors"
               >
-                <Layers className="w-3.5 h-3.5 text-[#E8A9C2]" />
-                <span>Inspect 3D Architecture</span>
-              </button>
+                <GraduationCap className="w-3.5 h-3.5 text-[#6B4A87]" />
+                <span>Visit kiduart.com</span>
+              </a>
             </div>
           </div>
 
-          {/* Real Team & Office Atmosphere Image */}
-          <div className="lg:col-span-5 relative">
-            <div className="rounded-3xl overflow-hidden border-2 border-[#6B4A87]/40 bg-[#FFFFFF] p-2 shadow-2xl group">
-              <div className="rounded-2xl overflow-hidden relative">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Trevyk Technologies Engineering Team in Collaboration"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-80 sm:h-96 object-cover object-center opacity-85 group-hover:scale-105 transition-transform duration-700"
-                />
-                
-                {/* Overlay Badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-[#FFFFFF]/90 backdrop-blur-md p-3.5 rounded-xl border border-[#6B4A87]/50 shadow-lg flex items-center justify-between">
-                  <div>
-                    <div className="text-[10px] font-mono-accent text-[#6B4A87]">ENGINEERING HQ</div>
-                    <div className="text-xs font-heading font-semibold text-[#241428]">Pune, Maharashtra, India</div>
+          <div className="lg:col-span-5">
+            <div className="rounded-3xl border-2 border-[#6B4A87]/25 bg-white p-8 sm:p-10 shadow-xl flex flex-col items-center text-center space-y-6">
+              <TrevykLogo layout="horizontal" size="lg" showTagline={true} />
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                <div className="p-3.5 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/20">
+                  <div className="flex items-center gap-2 text-[#6B4A87] mb-1">
+                    <Building2 className="w-3.5 h-3.5" />
+                    <span className="text-[10px] font-mono-accent uppercase">Base</span>
                   </div>
-                  <div className="text-[10px] font-mono-accent text-[#5C4A6E] px-2 py-1 rounded bg-[#F7F4FA] border border-[#6B4A87]/40">
-                    Est. 2024
+                  <div className="text-sm font-heading font-semibold text-[#241428]">Noida, UP, India</div>
+                </div>
+                <div className="p-3.5 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/20">
+                  <div className="flex items-center gap-2 text-[#6B4A87] mb-1">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    <span className="text-[10px] font-mono-accent uppercase">Focus</span>
                   </div>
+                  <div className="text-sm font-heading font-semibold text-[#241428]">B2B &amp; B2C software</div>
                 </div>
               </div>
+              <p className="text-xs text-[#5C4A6E] leading-relaxed">
+                Individual team profiles will be published when ready. Until then we keep this page honest — brand, product, and how to reach us.
+              </p>
             </div>
           </div>
         </div>
 
         <BrandGradientDivider className="mt-20" />
 
-        {/* ========================================================================= */}
-        {/* 2. THE THREE FOUNDATIONAL VALUES (REWORDED CULTURE STATEMENT)             */}
-        {/* ========================================================================= */}
         <div className="mt-16">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
               <HeartHandshake className="w-3.5 h-3.5" />
-              <span>CULTURE & VALUES</span>
+              <span>HOW WE WORK</span>
             </div>
             <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#241428]">
-              The Trevyk Engineering Pledge
+              The same honesty we publish on Kiduart
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[#5C4A6E] leading-relaxed">
-              Inspired by our founding philosophy: a bond of trust, a promise of support, and a dedicated partnership for progress.
+              Parent company standards match the product charter — trust first, polish second.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {coreValues.map((val, idx) => {
+            {coreValues.map((val) => {
               const Icon = val.icon;
               return (
                 <div
-                  key={idx}
-                  className="p-7 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/35 space-y-4 hover:border-[#E8A9C2]/60 transition-all flex flex-col justify-between"
+                  key={val.title}
+                  className="p-7 rounded-2xl bg-white border border-[#6B4A87]/35 space-y-4 hover:border-[#E8A9C2]/60 transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2] mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87] mb-4">
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-[11px] font-mono-accent text-[#6B4A87] uppercase">
@@ -160,14 +155,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <h3 className="font-heading font-bold text-lg sm:text-xl text-[#241428] mt-1">
                       {val.title}
                     </h3>
-                    <p className="mt-3 text-xs sm:text-sm text-[#5C4A6E]/80 leading-relaxed">
+                    <p className="mt-3 text-xs sm:text-sm text-[#5C4A6E] leading-relaxed">
                       {val.desc}
                     </p>
                   </div>
-
-                  <div className="pt-4 border-t border-[#6B4A87]/20 flex items-center space-x-1.5 text-xs font-mono-accent text-emerald-400">
+                  <div className="pt-4 border-t border-[#6B4A87]/20 flex items-center space-x-1.5 text-xs font-mono-accent text-[#6B4A87]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Non-Negotiable Standard</span>
+                    <span>Public commitment</span>
                   </div>
                 </div>
               );
@@ -177,69 +171,64 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         <BrandGradientDivider className="mt-20" />
 
-        {/* ========================================================================= */}
-        {/* 3. THE 5-CUBE LOGO & ARCHITECTURAL MEANING                                */}
-        {/* ========================================================================= */}
-        <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-[#FFFFFF] border border-[#6B4A87]/40 shadow-2xl">
+        <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-white border border-[#6B4A87]/40 shadow-xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-4 flex justify-center">
               <TrevykLogo layout="vertical" size="xl" showTagline={true} />
             </div>
-
             <div className="lg:col-span-8 space-y-4">
               <span className="text-xs font-mono-accent text-[#6B4A87] uppercase">
-                THE 3D CUBE ARCHITECTURE PHILOSOPHY
+                WHAT WE BUILD
               </span>
               <h3 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-                Why the Isometric "Y" Formation Defines Our Engineering
+                Products for schools. Services for teams that need more.
               </h3>
-              <p className="text-xs sm:text-sm text-[#5C4A6E]/85 leading-relaxed">
-                In complex software, fragile monoliths break under sudden concurrency. Our brand emblem—an isometric 5-cube cluster in a "Y" formation—is a mathematical metaphor for decoupled micro-architecture:
+              <p className="text-sm text-[#5C4A6E] leading-relaxed">
+                Our flagship product is Kiduart School ERP — admissions, student records, attendance, exams, fees, parent communication, and more in one system. Alongside the product, Trevyk takes on B2B custom software, web/mobile apps, and cloud work when a school or business needs something beyond the product surface.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="p-3 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-xs text-[#5C4A6E]">
-                  <strong className="text-[#E8A9C2] block mb-0.5">Top-Left & Top-Right Nodes:</strong>
-                  User interface gateways & IoT device streams.
+                <div className="p-3 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/20 text-xs text-[#5C4A6E]">
+                  <strong className="text-[#6B4A87] block mb-0.5">B2C / Product</strong>
+                  Kiduart for schools, trusts, and multi-campus groups — see{' '}
+                  <a href="https://kiduart.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-[#6B4A87]">
+                    kiduart.com
+                  </a>
+                  .
                 </div>
-                <div className="p-3 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-xs text-[#5C4A6E]">
-                  <strong className="text-[#E8A9C2] block mb-0.5">Center Core Block:</strong>
-                  The event choreography broker & business logic orchestrator.
-                </div>
-                <div className="p-3 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-xs text-[#5C4A6E]">
-                  <strong className="text-[#E8A9C2] block mb-0.5">Stem & Base Nodes:</strong>
-                  Distributed database persistence & high-speed caching layers.
-                </div>
-                <div className="p-3 rounded-xl bg-[#FFFFFF] border border-[#6B4A87]/30 text-xs text-[#5C4A6E]">
-                  <strong className="text-[#E8A9C2] block mb-0.5">Linear Scalability:</strong>
-                  Every module isolates faults without bringing down the system.
+                <div className="p-3 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/20 text-xs text-[#5C4A6E]">
+                  <strong className="text-[#6B4A87] block mb-0.5">B2B / Services</strong>
+                  Custom software, integrations, and digital builds scoped to what you actually need.
                 </div>
               </div>
+              <button
+                type="button"
+                onClick={onOpenArchitectureModal}
+                className="inline-flex items-center space-x-2 mt-2 text-xs font-mono-accent text-[#6B4A87] hover:text-[#241428]"
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>Inspect modular architecture metaphor</span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* 4. HONEST POSITIONING (NO FAKE PEOPLE)                                   */}
-        {/* ========================================================================= */}
-        <div className="mt-16 p-8 rounded-3xl bg-[#FFFFFF]/80 border border-[#6B4A87]/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-16 p-8 rounded-3xl bg-[#F7F4FA] border border-[#6B4A87]/30 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-heading font-bold text-lg text-[#241428]">
-              Ready to explore an engineering partnership?
+              Ready to talk product or a custom build?
             </h4>
             <p className="text-xs text-[#5C4A6E]">
-              Connect directly with our solutions architects to discuss technical feasibility and timelines.
+              Kiduart demos and Trevyk service requests — one contact path, honest timelines.
             </p>
           </div>
-
           <Link
             to="/contact"
             onClick={() => soundEngine.playClick('hero')}
-            className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading font-semibold text-xs sm:text-sm shrink-0 hover:opacity-95 transition-opacity shadow-lg"
+            className="px-7 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading font-semibold text-xs sm:text-sm shrink-0 hover:opacity-95 transition-opacity shadow-lg"
           >
-            Connect With Us
+            Contact us
           </Link>
         </div>
-
       </div>
     </div>
   );

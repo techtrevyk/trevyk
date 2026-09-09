@@ -34,77 +34,77 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
   const engineeringSteps = [
     {
       number: '01',
-      title: 'Architecture Discovery & Threat Modeling',
-      shortName: 'Discovery & Threat Modeling',
-      timeline: 'Week 1 – 2',
-      tagline: 'Establishing mathematical domain boundaries and zero-trust threat vectors before writing code.',
+      title: 'Listen & scope',
+      shortName: 'Listen & scope',
+      timeline: 'Start',
+      tagline: 'Understand the school or business problem before proposing software.',
       details: [
-        'Domain-driven schema mapping and distributed bounded contexts',
-        'P99 latency budget definition and maximum concurrency throughput target',
-        'STRIDE threat modeling and zero-trust authentication architecture',
-        'Interactive system wireframes, schema DDL, and API OpenAPI 3.1 contracts',
+        'Clarify who will use the system day to day',
+        'Separate must-haves from nice-to-haves',
+        'Decide product (Kiduart) vs custom build vs both',
+        'Capture constraints: data, roles, timelines, budget band',
       ],
-      output: 'Architecture Technical Specification Document (TSD) + Signed OpenAPI Spec',
+      output: 'Short written scope + recommended path',
       icon: Search,
     },
     {
       number: '02',
-      title: 'Distributed System Blueprint & Sharding',
-      shortName: 'Blueprint & Sharding',
-      timeline: 'Week 3 – 4',
-      tagline: 'Isolating data pipelines, database indexing models, and microservice boundaries.',
+      title: 'Agree the plan',
+      shortName: 'Agree the plan',
+      timeline: 'Next',
+      tagline: 'A clear plan with stages, owners, and what “done” means.',
       details: [
-        'Database sharding and read-replica topology design (PostgreSQL/Cloud SQL)',
-        'Event stream choreography with Apache Kafka / RabbitMQ message brokers',
-        'High-speed Redis cache invalidation strategies and lock managers',
-        'Infrastructure-as-Code (Terraform) blueprint for automated cluster provisioning',
+        'Milestones you can review without jargon',
+        'Roles and access model sketched early',
+        'Parallel-run plan when replacing spreadsheets or legacy tools',
+        'Honest risks and open questions listed up front',
       ],
-      output: 'Terraform IaC Repo + Isolated Database Micro-Benchmark Sandbox',
+      output: 'Agreed plan & kickoff checklist',
       icon: Layers,
     },
     {
       number: '03',
-      title: 'High-Velocity Iterative Engineering',
-      shortName: 'Sprint Engineering',
-      timeline: 'Week 5 – 10',
-      tagline: 'Decoupled sprint execution with strict static typing and end-to-end automated pipelines.',
+      title: 'Build in stages',
+      shortName: 'Build in stages',
+      timeline: 'Delivery',
+      tagline: 'Ship usable slices — not a big-bang dump at the end.',
       details: [
-        'Strict end-to-end TypeScript type safety across frontend and microservices',
-        'Automated CI pipeline with unit, integration, and contract test gates (>85% coverage)',
-        'Containerized microservices orchestrated via Kubernetes / Cloud Run',
-        'Bi-weekly staging environment demo releases with stakeholder access',
+        'Working increments you can click through',
+        'Regular demos with your real workflows in mind',
+        'Tests where they protect fees, attendance, or access',
+        'Change notes so staff know what moved',
       ],
-      output: 'Feature-complete system running on production-identical staging clusters',
+      output: 'Staging environment + review notes',
       icon: Code2,
     },
     {
       number: '04',
-      title: 'Zero-Downtime Blue/Green Deployment',
-      shortName: 'Zero-Downtime Release',
-      timeline: 'Week 11 – 12',
-      tagline: 'Canary traffic shifting and automated database migration dry-runs.',
+      title: 'Launch carefully',
+      shortName: 'Launch carefully',
+      timeline: 'Go-live',
+      tagline: 'Go live only when numbers and roles match what you expect.',
       details: [
-        'Zero-downtime Blue/Green routing with automated rollback triggers',
-        'Multi-AZ active-active failover testing and database split-brain recovery simulation',
-        'OWASP Top 10 penetration testing and external vulnerability assessment',
-        'Privacy checklist aligned to school data handling (roles, export, encryption)',
+        'Parallel check for fees / attendance when switching systems',
+        'Staff walkthrough before full cutover',
+        'Rollback / pause option if something does not reconcile',
+        'Privacy basics: roles, export, audit trail',
       ],
-      output: 'Verified Zero-Downtime Deployment Report + Cryptographic Audit Certificate',
+      output: 'Go-live checklist + support contact',
       icon: Rocket,
     },
     {
       number: '05',
-      title: 'Continuous Observability & Autonomous SRE',
-      shortName: 'Continuous Observability',
-      timeline: 'Week 13+ (Ongoing)',
-      tagline: 'Real-time distributed telemetry, SLA guarantees, and autonomous self-healing nodes.',
+      title: 'Support & iterate',
+      shortName: 'Support & iterate',
+      timeline: 'Ongoing',
+      tagline: 'Stay available after launch — improve what daily use reveals.',
       details: [
-        'Sub-millisecond Prometheus, Grafana & OpenTelemetry distributed tracing',
-        'Predictive anomaly detection alerting on error budget burn rates',
-        '24/7 dedicated SRE on-call rotation with 15-minute guaranteed MTTR',
-        'Automated node recycling and horizontal pod autoscaling (HPA)',
+        'Business-day response for product and project questions',
+        'Prioritised fixes from real operator feedback',
+        'Optional next modules once the baseline is stable',
+        'No invented 15-minute MTTR or 99.99% warranty badges',
       ],
-      output: 'Live 99.99% SLA Warranty + Real-time Grafana Telemetry Dashboard Access',
+      output: 'Support channel + improvement backlog',
       icon: Activity,
     },
   ];
@@ -119,15 +119,15 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
         <div className="max-w-3xl">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
             <GitMerge className="w-3.5 h-3.5" />
-            <span>ENGINEERING PROCESS // 5-STAGE METHODOLOGY</span>
+            <span>HOW WE DELIVER // 5 STEPS</span>
           </div>
 
           <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] leading-tight">
-            Deterministic Engineering from Day Zero to Scale
+            Clear stages for product rollouts and custom builds
           </h1>
 
           <p className="mt-5 text-[#5C4A6E] text-base sm:text-lg leading-relaxed">
-            We replace speculative development timelines with deterministic engineering milestones, mathematically verified schema models, and continuous automated telemetry.
+            The same practical path whether you are adopting Kiduart or commissioning custom software from Trevyk — listen, plan, build in slices, launch carefully, then support.
           </p>
         </div>
 
@@ -286,63 +286,60 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
         <div className="mt-16">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-              Engineering Discipline Built into Every Pull Request
+              Habits we keep on every engagement
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-[#5C4A6E]">
-              How we guarantee enterprise stability without sacrificing delivery speed.
+              Practical quality — not theatre.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2]">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
                 <Terminal className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-[#241428]">Automated Test Harness</h3>
+              <h3 className="font-heading font-bold text-base text-[#241428]">Review before release</h3>
               <p className="text-xs text-[#5C4A6E] leading-relaxed">
-                Every commit triggers static analysis, dependency vulnerability checks, and integration suites across containerized test clusters.
+                Changes that touch fees, attendance, or access get an extra check. We do not ship “trust us” updates into live school data.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-emerald-400">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
                 <Server className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-[#241428]">Zero-Downtime Blue/Green</h3>
+              <h3 className="font-heading font-bold text-base text-[#241428]">Parallel when it matters</h3>
               <p className="text-xs text-[#5C4A6E] leading-relaxed">
-                Production deployments run alongside the live version. Traffic shifts incrementally with sub-second rollback triggers if error spikes occur.
+                For school cutovers we prefer running old and new methods side by side until numbers agree — the same idea Kiduart publishes publicly.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6B4A87]/30 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2]">
+              <div className="w-10 h-10 rounded-xl bg-[#F7F4FA] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
                 <Workflow className="w-5 h-5" />
               </div>
-              <h3 className="font-heading font-bold text-base text-[#241428]">Direct Architect Collaboration</h3>
+              <h3 className="font-heading font-bold text-base text-[#241428]">Written handoff</h3>
               <p className="text-xs text-[#5C4A6E] leading-relaxed">
-                You collaborate directly with principal systems engineers and technical leads over dedicated Slack/Teams channels, not account managers.
+                You leave with docs, access, and a named contact — not a black box. Custom work includes source ownership.
               </p>
             </div>
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* 4. PROCESS CTA                                                            */}
-        {/* ========================================================================= */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#F7F4FA] via-[#FFFFFF] to-[#F7F4FA] border border-[#6B4A87]/40 text-center space-y-6">
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#F7F4FA] via-white to-[#F7F4FA] border border-[#6B4A87]/40 text-center space-y-6">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
-            Ready to Begin Architecture Discovery for Your System?
+            Ready to start with a clear scope?
           </h2>
           <p className="text-xs sm:text-sm text-[#5C4A6E] max-w-xl mx-auto leading-relaxed">
-            Schedule a 45-minute technical discovery session. We will evaluate your system requirements, concurrency needs, and provide a clear engineering blueprint.
+            Book a Kiduart demo or tell us about a custom build. We will reply with next steps — not a jargon deck.
           </p>
           <div className="pt-2">
             <Link
               to="/contact"
               onClick={() => soundEngine.playClick('hero')}
-              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#241428] font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
+              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 transition-opacity shadow-lg"
             >
-              <span>Schedule Technical Discovery</span>
+              <span>Contact Trevyk</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
