@@ -159,7 +159,11 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
     >
       <PageAtmosphere
         variant="process"
-        lightBand={{ top: "45%", height: "18%" }}
+        lightBand={{ top: "45%", height: "14%" }}
+        bands={[
+          { top: "20%", height: "10%", tone: "ink" },
+          { top: "76%", height: "12%", tone: "pink" },
+        ]}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -295,7 +299,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
             ))}
           </div>
 
-          <div className="relative p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
+          <div className="relative p-6 sm:p-8 rounded-3xl surface-ink border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
             <div
               className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
               aria-hidden
@@ -372,6 +376,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
         <SectionBridge
           className="mt-10"
           label="Habits"
+          tone="lilac"
           reducedMotion={settings.reducedMotion}
         />
 

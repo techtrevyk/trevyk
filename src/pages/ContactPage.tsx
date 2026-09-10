@@ -82,7 +82,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
     >
       <PageAtmosphere
         variant="contact"
-        lightBand={{ top: "35%", height: "28%" }}
+        lightBand={{ top: "35%", height: "18%" }}
+        bands={[
+          { top: "14%", height: "10%", tone: "pink" },
+          { top: "68%", height: "16%", tone: "ink" },
+        ]}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,7 +131,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
           className="mt-2 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
           reducedMotion={settings.reducedMotion}
         >
-          <div className="lg:col-span-7 relative p-6 sm:p-10 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
+          <div className="lg:col-span-7 relative p-6 sm:p-10 rounded-3xl surface-lilac-mist border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
             <div
               className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
               aria-hidden
@@ -335,7 +339,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
           </div>
 
           <div className="lg:col-span-5 space-y-4">
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 space-y-5">
+            <div className="p-6 sm:p-8 rounded-3xl surface-pink-wash border border-[#B9A6D1]/35 space-y-5">
               <h3 className="font-heading font-bold text-lg text-[#F8F6FB]">
                 Direct channels
               </h3>

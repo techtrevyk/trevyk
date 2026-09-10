@@ -61,7 +61,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
     >
       <PageAtmosphere
         variant="about"
-        lightBand={{ top: "40%", height: "20%" }}
+        lightBand={{ top: "40%", height: "16%" }}
+        bands={[
+          { top: "18%", height: "10%", tone: "ink" },
+          { top: "72%", height: "12%", tone: "pink" },
+        ]}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -251,6 +255,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         <SectionBridge
           className="mt-10"
           label="Build"
+          tone="pink"
           reducedMotion={settings.reducedMotion}
         />
 

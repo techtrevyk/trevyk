@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,6 +15,7 @@ import { Global3DCanvas } from './components/3d/Global3DCanvas';
 import { ArchitectureModal } from './components/ArchitectureModal';
 import { GeminiChatbot } from './components/GeminiChatbot';
 import { SEOManager } from './components/SEOManager';
+import { PageTransition } from './components/PageTransition';
 
 // Multi-Page Views
 import { HomePage } from './pages/HomePage';
@@ -203,15 +204,10 @@ function MainAppContent() {
       {/* 6. Multi-Page Routes with Smooth Transition Animations */}
       <main id="main-content" className="relative z-10">
         <AnimatePresence mode="wait">
-          <motion.div
+          <PageTransition
             key={location.pathname}
-            initial={{ opacity: 0, y: settings.reducedMotion ? 0 : 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: settings.reducedMotion ? 0 : -12 }}
-            transition={{
-              duration: settings.reducedMotion ? 0.15 : 0.4,
-              ease: [0.22, 1, 0.36, 1],
-            }}
+            pathname={location.pathname}
+            reducedMotion={settings.reducedMotion}
           >
             <Routes location={location}>
               <Route
@@ -285,7 +281,7 @@ function MainAppContent() {
                 }
               />
             </Routes>
-          </motion.div>
+          </PageTransition>
         </AnimatePresence>
       </main>
 

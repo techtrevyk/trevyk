@@ -56,7 +56,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       id="services-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <PageAtmosphere variant="services" lightBand={{ top: "42%", height: "22%" }} />
+      <PageAtmosphere
+        variant="services"
+        lightBand={{ top: "42%", height: "18%" }}
+        bands={[
+          { top: "18%", height: "12%", tone: "ink" },
+          { top: "72%", height: "14%", tone: "pink" },
+        ]}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header — left content, right breathing room for persistent 3D */}
@@ -134,7 +141,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
         {/* Engagement strip — dark coordinated, no white mid-band */}
         <ScrollReveal
-          className="mt-2 relative rounded-2xl overflow-hidden border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+          className="mt-2 relative rounded-2xl overflow-hidden border border-[#B9A6D1]/35 surface-lilac-mist p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
           reducedMotion={settings.reducedMotion}
         >
           <div
@@ -184,6 +191,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <SectionBridge
           className="mt-10"
           label="Offerings"
+          tone="lilac"
           reducedMotion={settings.reducedMotion}
         />
 
@@ -223,12 +231,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         <SectionBridge
           className="mt-10"
           label="Engage"
+          tone="pink"
           reducedMotion={settings.reducedMotion}
         />
 
         {/* Bottom CTA — same color system, clearer hierarchy */}
         <ScrollReveal
-          className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-12 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          className="relative rounded-3xl border border-[#B9A6D1]/35 surface-pink-wash p-8 sm:p-12 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
           reducedMotion={settings.reducedMotion}
         >
           <div

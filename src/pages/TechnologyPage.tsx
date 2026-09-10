@@ -105,7 +105,11 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
     >
       <PageAtmosphere
         variant="technology"
-        lightBand={{ top: "48%", height: "20%" }}
+        lightBand={{ top: "48%", height: "16%" }}
+        bands={[
+          { top: "22%", height: "10%", tone: "ink" },
+          { top: "74%", height: "12%", tone: "pink" },
+        ]}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -404,6 +408,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         <SectionBridge
           className="mt-10"
           label="Architecture"
+          tone="lilac"
           reducedMotion={settings.reducedMotion}
         />
 
@@ -567,6 +572,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         <SectionBridge
           className="mt-10"
           label="Trust"
+          tone="pink"
           reducedMotion={settings.reducedMotion}
         />
 

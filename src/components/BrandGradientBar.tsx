@@ -57,46 +57,68 @@ export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
 /**
  * Reusable Divider Strip echoing the brand gradient — acts as a section bridge
  */
-export const BrandGradientDivider: React.FC<{ className?: string; label?: string }> = ({
-  className = '',
-  label,
-}) => {
+export const BrandGradientDivider: React.FC<{
+  className?: string;
+  label?: string;
+  reducedMotion?: boolean;
+}> = ({ className = "", label, reducedMotion = false }) => {
   return (
-    <div className={`relative py-10 sm:py-12 flex items-center justify-center ${className}`}>
+    <div
+      className={`relative py-10 sm:py-12 flex items-center justify-center ${className}`}
+    >
       {/* Soft vertical pulse — ties sections into one scroll narrative */}
       <div
-        className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 opacity-40"
+        className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 opacity-50"
         style={{
           background:
-            'linear-gradient(180deg, transparent 0%, #6B4A87 35%, #E8A9C2 65%, transparent 100%)',
+            "linear-gradient(180deg, transparent 0%, #6B4A87 30%, #E8A9C2 55%, #E7E1F0 70%, transparent 100%)",
         }}
         aria-hidden
       />
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 sm:gap-5">
         <div
-          className="h-px flex-1 rounded-full"
+          className="h-px flex-1 rounded-full relative overflow-hidden"
           style={{
             background:
-              'linear-gradient(90deg, transparent 0%, #6B4A87 35%, #B9A6D1 70%, #E8A9C2 100%)',
+              "linear-gradient(90deg, transparent 0%, #6B4A87 35%, #B9A6D1 70%, #E8A9C2 100%)",
           }}
-        />
+        >
+          {!reducedMotion && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#F8F6FB]/35 to-transparent animate-[shimmer_3.5s_infinite_linear] opacity-70" />
+          )}
+        </div>
         <div className="flex items-center gap-2 shrink-0">
-          <span className="w-1 h-1 rounded-full bg-[#B9A6D1]/50" aria-hidden />
-          <span className="w-2 h-2 rounded-full bg-[#E8A9C2] shadow-[0_0_14px_rgba(232,169,194,0.75)]" aria-hidden />
-          <span className="w-1 h-1 rounded-full bg-[#B9A6D1]/50" aria-hidden />
+          <span
+            className="w-1 h-1 rounded-full bg-[#B9A6D1]/60"
+            aria-hidden
+          />
+          <span
+            className={`w-2.5 h-2.5 rounded-full bg-[#E8A9C2] shadow-[0_0_16px_rgba(232,169,194,0.85)] ${
+              reducedMotion ? "" : "animate-pulse-soft"
+            }`}
+            aria-hidden
+          />
+          <span
+            className="w-1 h-1 rounded-full bg-[#E7E1F0]/50"
+            aria-hidden
+          />
         </div>
         {label ? (
-          <span className="font-mono-accent text-[10px] tracking-[0.28em] uppercase text-[#E8A9C2]/70 shrink-0">
+          <span className="font-mono-accent text-[10px] tracking-[0.28em] uppercase text-[#E8A9C2]/80 shrink-0">
             {label}
           </span>
         ) : null}
         <div
-          className="h-px flex-1 rounded-full"
+          className="h-px flex-1 rounded-full relative overflow-hidden"
           style={{
             background:
-              'linear-gradient(90deg, #E8A9C2 0%, #B9A6D1 30%, #6B4A87 65%, transparent 100%)',
+              "linear-gradient(90deg, #E8A9C2 0%, #B9A6D1 30%, #6B4A87 65%, transparent 100%)",
           }}
-        />
+        >
+          {!reducedMotion && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E8A9C2]/40 to-transparent animate-[shimmer_4s_infinite_linear] opacity-60" />
+          )}
+        </div>
       </div>
     </div>
   );

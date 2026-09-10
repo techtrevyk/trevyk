@@ -4,16 +4,24 @@
   :root {
     --color-bg-primary: #2A1830;
     --color-bg-darker: #1E1024;
+    --color-bg-ink: #160A1C;
     --color-brand-purple: #6B4A87;
     --color-brand-lavender: #B9A6D1;
     --color-brand-lilac: #E7E1F0;
     --color-brand-pink: #E8A9C2;
     --color-text-light: #F8F6FB;
     --color-text-ink: #241428;
+    --surface-ink: rgba(22, 10, 28, 0.72);
+    --surface-lilac: rgba(231, 225, 240, 0.08);
+    --surface-pink: rgba(232, 169, 194, 0.1);
   }
 
   body {
     background-color: #2A1830;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(107, 74, 135, 0.22), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(232, 169, 194, 0.08), transparent 50%);
+    background-attachment: fixed;
     color: #F8F6FB;
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
@@ -40,6 +48,22 @@
 /* Ambient gradient mesh */
 .ambient-gradient-glow {
   background: radial-gradient(circle at 50% 40%, rgba(107, 74, 135, 0.35) 0%, rgba(42, 24, 48, 0.8) 55%, rgba(30, 16, 36, 1) 100%);
+}
+
+/* Color-rhythm surface utilities — break single-plum panels */
+.surface-ink {
+  background: linear-gradient(165deg, rgba(22, 10, 28, 0.95), rgba(30, 16, 36, 0.92));
+  border-color: rgba(185, 166, 209, 0.28);
+}
+
+.surface-lilac-mist {
+  background: linear-gradient(165deg, rgba(42, 24, 48, 0.9), rgba(231, 225, 240, 0.06));
+  border-color: rgba(231, 225, 240, 0.22);
+}
+
+.surface-pink-wash {
+  background: linear-gradient(165deg, rgba(42, 24, 48, 0.92), rgba(232, 169, 194, 0.08));
+  border-color: rgba(232, 169, 194, 0.32);
 }
 
 .glow-pill {
@@ -92,4 +116,37 @@
 
 .animate-subtle-float {
   animation: subtle-float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(232, 169, 194, 0.55);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(232, 169, 194, 0.9);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-subtle-float,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
 }

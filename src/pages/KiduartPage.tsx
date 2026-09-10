@@ -276,7 +276,11 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
     >
       <PageAtmosphere
         variant="kiduart"
-        lightBand={{ top: "38%", height: "24%" }}
+        lightBand={{ top: "38%", height: "18%" }}
+        bands={[
+          { top: "16%", height: "10%", tone: "pink" },
+          { top: "70%", height: "14%", tone: "ink" },
+        ]}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -616,6 +620,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
         <SectionBridge
           className="mt-10"
           label="Charter"
+          tone="pink"
           reducedMotion={settings.reducedMotion}
         />
 
@@ -675,6 +680,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
         <SectionBridge
           className="mt-10"
           label="Demo"
+          tone="lilac"
           reducedMotion={settings.reducedMotion}
         />
 
