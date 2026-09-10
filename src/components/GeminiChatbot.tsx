@@ -52,7 +52,7 @@ const ROLES: RoleConfig[] = [
     name: 'Solutions Consultant',
     title: 'General IT Services & Kiduart ERP Advisor',
     model: 'gemini-3.5-flash',
-    modelBadge: 'Gemini 3.5 Flash',
+    modelBadge: 'Balanced',
     description: 'Best for general tasks, project discovery, service breakdowns, and Kiduart School ERP scoping (kiduart.com).',
     icon: Sparkles,
     color: '#E8A9C2',
@@ -67,8 +67,8 @@ const ROLES: RoleConfig[] = [
     name: 'Enterprise Architect',
     title: 'High-Scale Systems & Distributed Architecture',
     model: 'gemini-3.1-pro-preview',
-    modelBadge: 'Gemini 3.1 Pro Preview',
-    description: 'Specialized for complex tasks, multi-region database sharding, zero-trust security, and Kubernetes.',
+    modelBadge: 'Deep analysis',
+    description: 'Specialized for complex architecture, modular systems design, and practical security tradeoffs.',
     icon: Cpu,
     color: '#B9A6D1',
     suggestedPrompts: [
@@ -82,7 +82,7 @@ const ROLES: RoleConfig[] = [
     name: 'Rapid Assistant',
     title: 'Fast Q&A on product & process',
     model: 'gemini-3.1-flash-lite',
-    modelBadge: 'Gemini 3.1 Flash Lite',
+    modelBadge: 'Quick answers',
     description: 'Quick answers about Kiduart, delivery cadence, and privacy practices we actually ship.',
     icon: Zap,
     color: '#241428',
@@ -113,7 +113,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
       id: 'welcome-msg',
       role: 'model',
       content:
-        "Hello! I am the **Trevyk AI Solutions Consultant** (powered by Google Gemini). I can help answer questions about our flagship **Kiduart School ERP (kiduart.com)**, cloud modernization services, custom microservices, or deep systems architecture.\n\nHow can I assist your engineering or institutional goals today?",
+        "Hello! I am the **Trevyk AI Solutions Consultant**. I can help with **Kiduart School ERP (kiduart.com)**, custom software engagements, delivery process, or architecture questions.\n\nHow can I assist you today?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       modelUsed: 'gemini-3.5-flash',
       roleId: 'solutions-consultant',
@@ -164,7 +164,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
     const systemNotice: ChatMessage = {
       id: `role-switch-${Date.now()}`,
       role: 'model',
-      content: `*Switched role to **${targetConfig.name}** (powered by **${targetConfig.modelBadge}**).*\n\n${targetConfig.description}`,
+      content: `*Switched role to **${targetConfig.name}** (${targetConfig.modelBadge}).*\n\n${targetConfig.description}`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       modelUsed: targetConfig.model,
       roleId: newRole,
@@ -230,7 +230,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
       setMessages((prev) => [...prev, modelMessage]);
     } catch (err: any) {
       console.error('Chat request error:', err);
-      setErrorMsg(err.message || 'Unable to connect to Gemini AI. Please check your network or try again.');
+      setErrorMsg(err.message || 'Unable to reach Trevyk AI right now. Please check your connection or try again.');
     } finally {
       setIsLoading(false);
     }
@@ -249,7 +249,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
       {
         id: `welcome-reset-${Date.now()}`,
         role: 'model',
-        content: `Conversation reset. You are now speaking with the **${currentRole.name}** (${currentRole.modelBadge}). How can I help you?`,
+        content: `Conversation reset. You are now speaking with the **${currentRole.name}**. How can I help you?`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         modelUsed: currentRole.model,
         roleId: selectedRole,
@@ -281,7 +281,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
               soundEngine.playClick('hero');
               onOpen();
             }}
-            aria-label="Open Trevyk Gemini AI Assistant"
+            aria-label="Open Trevyk AI Assistant"
             className="group relative flex items-center space-x-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#2A1830] via-[#1E1024] to-[#2A1830] border border-[#6B4A87]/55 hover:border-[#8558A5] shadow-[0_0_28px_rgba(107,74,135,0.40)] hover:shadow-[0_0_36px_rgba(107,74,135,0.55)] transition-all hover:scale-105 active:scale-95 cursor-pointer interactive-target text-left"
             data-cursor-label="CHAT"
           >
@@ -297,10 +297,10 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   Trevyk AI
                 </span>
                 <span className="px-1.5 py-0.5 rounded text-[10px] font-mono-accent bg-[#E8A9C2]/20 text-[#E8A9C2]">
-                  Gemini
+                  Online
                 </span>
               </div>
-              <span className="text-[11px] text-[#B9A6D1] block">Ask System Leads & ERP Experts</span>
+              <span className="text-[11px] text-[#B9A6D1] block">Ask about products &amp; delivery</span>
             </div>
           </button>
         </motion.div>
@@ -317,8 +317,10 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
             className={`fixed z-50 flex flex-col overflow-hidden bg-[#1E1024]/95 backdrop-blur-2xl border border-[#6B4A87]/60 shadow-[0_20px_60px_rgba(107,74,135,0.16),0_0_40px_rgba(107,74,135,0.3)] ${
               isExpanded
                 ? 'inset-3 sm:inset-6 md:inset-10 rounded-2xl sm:rounded-3xl'
-                : 'bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100vw-2rem)] sm:w-[460px] h-[600px] max-h-[88vh] rounded-2xl sm:rounded-3xl'
+                : 'bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100vw-2rem)] sm:w-[460px] h-[min(600px,88vh)] max-h-[88vh] rounded-2xl sm:rounded-3xl'
             }`}
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
           >
             {/* Window Header */}
             <div className="relative px-5 py-4 border-b border-[#6B4A87]/40 bg-[#2A1830]/80 flex items-center justify-between">
@@ -345,7 +347,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                       </span>
                       <ChevronDown className="w-3 h-3 text-[#B9A6D1]" />
                     </div>
-                    <span className="text-[10px] font-mono-accent text-[#6B4A87] block">
+                    <span className="text-[10px] font-mono-accent text-[#E8A9C2] block">
                       {currentRole.modelBadge}
                     </span>
                   </div>
@@ -389,7 +391,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                                   className="text-[9px] font-mono-accent px-1.5 py-0.5 rounded"
                                   style={{ backgroundColor: `${role.color}20`, color: role.color }}
                                 >
-                                  {role.modelBadge.split(' ')[1]}
+                                  {role.modelBadge}
                                 </span>
                               </div>
                               <p className="text-[11px] text-[#B9A6D1] line-clamp-2 mt-0.5">
@@ -442,7 +444,11 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
             </div>
 
             {/* Scrollable Conversation Thread */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 font-body scrollbar-thin">
+            <div
+              className="flex-1 min-h-0 overflow-y-auto overscroll-contain p-4 sm:p-5 space-y-4 font-body scrollbar-thin"
+              data-lenis-prevent
+              onWheel={(e) => e.stopPropagation()}
+            >
               {messages.map((message) => {
                 const isUser = message.role === 'user';
                 return (
@@ -460,9 +466,9 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                       <span className="text-[10px] font-mono-accent text-[#B9A6D1]/60">
                         {message.timestamp}
                       </span>
-                      {message.modelUsed && !isUser && (
+                      {message.roleId && !isUser && (
                         <span className="text-[9px] font-mono-accent px-1.5 py-0.2 rounded bg-[#6B4A87]/30 text-[#E8A9C2]">
-                          {message.modelUsed}
+                          Trevyk AI
                         </span>
                       )}
                     </div>
@@ -590,9 +596,9 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
               <div className="flex items-center justify-between mt-2 px-1 text-[10px] font-mono-accent text-[#B9A6D1]/60">
                 <span className="flex items-center space-x-1">
                   <ShieldCheck className="w-3 h-3 text-[#52D172]" />
-                  <span>Enterprise Zero-Retention Protocol</span>
+                  <span>Private conversation · business-day follow-up</span>
                 </span>
-                <span>Powered by {currentRole.modelBadge}</span>
+                <span>Trevyk AI · {currentRole.modelBadge}</span>
               </div>
             </div>
           </motion.div>

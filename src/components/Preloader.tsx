@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TrevykLogo } from './TrevykLogo';
 
@@ -7,19 +7,39 @@ interface PreloaderProps {
   reducedMotion?: boolean;
 }
 
+/**
+ * Preloader must not restart when parent re-renders (e.g. mouse move updating App state).
+ * onComplete is read via ref so the progress interval stays stable until 100%.
+ */
 export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion = false }) => {
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('LOADING');
   const [isLeaving, setIsLeaving] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+  const finishedRef = useRef(false);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     if (reducedMotion) {
-      const timer = setTimeout(() => onComplete(), 400);
+      const timer = setTimeout(() => {
+        if (!finishedRef.current) {
+          finishedRef.current = true;
+          onCompleteRef.current();
+        }
+      }, 400);
       return () => clearTimeout(timer);
     }
 
     let currentProgress = 0;
+    let leaveTimer: ReturnType<typeof setTimeout> | undefined;
+    let completeTimer: ReturnType<typeof setTimeout> | undefined;
+
     const interval = setInterval(() => {
+      if (finishedRef.current) return;
+
       const step = currentProgress < 40 ? 4 : currentProgress < 75 ? 3 : 5;
       currentProgress = Math.min(currentProgress + step, 100);
       setProgress(currentProgress);
@@ -34,15 +54,25 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion 
 
       if (currentProgress >= 100) {
         clearInterval(interval);
-        setTimeout(() => {
+        leaveTimer = setTimeout(() => {
           setIsLeaving(true);
-          setTimeout(() => onComplete(), 500);
+          completeTimer = setTimeout(() => {
+            if (!finishedRef.current) {
+              finishedRef.current = true;
+              onCompleteRef.current();
+            }
+          }, 500);
         }, 250);
       }
     }, 35);
 
-    return () => clearInterval(interval);
-  }, [onComplete, reducedMotion]);
+    return () => {
+      clearInterval(interval);
+      if (leaveTimer) clearTimeout(leaveTimer);
+      if (completeTimer) clearTimeout(completeTimer);
+    };
+    // Intentionally mount-once for the progress run (reducedMotion only restarts)
+  }, [reducedMotion]);
 
   if (reducedMotion) {
     return (
@@ -63,7 +93,9 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion 
         animate={{ opacity: isLeaving ? 0 : 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-[999] bg-[#2A1830] flex flex-col items-center justify-center overflow-hidden select-none"
+        className="fixed inset-0 z-[999] bg-[#2A1830] flex flex-col items-center justify-center overflow-hidden select-none pointer-events-none"
+        aria-busy="true"
+        aria-live="polite"
       >
         <div className="absolute w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-[#B9A6D1]/35 via-[#E8A9C2]/15 to-transparent blur-3xl pointer-events-none" />
 

@@ -55,23 +55,46 @@ export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
 };
 
 /**
- * Reusable Divider Strip echoing the brand gradient
+ * Reusable Divider Strip echoing the brand gradient — acts as a section bridge
  */
-export const BrandGradientDivider: React.FC<{ className?: string }> = ({ className = '' }) => {
+export const BrandGradientDivider: React.FC<{ className?: string; label?: string }> = ({
+  className = '',
+  label,
+}) => {
   return (
-    <div className={`py-8 flex items-center justify-center ${className}`}>
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
+    <div className={`relative py-10 sm:py-12 flex items-center justify-center ${className}`}>
+      {/* Soft vertical pulse — ties sections into one scroll narrative */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 opacity-40"
+        style={{
+          background:
+            'linear-gradient(180deg, transparent 0%, #6B4A87 35%, #E8A9C2 65%, transparent 100%)',
+        }}
+        aria-hidden
+      />
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 sm:gap-5">
         <div
-          className="h-px flex-1 rounded-full opacity-70"
+          className="h-px flex-1 rounded-full"
           style={{
-            background: 'linear-gradient(90deg, transparent 0%, #6B4A87 40%, #E8A9C2 100%)'
+            background:
+              'linear-gradient(90deg, transparent 0%, #6B4A87 35%, #B9A6D1 70%, #E8A9C2 100%)',
           }}
         />
-        <div className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2]/70 shadow-[0_0_10px_rgba(232,169,194,0.6)] shrink-0" />
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="w-1 h-1 rounded-full bg-[#B9A6D1]/50" aria-hidden />
+          <span className="w-2 h-2 rounded-full bg-[#E8A9C2] shadow-[0_0_14px_rgba(232,169,194,0.75)]" aria-hidden />
+          <span className="w-1 h-1 rounded-full bg-[#B9A6D1]/50" aria-hidden />
+        </div>
+        {label ? (
+          <span className="font-mono-accent text-[10px] tracking-[0.28em] uppercase text-[#E8A9C2]/70 shrink-0">
+            {label}
+          </span>
+        ) : null}
         <div
-          className="h-px flex-1 rounded-full opacity-70"
+          className="h-px flex-1 rounded-full"
           style={{
-            background: 'linear-gradient(90deg, #E8A9C2 0%, #6B4A87 60%, transparent 100%)'
+            background:
+              'linear-gradient(90deg, #E8A9C2 0%, #B9A6D1 30%, #6B4A87 65%, transparent 100%)',
           }}
         />
       </div>

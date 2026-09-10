@@ -27,27 +27,27 @@ const ROUTE_META: Record<string, MetaConfig> = {
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
     description:
-      "How Trevyk approaches modular software architecture, with Kiduart as a flagship product and security practices we actually ship.",
+      "How Trevyk designs maintainable systems — capability atlas, modular architecture tiers, and security practices we actually ship.",
   },
   "/kiduart": {
     title: "Kiduart School ERP | TREVYK Technologies",
     description:
-      "Kiduart is Trevyk’s school ERP for Indian schools — admissions to parent updates. Explore modules here, then visit kiduart.com for demos.",
+      "Kiduart is Trevyk’s school ERP for the Indian school year — admissions to parent updates. Explore modules, then book a demo on kiduart.com.",
   },
   "/process": {
     title: "How We Deliver | TREVYK Technologies",
     description:
-      "A practical delivery process from discovery to launch — clear stages without invented SLAs or theatre.",
+      "A clear five-stage delivery process — listen, plan, build in slices, launch carefully, then support. No invented SLA theatre.",
   },
   "/about": {
     title: "About Trevyk Technologies",
     description:
-      "Trevyk Technologies — Noida, India. A product and engineering company building software that institutions and organizations can run on.",
+      "Trevyk Technologies — Noida, India. A product and engineering company building software institutions and organizations can run on.",
   },
   "/contact": {
     title: "Contact Trevyk Technologies",
     description:
-      "Contact Trevyk for product demos or custom engineering work. Noida, India. We reply within one business day.",
+      "Contact Trevyk for Kiduart demos or custom engineering. Noida, India. We reply within one business day.",
   },
 };
 

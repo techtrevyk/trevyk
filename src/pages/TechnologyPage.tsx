@@ -3,24 +3,18 @@ import { motion, AnimatePresence } from "motion/react";
 import {
   Layers,
   ShieldCheck,
-  Cpu,
-  Database,
   Server,
-  Zap,
   Lock,
   Globe2,
   Terminal,
-  GitBranch,
   ArrowRight,
   CheckCircle2,
   Sparkles,
-  Filter,
-  Code2,
-  Flame,
-  Binary,
   Workflow,
+  Boxes,
+  Eye,
 } from "lucide-react";
-import { SiteSettings, TechCategory, TechCapabilityItem } from "../types";
+import { SiteSettings, TechCategory } from "../types";
 import { ARCHITECTURE_CUBES } from "../data/architecture";
 import { CAPABILITIES_DATA } from "../data/capabilities";
 import { BrandGradientDivider } from "../components/BrandGradientBar";
@@ -34,33 +28,59 @@ interface TechnologyPageProps {
   onCubeHover: (index: number | null) => void;
 }
 
+const ENGINEERING_PRINCIPLES = [
+  {
+    title: "Modular by default",
+    body: "Separate domains so a fees change does not force an attendance rewrite — the same idea behind our Core Block metaphor.",
+    icon: Boxes,
+  },
+  {
+    title: "Contracts over folklore",
+    body: "Typed APIs, clear ownership of services, and documented handoffs so teams can extend systems without tribal knowledge.",
+    icon: Workflow,
+  },
+  {
+    title: "Observable in production",
+    body: "Logging, error paths, and audit trails where sensitive actions happen — so support can answer what changed, and when.",
+    icon: Eye,
+  },
+  {
+    title: "Honest security claims",
+    body: "RBAC, encryption where configured, export paths — published as shipped controls, not borrowed certification badges.",
+    icon: ShieldCheck,
+  },
+];
+
 export const TechnologyPage: React.FC<TechnologyPageProps> = ({
-  settings,
   onOpenArchitectureModal,
-  hoveredCube,
   onCubeHover,
 }) => {
   const [selectedCube, setSelectedCube] = useState<number>(0);
   const [activeCategory, setActiveCategory] = useState<TechCategory>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const filterTabs: { id: TechCategory; label: string; count?: number }[] = [
-    { id: "all", label: "All Stack" },
+  const filterTabs: { id: TechCategory; label: string }[] = [
+    { id: "all", label: "All" },
     { id: "frontend", label: "Frontend" },
     { id: "backend", label: "Backend" },
-    { id: "cloud", label: "Cloud & DevOps" },
-    { id: "testing", label: "Quality & Testing" },
+    { id: "cloud", label: "Cloud" },
+    { id: "testing", label: "Quality" },
     { id: "ai", label: "Data & AI" },
     { id: "databases", label: "Databases" },
   ];
 
   const filteredCapabilities = CAPABILITIES_DATA.filter((item) => {
     const matchesCategory =
-      activeCategory === "all" || item.category === activeCategory;
+      activeCategory === "all" ||
+      item.category === activeCategory ||
+      (activeCategory === "ai" && item.category === "data");
+    const q = searchQuery.toLowerCase();
     const matchesSearch =
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.usageNote.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.tag.toLowerCase().includes(searchQuery.toLowerCase());
+      !q ||
+      item.name.toLowerCase().includes(q) ||
+      item.usageNote.toLowerCase().includes(q) ||
+      item.tag.toLowerCase().includes(q) ||
+      item.badge.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   });
 
@@ -70,58 +90,145 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
   return (
     <div
       id="technology-page"
-      className="w-full min-h-screen pt-28 sm:pt-36 pb-24"
+      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
-            <Terminal className="w-3.5 h-3.5" />
-            <span>ENGINEERING SPECIFICATION & CAPABILITY ATLAS</span>
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 55% 40% at 10% 15%, rgba(107,74,135,0.3), transparent 58%), radial-gradient(ellipse 45% 35% at 92% 20%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 40%, #2A1830 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#B9A6D1 1px, transparent 1px), linear-gradient(90deg, #B9A6D1 1px, transparent 1px)",
+            backgroundSize: "52px 52px",
+            maskImage:
+              "linear-gradient(90deg, black 0%, black 58%, transparent 95%)",
+          }}
+        />
+        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
+        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-8 max-w-3xl">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+              <Terminal className="w-3.5 h-3.5" />
+              <span>ENGINEERING & ARCHITECTURE</span>
+            </div>
+
+            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+              How we design systems{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                that stay maintainable
+              </span>
+            </h1>
+
+            <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+              A practical map of Trevyk’s engineering approach — the tools we
+              reach for, the modular architecture behind products like{" "}
+              <Link
+                to="/kiduart"
+                className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
+              >
+                Kiduart
+              </Link>
+              , and the security controls we actually ship.
+            </p>
           </div>
 
-          <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#F8F6FB] leading-tight">
-            The Trevyk Capability Atlas & Architecture
-          </h1>
-
-          <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed">
-            A practical map of how we think about modular software with Kiduart
-            as the flagship product and security practices we actually ship
-            (RBAC, export, audit), not invented benchmark theatre.
-          </p>
+          <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-1 pb-1">
+            <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
+              Atlas
+            </div>
+            <div className="font-heading font-bold text-4xl text-[#F8F6FB]">
+              {CAPABILITIES_DATA.length}
+            </div>
+            <div className="text-xs text-[#B9A6D1] text-right">
+              capabilities · {ARCHITECTURE_CUBES.length} architecture layers
+            </div>
+          </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* SECTION 1: THE CAPABILITY ATLAS (FILTERABLE FLIP GRID)                   */}
-        {/* ========================================================================= */}
-        <div className="mt-14">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#6B4A87]/30">
-            {/* Filter Tabs with FLIP-style Layout Transitions */}
+        {/* Principles bridge */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {ENGINEERING_PRINCIPLES.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div
+                key={p.title}
+                className="relative overflow-hidden p-4 pl-5 rounded-2xl bg-[#1E1024]/90 border border-[#B9A6D1]/30"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
+                  aria-hidden
+                />
+                <Icon className="w-4 h-4 text-[#E8A9C2] mb-2" />
+                <div className="font-heading font-bold text-sm text-[#F8F6FB]">
+                  {p.title}
+                </div>
+                <p className="mt-1.5 text-[11px] text-[#B9A6D1] leading-relaxed">
+                  {p.body}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        <BrandGradientDivider className="mt-14" label="Stack" />
+
+        {/* Capability atlas */}
+        <div id="capability-atlas" className="mt-4">
+          <div className="max-w-3xl mb-8">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+              <span className="font-semibold text-[#F8F6FB]/50">01</span>
+              <span>CAPABILITY ATLAS</span>
+            </div>
+            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
+              Technologies we put to work
+            </h2>
+            <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
+              Filter by layer. Each card explains where the tool fits in real
+              product and custom delivery — not a buzzword wall.
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#B9A6D1]/25">
             <div className="flex flex-wrap gap-2">
               {filterTabs.map((tab) => {
                 const isActive = activeCategory === tab.id;
                 const count =
                   tab.id === "all"
                     ? CAPABILITIES_DATA.length
-                    : CAPABILITIES_DATA.filter((c) => c.category === tab.id)
-                        .length;
+                    : CAPABILITIES_DATA.filter(
+                        (c) =>
+                          c.category === tab.id ||
+                          (tab.id === "ai" && c.category === "data"),
+                      ).length;
 
                 return (
                   <button
                     key={tab.id}
+                    type="button"
                     onClick={() => {
                       soundEngine.playClick("soft");
                       setActiveCategory(tab.id);
                     }}
-                    className={`relative px-4 py-2 rounded-full text-xs font-mono-accent transition-all flex items-center space-x-1.5 ${
+                    className={`relative px-3.5 py-2 rounded-full text-xs font-mono-accent transition-all flex items-center space-x-1.5 ${
                       isActive
-                        ? "text-[#F8F6FB] font-bold bg-[#E8A9C2] shadow-[0_0_15px_rgba(232,169,194,0.35)]"
-                        : "bg-[#1E1024] text-[#B9A6D1]/70 hover:text-[#F8F6FB] border border-[#6B4A87]/35 hover:border-[#6B4A87]"
+                        ? "text-[#F8F6FB] font-semibold bg-[#6B4A87] border border-[#E8A9C2]/40 shadow-[0_8px_20px_rgba(107,74,135,0.35)]"
+                        : "bg-[#1E1024]/90 text-[#B9A6D1] border border-[#B9A6D1]/30 hover:text-[#F8F6FB] hover:border-[#E8A9C2]/45"
                     }`}
                   >
                     <span>{tab.label}</span>
                     <span
-                      className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                      className={`text-[10px] px-1.5 rounded-full ${
                         isActive
                           ? "bg-[#1E1024] text-[#E8A9C2]"
                           : "bg-[#2A1830] text-[#B9A6D1]"
@@ -134,64 +241,65 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               })}
             </div>
 
-            {/* Quick Search Filter */}
             <div className="relative w-full md:w-64">
               <input
-                type="text"
+                type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Filter by tech or protocol..."
-                className="w-full bg-[#1E1024] border border-[#6B4A87]/40 focus:border-[#E8A9C2] rounded-xl px-3.5 py-2 text-xs font-mono-accent text-[#F8F6FB] placeholder-[#B9A6D1]/50 outline-none transition-colors"
+                placeholder="Search stack…"
+                className="w-full bg-[#1E1024]/95 border border-[#B9A6D1]/35 focus:border-[#E8A9C2] rounded-xl px-3.5 py-2 text-xs font-mono-accent text-[#F8F6FB] placeholder-[#B9A6D1]/50 outline-none transition-colors"
               />
             </div>
           </div>
 
-          {/* FLIP-Animated Capability Card Grid */}
           <motion.div
             layout
-            className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+            className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
-            <AnimatePresence>
+            <AnimatePresence mode="popLayout">
               {filteredCapabilities.map((item) => (
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.25, ease: "easeOut" }}
-                  className="p-5 rounded-2xl bg-[#1E1024]/90 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 hover:bg-[#201026] transition-all flex flex-col justify-between group shadow-lg"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#1E1024]/95 border border-[#B9A6D1]/30 hover:border-[#E8A9C2]/55 hover:bg-[#24132B] transition-colors flex flex-col justify-between group shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
                 >
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1"
+                    style={{
+                      background: `linear-gradient(180deg, ${item.color}, #E8A9C2)`,
+                    }}
+                    aria-hidden
+                  />
                   <div>
-                    {/* Header Row: Tech Category & Badge */}
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#E8A9C2] border border-[#6B4A87]/35 uppercase">
+                    <div className="flex items-center justify-between mb-3 gap-2">
+                      <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#E8A9C2] border border-[#B9A6D1]/25 uppercase tracking-wide">
                         {item.category}
                       </span>
-                      <span className="text-[10px] font-mono-accent text-[#B9A6D1]">
+                      <span className="text-[10px] font-mono-accent text-[#B9A6D1] truncate">
                         {item.tag}
                       </span>
                     </div>
 
-                    {/* Tech Name */}
-                    <h3 className="font-heading font-bold text-base sm:text-lg text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors flex items-center space-x-2">
+                    <h3 className="font-heading font-bold text-base sm:text-lg text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors flex items-center gap-2">
                       <span
-                        className="w-2.5 h-2.5 rounded-full inline-block shrink-0"
+                        className="w-2.5 h-2.5 rounded-full shrink-0"
                         style={{ backgroundColor: item.color }}
                       />
                       <span>{item.name}</span>
                     </h3>
 
-                    {/* One-Line Usage Note on How Trevyk Uses It */}
-                    <p className="mt-2 text-xs text-[#B9A6D1]/80 leading-relaxed font-sans">
+                    <p className="mt-2.5 text-xs text-[#B9A6D1] leading-relaxed">
                       {item.usageNote}
                     </p>
                   </div>
 
-                  {/* Footer Tag */}
-                  <div className="mt-4 pt-3 border-t border-[#6B4A87]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#B9A6D1]">
+                  <div className="mt-4 pt-3 border-t border-[#B9A6D1]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#B9A6D1]">
                     <span>{item.badge}</span>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] opacity-70 group-hover:opacity-100 transition-opacity" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] opacity-60 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </motion.div>
               ))}
@@ -199,51 +307,51 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </motion.div>
 
           {filteredCapabilities.length === 0 && (
-            <div className="text-center py-16 bg-[#1E1024]/50 rounded-2xl border border-[#6B4A87]/30 mt-6">
+            <div className="text-center py-14 bg-[#1E1024]/70 rounded-2xl border border-[#B9A6D1]/25 mt-6">
               <p className="text-sm font-mono-accent text-[#B9A6D1]">
-                No technologies found matching "{searchQuery}".
+                No matches for “{searchQuery}”.
               </p>
               <button
+                type="button"
                 onClick={() => {
                   setSearchQuery("");
                   setActiveCategory("all");
                 }}
-                className="mt-3 text-xs font-mono-accent text-[#6B4A87] hover:underline"
+                className="mt-3 text-xs font-mono-accent text-[#E8A9C2] hover:underline"
               >
-                Clear all filters
+                Clear filters
               </button>
             </div>
           )}
         </div>
 
-        <BrandGradientDivider className="mt-20" />
+        <BrandGradientDivider className="mt-16" label="Architecture" />
 
-        {/* ========================================================================= */}
-        {/* SECTION 2: THE 5-CUBE ARCHITECTURE INSPECTOR (PERSISTENT 3D INTEGRATION)  */}
-        {/* ========================================================================= */}
-        <div className="mt-16">
+        {/* 5-cube inspector */}
+        <div id="architecture-tiers" className="mt-4">
           <div className="max-w-3xl mb-8">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
-              <Layers className="w-3.5 h-3.5" />
-              <span>ISOMETRIC 5-LAYER TIERS</span>
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+              <span className="font-semibold text-[#F8F6FB]/50">02</span>
+              <span>MODULAR TIERS</span>
             </div>
             <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
-              Modular Architectural Tiers & Telemetry
+              Five layers. One coherent system.
             </h2>
-            <p className="mt-2 text-sm text-[#B9A6D1]">
-              Hover and inspect each architectural layer. The persistent 3D Core
-              Block highlights the selected tier in real time.
+            <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
+              Select a tier to inspect responsibilities and stack. The
+              persistent 3D Core Block highlights the active layer as you
+              explore.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: 5 Layer Selector Buttons */}
-            <div className="lg:col-span-5 space-y-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+            <div className="lg:col-span-5 space-y-2.5">
               {ARCHITECTURE_CUBES.map((cube, index) => {
                 const isSelected = selectedCube === index;
                 return (
                   <button
                     key={cube.id}
+                    type="button"
                     onClick={() => {
                       soundEngine.playClick("soft");
                       setSelectedCube(index);
@@ -253,119 +361,119 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                       onCubeHover(index);
                     }}
                     onMouseLeave={() => onCubeHover(null)}
-                    className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between group ${
+                    className={`w-full p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 group ${
                       isSelected
-                        ? "bg-[#1E1024] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.2)]"
-                        : "bg-[#1E1024]/80 border-[#6B4A87]/30 hover:border-[#6B4A87] hover:bg-[#2A1830]"
+                        ? "bg-[#1E1024] border-[#E8A9C2] shadow-[0_0_24px_rgba(232,169,194,0.18)]"
+                        : "bg-[#1E1024]/80 border-[#B9A6D1]/25 hover:border-[#E8A9C2]/45"
                     }`}
                   >
-                    <div className="flex items-center space-x-3.5">
+                    <div className="flex items-center space-x-3.5 min-w-0">
                       <div
-                        className="w-3.5 h-3.5 rounded-full transition-transform group-hover:scale-125"
+                        className="w-3.5 h-3.5 rounded-full shrink-0 transition-transform group-hover:scale-125"
                         style={{ backgroundColor: cube.color }}
                       />
-                      <div>
+                      <div className="min-w-0">
                         <div className="text-[10px] font-mono-accent text-[#B9A6D1]">
                           LAYER 0{index + 1}
                         </div>
-                        <div className="font-heading font-bold text-sm sm:text-base text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors">
+                        <div className="font-heading font-bold text-sm text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors truncate">
                           {cube.name}
                         </div>
                       </div>
                     </div>
-
-                    <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#B9A6D1] border border-[#6B4A87]/30">
+                    <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#B9A6D1] border border-[#B9A6D1]/25 shrink-0">
                       {cube.role}
                     </span>
                   </button>
                 );
               })}
 
-              <div className="pt-2">
-                <button
-                  onClick={() => onOpenArchitectureModal(selectedCube)}
-                  className="w-full py-3 rounded-xl bg-[#2A1830] border border-[#6B4A87]/50 text-[#E8A9C2] hover:bg-[#1E1024] text-xs font-mono-accent flex items-center justify-center space-x-2 transition-colors"
-                >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Open Full Architecture Blueprint Modal</span>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => onOpenArchitectureModal(selectedCube)}
+                className="w-full mt-2 py-3 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/40 text-[#E8A9C2] hover:border-[#E8A9C2] text-xs font-mono-accent flex items-center justify-center space-x-2 transition-colors"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Open full architecture blueprint</span>
+              </button>
             </div>
 
-            {/* Right Column: Layer Specs & Responsibilities */}
-            <div className="lg:col-span-7 p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#6B4A87]/40 shadow-2xl space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-[#6B4A87]/30">
-                <div className="flex items-center space-x-3">
+            <div className="lg:col-span-7 relative p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] space-y-6 overflow-hidden">
+              <div
+                className="absolute -right-10 -top-10 w-40 h-40 rounded-full blur-3xl opacity-40 pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle, ${activeCubeData.color}55, transparent 70%)`,
+                }}
+                aria-hidden
+              />
+
+              <div className="relative flex items-center justify-between pb-4 border-b border-[#B9A6D1]/25 gap-3">
+                <div className="flex items-center space-x-3 min-w-0">
                   <div
-                    className="w-4 h-4 rounded-full"
+                    className="w-4 h-4 rounded-full shrink-0"
                     style={{ backgroundColor: activeCubeData.color }}
                   />
-                  <div>
-                    <span className="text-xs font-mono-accent text-[#B9A6D1]">
-                      ACTIVE ARCHITECTURE SPEC
+                  <div className="min-w-0">
+                    <span className="text-[10px] font-mono-accent text-[#E8A9C2] tracking-wider">
+                      ACTIVE SPEC
                     </span>
-                    <h3 className="font-heading font-bold text-2xl text-[#F8F6FB]">
+                    <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB] truncate">
                       {activeCubeData.name}
                     </h3>
                   </div>
                 </div>
-
-                <span className="text-xs font-mono-accent text-[#6B4A87] bg-[#2A1830] px-3 py-1 rounded-full border border-[#6B4A87]/40">
+                <span className="text-xs font-mono-accent text-[#E8A9C2] bg-[#2A1830] px-3 py-1 rounded-full border border-[#B9A6D1]/30 shrink-0">
                   Cube 0{selectedCube + 1}
                 </span>
               </div>
 
-              <p className="text-sm text-[#B9A6D1]/85 leading-relaxed">
+              <p className="relative text-sm text-[#B9A6D1] leading-relaxed">
                 {activeCubeData.description}
               </p>
 
-              {/* Protocol & design intent */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#1E1024] border border-[#6B4A87]/30">
-                  <div className="text-[10px] font-mono-accent text-[#B9A6D1] uppercase">
-                    PROTOCOLS & INTERFACES
+              <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-4 rounded-xl bg-[#2A1830]/90 border border-[#B9A6D1]/25">
+                  <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
+                    Protocols
                   </div>
                   <div className="mt-1 text-xs text-[#F8F6FB] font-mono-accent">
                     {activeCubeData.specs?.protocol || "HTTPS / REST"}
                   </div>
                 </div>
-
-                <div className="p-4 rounded-xl bg-[#1E1024] border border-[#6B4A87]/30">
-                  <div className="text-[10px] font-mono-accent text-[#B9A6D1] uppercase">
-                    DESIGN INTENT
+                <div className="p-4 rounded-xl bg-[#2A1830]/90 border border-[#B9A6D1]/25">
+                  <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
+                    Design intent
                   </div>
-                  <div className="mt-1 text-xs text-[#6B4A87] font-mono-accent">
+                  <div className="mt-1 text-xs text-[#B9A6D1] font-mono-accent">
                     {activeCubeData.specs?.latency || "Responsive product UX"}
                   </div>
                 </div>
               </div>
 
-              {/* Core Responsibilities */}
-              <div className="space-y-2.5">
-                <div className="text-xs font-mono-accent text-[#B9A6D1] uppercase tracking-wider">
-                  CORE SYSTEM RESPONSIBILITIES
+              <div className="relative space-y-2.5">
+                <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
+                  Responsibilities
                 </div>
-                {activeCubeData.responsibilities?.map((item, idx) => (
+                {activeCubeData.responsibilities?.map((item) => (
                   <div
-                    key={idx}
-                    className="flex items-center space-x-2 text-xs text-[#B9A6D1]"
+                    key={item}
+                    className="flex items-start gap-2 text-xs text-[#B9A6D1]"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Tech Stack */}
-              <div>
-                <div className="text-xs font-mono-accent text-[#B9A6D1] uppercase tracking-wider mb-2">
-                  TECHNOLOGY STACK
+              <div className="relative">
+                <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider mb-2">
+                  Typical stack
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {activeCubeData.techStack?.map((tech, idx) => (
+                  {activeCubeData.techStack?.map((tech) => (
                     <span
-                      key={idx}
-                      className="px-2.5 py-1 rounded-lg text-xs font-mono-accent bg-[#2A1830] text-[#E8A9C2] border border-[#6B4A87]/40"
+                      key={tech}
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono-accent bg-[#2A1830] text-[#E8A9C2] border border-[#B9A6D1]/30"
                     >
                       {tech}
                     </span>
@@ -376,93 +484,113 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-20" />
+        <BrandGradientDivider className="mt-16" label="Trust" />
 
-        {/* ========================================================================= */}
-        {/* SECTION 3: ENTERPRISE SECURITY & COMPLIANCE PILLARS                       */}
-        {/* ========================================================================= */}
-        <div className="mt-16">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+        {/* Security */}
+        <div id="security-practices" className="mt-4">
+          <div className="max-w-2xl mb-10">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+              <span className="font-semibold text-[#F8F6FB]/50">03</span>
+              <span>SECURITY PRACTICES</span>
+            </div>
             <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
-              Security &amp; privacy we actually ship
+              Controls we ship — not badges we borrow
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-[#B9A6D1]">
-              Honest product controls not borrowed certification badges.
-              Anything not yet audited stays unpublished.
+            <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
+              The same honesty standard as Kiduart: publish what exists. Anything
+              not audited stays unpublished.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-2xl bg-[#1E1024] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#2A1830] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div className="font-heading font-bold text-sm text-[#F8F6FB]">
-                Role-based access
-              </div>
-              <div className="text-[11px] text-[#B9A6D1]">
-                Each school role sees only its own work in Kiduart.
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#1E1024] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#2A1830] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
-                <Lock className="w-5 h-5" />
-              </div>
-              <div className="font-heading font-bold text-sm text-[#F8F6FB]">
-                Encrypted storage
-              </div>
-              <div className="text-[11px] text-[#B9A6D1]">
-                Student and fee records protected at rest and in transit.
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#1E1024] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#2A1830] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
-                <Globe2 className="w-5 h-5" />
-              </div>
-              <div className="font-heading font-bold text-sm text-[#F8F6FB]">
-                Data export
-              </div>
-              <div className="text-[11px] text-[#B9A6D1]">
-                School data leaves with the school CSV, Excel, or PDF on
-                request.
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#1E1024] border border-[#6B4A87]/30 text-center space-y-2">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-[#2A1830] border border-[#6B4A87]/40 flex items-center justify-center text-[#6B4A87]">
-                <Server className="w-5 h-5" />
-              </div>
-              <div className="font-heading font-bold text-sm text-[#F8F6FB]">
-                Audit logging
-              </div>
-              <div className="text-[11px] text-[#B9A6D1]">
-                Sensitive changes leave a trail who changed what, and when.
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: ShieldCheck,
+                title: "Role-based access",
+                body: "Each role sees only the work it needs — teachers, accountants, leadership, parents.",
+              },
+              {
+                icon: Lock,
+                title: "Encrypted storage",
+                body: "Sensitive records protected in transit and at rest where encryption is configured.",
+              },
+              {
+                icon: Globe2,
+                title: "Data export",
+                body: "School data can leave with the school — CSV, Excel, or PDF on request.",
+              },
+              {
+                icon: Server,
+                title: "Audit logging",
+                body: "Sensitive admin actions leave a trail: who changed what, and when.",
+              },
+            ].map((card) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.title}
+                  className="relative overflow-hidden p-5 rounded-2xl bg-[#1E1024]/95 border border-[#B9A6D1]/30 text-left space-y-2"
+                >
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
+                    aria-hidden
+                  />
+                  <div className="w-10 h-10 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/30 flex items-center justify-center text-[#E8A9C2]">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div className="font-heading font-bold text-sm text-[#F8F6FB]">
+                    {card.title}
+                  </div>
+                  <div className="text-[11px] text-[#B9A6D1] leading-relaxed">
+                    {card.body}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* CTA Footer Block */}
-        <div className="mt-16 text-center p-8 rounded-3xl bg-[#1E1024] border border-[#6B4A87]/35 max-w-3xl mx-auto">
-          <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB]">
-            Need a Customized Tech Stack Recommendation?
-          </h3>
-          <p className="text-xs sm:text-sm text-[#B9A6D1] mt-2 max-w-xl mx-auto">
-            Book an architecture blueprint session with our senior engineering
-            team to evaluate tradeoffs for your specific scale and traffic
-            patterns.
-          </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <Link
-              to="/contact"
-              onClick={() => soundEngine.playClick("hero")}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#F8F6FB] font-heading text-xs font-semibold hover:opacity-95 transition-opacity"
-            >
-              <span>Schedule Architecture Blueprint Call</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+        {/* CTA */}
+        <div className="mt-16 relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
+          <div
+            className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-40 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(232,169,194,0.35), transparent 70%)",
+            }}
+            aria-hidden
+          />
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-widest">
+                Next step
+              </span>
+              <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB] mt-2">
+                Need a stack recommendation for your build?
+              </h3>
+              <p className="text-sm text-[#B9A6D1] mt-2 max-w-xl leading-relaxed">
+                Walk through architecture tradeoffs for your scale — or see how
+                the same modular thinking powers Kiduart.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end">
+              <Link
+                to="/contact"
+                onClick={() => soundEngine.playClick("hero")}
+                className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] font-heading text-xs font-semibold border border-[#E8A9C2]/25 shadow-[0_10px_28px_rgba(107,74,135,0.35)]"
+              >
+                <span>Talk architecture</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/kiduart"
+                onClick={() => soundEngine.playClick("soft")}
+                className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-full bg-[#2A1830] border border-[#B9A6D1]/40 text-[#B9A6D1] hover:text-[#F8F6FB] text-xs font-mono-accent"
+              >
+                <Layers className="w-3.5 h-3.5 text-[#E8A9C2]" />
+                <span>Explore Kiduart ERP</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -105,7 +105,7 @@ export const ARCHITECTURE_CUBES: ArchitectureCubeItem[] = [
     role: "Mid Stem",
     color: "#5A3875",
     description:
-      "The domain engine behind Kiduart  admissions, fees, attendance, exams, and parent updates. See kiduart.com for the live product journey.",
+      "The domain engine behind Kiduart — admissions, fees, attendance, exams, and parent updates. See kiduart.com for the live product journey.",
     specs: {
       protocol: "REST / webhooks / mobile APIs",
       latency: "School-day responsive",

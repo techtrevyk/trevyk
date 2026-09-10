@@ -19,6 +19,9 @@ import {
   ExternalLink,
   Layers,
   HeartHandshake,
+  UserRound,
+  Wallet,
+  Landmark,
 } from "lucide-react";
 import { SiteSettings } from "../types";
 import { BrandGradientDivider } from "../components/BrandGradientBar";
@@ -29,7 +32,7 @@ interface KiduartPageProps {
   settings: SiteSettings;
 }
 
-/** Official product journey  aligned with kiduart.com homepage */
+/** Official product journey — aligned with kiduart.com homepage */
 const SCHOOL_JOURNEY = [
   {
     step: "01",
@@ -102,7 +105,7 @@ const SCHOOL_JOURNEY = [
     step: "07",
     title: "Parent Communication",
     tagline: "Targeted notices with a record",
-    desc: "Circulars, fee reminders and attendance alerts go from one place to the right class, section or parent group  with a delivery trail.",
+    desc: "Circulars, fee reminders and attendance alerts go from one place to the right class, section or parent group — with a delivery trail.",
     highlights: ["Targeted by class", "Delivery record", "Templates"],
     icon: Send,
     href: "https://kiduart.com",
@@ -124,7 +127,7 @@ const SCHOOL_JOURNEY = [
     step: "09",
     title: "Hostel & Campus",
     tagline: "Rooms, beds, mess, visitors",
-    desc: "Boarding operations  rooms, beds, mess and visitors  connected to the student profile when your campus needs them.",
+    desc: "Boarding operations — rooms, beds, mess and visitors — connected to the student profile when your campus needs them.",
     highlights: ["Rooms & beds", "Mess", "Visitors"],
     icon: Building2,
     href: "https://kiduart.com",
@@ -151,7 +154,7 @@ const SCHOOL_JOURNEY = [
     step: "12",
     title: "Reports & Leadership",
     tagline: "Decisions from live records",
-    desc: "Collection, attendance, academic and staff data feed views that are current  so leadership questions get answered from live records.",
+    desc: "Collection, attendance, academic and staff data feed views that are current — so leadership questions get answered from live records.",
     highlights: [
       "Live dashboards",
       "Exportable",
@@ -162,10 +165,33 @@ const SCHOOL_JOURNEY = [
   },
 ];
 
+const ROLES = [
+  {
+    title: "Principals & trustees",
+    body: "Live collection, attendance and academic views — without waiting on someone else’s spreadsheet.",
+    icon: Landmark,
+  },
+  {
+    title: "Accountants & fees desk",
+    body: "Fee heads, concessions, receipts and outstanding dues on one ledger — online and counter.",
+    icon: Wallet,
+  },
+  {
+    title: "Teachers & coordinators",
+    body: "Attendance, exams and class work on screens built for the school day — not a maze of tabs.",
+    icon: UserRound,
+  },
+  {
+    title: "Parents & guardians",
+    body: "Fee reminders, attendance alerts and circulars with a delivery trail — not lost WhatsApp threads.",
+    icon: HeartHandshake,
+  },
+];
+
 const CHARTER = [
   {
     title: "We publish only what exists",
-    body: "Every capability described maps to a screen that is already built. Anything still being made is labelled in development  not switched on, not billed.",
+    body: "Every capability described maps to a screen that is already built. Anything still being made is labelled in development — not switched on, not billed.",
   },
   {
     title: "No borrowed credibility",
@@ -181,7 +207,7 @@ const CHARTER = [
   },
   {
     title: "Stories will be attributable",
-    body: "When school stories appear, each will carry name, city, role, measured number, and written consent  same as on kiduart.com.",
+    body: "When school stories appear, each will carry name, city, role, measured number, and written consent — same as on kiduart.com.",
   },
 ];
 
@@ -197,6 +223,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
 
   const active = SCHOOL_JOURNEY[activeStep];
   const ActiveIcon = active.icon;
+  const progress = ((activeStep + 1) / SCHOOL_JOURNEY.length) * 100;
 
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -205,19 +232,36 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
   };
 
   return (
-    <div id="kiduart-page" className="w-full min-h-screen pt-28 sm:pt-36 pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      id="kiduart-page"
+      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+    >
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 50% 40% at 8% 12%, rgba(107,74,135,0.28), transparent 55%), radial-gradient(ellipse 40% 35% at 90% 18%, rgba(232,169,194,0.12), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 38%, #2A1830 100%)",
+          }}
+        />
+        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
+        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-4">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>FLAGSHIP PRODUCT · BUILT BY TREVYK</span>
+              <span>FLAGSHIP PRODUCT · KIDUART</span>
             </div>
 
-            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#F8F6FB] leading-tight">
-              School ERP software for Indian schools admissions to parent
-              updates
+            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+              School ERP built for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                the Indian school year
+              </span>
             </h1>
 
             <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
@@ -225,22 +269,13 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
               >
                 Kiduart
               </a>{" "}
-              is Trevyk’s cloud-based{" "}
-              <a
-                href="https://kiduart.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
-              >
-                school management system
-              </a>{" "}
-              that connects student records, online fee management, attendance,
-              exams, report cards, transport, library, HR, and parent
-              communication in one school ERP.
+              is Trevyk’s cloud school management platform — admissions through
+              fees, attendance, exams, transport, library, HR and parent
+              updates in one operational system.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -249,90 +284,144 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundEngine.playClick("hero")}
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold hover:opacity-95 shadow-lg"
+                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-[#6B4A87] text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold hover:bg-[#8558A5] shadow-[0_12px_28px_rgba(107,74,135,0.35)] border border-[#E8A9C2]/25"
               >
-                <span>Book a free demo on kiduart.com</span>
+                <span>Book a demo on kiduart.com</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
               <a
                 href="#kiduart-journey"
                 onClick={() => soundEngine.playClick("soft")}
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#F8F6FB] font-mono-accent text-xs"
+                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#B9A6D1] hover:text-[#F8F6FB] hover:border-[#E8A9C2] font-mono-accent text-xs"
               >
-                <Layers className="w-3.5 h-3.5 text-[#6B4A87]" />
-                <span>See the school-year journey</span>
+                <Layers className="w-3.5 h-3.5 text-[#E8A9C2]" />
+                <span>See the 12-step journey</span>
               </a>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#6B4A87]/25 bg-[#1E1024] p-7 sm:p-9 shadow-xl space-y-5">
-              <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87]">
-                From kiduart.com
+            <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-7 sm:p-9 shadow-[0_24px_50px_rgba(0,0,0,0.35)] space-y-5 overflow-hidden">
+              <div
+                className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
+                aria-hidden
+              />
+              <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#E8A9C2]">
+                Product snapshot
               </div>
               <h2 className="font-heading font-bold text-xl text-[#F8F6FB]">
-                Follow the path your school runs every day
+                Follow the path your school already runs
               </h2>
               <p className="text-sm text-[#B9A6D1] leading-relaxed">
-                Pick any step to see what that module does. Each piece hands off
-                to the next, so information entered once keeps moving through
-                the school year.
+                Each module hands off to the next — information entered once
+                keeps moving through the school year.
               </p>
-              <ul className="space-y-2 text-xs text-[#B9A6D1]">
+              <ul className="space-y-2.5 text-xs text-[#B9A6D1]">
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
-                  Built for Indian school reality fee heads, boards, SMS parents
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0" />
+                  Built for Indian school reality — fee heads, boards, SMS
+                  parents
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
-                  Role panels for teachers, accountants, trustees
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0" />
+                  Role panels for teachers, accountants, and leadership
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0" />
                   <span>
                     Next AI phase (KIDUORBIT) is{" "}
                     <strong className="text-[#F8F6FB]">not launched yet</strong>{" "}
-                    ERP baseline first
+                    — ERP baseline first
                   </span>
                 </li>
               </ul>
-              <a
-                href="https://kiduart.com/about"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
-              >
-                Read the Kiduart story <ExternalLink className="w-3 h-3" />
-              </a>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a
+                  href="https://kiduart.com/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#E8A9C2] underline underline-offset-2"
+                >
+                  Kiduart story <ExternalLink className="w-3 h-3" />
+                </a>
+                <Link
+                  to="/technology"
+                  onClick={() => soundEngine.playClick("soft")}
+                  className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#B9A6D1] hover:text-[#E8A9C2] underline underline-offset-2"
+                >
+                  How Trevyk engineers it →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-20" />
+        {/* Roles */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {ROLES.map((role) => {
+            const Icon = role.icon;
+            return (
+              <div
+                key={role.title}
+                className="relative overflow-hidden p-4 pl-5 rounded-2xl bg-[#1E1024]/90 border border-[#B9A6D1]/30"
+              >
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
+                  aria-hidden
+                />
+                <Icon className="w-4 h-4 text-[#E8A9C2] mb-2" />
+                <div className="font-heading font-bold text-sm text-[#F8F6FB]">
+                  {role.title}
+                </div>
+                <p className="mt-1.5 text-[11px] text-[#B9A6D1] leading-relaxed">
+                  {role.body}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        <BrandGradientDivider className="mt-14" label="Journey" />
 
         {/* Journey */}
-        <div id="kiduart-journey" className="mt-16">
-          <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
-              <Layers className="w-3.5 h-3.5" />
-              <span>SCHOOL OPERATIONS JOURNEY · 12 STEPS</span>
+        <div id="kiduart-journey" className="mt-4">
+          <div className="max-w-3xl mb-8">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+              <span className="font-semibold text-[#F8F6FB]/50">01</span>
+              <span>SCHOOL YEAR · 12 MODULES</span>
             </div>
             <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
               Modules that follow a real school year
             </h2>
             <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
-              Content below mirrors the live product map on{" "}
+              Content mirrors the live product map on{" "}
               <a
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#E8A9C2] font-semibold underline underline-offset-2"
               >
                 kiduart.com
               </a>
-              . Open any step for a short description, then continue on the
-              product site for deep module pages.
+              . Open any step here, then continue on the product site for deep
+              module pages.
             </p>
+          </div>
+
+          {/* Progress connector */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between text-[10px] font-mono-accent text-[#B9A6D1] mb-2">
+              <span>
+                Step {active.step} / {SCHOOL_JOURNEY.length}
+              </span>
+              <span>{active.title}</span>
+            </div>
+            <div className="h-1 rounded-full bg-[#1E1024] border border-[#B9A6D1]/20 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2] transition-all duration-500"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-8">
@@ -346,8 +435,8 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                 }}
                 className={`px-3 py-1.5 rounded-full text-[11px] font-mono-accent border transition-all ${
                   activeStep === idx
-                    ? "bg-[#6B4A87] text-white border-[#6B4A87]"
-                    : "bg-[#1E1024] text-[#B9A6D1] border-[#6B4A87]/25 hover:border-[#6B4A87]/50"
+                    ? "bg-[#6B4A87] text-[#F8F6FB] border-[#E8A9C2]/40 shadow-[0_6px_16px_rgba(107,74,135,0.3)]"
+                    : "bg-[#1E1024]/90 text-[#B9A6D1] border-[#B9A6D1]/25 hover:border-[#E8A9C2]/45 hover:text-[#F8F6FB]"
                 }`}
               >
                 {item.step} {item.title}
@@ -355,15 +444,15 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-[#1E1024] border border-[#6B4A87]/25 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-[#2A1830] border border-[#6B4A87]/30 flex items-center justify-center text-[#6B4A87]">
+                <div className="w-11 h-11 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/35 flex items-center justify-center text-[#E8A9C2]">
                   <ActiveIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono-accent text-[#6B4A87] uppercase">
-                    Step {active.step} / 12 · Live module in the product
+                  <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
+                    Step {active.step} / 12 · Live module
                   </div>
                   <h3 className="font-heading font-bold text-xl text-[#F8F6FB]">
                     {active.title}
@@ -380,7 +469,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                     key={h}
                     className="flex items-start gap-2 text-xs text-[#B9A6D1]"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] shrink-0 mt-0.5" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -390,19 +479,20 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   href={active.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#6B4A87] text-[#F8F6FB] text-xs font-heading font-semibold border border-[#E8A9C2]/20"
                 >
                   Open on kiduart.com <ExternalLink className="w-3.5 h-3.5" />
                 </a>
                 {activeStep < SCHOOL_JOURNEY.length - 1 && (
                   <button
                     type="button"
-                    onClick={() =>
+                    onClick={() => {
+                      soundEngine.playClick("soft");
                       setActiveStep((s) =>
                         Math.min(s + 1, SCHOOL_JOURNEY.length - 1),
-                      )
-                    }
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#2A1830] border border-[#6B4A87]/25 text-[#B9A6D1] text-xs font-mono-accent"
+                      );
+                    }}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#2A1830] border border-[#B9A6D1]/35 text-[#B9A6D1] hover:text-[#F8F6FB] text-xs font-mono-accent"
                   >
                     Next: {SCHOOL_JOURNEY[activeStep + 1].title}{" "}
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -411,51 +501,55 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-5 p-5 rounded-2xl bg-[#2A1830] border border-[#6B4A87]/20">
-              <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#6B4A87] mb-3">
+            <div className="lg:col-span-5 relative p-5 rounded-2xl bg-[#2A1830]/95 border border-[#B9A6D1]/25 overflow-hidden">
+              <div
+                className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
+                aria-hidden
+              />
+              <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#E8A9C2] mb-3">
                 One system vs scattered tools
               </div>
               <p className="text-sm text-[#B9A6D1] leading-relaxed mb-4">
                 When records, fees, attendance and communication share one
-                system, the same school day stops bouncing between spreadsheets
-                and WhatsApp.
+                system, the school day stops bouncing between spreadsheets and
+                WhatsApp.
               </p>
               <a
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono-accent text-[#6B4A87] underline underline-offset-2"
+                className="text-xs font-mono-accent text-[#E8A9C2] underline underline-offset-2"
               >
-                Compare the full “one Kiduart system” view on kiduart.com →
+                Full “one Kiduart system” view on kiduart.com →
               </a>
             </div>
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-20" />
+        <BrandGradientDivider className="mt-16" label="Charter" />
 
         {/* Charter */}
-        <div id="kiduart-charter" className="mt-16">
+        <div id="kiduart-charter" className="mt-4">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 text-[#6B4A87] font-mono-accent text-xs mb-3">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>FOUNDING-SCHOOL CHARTER</span>
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+              <span className="font-semibold text-[#F8F6FB]/50">02</span>
+              <span>FOUNDING CHARTER</span>
             </div>
             <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
               Proof before polish
             </h2>
             <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
-              The same honest commitments published on{" "}
+              The same commitments published on{" "}
               <a
                 href="https://kiduart.com/about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
+                className="text-[#E8A9C2] font-semibold underline underline-offset-2"
               >
                 kiduart.com/about
               </a>
-              . Trevyk lists them here because Kiduart is our flagship product
-              not a marketing slide.
+              . Listed here because Kiduart is a real product — not a marketing
+              slide.
             </p>
           </div>
 
@@ -463,11 +557,18 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             {CHARTER.map((item) => (
               <div
                 key={item.title}
-                className="p-5 rounded-2xl bg-[#1E1024] border border-[#6B4A87]/25"
+                className="relative overflow-hidden p-5 pl-5 rounded-2xl bg-[#1E1024]/95 border border-[#B9A6D1]/30"
               >
-                <h3 className="font-heading font-bold text-sm text-[#F8F6FB] mb-2">
-                  {item.title}
-                </h3>
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
+                  aria-hidden
+                />
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="w-4 h-4 text-[#E8A9C2]" />
+                  <h3 className="font-heading font-bold text-sm text-[#F8F6FB]">
+                    {item.title}
+                  </h3>
+                </div>
                 <p className="text-xs text-[#B9A6D1] leading-relaxed">
                   {item.body}
                 </p>
@@ -476,38 +577,45 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-20" />
+        <BrandGradientDivider className="mt-16" label="Demo" />
 
         {/* Demo */}
         <div
           id="kiduart-demo-section"
-          className="mt-16 p-8 sm:p-12 rounded-3xl bg-[#1E1024] border border-[#6B4A87]/30"
+          className="mt-4 relative p-8 sm:p-12 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div
+            className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-35 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(232,169,194,0.4), transparent 70%)",
+            }}
+            aria-hidden
+          />
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-mono-accent text-[#6B4A87] uppercase tracking-widest block">
-                LIVE DEMO
+              <span className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-widest block">
+                Live demo
               </span>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
                 Ready to see it for your school?
               </h2>
               <p className="text-sm text-[#B9A6D1] leading-relaxed">
-                Prefer the official product flow? Book directly on Kiduart. Or
-                leave a note here and the Trevyk / Kiduart team will follow up
-                within one business day.
+                Prefer the official product flow? Book on Kiduart. Or leave a
+                note here — we reply within one business day.
               </p>
               <ul className="space-y-2 text-xs text-[#B9A6D1]">
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> 30-minute
-                  walkthrough around school hours
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2]" />{" "}
+                  30-minute walkthrough around school hours
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> Run on
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2]" /> Run on
                   your fee heads, classes and staff roles
                 </li>
                 <li className="flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#6B4A87]" /> No card,
-                  no lock-in to see the product
+                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2]" /> No card
+                  required to see the product
                 </li>
               </ul>
               <div className="flex flex-wrap gap-3 pt-2">
@@ -515,35 +623,35 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   href="https://kiduart.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-[#F8F6FB] text-xs font-heading font-semibold border border-[#E8A9C2]/20"
                 >
                   Request demo on kiduart.com{" "}
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
                 <a
                   href="mailto:support@kiduart.com"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2A1830] border border-[#6B4A87]/25 text-[#B9A6D1] text-xs font-mono-accent"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/35 text-[#B9A6D1] text-xs font-mono-accent"
                 >
                   support@kiduart.com
                 </a>
                 <a
                   href="tel:+919217534128"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2A1830] border border-[#6B4A87]/25 text-[#B9A6D1] text-xs font-mono-accent"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/35 text-[#B9A6D1] text-xs font-mono-accent"
                 >
                   +91 92175 34128
                 </a>
               </div>
               <p className="text-[11px] text-[#B9A6D1] flex items-center gap-1.5 pt-2">
-                <HeartHandshake className="w-3.5 h-3.5 text-[#6B4A87]" />
-                Noida, Uttar Pradesh demos and support with the team that ships
-                the product.
+                <HeartHandshake className="w-3.5 h-3.5 text-[#E8A9C2]" />
+                Noida, Uttar Pradesh — demos with the team that ships the
+                product.
               </p>
             </div>
 
-            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#2A1830] border border-[#6B4A87]/25">
+            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#2A1830]/95 border border-[#B9A6D1]/30">
               {demoRequested ? (
                 <div className="text-center py-8 space-y-3">
-                  <div className="w-12 h-12 rounded-full bg-[#341C3C] text-[#6B4A87] mx-auto flex items-center justify-center border border-[#6B4A87]/30">
+                  <div className="w-12 h-12 rounded-full bg-[#341C3C] text-[#E8A9C2] mx-auto flex items-center justify-center border border-[#E8A9C2]/30">
                     <Check className="w-6 h-6" />
                   </div>
                   <h3 className="font-heading font-bold text-lg text-[#F8F6FB]">
@@ -552,13 +660,12 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   <p className="text-xs text-[#B9A6D1]">
                     Thank you
                     {demoForm.contactName ? `, ${demoForm.contactName}` : ""}.
-                    We will reply within one business day. You can also book
-                    instantly on{" "}
+                    We will reply within one business day. You can also book on{" "}
                     <a
                       href="https://kiduart.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#6B4A87] underline"
+                      className="text-[#E8A9C2] underline"
                     >
                       kiduart.com
                     </a>
@@ -566,14 +673,14 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   </p>
                   <Link
                     to="/contact"
-                    className="inline-block mt-2 text-xs font-mono-accent text-[#6B4A87] underline"
+                    className="inline-block mt-2 text-xs font-mono-accent text-[#E8A9C2] underline"
                   >
                     Or use the main contact form →
                   </Link>
                 </div>
               ) : (
                 <form onSubmit={handleDemoSubmit} className="space-y-3.5">
-                  <div className="text-xs font-mono-accent text-[#6B4A87] uppercase font-bold">
+                  <div className="text-xs font-mono-accent text-[#E8A9C2] uppercase font-bold tracking-wider">
                     Request a Kiduart walkthrough
                   </div>
                   <div>
@@ -591,7 +698,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                           institution: e.target.value,
                         })
                       }
-                      className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#6B4A87]/40 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                      className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#B9A6D1]/35 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -610,7 +717,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                             contactName: e.target.value,
                           })
                         }
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#6B4A87]/40 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#B9A6D1]/35 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#E8A9C2]"
                       />
                     </div>
                     <div>
@@ -625,7 +732,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                         onChange={(e) =>
                           setDemoForm({ ...demoForm, email: e.target.value })
                         }
-                        className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#6B4A87]/40 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                        className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#B9A6D1]/35 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#E8A9C2]"
                       />
                     </div>
                   </div>
@@ -641,26 +748,25 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                       onChange={(e) =>
                         setDemoForm({ ...demoForm, phone: e.target.value })
                       }
-                      className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#6B4A87]/40 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#6B4A87]"
+                      className="w-full px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#B9A6D1]/35 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-xs focus:outline-none focus:border-[#E8A9C2]"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-white font-heading font-semibold text-xs hover:opacity-95"
+                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-[#F8F6FB] font-heading font-semibold text-xs hover:bg-[#8558A5] border border-[#E8A9C2]/20"
                   >
                     Send request
                   </button>
                   <p className="text-[10px] text-[#B9A6D1] text-center">
-                    For the fastest path, use{" "}
+                    Fastest path:{" "}
                     <a
                       href="https://kiduart.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline text-[#6B4A87]"
+                      className="underline text-[#E8A9C2]"
                     >
                       kiduart.com
                     </a>
-                    .
                   </p>
                 </form>
               )}

@@ -522,7 +522,7 @@ export const ServiceCard3D: React.FC<ServiceCard3DProps> = ({
           >
             {/* What It Includes */}
             <div>
-              <span className="text-[11px] font-mono-accent text-[#6B4A87] uppercase tracking-wider block mb-2 font-semibold">
+              <span className="text-[11px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider block mb-2 font-semibold">
                 WHAT IT INCLUDES
               </span>
               <ul className="space-y-1.5 text-xs text-[#B9A6D1]/90">

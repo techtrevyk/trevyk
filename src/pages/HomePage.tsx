@@ -8,6 +8,7 @@ import { ProcessTeaser } from "../components/home/ProcessTeaser";
 import { AboutTeaser } from "../components/home/AboutTeaser";
 import { ContactTeaser } from "../components/home/ContactTeaser";
 import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { ConnectiveStream } from "../components/ConnectiveStream";
 
 interface HomePageProps {
   settings: SiteSettings;
@@ -29,8 +30,17 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenGeminiChat,
 }) => {
   return (
-    <div id="home-page" className="w-full">
-      {/* 1. Hero Viewport (Single active animated focal element: 3D Core Block) */}
+    <div id="home-page" className="relative w-full">
+      {/* Continuous atmospheric wash — keeps sections in one color story */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-40"
+        aria-hidden
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 20% 10%, rgba(107,74,135,0.18), transparent 50%), radial-gradient(ellipse 60% 40% at 90% 60%, rgba(232,169,194,0.08), transparent 55%)",
+        }}
+      />
+
       <Hero
         settings={settings}
         scrollProgress={scrollProgress}
@@ -40,14 +50,15 @@ export const HomePage: React.FC<HomePageProps> = ({
         onCubeHover={onCubeHover}
       />
 
-      <BrandGradientDivider />
+      <ConnectiveStream
+        scrollProgress={scrollProgress}
+        reducedMotion={settings.reducedMotion}
+      />
 
-      {/* 2. Services Teaser (Compact preview with real datacenter graphic) */}
       <ServicesTeaser settings={settings} />
 
-      <BrandGradientDivider />
+      <BrandGradientDivider label="Architecture" />
 
-      {/* 3. Technology (5-Cube Core Architecture) Teaser */}
       <TechnologyTeaser
         settings={settings}
         onOpenArchitectureModal={onOpenArchitectureModal}
@@ -55,24 +66,26 @@ export const HomePage: React.FC<HomePageProps> = ({
         onCubeHover={onCubeHover}
       />
 
-      <BrandGradientDivider />
+      <ConnectiveStream
+        scrollProgress={scrollProgress}
+        reducedMotion={settings.reducedMotion}
+      />
 
-      {/* 4. Flagship Product (Kiduart School ERP) Teaser  Light Section with Real UI Mockup */}
       <KiduartTeaser settings={settings} />
 
-      <BrandGradientDivider />
+      <BrandGradientDivider label="Delivery" />
 
-      {/* 5. Delivery Process Teaser */}
       <ProcessTeaser settings={settings} />
 
-      <BrandGradientDivider />
+      <BrandGradientDivider label="Company" />
 
-      {/* 6. About Trevyk & Team Leadership Teaser with Real Studio Photography */}
       <AboutTeaser settings={settings} />
 
-      <BrandGradientDivider />
+      <ConnectiveStream
+        scrollProgress={scrollProgress}
+        reducedMotion={settings.reducedMotion}
+      />
 
-      {/* 7. Contact & Architecture Blueprint Consultation Teaser */}
       <ContactTeaser settings={settings} onOpenGeminiChat={onOpenGeminiChat} />
     </div>
   );

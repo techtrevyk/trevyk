@@ -128,8 +128,24 @@ function MainAppContent() {
       cancelAnimationFrame(animId);
       window.removeEventListener('scroll', handleScroll);
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, [settings.reducedMotion, location.pathname]);
+
+  // Pause page smooth-scroll while chatbot is open so the chat panel can scroll
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+    if (chatOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+    }
+  }, [chatOpen]);
+
+  const handlePreloaderComplete = useCallback(() => {
+    setLoading(false);
+  }, []);
 
   // Normalized mouse coordinates (-1 to 1) for 3D parallax
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -145,10 +161,6 @@ function MainAppContent() {
 
   const updateSettings = (newSettings: Partial<SiteSettings>) => {
     setSettings((prev) => ({ ...prev, ...newSettings }));
-  };
-
-  const handlePreloaderComplete = () => {
-    setLoading(false);
   };
 
   return (
@@ -291,7 +303,7 @@ function MainAppContent() {
         }}
       />
 
-      {/* 9. Gemini AI Assistant */}
+      {/* 9. Trevyk AI Assistant */}
       <GeminiChatbot
         isOpen={chatOpen}
         onClose={() => {

@@ -23,7 +23,6 @@ const CUBE_CONFIGS = [
   { id: 4, label: 'Resilient Data Store', targetPos: [0, -1.65, 0], color: '#B9A6D1', emissive: '#B9A6D1', accent: false },
 ];
 
-// Exploded positions for modular inspection
 const EXPLODED_POSITIONS = [
   [-2.2, 2.0, 1.1],
   [2.3, 1.9, -1.1],
@@ -31,6 +30,20 @@ const EXPLODED_POSITIONS = [
   [-1.3, -1.0, -1.4],
   [1.4, -2.2, 1.2],
 ];
+
+/** Edges that express “connectivity” between core modules */
+const CONNECT_EDGES: [number, number][] = [
+  [0, 2],
+  [1, 2],
+  [2, 3],
+  [3, 4],
+  [0, 1],
+];
+
+function smoothstep(edge0: number, edge1: number, x: number) {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
 
 export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
   scrollProgress = 0,
@@ -42,10 +55,11 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
   currentPath = '/',
 }) => {
   const groupRef = useRef<THREE.Group>(null);
+  const orbitRef = useRef<THREE.Group>(null);
   const cubesRef = useRef<(THREE.Mesh | null)[]>([]);
   const shadowRef = useRef<THREE.Mesh>(null);
+  const linesRef = useRef<THREE.LineSegments | null>(null);
 
-  // Smooth interpolated values for physics & scroll journey
   const currentPos = useRef({ x: isMobile ? 0 : 1.35, y: isMobile ? -0.2 : 0.05, z: 0 });
   const currentRotation = useRef({ x: 0.32, y: 0.55, z: 0 });
   const currentScale = useRef(isMobile ? 0.75 : 1.0);
@@ -54,20 +68,15 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
   const routePulse = useRef(0);
   const prevPathRef = useRef(currentPath);
 
-  // Trigger brief pulse animation on route change (the visual continuity cue)
   useEffect(() => {
     if (prevPathRef.current !== currentPath) {
       prevPathRef.current = currentPath;
-      routePulse.current = 1.0; // Trigger pulse
+      routePulse.current = 1.0;
     }
   }, [currentPath]);
 
-  // Cube geometry with rounded beveled appearance
-  const cubeGeometry = useMemo(() => {
-    return new THREE.BoxGeometry(0.72, 0.72, 0.72);
-  }, []);
+  const cubeGeometry = useMemo(() => new THREE.BoxGeometry(0.72, 0.72, 0.72), []);
 
-  // Procedural soft contact shadow texture
   const shadowTexture = useMemo(() => {
     const canvas = document.createElement('canvas');
     canvas.width = 128;
@@ -85,76 +94,88 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
     return new THREE.CanvasTexture(canvas);
   }, []);
 
+  const linePositions = useMemo(() => new Float32Array(CONNECT_EDGES.length * 6), []);
+  const lineGeometry = useMemo(() => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+    return geo;
+  }, [linePositions]);
+
   useFrame((state) => {
     if (!groupRef.current) return;
     const time = state.clock.getElapsedTime();
 
-    // Decay route pulse smoothly
     if (routePulse.current > 0.001) {
-      routePulse.current = lerp(routePulse.current, 0, 0.06);
+      routePulse.current = lerp(routePulse.current, 0, 0.045);
     } else {
       routePulse.current = 0;
     }
 
-    // Determine target coordinates based on active route and page scroll
     let targetX = isMobile ? 0 : 1.35;
     let targetY = isMobile ? -0.25 : 0.05;
     let targetZ = 0;
     let targetScale = isMobile ? 0.75 : 1.0;
     let targetExplode = 0;
-    let targetRotY = 0.55 + scrollProgress * Math.PI * 1.5;
-    let targetRotX = 0.32 + Math.sin(scrollProgress * Math.PI * 2) * 0.1;
+    let targetRotY = 0.55 + scrollProgress * Math.PI * 1.2;
+    let targetRotX = 0.28 + Math.sin(scrollProgress * Math.PI * 2) * 0.08;
 
     const normalizedPath = currentPath.toLowerCase();
+    const ease = smoothstep;
 
     if (normalizedPath === '/' || normalizedPath === '') {
-      // HOME PAGE: Multi-stage scroll choreography
-      if (scrollProgress < 0.15) {
-        targetX = isMobile ? 0 : 1.35;
-        targetY = isMobile ? -0.25 : 0.05;
+      // HOME: softer multi-stage journey — stays clear of left-aligned copy
+      if (scrollProgress < 0.12) {
+        targetX = isMobile ? 0 : 1.45;
+        targetY = isMobile ? -0.2 : 0.08;
         targetZ = 0;
-        targetScale = isMobile ? 0.75 : 1.0;
+        targetScale = isMobile ? 0.72 : 0.98;
         targetExplode = 0;
-      } else if (scrollProgress < 0.40) {
-        const p = (scrollProgress - 0.15) / 0.25;
-        targetX = isMobile ? 0.9 : 2.0 - p * 0.3;
-        targetY = isMobile ? 0.8 : 0.6 - p * 0.2;
+      } else if (scrollProgress < 0.32) {
+        const p = ease(0.12, 0.32, scrollProgress);
+        targetX = isMobile ? 0.85 : 2.05 - p * 0.15;
+        targetY = isMobile ? 0.55 : 0.55 - p * 0.15;
+        targetZ = -0.85 - p * 0.25;
+        targetScale = isMobile ? 0.48 : 0.62;
+        targetExplode = p * 0.18;
+      } else if (scrollProgress < 0.52) {
+        // Across light Kiduart band — drift left, softer presence
+        const p = ease(0.32, 0.52, scrollProgress);
+        targetX = isMobile ? -0.7 : lerp(1.9, -1.85, p);
+        targetY = lerp(0.4, -0.05, p) + Math.sin(p * Math.PI) * 0.18;
+        targetZ = -1.05;
+        targetScale = isMobile ? 0.46 : 0.58;
+        targetExplode = 0.12 + p * 0.08;
+      } else if (scrollProgress < 0.78) {
+        const p = ease(0.52, 0.78, scrollProgress);
+        targetX = isMobile ? 0.9 : lerp(-1.85, 1.75, p);
+        targetY = lerp(-0.05, 0.15, p);
         targetZ = -1.0;
-        targetScale = isMobile ? 0.45 : 0.65;
-        targetExplode = p * 0.25;
-      } else if (scrollProgress < 0.75) {
-        const p = (scrollProgress - 0.40) / 0.35;
-        targetX = isMobile ? -0.9 : -2.0 + p * 0.4;
-        targetY = -0.2 + Math.sin(p * Math.PI) * 0.25;
-        targetZ = -1.2;
-        targetScale = isMobile ? 0.5 : 0.7;
-        targetExplode = 0.15;
+        targetScale = isMobile ? 0.5 : 0.68;
+        targetExplode = 0.14;
       } else {
-        const p = Math.min((scrollProgress - 0.75) / 0.25, 1);
-        targetX = 0;
-        targetY = isMobile ? -0.2 : -0.05;
-        targetZ = 0.1;
-        targetScale = isMobile ? 0.75 : 1.05;
-        targetExplode = (1 - p) * 0.2;
+        const p = ease(0.78, 1, scrollProgress);
+        targetX = lerp(1.75, 0.15, p);
+        targetY = isMobile ? -0.15 : lerp(0.15, -0.02, p);
+        targetZ = lerp(-1.0, 0.05, p);
+        targetScale = isMobile ? 0.72 : lerp(0.68, 1.02, p);
+        targetExplode = (1 - p) * 0.14;
       }
     } else if (normalizedPath.startsWith('/services')) {
-      // SERVICES PAGE: Calm upper-left anchor
-      targetX = isMobile ? -0.9 : -2.0;
-      targetY = isMobile ? 0.9 : 0.5 - scrollProgress * 0.4;
-      targetZ = -0.9;
-      targetScale = isMobile ? 0.48 : 0.65;
-      targetExplode = 0.12 + Math.sin(scrollProgress * Math.PI) * 0.15;
-      targetRotY = 0.75 + scrollProgress * Math.PI;
+      // SERVICES: right-side companion (content is left-heavy) — was wrongly on left
+      targetX = isMobile ? 0.95 : 2.05;
+      targetY = isMobile ? 0.55 : 0.35 - scrollProgress * 0.35;
+      targetZ = -1.05;
+      targetScale = isMobile ? 0.42 : 0.55;
+      targetExplode = 0.1 + Math.sin(scrollProgress * Math.PI) * 0.1;
+      targetRotY = 0.65 + scrollProgress * Math.PI * 0.85;
     } else if (normalizedPath.startsWith('/technology')) {
-      // TECHNOLOGY PAGE: Center stage exploded isometric layers
       targetX = 0;
       targetY = isMobile ? 0.1 : 0.15 - scrollProgress * 0.2;
       targetZ = isMobile ? -0.4 : 0.2;
       targetScale = isMobile ? 0.72 : 0.95;
-      targetExplode = 0.45 + scrollProgress * 0.25; // Exploded for inspection
+      targetExplode = 0.45 + scrollProgress * 0.25;
       targetRotY = 0.55 + scrollProgress * 1.8;
     } else if (normalizedPath.startsWith('/kiduart')) {
-      // KIDUART ERP PAGE: Center-right companion with spotlight
       targetX = isMobile ? 0.8 : 1.8;
       targetY = isMobile ? 0.8 : 0.3 - scrollProgress * 0.3;
       targetZ = -0.8;
@@ -162,7 +183,6 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
       targetExplode = 0.08;
       targetRotY = 0.45 + Math.sin(time * 0.5) * 0.2;
     } else if (normalizedPath.startsWith('/process')) {
-      // PROCESS PAGE: Right side layered step stack
       targetX = isMobile ? 1.0 : 1.9;
       targetY = isMobile ? 0.5 : 0.1 - scrollProgress * 0.3;
       targetZ = -1.0;
@@ -170,15 +190,13 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
       targetExplode = 0.35 + scrollProgress * 0.2;
       targetRotY = 0.8 + scrollProgress * 1.2;
     } else if (normalizedPath.startsWith('/about')) {
-      // ABOUT PAGE: Solid reassembled crystal badge stage
       targetX = isMobile ? 0.9 : 1.7;
       targetY = isMobile ? 0.6 : 0.25 - scrollProgress * 0.2;
       targetZ = -0.6;
       targetScale = isMobile ? 0.55 : 0.8;
-      targetExplode = 0.02; // Solid unity
+      targetExplode = 0.02;
       targetRotY = 0.55 + scrollProgress * 0.8;
     } else if (normalizedPath.startsWith('/contact')) {
-      // CONTACT PAGE: Reassembled center anchor
       targetX = isMobile ? 0 : 1.4;
       targetY = isMobile ? 0.8 : 0.1;
       targetZ = isMobile ? -0.5 : 0;
@@ -187,38 +205,55 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
       targetRotY = 0.55 + scrollProgress * 0.5;
     }
 
-    // Apply route acknowledgment pulse scale boost
-    const pulseFactor = Math.sin(routePulse.current * Math.PI) * 0.14;
+    const pulseFactor = Math.sin(routePulse.current * Math.PI) * 0.12;
     targetScale += pulseFactor;
 
-    // 2. Interpolate physics & cursor tilt with heavy damping (lerp 0.06-0.08)
+    // Heavier damping = smoother premium feel
+    const damp = reducedMotion ? 0.12 : 0.048;
+    const rotDamp = reducedMotion ? 0.12 : 0.042;
+
     if (!reducedMotion) {
-      const floatOffset = Math.sin(time * 1.3) * 0.07;
-      currentFloat.current = lerp(currentFloat.current, floatOffset, 0.07);
+      const floatOffset = Math.sin(time * 1.05) * 0.055;
+      currentFloat.current = lerp(currentFloat.current, floatOffset, 0.055);
 
-      const mouseTiltX = mousePos.y * 0.12;
-      const mouseTiltY = mousePos.x * 0.15;
+      const mouseTiltX = mousePos.y * 0.09;
+      const mouseTiltY = mousePos.x * 0.11;
 
-      currentRotation.current.x = lerp(currentRotation.current.x, targetRotX + mouseTiltX, 0.06);
-      currentRotation.current.y = lerp(currentRotation.current.y, targetRotY + mouseTiltY + time * 0.03, 0.06);
+      currentRotation.current.x = lerp(currentRotation.current.x, targetRotX + mouseTiltX, rotDamp);
+      currentRotation.current.y = lerp(
+        currentRotation.current.y,
+        targetRotY + mouseTiltY + time * 0.022,
+        rotDamp,
+      );
     } else {
       currentRotation.current.x = 0.32;
       currentRotation.current.y = 0.55;
     }
 
-    currentPos.current.x = lerp(currentPos.current.x, targetX, 0.065);
-    currentPos.current.y = lerp(currentPos.current.y, targetY + currentFloat.current, 0.065);
-    currentPos.current.z = lerp(currentPos.current.z, targetZ, 0.065);
-    currentScale.current = lerp(currentScale.current, targetScale, 0.07);
-    currentExplode.current = lerp(currentExplode.current, targetExplode, 0.07);
+    currentPos.current.x = lerp(currentPos.current.x, targetX, damp);
+    currentPos.current.y = lerp(currentPos.current.y, targetY + currentFloat.current, damp);
+    currentPos.current.z = lerp(currentPos.current.z, targetZ, damp);
+    currentScale.current = lerp(currentScale.current, targetScale, damp * 1.1);
+    currentExplode.current = lerp(currentExplode.current, targetExplode, damp * 1.15);
 
     groupRef.current.position.set(currentPos.current.x, currentPos.current.y, currentPos.current.z);
     groupRef.current.rotation.set(currentRotation.current.x, currentRotation.current.y, 0);
     groupRef.current.scale.setScalar(currentScale.current);
 
-    // 3. Update individual cubes with lerp
+    if (orbitRef.current) {
+      orbitRef.current.rotation.y = time * 0.12;
+      orbitRef.current.rotation.x = Math.sin(time * 0.18) * 0.08;
+      orbitRef.current.position.copy(groupRef.current.position);
+      orbitRef.current.scale.setScalar(currentScale.current * 1.05);
+    }
+
+    const cubeWorld: THREE.Vector3[] = [];
+
     cubesRef.current.forEach((cube, i) => {
-      if (!cube) return;
+      if (!cube) {
+        cubeWorld.push(new THREE.Vector3());
+        return;
+      }
       const config = CUBE_CONFIGS[i];
       const exploded = EXPLODED_POSITIONS[i];
 
@@ -227,36 +262,57 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
       const tz = lerp(config.targetPos[2], exploded[2], currentExplode.current);
 
       const isHovered = hoveredCube === i;
-      const hoverScale = isHovered ? 1.12 : 1.0;
+      const hoverScale = isHovered ? 1.1 : 1.0;
 
-      cube.position.x = lerp(cube.position.x, tx, 0.09);
-      cube.position.y = lerp(cube.position.y, ty + (isHovered ? 0.08 : 0), 0.09);
-      cube.position.z = lerp(cube.position.z, tz, 0.09);
-
-      cube.scale.setScalar(lerp(cube.scale.x, hoverScale, 0.1));
+      cube.position.x = lerp(cube.position.x, tx, 0.075);
+      cube.position.y = lerp(cube.position.y, ty + (isHovered ? 0.06 : 0), 0.075);
+      cube.position.z = lerp(cube.position.z, tz, 0.075);
+      cube.scale.setScalar(lerp(cube.scale.x, hoverScale, 0.085));
 
       if (currentExplode.current > 0.05) {
-        cube.rotation.x = Math.sin(time * 1.5 + i) * currentExplode.current * 0.4;
-        cube.rotation.y = Math.cos(time * 1.2 + i) * currentExplode.current * 0.4;
+        cube.rotation.x = Math.sin(time * 1.2 + i) * currentExplode.current * 0.32;
+        cube.rotation.y = Math.cos(time * 1.0 + i) * currentExplode.current * 0.32;
       } else {
-        cube.rotation.x = lerp(cube.rotation.x, 0, 0.08);
-        cube.rotation.y = lerp(cube.rotation.y, 0, 0.08);
+        cube.rotation.x = lerp(cube.rotation.x, 0, 0.07);
+        cube.rotation.y = lerp(cube.rotation.y, 0, 0.07);
       }
+
+      cubeWorld.push(cube.position.clone());
     });
 
-    // 4. Contact shadow adaptation
+    // Update connective edges between modules
+    if (linesRef.current && cubeWorld.length === CUBE_CONFIGS.length) {
+      const pos = linesRef.current.geometry.attributes.position as THREE.BufferAttribute;
+      CONNECT_EDGES.forEach(([a, b], edgeIndex) => {
+        const i = edgeIndex * 6;
+        pos.array[i] = cubeWorld[a].x;
+        pos.array[i + 1] = cubeWorld[a].y;
+        pos.array[i + 2] = cubeWorld[a].z;
+        pos.array[i + 3] = cubeWorld[b].x;
+        pos.array[i + 4] = cubeWorld[b].y;
+        pos.array[i + 5] = cubeWorld[b].z;
+      });
+      pos.needsUpdate = true;
+      const mat = linesRef.current.material as THREE.LineBasicMaterial;
+      mat.opacity = 0.22 + Math.sin(time * 1.4) * 0.06 + currentExplode.current * 0.2;
+    }
+
     if (shadowRef.current) {
       const shadowHeightFactor = 1 - currentFloat.current * 1.2;
       const shadowScale = (1.8 + currentExplode.current * 0.3) * shadowHeightFactor * currentScale.current;
       shadowRef.current.scale.set(shadowScale, shadowScale, 1);
-      shadowRef.current.position.set(currentPos.current.x, currentPos.current.y - 2.1 * currentScale.current, currentPos.current.z);
-      
+      shadowRef.current.position.set(
+        currentPos.current.x,
+        currentPos.current.y - 2.1 * currentScale.current,
+        currentPos.current.z,
+      );
+
       const shadowMat = shadowRef.current.material as THREE.MeshBasicMaterial;
       if (shadowMat) {
         shadowMat.opacity = THREE.MathUtils.clamp(
-          (0.6 - currentFloat.current * 0.5) * (1 - currentExplode.current * 0.3),
-          0.12,
-          0.7
+          (0.55 - currentFloat.current * 0.45) * (1 - currentExplode.current * 0.3),
+          0.1,
+          0.65,
         );
       }
     }
@@ -264,29 +320,46 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
 
   return (
     <group>
-      {/* Contact Shadow Plane */}
-      <mesh
-        ref={shadowRef}
-        rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -2.1, 0]}
-      >
+      <mesh ref={shadowRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.1, 0]}>
         <planeGeometry args={[3.2, 3.2]} />
-        <meshBasicMaterial
-          map={shadowTexture}
-          transparent
-          opacity={0.55}
-          depthWrite={false}
-        />
+        <meshBasicMaterial map={shadowTexture} transparent opacity={0.5} depthWrite={false} />
       </mesh>
 
-      {/* The 5-Cube Isometric "Y" Formation */}
+      {/* Orbital rings — visual connectivity / premium depth */}
+      <group ref={orbitRef}>
+        <mesh rotation={[Math.PI / 2.35, 0.15, 0.2]}>
+          <torusGeometry args={[2.15, 0.006, 8, 96]} />
+          <meshBasicMaterial color="#E8A9C2" transparent opacity={0.28} depthWrite={false} />
+        </mesh>
+        <mesh rotation={[Math.PI / 3.1, -0.4, 0.55]}>
+          <torusGeometry args={[2.55, 0.004, 8, 96]} />
+          <meshBasicMaterial color="#B9A6D1" transparent opacity={0.18} depthWrite={false} />
+        </mesh>
+        <mesh rotation={[1.2, 0.6, -0.3]}>
+          <torusGeometry args={[1.75, 0.005, 8, 64]} />
+          <meshBasicMaterial color="#6B4A87" transparent opacity={0.22} depthWrite={false} />
+        </mesh>
+      </group>
+
       <group ref={groupRef}>
+        <lineSegments ref={linesRef} geometry={lineGeometry}>
+          <lineBasicMaterial
+            color="#E8A9C2"
+            transparent
+            opacity={0.28}
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </lineSegments>
+
         {CUBE_CONFIGS.map((config, index) => {
           const isHovered = hoveredCube === index;
           return (
             <mesh
               key={config.id}
-              ref={(el) => { cubesRef.current[index] = el; }}
+              ref={(el) => {
+                cubesRef.current[index] = el;
+              }}
               geometry={cubeGeometry}
               position={[config.targetPos[0], config.targetPos[1], config.targetPos[2]]}
               castShadow
@@ -302,13 +375,13 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
             >
               <meshPhysicalMaterial
                 color={config.color}
-                roughness={0.25}
-                metalness={0.15}
-                clearcoat={0.35}
-                clearcoatRoughness={0.2}
-                reflectivity={0.65}
+                roughness={0.22}
+                metalness={0.18}
+                clearcoat={0.4}
+                clearcoatRoughness={0.18}
+                reflectivity={0.7}
                 emissive={config.accent ? '#E8A9C2' : isHovered ? '#B9A6D1' : config.emissive}
-                emissiveIntensity={config.accent ? 0.38 : isHovered ? 0.5 : 0.12}
+                emissiveIntensity={config.accent ? 0.4 : isHovered ? 0.52 : 0.14}
               />
             </mesh>
           );
