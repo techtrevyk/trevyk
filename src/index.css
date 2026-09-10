@@ -2,23 +2,19 @@
 
 @layer base {
   :root {
-    /* Brand primary = original trevyk.in violet (#8B5CAD), sampled from live/original CTAs */
-    --color-bg-primary: #F7F4FA;
-    --color-bg-surface: #FFFFFF;
-    --color-bg-muted: #EDE8F3;
-    --color-brand-purple: #8B5CAD;
-    --color-brand-purple-hover: #A078C8;
-    --color-brand-lavender: #BEABD6;
+    --color-bg-primary: #2A1830;
+    --color-bg-darker: #1E1024;
+    --color-brand-purple: #6B4A87;
+    --color-brand-lavender: #B9A6D1;
     --color-brand-lilac: #E7E1F0;
     --color-brand-pink: #E8A9C2;
-    --color-text-primary: #241428;
-    --color-text-muted: #5C4A6E;
-    --shadow-brand: 0 0 28px rgba(139, 92, 173, 0.35);
+    --color-text-light: #F8F6FB;
+    --color-text-ink: #241428;
   }
 
   body {
-    background-color: #F7F4FA;
-    color: #241428;
+    background-color: #2A1830;
+    color: #F8F6FB;
     font-family: 'Plus Jakarta Sans', sans-serif;
     margin: 0;
     padding: 0;
@@ -35,39 +31,41 @@
   }
 }
 
-/* Soft grain on light surfaces */
+/* Custom noise grain background */
 .bg-noise {
-  background-image: radial-gradient(rgba(139, 92, 173, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(rgba(232, 169, 194, 0.04) 1px, transparent 0);
   background-size: 28px 28px;
 }
 
-/* Ambient gradient mesh — light */
+/* Ambient gradient mesh */
 .ambient-gradient-glow {
-  background: radial-gradient(circle at 50% 35%, rgba(190, 171, 214, 0.42) 0%, rgba(247, 244, 250, 0.9) 55%, #F7F4FA 100%);
+  background: radial-gradient(circle at 50% 40%, rgba(107, 74, 135, 0.35) 0%, rgba(42, 24, 48, 0.8) 55%, rgba(30, 16, 36, 1) 100%);
 }
 
 .glow-pill {
-  box-shadow: 0 0 32px -4px rgba(139, 92, 173, 0.42);
+  box-shadow: 0 0 35px -5px rgba(232, 169, 194, 0.25);
 }
 
 .glow-cube {
-  filter: drop-shadow(0 12px 28px rgba(139, 92, 173, 0.35));
+  filter: drop-shadow(0 20px 30px rgba(107, 74, 135, 0.4));
 }
 
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #EDE8F3;
+  background: #1E1024;
 }
 ::-webkit-scrollbar-thumb {
-  background: #BEABD6;
+  background: #6B4A87;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8B5CAD;
+  background: #B9A6D1;
 }
 
+/* For custom cursor support */
 @media (pointer: fine) {
   body.custom-cursor-active {
     cursor: none;
@@ -82,6 +80,7 @@
   }
 }
 
+/* Subtle keyframe animations */
 @keyframes subtle-float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);

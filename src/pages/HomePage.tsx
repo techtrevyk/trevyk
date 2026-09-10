@@ -1,13 +1,13 @@
-import React from 'react';
-import { SiteSettings } from '../types';
-import { Hero } from '../components/Hero';
-import { ServicesTeaser } from '../components/home/ServicesTeaser';
-import { TechnologyTeaser } from '../components/home/TechnologyTeaser';
-import { KiduartTeaser } from '../components/home/KiduartTeaser';
-import { ProcessTeaser } from '../components/home/ProcessTeaser';
-import { AboutTeaser } from '../components/home/AboutTeaser';
-import { ContactTeaser } from '../components/home/ContactTeaser';
-import { BrandGradientDivider } from '../components/BrandGradientBar';
+import React from "react";
+import { SiteSettings } from "../types";
+import { Hero } from "../components/Hero";
+import { ServicesTeaser } from "../components/home/ServicesTeaser";
+import { TechnologyTeaser } from "../components/home/TechnologyTeaser";
+import { KiduartTeaser } from "../components/home/KiduartTeaser";
+import { ProcessTeaser } from "../components/home/ProcessTeaser";
+import { AboutTeaser } from "../components/home/AboutTeaser";
+import { ContactTeaser } from "../components/home/ContactTeaser";
+import { BrandGradientDivider } from "../components/BrandGradientBar";
 
 interface HomePageProps {
   settings: SiteSettings;
@@ -57,7 +57,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <BrandGradientDivider />
 
-      {/* 4. Flagship Product (Kiduart School ERP) Teaser — Light Section with Real UI Mockup */}
+      {/* 4. Flagship Product (Kiduart School ERP) Teaser  Light Section with Real UI Mockup */}
       <KiduartTeaser settings={settings} />
 
       <BrandGradientDivider />
@@ -73,10 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <BrandGradientDivider />
 
       {/* 7. Contact & Architecture Blueprint Consultation Teaser */}
-      <ContactTeaser
-        settings={settings}
-        onOpenGeminiChat={onOpenGeminiChat}
-      />
+      <ContactTeaser settings={settings} onOpenGeminiChat={onOpenGeminiChat} />
     </div>
   );
 };

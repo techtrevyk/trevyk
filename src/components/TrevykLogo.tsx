@@ -5,7 +5,11 @@ interface TrevykLogoProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'card';
   /** Display layout */
   layout?: 'horizontal' | 'vertical' | 'icon-only' | 'card-banner';
-  /** Kept for call-site compatibility; logo art is fixed brand colors on transparent PNG */
+  /**
+   * `dark` = logo for dark backgrounds (light wordmark)
+   * `light` = original logo for light backgrounds (dark wordmark)
+   * `auto` = same as dark (site shell is dark-themed)
+   */
   theme?: 'dark' | 'light' | 'auto';
   /** Show the brand tagline under the mark */
   showTagline?: boolean;
@@ -15,8 +19,10 @@ interface TrevykLogoProps {
   iconSize?: number;
 }
 
-const LOGO_SRC = '/trevyk-logo.png';
-const ICON_SRC = '/trevyk-icon.png';
+const LOGO_ON_LIGHT = '/trevyk-logo.png';
+const LOGO_ON_DARK = '/trevyk-logo-on-dark.png';
+const ICON_ON_LIGHT = '/trevyk-icon.png';
+const ICON_ON_DARK = '/trevyk-icon-on-dark.png';
 
 const HEIGHTS: Record<NonNullable<TrevykLogoProps['size']>, number> = {
   xs: 28,
@@ -29,27 +35,32 @@ const HEIGHTS: Record<NonNullable<TrevykLogoProps['size']>, number> = {
 
 /**
  * Official Trevyk Technologies logo (transparent PNG).
- * Horizontal lockup includes the cube mark + TREVYK TECHNOLOGIES wordmark.
+ * Use theme="light" only on lilac/white surfaces; default is dark-bg safe.
  */
 export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   size = 'sm',
   layout = 'horizontal',
+  theme = 'auto',
   showTagline = false,
   className = '',
   iconSize,
 }) => {
+  const onDark = theme !== 'light';
+  const logoSrc = onDark ? LOGO_ON_DARK : LOGO_ON_LIGHT;
+  const iconSrc = onDark ? ICON_ON_DARK : ICON_ON_LIGHT;
   const iconH = iconSize ?? HEIGHTS[size];
   const logoH = iconSize ? Math.round(iconSize * 0.85) : HEIGHTS[size];
+  const taglineClass = onDark ? 'text-[#B9A6D1]' : 'text-[#5C4A6E]';
 
   if (layout === 'icon-only') {
     return (
       <div className={`inline-flex items-center justify-center ${className}`}>
         <img
-          src={ICON_SRC}
+          src={iconSrc}
           alt="Trevyk Technologies"
           width={iconH}
           height={iconH}
-          className="shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
+          className="shrink-0 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(185,166,209,0.35)]"
           draggable={false}
           decoding="async"
           loading="eager"
@@ -62,10 +73,10 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   if (layout === 'card-banner') {
     return (
       <div
-        className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#8B5CAD]/20 shadow-sm flex flex-col sm:flex-row items-center sm:items-center gap-5 sm:gap-8 ${className}`}
+        className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#1E1024] border border-[#6B4A87]/35 shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-8 ${className}`}
       >
         <img
-          src={LOGO_SRC}
+          src={logoSrc}
           alt="Trevyk Technologies"
           className="h-14 sm:h-16 w-auto max-w-full object-contain"
           draggable={false}
@@ -73,7 +84,7 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
           loading="lazy"
         />
         {showTagline && (
-          <p className="text-sm text-[#5C4A6E] font-medium leading-relaxed font-sans max-w-sm text-center sm:text-left">
+          <p className={`text-sm font-medium leading-relaxed font-sans max-w-sm text-center sm:text-left ${taglineClass}`}>
             Turning Vision Into Progress.
           </p>
         )}
@@ -85,16 +96,16 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
     return (
       <div className={`flex flex-col items-center text-center ${className}`}>
         <img
-          src={LOGO_SRC}
+          src={logoSrc}
           alt="Trevyk Technologies"
           style={{ height: Math.round(logoH * 1.15), width: 'auto', maxWidth: '100%' }}
-          className="object-contain"
+          className="object-contain drop-shadow-[0_8px_24px_rgba(107,74,135,0.45)]"
           draggable={false}
           decoding="async"
           loading="lazy"
         />
         {showTagline && (
-          <p className="mt-3 text-xs sm:text-sm max-w-xs font-medium leading-relaxed text-[#5C4A6E]">
+          <p className={`mt-3 text-xs sm:text-sm max-w-xs font-medium leading-relaxed ${taglineClass}`}>
             Turning Vision Into Progress.
           </p>
         )}
@@ -102,21 +113,20 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
     );
   }
 
-  // Standard horizontal lockup (full brand mark)
   return (
     <div className={`inline-flex flex-col items-start group ${className}`}>
       <img
-        src={LOGO_SRC}
+        src={logoSrc}
         alt="Trevyk Technologies"
         style={{ height: logoH, width: 'auto', maxWidth: 'min(100%, 280px)' }}
-        className="object-contain object-left transition-opacity duration-300 group-hover:opacity-90"
+        className="object-contain object-left transition-opacity duration-300 group-hover:opacity-95 drop-shadow-[0_0_18px_rgba(185,166,209,0.25)]"
         draggable={false}
         decoding="async"
         loading="eager"
         fetchPriority="high"
       />
       {showTagline && (
-        <span className="text-[10px] sm:text-[11px] font-sans font-medium leading-tight mt-1 text-[#5C4A6E] hidden sm:block">
+        <span className={`text-[10px] sm:text-[11px] font-sans font-medium leading-tight mt-1 hidden sm:block ${taglineClass}`}>
           Turning Vision Into Progress.
         </span>
       )}

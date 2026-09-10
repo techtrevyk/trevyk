@@ -97,14 +97,14 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
       >
         <Suspense fallback={null}>
           {/* Section-Aware Lighting Rig */}
-          <ambientLight intensity={isLightSection ? 1.3 : 0.8} color={isLightSection ? '#241428' : '#D1C4E9'} />
+          <ambientLight intensity={isLightSection ? 1.4 : 1.2} color={isLightSection ? '#F8F6FB' : '#E7E1F0'} />
           
           {/* Key Spotlight */}
           <spotLight
             position={[5, 7, 6]}
             angle={0.45}
             penumbra={0.9}
-            intensity={isLightSection ? 2.5 : 2.0}
+            intensity={isLightSection ? 2.5 : 2.4}
             color="#E8A9C2"
             castShadow
             shadow-mapSize-width={1024}
@@ -115,15 +115,15 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
           {/* Secondary Fill Rim Light */}
           <directionalLight
             position={[-4, -3, -2]}
-            intensity={isLightSection ? 1.1 : 0.85}
-            color="#8B5CAD"
+            intensity={isLightSection ? 1.1 : 1.15}
+            color="#C4B0E0"
           />
 
           {/* Top Soft Lavender Accent Light */}
           <pointLight
             position={[0, 4, 3]}
-            intensity={0.9}
-            color="#BEABD6"
+            intensity={1.1}
+            color="#B9A6D1"
           />
 
           {/* Persistent Core Block 3D Mesh */}

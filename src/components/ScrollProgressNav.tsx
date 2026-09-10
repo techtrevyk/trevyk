@@ -81,7 +81,7 @@ export const ScrollProgressNav: React.FC<ScrollProgressNavProps> = ({
       className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center select-none"
     >
       {/* Background Pill Rail */}
-      <div className="p-2.5 rounded-full bg-[#FFFFFF]/85 border border-[#8B5CAD]/40 shadow-[0_10px_35px_rgba(139,92,173,0.12)] backdrop-blur-md flex flex-col items-center space-y-3 relative">
+      <div className="p-2.5 rounded-full bg-[#1E1024]/85 border border-[#6B4A87]/40 shadow-[0_10px_35px_rgba(107,74,135,0.12)] backdrop-blur-md flex flex-col items-center space-y-3 relative">
         
         {/* Top Circular Progress Tracker Ring (wow #27) */}
         <div 
@@ -96,7 +96,7 @@ export const ScrollProgressNav: React.FC<ScrollProgressNavProps> = ({
               cy="18"
               r="14"
               fill="none"
-              stroke="#8B5CAD"
+              stroke="#6B4A87"
               strokeWidth="2.5"
               opacity="0.3"
             />
@@ -116,14 +116,14 @@ export const ScrollProgressNav: React.FC<ScrollProgressNavProps> = ({
           </svg>
 
           {/* Percentage Text or Top Arrow on Hover */}
-          <span className="absolute text-[9px] font-mono-accent text-[#241428] font-bold group-hover:hidden">
+          <span className="absolute text-[9px] font-mono-accent text-[#F8F6FB] font-bold group-hover:hidden">
             {percent}%
           </span>
           <ChevronUp className="w-3.5 h-3.5 text-[#E8A9C2] absolute hidden group-hover:block transition-all" />
         </div>
 
         {/* Divider */}
-        <div className="w-4 h-[1px] bg-[#8B5CAD]/30" />
+        <div className="w-4 h-[1px] bg-[#6B4A87]/30" />
 
         {/* Section Dots List (wow #25) */}
         <div className="flex flex-col items-center space-y-3">
@@ -145,7 +145,7 @@ export const ScrollProgressNav: React.FC<ScrollProgressNavProps> = ({
                   className={`w-3 h-3 rounded-full transition-all duration-300 flex items-center justify-center ${
                     isActive
                       ? 'scale-125 bg-[#E8A9C2] shadow-[0_0_12px_rgba(232,169,194,0.8)]'
-                      : 'bg-[#8B5CAD]/60 hover:bg-[#BEABD6] hover:scale-110'
+                      : 'bg-[#6B4A87]/60 hover:bg-[#B9A6D1] hover:scale-110'
                   }`}
                 />
 
@@ -157,7 +157,7 @@ export const ScrollProgressNav: React.FC<ScrollProgressNavProps> = ({
                       animate={{ opacity: 1, x: 0, scale: 1 }}
                       exit={{ opacity: 0, x: 8, scale: 0.92 }}
                       transition={{ duration: 0.15, ease: 'easeOut' }}
-                      className="absolute right-9 px-3 py-1.5 rounded-xl bg-[#FFFFFF]/95 border border-[#E8A9C2]/40 text-[#241428] shadow-[0_8px_25px_rgba(139,92,173,0.16)] backdrop-blur-md flex items-center space-x-2 whitespace-nowrap pointer-events-none"
+                      className="absolute right-9 px-3 py-1.5 rounded-xl bg-[#1E1024]/95 border border-[#E8A9C2]/40 text-[#F8F6FB] shadow-[0_8px_25px_rgba(107,74,135,0.16)] backdrop-blur-md flex items-center space-x-2 whitespace-nowrap pointer-events-none"
                     >
                       <IconComp className="w-3.5 h-3.5 text-[#E8A9C2]" />
                       <span className="text-xs font-mono-accent font-medium">

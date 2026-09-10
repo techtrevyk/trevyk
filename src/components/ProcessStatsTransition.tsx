@@ -13,11 +13,11 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
   return (
     <div
       id="process-stats-conduit"
-      className="relative w-full h-36 sm:h-48 flex items-center justify-center overflow-hidden pointer-events-none select-none bg-gradient-to-b from-[#FFFFFF] via-[#EDE8F3] to-[#F7F4FA]"
+      className="relative w-full h-36 sm:h-48 flex items-center justify-center overflow-hidden pointer-events-none select-none bg-gradient-to-b from-[#1E1024] via-[#1E1024] to-[#2A1830]"
     >
       {/* Background Soft Glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[600px] h-28 bg-gradient-to-r from-[#8B5CAD]/20 via-[#E8A9C2]/25 to-[#BEABD6]/20 blur-3xl rounded-full" />
+        <div className="w-[600px] h-28 bg-gradient-to-r from-[#6B4A87]/20 via-[#E8A9C2]/25 to-[#B9A6D1]/20 blur-3xl rounded-full" />
       </div>
 
       {/* SVG Connecting Flow with Geometric Isometric Shards (Varied from earlier transitions) */}
@@ -28,9 +28,9 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
       >
         <defs>
           <linearGradient id="statsTransitionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8B5CAD" stopOpacity="0.8" />
+            <stop offset="0%" stopColor="#6B4A87" stopOpacity="0.8" />
             <stop offset="50%" stopColor="#E8A9C2" stopOpacity="1" />
-            <stop offset="100%" stopColor="#BEABD6" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#B9A6D1" stopOpacity="0.9" />
           </linearGradient>
 
           <filter id="shardGlow" x="-30%" y="-30%" width="160%" height="160%">
@@ -43,7 +43,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
         <path
           d="M 200,0 C 350,70 420,130 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="1.5"
           strokeDasharray="4 8"
           opacity="0.3"
@@ -51,7 +51,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
         <path
           d="M 800,0 C 650,70 580,130 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="1.5"
           strokeDasharray="4 8"
           opacity="0.3"
@@ -61,7 +61,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
         <path
           d="M 500,0 L 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="2"
           strokeDasharray="6 10"
           opacity="0.5"
@@ -104,7 +104,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
             />
             <motion.polygon
               points="494,45 500,37 506,45 500,53"
-              fill="#BEABD6"
+              fill="#B9A6D1"
               filter="url(#shardGlow)"
               animate={{
                 y: [0, 160],
@@ -123,7 +123,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
       </svg>
 
       {/* Center Reassurance Node Badge */}
-      <div className="absolute z-10 flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#FFFFFF]/90 border border-[#E8A9C2]/40 shadow-[0_4px_20px_rgba(232,169,194,0.2)]">
+      <div className="absolute z-10 flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1E1024]/90 border border-[#E8A9C2]/40 shadow-[0_4px_20px_rgba(232,169,194,0.2)]">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span className="font-mono-accent text-[10px] text-[#E8A9C2] uppercase tracking-widest font-semibold">
           VERIFIED PLATFORM TRUST & PROOF

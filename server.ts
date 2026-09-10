@@ -1,8 +1,8 @@
-import express from 'express';
-import path from 'path';
-import { createServer as createViteServer } from 'vite';
-import { GoogleGenAI } from '@google/genai';
-import dotenv from 'dotenv';
+import express from "express";
+import path from "path";
+import { createServer as createViteServer } from "vite";
+import { GoogleGenAI } from "@google/genai";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -16,14 +16,14 @@ let aiClient: GoogleGenAI | null = null;
 function getGenAI(): GoogleGenAI {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error('GEMINI_API_KEY environment variable is not configured');
+    throw new Error("GEMINI_API_KEY environment variable is not configured");
   }
   if (!aiClient) {
     aiClient = new GoogleGenAI({
       apiKey,
       httpOptions: {
         headers: {
-          'User-Agent': 'aistudio-build',
+          "User-Agent": "aistudio-build",
         },
       },
     });
@@ -32,12 +32,15 @@ function getGenAI(): GoogleGenAI {
 }
 
 // System instructions for the Trevyk AI chatbots
-const ROLE_SYSTEM_INSTRUCTIONS: Record<string, { roleName: string; model: string; instruction: string }> = {
-  'enterprise-architect': {
-    roleName: 'Principal Enterprise Architect',
-    model: 'gemini-3.1-pro-preview',
+const ROLE_SYSTEM_INSTRUCTIONS: Record<
+  string,
+  { roleName: string; model: string; instruction: string }
+> = {
+  "enterprise-architect": {
+    roleName: "Principal Enterprise Architect",
+    model: "gemini-3.1-pro-preview",
     instruction: `You are a Principal Enterprise Architect at Trevyk Technologies (Noida, India).
-Trevyk is the parent company of Kiduart School ERP (https://kiduart.com). We build B2B custom software and B2C products with an honest-claims policy.
+Trevyk builds technology products and engineered digital solutions. Kiduart School ERP (https://kiduart.com) is a Trevyk product. We also deliver custom software for institutions and organizations, with an honest-claims policy.
 
 Facts you may state:
 - Kiduart is a cloud school ERP / school management system for Indian schools (admissions through parent updates). Official product site: kiduart.com.
@@ -49,10 +52,10 @@ Style:
 - Prefer honest "we can design for X" over invented production guarantees.
 - Point product demos to kiduart.com and support@kiduart.com / +91 92175 34128.`,
   },
-  'solutions-consultant': {
-    roleName: 'Trevyk Solutions Consultant',
-    model: 'gemini-3.5-flash',
-    instruction: `You are a Solutions Consultant at Trevyk Technologies (Noida, India) — parent company of Kiduart School ERP (https://kiduart.com).
+  "solutions-consultant": {
+    roleName: "Trevyk Solutions Consultant",
+    model: "gemini-3.5-flash",
+    instruction: `You are a Solutions Consultant at Trevyk Technologies (Noida, India). Kiduart School ERP (https://kiduart.com) is a Trevyk product.
 
 Kiduart journey (align with kiduart.com; do not invent modules not on the product site):
 1. Online admissions & enquiry
@@ -76,27 +79,27 @@ Honesty rules:
 
 Brand: TREVYK Technologies — "Turning Vision Into Progress." Official site: trevyk.in. Logo is the brand mark on trevyk.in (not an AI cube illustration claim).`,
   },
-  'quick-assistant': {
-    roleName: 'Trevyk Rapid Assistant',
-    model: 'gemini-3.1-flash-lite',
-    instruction: `You are the Trevyk Rapid Assistant for Trevyk Technologies (parent of Kiduart at kiduart.com).
+  "quick-assistant": {
+    roleName: "Trevyk Rapid Assistant",
+    model: "gemini-3.1-flash-lite",
+    instruction: `You are the Trevyk Rapid Assistant for Trevyk Technologies. Kiduart (kiduart.com) is a Trevyk school ERP product.
 Answer quickly and factually. Never invent SLAs, certifications, or school counts.
-Useful facts: Noida base; B2B+B2C; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128; contact@trevyk.com; reply within one business day.
+Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128; contact@trevyk.com; reply within one business day.
 Keep answers short and actionable.`,
   },
 };
 
 // API Health Check
-app.get('/api/health', (req, res) => {
+app.get("/api/health", (req, res) => {
   res.json({
-    status: 'ok',
+    status: "ok",
     timestamp: new Date().toISOString(),
     geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
   });
 });
 
 // Chatbot Roles endpoint
-app.get('/api/chat/roles', (req, res) => {
+app.get("/api/chat/roles", (req, res) => {
   const roles = Object.entries(ROLE_SYSTEM_INSTRUCTIONS).map(([id, info]) => ({
     id,
     roleName: info.roleName,
@@ -106,22 +109,30 @@ app.get('/api/chat/roles', (req, res) => {
 });
 
 // Multi-turn Chat Endpoint
-app.post('/api/chat', async (req, res) => {
+app.post("/api/chat", async (req, res) => {
   try {
-    const { messages, roleId = 'solutions-consultant', modelOverride } = req.body;
+    const {
+      messages,
+      roleId = "solutions-consultant",
+      modelOverride,
+    } = req.body;
 
     if (!Array.isArray(messages) || messages.length === 0) {
-      return res.status(400).json({ error: 'Messages array is required and cannot be empty' });
+      return res
+        .status(400)
+        .json({ error: "Messages array is required and cannot be empty" });
     }
 
-    const roleConfig = ROLE_SYSTEM_INSTRUCTIONS[roleId] || ROLE_SYSTEM_INSTRUCTIONS['solutions-consultant'];
+    const roleConfig =
+      ROLE_SYSTEM_INSTRUCTIONS[roleId] ||
+      ROLE_SYSTEM_INSTRUCTIONS["solutions-consultant"];
     const selectedModel = modelOverride || roleConfig.model;
 
     const ai = getGenAI();
 
     // Map conversation history into Gemini format
     const contents = messages.map((m: { role: string; content: string }) => ({
-      role: m.role === 'user' ? 'user' : 'model',
+      role: m.role === "user" ? "user" : "model",
       parts: [{ text: m.content }],
     }));
 
@@ -130,42 +141,45 @@ app.post('/api/chat', async (req, res) => {
       contents,
       config: {
         systemInstruction: roleConfig.instruction,
-        temperature: roleId === 'enterprise-architect' ? 0.4 : 0.7,
+        temperature: roleId === "enterprise-architect" ? 0.4 : 0.7,
       },
     });
 
-    const replyText = response.text || 'I apologize, but I could not generate a response. Please try again.';
+    const replyText =
+      response.text ||
+      "I apologize, but I could not generate a response. Please try again.";
 
     res.json({
-      role: 'model',
+      role: "model",
       content: replyText,
       modelUsed: selectedModel,
       roleId,
     });
   } catch (error: any) {
-    console.error('Chat error:', error);
+    console.error("Chat error:", error);
     res.status(500).json({
-      error: error.message || 'An error occurred while communicating with Gemini AI',
+      error:
+        error.message || "An error occurred while communicating with Gemini AI",
     });
   }
 });
 
 async function startServer() {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: 'spa',
+      appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(distPath, "index.html"));
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(PORT, "0.0.0.0", () => {
     console.log(`Trevyk server running on http://0.0.0.0:${PORT}`);
   });
 }

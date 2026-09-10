@@ -21,7 +21,7 @@ export const ConnectiveStream: React.FC<ConnectiveStreamProps> = ({
     >
       {/* Background radial glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-96 h-20 bg-gradient-to-r from-[#8B5CAD]/20 via-[#BEABD6]/30 to-[#E8A9C2]/20 blur-2xl rounded-full" />
+        <div className="w-96 h-20 bg-gradient-to-r from-[#6B4A87]/20 via-[#B9A6D1]/30 to-[#E8A9C2]/20 blur-2xl rounded-full" />
       </div>
 
       {/* SVG Connecting Spline Conduit */}
@@ -32,10 +32,10 @@ export const ConnectiveStream: React.FC<ConnectiveStreamProps> = ({
       >
         <defs>
           <linearGradient id="streamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#8B5CAD" stopOpacity="0.3" />
-            <stop offset="30%" stopColor="#BEABD6" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#6B4A87" stopOpacity="0.3" />
+            <stop offset="30%" stopColor="#B9A6D1" stopOpacity="0.9" />
             <stop offset="70%" stopColor="#E8A9C2" stopOpacity="1" />
-            <stop offset="100%" stopColor="#8B5CAD" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#6B4A87" stopOpacity="0.4" />
           </linearGradient>
 
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -48,7 +48,7 @@ export const ConnectiveStream: React.FC<ConnectiveStreamProps> = ({
         <path
           d="M 50,20 C 300,20 200,180 500,180 C 800,180 700,20 950,20"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="1.5"
           strokeDasharray="4 6"
           opacity="0.35"

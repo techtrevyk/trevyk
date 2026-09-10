@@ -81,7 +81,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
   return (
     <section
       id="contact"
-      className="relative w-full py-28 sm:py-36 bg-[#EDE8F3] text-[#241428] overflow-hidden"
+      className="relative w-full py-28 sm:py-36 bg-[#1E1024] text-[#F8F6FB] overflow-hidden"
     >
       {/* Ambient Floating Particles */}
       <AmbientParticles
@@ -93,8 +93,8 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
       {/* Atmospheric Radial Spotlights for Maximum Contrast */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Central High-Intensity Radial Glow behind CTA */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-gradient-to-b from-[#8B5CAD]/30 via-[#E8A9C2]/20 to-transparent blur-[130px]" />
-        <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-gradient-to-tr from-[#8B5CAD]/25 via-transparent to-transparent blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[550px] bg-gradient-to-b from-[#6B4A87]/30 via-[#E8A9C2]/20 to-transparent blur-[130px]" />
+        <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-gradient-to-tr from-[#6B4A87]/25 via-transparent to-transparent blur-3xl" />
         <div 
           className="absolute inset-0 opacity-[0.035]"
           style={{
@@ -108,19 +108,19 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
         
         {/* Header Ribbon & Headline */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#FFFFFF] border border-[#E8A9C2]/50 text-[#8B5CAD] font-mono-accent text-xs mb-5 shadow-[0_0_25px_rgba(232,169,194,0.25)]">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#1E1024] border border-[#E8A9C2]/50 text-[#6B4A87] font-mono-accent text-xs mb-5 shadow-[0_0_25px_rgba(232,169,194,0.25)]">
             <Sparkles className="w-3.5 h-3.5 animate-pulse" />
             <span>START WITH ZERO UPFRONT LICENSING</span>
           </div>
 
-          <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#241428] tracking-tight leading-[1.08]">
+          <h2 className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#F8F6FB] tracking-tight leading-[1.08]">
             Let’s Build Something{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#BEABD6] to-[#241428]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E8A9C2] via-[#B9A6D1] to-[#241428]">
               Remarkably Reliable.
             </span>
           </h2>
 
-          <p className="mt-5 text-sm sm:text-base text-[#5C4A6E]/85 leading-relaxed max-w-2xl mx-auto font-sans">
+          <p className="mt-5 text-sm sm:text-base text-[#B9A6D1]/85 leading-relaxed max-w-2xl mx-auto font-sans">
             Whether you want a 30-minute interactive walkthrough of the Kiduart School ERP (kiduart.com) or require custom distributed cloud engineering, our senior architects are ready.
           </p>
         </div>
@@ -132,10 +132,10 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
           <div className="lg:col-span-5 flex flex-col space-y-6">
             
             {/* Value Pillar Card */}
-            <div className="p-7 rounded-3xl bg-[#FFFFFF]/90 border border-[#8B5CAD]/40 shadow-[0_20px_50px_rgba(139,92,173,0.12)] relative overflow-hidden">
+            <div className="p-7 rounded-3xl bg-[#1E1024]/90 border border-[#6B4A87]/40 shadow-[0_20px_50px_rgba(107,74,135,0.12)] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#E8A9C2]/10 rounded-full blur-2xl pointer-events-none" />
               
-              <h3 className="font-heading font-bold text-xl text-[#241428] mb-4 flex items-center space-x-2">
+              <h3 className="font-heading font-bold text-xl text-[#F8F6FB] mb-4 flex items-center space-x-2">
                 <span>The Trevyk Guarantee</span>
               </h3>
 
@@ -145,38 +145,38 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                     <Zap className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-heading font-bold text-[#241428]">
+                    <div className="text-sm font-heading font-bold text-[#F8F6FB]">
                       48-Hour Rapid Onboarding
                     </div>
-                    <div className="text-xs text-[#5C4A6E]/75 mt-0.5">
+                    <div className="text-xs text-[#B9A6D1]/75 mt-0.5">
                       Full student roster & fee schema migration in under 2 working days.
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#BEABD6]/15 border border-[#BEABD6]/30 flex items-center justify-center text-[#5C4A6E] shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#B9A6D1]/15 border border-[#B9A6D1]/30 flex items-center justify-center text-[#B9A6D1] shrink-0 mt-0.5">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-heading font-bold text-[#241428]">
+                    <div className="text-sm font-heading font-bold text-[#F8F6FB]">
                       Zero Upfront Setup Cost
                     </div>
-                    <div className="text-xs text-[#5C4A6E]/75 mt-0.5">
+                    <div className="text-xs text-[#B9A6D1]/75 mt-0.5">
                       Pay only when live, tested, and actively loved by teachers & parents.
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#8B5CAD]/30 border border-[#8B5CAD]/50 flex items-center justify-center text-[#E8A9C2] shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#6B4A87]/30 border border-[#6B4A87]/50 flex items-center justify-center text-[#E8A9C2] shrink-0 mt-0.5">
                     <Lock className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-heading font-bold text-[#241428]">
+                    <div className="text-sm font-heading font-bold text-[#F8F6FB]">
                       100% Data Sovereignty
                     </div>
-                    <div className="text-xs text-[#5C4A6E]/75 mt-0.5">
+                    <div className="text-xs text-[#B9A6D1]/75 mt-0.5">
                       Export your complete relational database schema anytime with zero penalties.
                     </div>
                   </div>
@@ -185,36 +185,36 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
             </div>
 
             {/* Direct Contact Cards */}
-            <div className="p-7 rounded-3xl bg-[#FFFFFF]/80 border border-[#8B5CAD]/30 space-y-5">
-              <div className="text-xs font-mono-accent uppercase tracking-widest text-[#5C4A6E]">
+            <div className="p-7 rounded-3xl bg-[#1E1024]/80 border border-[#6B4A87]/30 space-y-5">
+              <div className="text-xs font-mono-accent uppercase tracking-widest text-[#B9A6D1]">
                 DIRECT ENGINEERING HOTLINES
               </div>
 
               <div className="space-y-3">
                 <a
                   href="mailto:contact@trevyk.com"
-                  className="flex items-center space-x-3 p-3 rounded-xl bg-[#F7F4FA]/60 border border-[#8B5CAD]/30 hover:border-[#E8A9C2]/50 hover:bg-[#F7F4FA] transition-all group interactive-target"
+                  className="flex items-center space-x-3 p-3 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/50 hover:bg-[#2A1830] transition-all group interactive-target"
                   data-cursor-label="EMAIL"
                 >
                   <Mail className="w-4 h-4 text-[#E8A9C2] group-hover:scale-110 transition-transform" />
-                  <div className="text-xs sm:text-sm font-mono-accent text-[#241428]">
+                  <div className="text-xs sm:text-sm font-mono-accent text-[#F8F6FB]">
                     contact@trevyk.com
                   </div>
                 </a>
 
                 <a
                   href="tel:+919876543210"
-                  className="flex items-center space-x-3 p-3 rounded-xl bg-[#F7F4FA]/60 border border-[#8B5CAD]/30 hover:border-[#E8A9C2]/50 hover:bg-[#F7F4FA] transition-all group interactive-target"
+                  className="flex items-center space-x-3 p-3 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/50 hover:bg-[#2A1830] transition-all group interactive-target"
                   data-cursor-label="CALL"
                 >
-                  <Phone className="w-4 h-4 text-[#5C4A6E] group-hover:scale-110 transition-transform" />
-                  <div className="text-xs sm:text-sm font-mono-accent text-[#241428]">
+                  <Phone className="w-4 h-4 text-[#B9A6D1] group-hover:scale-110 transition-transform" />
+                  <div className="text-xs sm:text-sm font-mono-accent text-[#F8F6FB]">
                     +91 (080) 4920-8800 (HQ)
                   </div>
                 </a>
 
-                <div className="flex items-center space-x-3 p-3 rounded-xl bg-[#F7F4FA]/60 border border-[#8B5CAD]/30 text-xs sm:text-sm font-mono-accent text-[#5C4A6E]/80">
-                  <MapPin className="w-4 h-4 text-[#8B5CAD] shrink-0" />
+                <div className="flex items-center space-x-3 p-3 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 text-xs sm:text-sm font-mono-accent text-[#B9A6D1]/80">
+                  <MapPin className="w-4 h-4 text-[#6B4A87] shrink-0" />
                   <span className="truncate">Tech Corridor 4, Indiranagar, Bengaluru, India</span>
                 </div>
               </div>
@@ -224,10 +224,10 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
 
           {/* Right Column: Interactive Booking & Form Interface (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="p-7 sm:p-10 rounded-3xl bg-[#FFFFFF] border border-[#8B5CAD]/50 shadow-[0_25px_60px_rgba(139,92,173,0.18)] relative overflow-hidden">
+            <div className="p-7 sm:p-10 rounded-3xl bg-[#1E1024] border border-[#6B4A87]/50 shadow-[0_25px_60px_rgba(107,74,135,0.18)] relative overflow-hidden">
               
               {/* Top Accent Gradient Border */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#8B5CAD] via-[#E8A9C2] to-[#BEABD6]" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6B4A87] via-[#E8A9C2] to-[#B9A6D1]" />
 
               <AnimatePresence mode="wait">
                 {!submittedTicket ? (
@@ -241,7 +241,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                   >
                     {/* Inquiry Type Segmented Switcher */}
                     <div>
-                      <label className="block text-xs font-mono-accent uppercase tracking-wider text-[#5C4A6E] mb-2.5">
+                      <label className="block text-xs font-mono-accent uppercase tracking-wider text-[#B9A6D1] mb-2.5">
                         Select Inquiry Track
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -250,8 +250,8 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           onClick={() => setInquiryType('erp')}
                           className={`p-3 rounded-xl border text-xs font-mono-accent flex flex-col items-center justify-center space-y-1 transition-all ${
                             inquiryType === 'erp'
-                              ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#241428] shadow-[0_0_15px_rgba(232,169,194,0.2)]'
-                              : 'bg-[#F7F4FA]/70 border-[#8B5CAD]/40 text-[#5C4A6E] hover:border-[#8B5CAD]'
+                              ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#F8F6FB] shadow-[0_0_15px_rgba(232,169,194,0.2)]'
+                              : 'bg-[#2A1830]/70 border-[#6B4A87]/40 text-[#B9A6D1] hover:border-[#6B4A87]'
                           }`}
                         >
                           <GraduationCap className="w-4 h-4 text-[#E8A9C2]" />
@@ -263,11 +263,11 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           onClick={() => setInquiryType('custom')}
                           className={`p-3 rounded-xl border text-xs font-mono-accent flex flex-col items-center justify-center space-y-1 transition-all ${
                             inquiryType === 'custom'
-                              ? 'bg-[#BEABD6]/20 border-[#BEABD6] text-[#241428] shadow-[0_0_15px_rgba(185,166,209,0.2)]'
-                              : 'bg-[#F7F4FA]/70 border-[#8B5CAD]/40 text-[#5C4A6E] hover:border-[#8B5CAD]'
+                              ? 'bg-[#B9A6D1]/20 border-[#B9A6D1] text-[#F8F6FB] shadow-[0_0_15px_rgba(185,166,209,0.2)]'
+                              : 'bg-[#2A1830]/70 border-[#6B4A87]/40 text-[#B9A6D1] hover:border-[#6B4A87]'
                           }`}
                         >
-                          <Building2 className="w-4 h-4 text-[#5C4A6E]" />
+                          <Building2 className="w-4 h-4 text-[#B9A6D1]" />
                           <span className="font-bold">Custom Software</span>
                         </button>
 
@@ -276,8 +276,8 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           onClick={() => setInquiryType('partnership')}
                           className={`p-3 rounded-xl border text-xs font-mono-accent flex flex-col items-center justify-center space-y-1 transition-all ${
                             inquiryType === 'partnership'
-                              ? 'bg-[#8B5CAD]/25 border-[#8B5CAD] text-[#241428]'
-                              : 'bg-[#F7F4FA]/70 border-[#8B5CAD]/40 text-[#5C4A6E] hover:border-[#8B5CAD]'
+                              ? 'bg-[#6B4A87]/25 border-[#6B4A87] text-[#F8F6FB]'
+                              : 'bg-[#2A1830]/70 border-[#6B4A87]/40 text-[#B9A6D1] hover:border-[#6B4A87]'
                           }`}
                         >
                           <Sparkles className="w-4 h-4 text-[#E8A9C2]" />
@@ -291,7 +291,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                       <div>
                         <label 
                           htmlFor="contact-name"
-                          className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5"
+                          className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5"
                         >
                           Your Name <span className="text-[#E8A9C2]">*</span>
                         </label>
@@ -302,14 +302,14 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           placeholder="Dr. S. Roy / Alex Vance"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/50 text-[#241428] placeholder-[#5C4A6E]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#2A1830]/80 border border-[#6B4A87]/50 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
                         />
                       </div>
 
                       <div>
                         <label 
                           htmlFor="contact-email"
-                          className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5"
+                          className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5"
                         >
                           Official / Work Email <span className="text-[#E8A9C2]">*</span>
                         </label>
@@ -320,7 +320,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           placeholder="dean@school.edu / cto@org.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/50 text-[#241428] placeholder-[#5C4A6E]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#2A1830]/80 border border-[#6B4A87]/50 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
                         />
                       </div>
                     </div>
@@ -330,7 +330,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                       <div>
                         <label 
                           htmlFor="contact-org"
-                          className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5"
+                          className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5"
                         >
                           School / Company Name
                         </label>
@@ -340,14 +340,14 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           placeholder="e.g. Oakridge Academy"
                           value={formData.organization}
                           onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/50 text-[#241428] placeholder-[#5C4A6E]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#2A1830]/80 border border-[#6B4A87]/50 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
                         />
                       </div>
 
                       <div>
                         <label 
                           htmlFor="contact-phone"
-                          className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5"
+                          className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5"
                         >
                           Phone / WhatsApp Hotline
                         </label>
@@ -357,14 +357,14 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                           placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/50 text-[#241428] placeholder-[#5C4A6E]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-[#2A1830]/80 border border-[#6B4A87]/50 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors"
                         />
                       </div>
                     </div>
 
                     {/* Preferred Slot Selector */}
                     <div>
-                      <label className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5">
+                      <label className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5">
                         Preferred Walkthrough Slot
                       </label>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -375,8 +375,8 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                             onClick={() => setFormData({ ...formData, selectedSlot: slot })}
                             className={`px-3.5 py-2.5 rounded-xl border text-xs font-mono-accent text-left flex items-center justify-between transition-all ${
                               formData.selectedSlot === slot
-                                ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#241428]'
-                                : 'bg-[#F7F4FA]/60 border-[#8B5CAD]/30 text-[#5C4A6E] hover:border-[#8B5CAD]'
+                                ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#F8F6FB]'
+                                : 'bg-[#2A1830]/60 border-[#6B4A87]/30 text-[#B9A6D1] hover:border-[#6B4A87]'
                             }`}
                           >
                             <span className="truncate">{slot}</span>
@@ -392,7 +392,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                     <div>
                       <label 
                         htmlFor="contact-notes"
-                        className="block text-xs font-mono-accent text-[#5C4A6E]/90 mb-1.5"
+                        className="block text-xs font-mono-accent text-[#B9A6D1]/90 mb-1.5"
                       >
                         Project Scope / Key Questions (Optional)
                       </label>
@@ -402,7 +402,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                         placeholder="Tell us about your campus size, current SIS/ERP bottlenecks, or microservice roadmap..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#F7F4FA]/80 border border-[#8B5CAD]/50 text-[#241428] placeholder-[#5C4A6E]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-xl bg-[#2A1830]/80 border border-[#6B4A87]/50 text-[#F8F6FB] placeholder-[#B9A6D1]/45 text-sm focus:outline-none focus:border-[#E8A9C2] transition-colors resize-none"
                       />
                     </div>
 
@@ -414,7 +414,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                         disabled={isSubmitting}
                         magneticStrength={0.25}
                         variant="custom"
-                        className="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-[#8B5CAD] via-[#A078C8] to-[#BEABD6] text-white font-heading font-bold text-base sm:text-lg shadow-[0_10px_35px_rgba(232,169,194,0.45)] hover:shadow-[0_15px_45px_rgba(232,169,194,0.65)] hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2 disabled:opacity-75 cursor-pointer interactive-target"
+                        className="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-[#6B4A87] via-[#8558A5] to-[#B9A6D1] text-white font-heading font-bold text-base sm:text-lg shadow-[0_10px_35px_rgba(232,169,194,0.45)] hover:shadow-[0_15px_45px_rgba(232,169,194,0.65)] hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2 disabled:opacity-75 cursor-pointer interactive-target"
                         cursorLabel="DISPATCH"
                         reducedMotion={settings.reducedMotion}
                       >
@@ -432,7 +432,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                       </MagneticButton>
                     </div>
 
-                    <div className="flex items-center justify-center space-x-2 text-center text-[11px] font-mono-accent text-[#5C4A6E]/75">
+                    <div className="flex items-center justify-center space-x-2 text-center text-[11px] font-mono-accent text-[#B9A6D1]/75">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Zero spam • NDA protected • Instant calendar invite generated</span>
                     </div>
@@ -450,18 +450,18 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                     </div>
 
                     <div>
-                      <h3 className="font-heading font-bold text-2xl sm:text-3xl text-[#241428]">
+                      <h3 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
                         Session Reserved Successfully!
                       </h3>
-                      <p className="text-sm text-[#5C4A6E]/80 mt-2 max-w-md mx-auto">
-                        Thank you, <span className="text-[#E8A9C2] font-semibold">{formData.name}</span>. A senior Trevyk architect has locked in your walkthrough for <span className="text-[#5C4A6E] font-semibold">{formData.selectedSlot}</span>.
+                      <p className="text-sm text-[#B9A6D1]/80 mt-2 max-w-md mx-auto">
+                        Thank you, <span className="text-[#E8A9C2] font-semibold">{formData.name}</span>. A senior Trevyk architect has locked in your walkthrough for <span className="text-[#B9A6D1] font-semibold">{formData.selectedSlot}</span>.
                       </p>
                     </div>
 
                     {/* Confirmation Ticket Badge */}
-                    <div className="p-4 rounded-2xl bg-[#F7F4FA] border border-[#8B5CAD]/50 max-w-sm mx-auto flex items-center justify-between">
+                    <div className="p-4 rounded-2xl bg-[#2A1830] border border-[#6B4A87]/50 max-w-sm mx-auto flex items-center justify-between">
                       <div className="text-left">
-                        <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
+                        <div className="text-[10px] font-mono-accent uppercase tracking-wider text-[#B9A6D1]">
                           Meeting Ticket ID
                         </div>
                         <div className="font-mono-accent text-sm font-bold text-[#E8A9C2]">
@@ -471,7 +471,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
 
                       <button
                         onClick={handleCopyTicket}
-                        className="px-3 py-1.5 rounded-lg bg-[#FFFFFF] border border-[#8B5CAD]/40 text-xs font-mono-accent text-[#241428] hover:border-[#E8A9C2] transition-colors flex items-center space-x-1.5"
+                        className="px-3 py-1.5 rounded-lg bg-[#1E1024] border border-[#6B4A87]/40 text-xs font-mono-accent text-[#F8F6FB] hover:border-[#E8A9C2] transition-colors flex items-center space-x-1.5"
                       >
                         {copiedLink ? (
                           <>
@@ -501,7 +501,7 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                             message: '',
                           });
                         }}
-                        className="text-xs font-mono-accent text-[#5C4A6E] hover:text-[#241428] underline underline-offset-4 transition-colors"
+                        className="text-xs font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] underline underline-offset-4 transition-colors"
                       >
                         Submit Another Inquiry
                       </button>

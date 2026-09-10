@@ -152,7 +152,7 @@ function MainAppContent() {
   };
 
   return (
-    <div id="trevyk-app" className="relative min-h-screen bg-[#F7F4FA] text-[#241428] overflow-x-hidden">
+    <div id="trevyk-app" className="relative min-h-screen bg-[#2A1830] text-[#F8F6FB] overflow-x-hidden">
       <ScrollToTop />
       <SEOManager />
 

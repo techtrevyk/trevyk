@@ -122,8 +122,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         }}
         className={`relative w-full h-full rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col justify-between overflow-hidden transition-all duration-300 ${
           isFlagship
-            ? 'bg-gradient-to-b from-[#F7F4FA] via-[#FFFFFF] to-[#FFFFFF] border-2 border-[#E8A9C2]/70 shadow-[0_15px_40px_rgba(232,169,194,0.18)]'
-            : 'bg-gradient-to-b from-[#F7F4FA]/90 to-[#FFFFFF]/95 border border-[#8B5CAD]/40 shadow-[0_10px_30px_rgba(139,92,173,0.10)] hover:border-[#BEABD6]/70'
+            ? 'bg-gradient-to-b from-[#2A1830] via-[#1E1024] to-[#1E1024] border-2 border-[#E8A9C2]/70 shadow-[0_15px_40px_rgba(232,169,194,0.18)]'
+            : 'bg-gradient-to-b from-[#2A1830]/90 to-[#1E1024]/95 border border-[#6B4A87]/40 shadow-[0_10px_30px_rgba(107,74,135,0.10)] hover:border-[#B9A6D1]/70'
         }`}
       >
         {/* Dynamic Specular Glass Sheen layer */}
@@ -147,7 +147,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               className="px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono-accent font-bold uppercase tracking-wider"
               style={{
                 backgroundColor: `${service.color}25`,
-                color: service.color === '#E0D8EC' ? '#E8A9C2' : service.color,
+                color: service.color === '#3D224E' ? '#E8A9C2' : service.color,
                 border: `1px solid ${service.color}40`,
               }}
             >
@@ -155,7 +155,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
             </span>
           </div>
 
-          <span className="font-mono-accent text-xs sm:text-sm font-bold text-[#5C4A6E]/70">
+          <span className="font-mono-accent text-xs sm:text-sm font-bold text-[#B9A6D1]/70">
             {service.number}
           </span>
         </div>
@@ -163,15 +163,15 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         {/* Card Body: Icon, Title & Tagline */}
         <div className="relative z-10 my-auto pt-4" style={{ transform: 'translateZ(40px)' }}>
           {/* Icon with illuminated box */}
-          <div className="w-12 h-12 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/50 flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
+          <div className="w-12 h-12 rounded-xl bg-[#1E1024] border border-[#6B4A87]/50 flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
             {getServiceIcon(service.iconName, service.color)}
           </div>
 
-          <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428] tracking-tight line-clamp-2 leading-snug group-hover:text-[#E8A9C2] transition-colors">
+          <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB] tracking-tight line-clamp-2 leading-snug group-hover:text-[#E8A9C2] transition-colors">
             {service.title}
           </h3>
 
-          <p className="text-xs sm:text-sm text-[#5C4A6E]/80 mt-2.5 line-clamp-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#B9A6D1]/80 mt-2.5 line-clamp-2 leading-relaxed">
             {service.tagline}
           </p>
 
@@ -181,26 +181,26 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
               opacity: isHovered ? 1 : 0.75,
               height: 'auto',
             }}
-            className="mt-3 pt-3 border-t border-[#8B5CAD]/30 text-xs text-[#5C4A6E] line-clamp-2"
+            className="mt-3 pt-3 border-t border-[#6B4A87]/30 text-xs text-[#B9A6D1] line-clamp-2"
           >
             {service.description}
           </motion.div>
         </div>
 
         {/* Card Footer: Tech Stack Chips & Metric */}
-        <div className="relative z-10 pt-4 border-t border-[#8B5CAD]/30 flex flex-col space-y-3" style={{ transform: 'translateZ(25px)' }}>
+        <div className="relative z-10 pt-4 border-t border-[#6B4A87]/30 flex flex-col space-y-3" style={{ transform: 'translateZ(25px)' }}>
           {/* Tech tags */}
           <div className="flex flex-wrap gap-1.5 overflow-hidden max-h-12">
             {service.tech.slice(0, 3).map((t) => (
               <span
                 key={t}
-                className="px-2 py-0.5 rounded bg-[#FFFFFF] border border-[#8B5CAD]/40 text-[10px] font-mono-accent text-[#5C4A6E]"
+                className="px-2 py-0.5 rounded bg-[#1E1024] border border-[#6B4A87]/40 text-[10px] font-mono-accent text-[#B9A6D1]"
               >
                 {t}
               </span>
             ))}
             {service.tech.length > 3 && (
-              <span className="px-1.5 py-0.5 rounded bg-[#FFFFFF] text-[10px] font-mono-accent text-[#5C4A6E]/70">
+              <span className="px-1.5 py-0.5 rounded bg-[#1E1024] text-[10px] font-mono-accent text-[#B9A6D1]/70">
                 +{service.tech.length - 3}
               </span>
             )}
@@ -208,12 +208,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
           {/* Action indicator & Metric */}
           <div className="flex items-center justify-between pt-1">
-            <div className="text-[11px] font-mono-accent text-[#5C4A6E]">
+            <div className="text-[11px] font-mono-accent text-[#B9A6D1]">
               <span>{service.metrics.label}: </span>
-              <span className="font-bold text-[#241428]">{service.metrics.value}</span>
+              <span className="font-bold text-[#F8F6FB]">{service.metrics.value}</span>
             </div>
 
-            <div className="w-7 h-7 rounded-full bg-[#FFFFFF] border border-[#8B5CAD]/40 flex items-center justify-center text-[#E8A9C2] group-hover:bg-[#E8A9C2] group-hover:text-[#FFFFFF] transition-colors">
+            <div className="w-7 h-7 rounded-full bg-[#1E1024] border border-[#6B4A87]/40 flex items-center justify-center text-[#E8A9C2] group-hover:bg-[#E8A9C2] group-hover:text-[#FFFFFF] transition-colors">
               <ArrowUpRight className="w-3.5 h-3.5" />
             </div>
           </div>

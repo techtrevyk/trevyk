@@ -35,7 +35,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
     <AnimatePresence>
       <div
         id="service-detail-backdrop"
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#EDE8F3]/85 backdrop-blur-xl"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#1E1024]/85 backdrop-blur-xl"
         onClick={onClose}
       >
         <motion.div
@@ -45,17 +45,17 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#FFFFFF] border border-[#8B5CAD]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(139,92,173,0.18)] flex flex-col relative"
+          className="w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#1E1024] border border-[#6B4A87]/50 rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_rgba(107,74,135,0.18)] flex flex-col relative"
         >
           {/* Header */}
-          <div className="flex items-start justify-between p-6 sm:p-8 border-b border-[#8B5CAD]/20 bg-white/70">
+          <div className="flex items-start justify-between p-6 sm:p-8 border-b border-[#6B4A87]/20 bg-[#1E1024]/70">
             <div className="flex items-start space-x-4">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border"
                 style={{
                   backgroundColor: `${service.color}20`,
                   borderColor: `${service.color}60`,
-                  color: service.color === '#E0D8EC' ? '#E8A9C2' : service.color,
+                  color: service.color === '#3D224E' ? '#E8A9C2' : service.color,
                 }}
               >
                 <Layers className="w-6 h-6" />
@@ -67,7 +67,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                     SERVICE {service.number} • {service.badge}
                   </span>
                 </div>
-                <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428] mt-1">
+                <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB] mt-1">
                   {service.title}
                 </h3>
               </div>
@@ -78,7 +78,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 soundEngine.playClick('soft');
                 onClose();
               }}
-              className="p-2 rounded-full text-[#5C4A6E] hover:text-[#241428] hover:bg-[#F7F4FA] transition-colors"
+              className="p-2 rounded-full text-[#B9A6D1] hover:text-[#F8F6FB] hover:bg-[#2A1830] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -88,16 +88,16 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           <div className="p-6 sm:p-8 space-y-6">
             
             {/* Tagline Box */}
-            <div className="p-4 rounded-xl bg-[#F7F4FA]/60 border border-[#8B5CAD]/30 text-sm sm:text-base text-[#5C4A6E] font-medium leading-relaxed">
+            <div className="p-4 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 text-sm sm:text-base text-[#B9A6D1] font-medium leading-relaxed">
               "{service.tagline}"
             </div>
 
             {/* Description */}
             <div>
-              <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#5C4A6E] mb-2">
+              <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#B9A6D1] mb-2">
                 Scope of Work & Architectural Strategy
               </h4>
-              <p className="text-sm sm:text-base text-[#5C4A6E]/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-[#B9A6D1]/90 leading-relaxed">
                 {service.description}
               </p>
             </div>
@@ -108,7 +108,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
                 <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#E8A9C2] mb-2.5 font-semibold">
                   What It Includes
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-sm text-[#5C4A6E]/90">
+                <ul className="space-y-2 text-xs sm:text-sm text-[#B9A6D1]/90">
                   {service.includes.map((item, idx) => (
                     <li key={idx} className="flex items-start space-x-2.5">
                       <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0 mt-0.5" />
@@ -121,11 +121,11 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
             {/* Ideal Client & Problem Fit */}
             {service.fitsFor && (
-              <div className="p-4 rounded-xl bg-[#FFFFFF] border border-[#8B5CAD]/40">
-                <span className="text-[11px] font-mono-accent text-[#5C4A6E] uppercase tracking-wider block mb-1">
+              <div className="p-4 rounded-xl bg-[#1E1024] border border-[#6B4A87]/40">
+                <span className="text-[11px] font-mono-accent text-[#B9A6D1] uppercase tracking-wider block mb-1">
                   Ideal Client & Problem Fit
                 </span>
-                <p className="text-xs sm:text-sm text-[#5C4A6E] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#B9A6D1] leading-relaxed">
                   {service.fitsFor}
                 </p>
               </div>
@@ -134,12 +134,12 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             {/* Core Deliverables */}
             {service.deliverables && service.deliverables.length > 0 && (
               <div>
-                <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#5C4A6E] mb-2">
+                <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#B9A6D1] mb-2">
                   Verified Deliverables
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono-accent text-[#241428]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono-accent text-[#F8F6FB]">
                   {service.deliverables.map((item, idx) => (
-                    <div key={idx} className="p-2.5 rounded-lg bg-[#F7F4FA] border border-[#8B5CAD]/30 flex items-center space-x-2">
+                    <div key={idx} className="p-2.5 rounded-lg bg-[#2A1830] border border-[#6B4A87]/30 flex items-center space-x-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2]" />
                       <span>{item}</span>
                     </div>
@@ -150,14 +150,14 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
 
             {/* Tech Stack Grid */}
             <div>
-              <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#5C4A6E] mb-3">
+              <h4 className="font-mono-accent text-xs uppercase tracking-wider text-[#B9A6D1] mb-3">
                 Core Technology Stack & Protocols
               </h4>
               <div className="flex flex-wrap gap-2">
                 {service.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-3 py-1.5 rounded-lg text-xs font-mono-accent bg-[#F7F4FA] border border-[#8B5CAD]/40 text-[#241428] flex items-center space-x-1.5"
+                    className="px-3 py-1.5 rounded-lg text-xs font-mono-accent bg-[#2A1830] border border-[#6B4A87]/40 text-[#F8F6FB] flex items-center space-x-1.5"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2]" />
                     <span>{t}</span>
@@ -167,18 +167,18 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
 
             {/* Performance Metric SLA Card */}
-            <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-[#F7F4FA]/40 border border-[#8B5CAD]/30">
+            <div className="grid grid-cols-2 gap-4 p-4 rounded-xl bg-[#2A1830]/40 border border-[#6B4A87]/30">
               <div>
-                <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
+                <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#B9A6D1]">
                   Target Metric
                 </span>
-                <div className="font-mono-accent font-bold text-base sm:text-lg text-[#241428] mt-0.5">
+                <div className="font-mono-accent font-bold text-base sm:text-lg text-[#F8F6FB] mt-0.5">
                   {service.metrics.label}
                 </div>
               </div>
 
               <div>
-                <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#5C4A6E]">
+                <span className="text-[11px] font-mono-accent uppercase tracking-wider text-[#B9A6D1]">
                   Typical signal
                 </span>
                 <div className="font-mono-accent font-bold text-base sm:text-lg text-[#E8A9C2] mt-0.5">
@@ -188,14 +188,14 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             </div>
 
             {/* Bottom Actions */}
-            <div className="pt-4 border-t border-[#8B5CAD]/20 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-4 border-t border-[#6B4A87]/20 flex flex-wrap items-center justify-between gap-4">
               <button
                 onClick={() => {
                   soundEngine.playClick('soft');
                   onClose();
                   onOpenArchitecture();
                 }}
-                className="text-xs font-mono-accent text-[#5C4A6E] hover:text-[#E8A9C2] flex items-center space-x-1.5 transition-colors"
+                className="text-xs font-mono-accent text-[#B9A6D1] hover:text-[#E8A9C2] flex items-center space-x-1.5 transition-colors"
               >
                 <Workflow className="w-4 h-4 text-[#E8A9C2]" />
                 <span>Inspect in 3D Architecture Blueprint</span>

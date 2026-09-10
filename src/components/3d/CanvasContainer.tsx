@@ -55,11 +55,11 @@ export const CanvasContainer: React.FC<CanvasContainerProps> = ({
       >
         <div className="relative flex flex-col items-center justify-center">
           {/* Ambient Glow */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#8B5CAD]/30 via-[#BEABD6]/20 to-[#E8A9C2]/20 blur-2xl animate-pulse" />
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#6B4A87]/30 via-[#B9A6D1]/20 to-[#E8A9C2]/20 blur-2xl animate-pulse" />
           
           {/* Official 3D Isometric Trevyk Logo */}
           <div className="relative z-10 transform -rotate-2 hover:rotate-0 transition-transform duration-500">
-            <TrevykLogo layout="vertical" size="xl" showTagline={true} />
+            <TrevykLogo layout="vertical" size="xl" theme="dark" showTagline={true} />
           </div>
         </div>
       </div>
@@ -86,29 +86,31 @@ export const CanvasContainer: React.FC<CanvasContainerProps> = ({
         }}
       >
         <Suspense fallback={null}>
-          {/* Lighting */}
-          <ambientLight intensity={0.8} color="#5C4A6E" />
+          {/* Brighter lighting so cubes read clearly on dark plum bg */}
+          <ambientLight intensity={1.15} color="#E7E1F0" />
           
-          {/* Warm Rim Light (Blush Pink highlight) */}
           <directionalLight
             position={[-4, 5, -3]}
-            intensity={1.6}
+            intensity={1.8}
             color="#E8A9C2"
           />
 
-          {/* Key Light (Royal purple / soft lavender front) */}
           <directionalLight
             position={[4, 6, 5]}
-            intensity={2.2}
-            color="#241428"
-            castShadow
+            intensity={2.6}
+            color="#F8F6FB"
           />
 
-          {/* Fill Light (Deep Aubergine undertone) */}
           <pointLight
             position={[0, -3, 2]}
-            intensity={0.8}
-            color="#BEABD6"
+            intensity={1.1}
+            color="#B9A6D1"
+          />
+
+          <pointLight
+            position={[2, 3, 4]}
+            intensity={0.9}
+            color="#C4B0E0"
           />
 
           {/* The 3D Core Block Model */}

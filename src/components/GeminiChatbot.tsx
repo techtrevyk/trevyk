@@ -70,7 +70,7 @@ const ROLES: RoleConfig[] = [
     modelBadge: 'Gemini 3.1 Pro Preview',
     description: 'Specialized for complex tasks, multi-region database sharding, zero-trust security, and Kubernetes.',
     icon: Cpu,
-    color: '#BEABD6',
+    color: '#B9A6D1',
     suggestedPrompts: [
       'How does Kiduart’s modular school journey map to real campus roles?',
       'Explain Trevyk’s Core Block modular architecture philosophy.',
@@ -282,25 +282,25 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
               onOpen();
             }}
             aria-label="Open Trevyk Gemini AI Assistant"
-            className="group relative flex items-center space-x-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#F7F4FA] via-[#FFFFFF] to-[#F7F4FA] border border-[#8B5CAD]/55 hover:border-[#A078C8] shadow-[0_0_28px_rgba(139,92,173,0.40)] hover:shadow-[0_0_36px_rgba(139,92,173,0.55)] transition-all hover:scale-105 active:scale-95 cursor-pointer interactive-target text-left"
+            className="group relative flex items-center space-x-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#2A1830] via-[#1E1024] to-[#2A1830] border border-[#6B4A87]/55 hover:border-[#8558A5] shadow-[0_0_28px_rgba(107,74,135,0.40)] hover:shadow-[0_0_36px_rgba(107,74,135,0.55)] transition-all hover:scale-105 active:scale-95 cursor-pointer interactive-target text-left"
             data-cursor-label="CHAT"
           >
             {/* Glowing isometric cube badge icon */}
-            <div className="relative w-8 h-8 rounded-full bg-gradient-to-tr from-[#8B5CAD] to-[#A078C8] flex items-center justify-center text-white font-bold shadow-inner">
+            <div className="relative w-8 h-8 rounded-full bg-gradient-to-tr from-[#6B4A87] to-[#8558A5] flex items-center justify-center text-white font-bold shadow-inner">
               <Bot className="w-4 h-4 text-white" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#52D172] rounded-full border-2 border-[#FFFFFF] animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#52D172] rounded-full border-2 border-[#6B4A87] animate-pulse" />
             </div>
 
             <div className="hidden sm:block">
               <div className="flex items-center space-x-1.5">
-                <span className="text-xs font-bold font-heading text-[#241428] tracking-wider uppercase">
+                <span className="text-xs font-bold font-heading text-[#F8F6FB] tracking-wider uppercase">
                   Trevyk AI
                 </span>
                 <span className="px-1.5 py-0.5 rounded text-[10px] font-mono-accent bg-[#E8A9C2]/20 text-[#E8A9C2]">
                   Gemini
                 </span>
               </div>
-              <span className="text-[11px] text-[#5C4A6E] block">Ask System Leads & ERP Experts</span>
+              <span className="text-[11px] text-[#B9A6D1] block">Ask System Leads & ERP Experts</span>
             </div>
           </button>
         </motion.div>
@@ -314,14 +314,14 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-            className={`fixed z-50 flex flex-col overflow-hidden bg-[#FFFFFF]/95 backdrop-blur-2xl border border-[#8B5CAD]/60 shadow-[0_20px_60px_rgba(139,92,173,0.16),0_0_40px_rgba(139,92,173,0.3)] ${
+            className={`fixed z-50 flex flex-col overflow-hidden bg-[#1E1024]/95 backdrop-blur-2xl border border-[#6B4A87]/60 shadow-[0_20px_60px_rgba(107,74,135,0.16),0_0_40px_rgba(107,74,135,0.3)] ${
               isExpanded
                 ? 'inset-3 sm:inset-6 md:inset-10 rounded-2xl sm:rounded-3xl'
                 : 'bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100vw-2rem)] sm:w-[460px] h-[600px] max-h-[88vh] rounded-2xl sm:rounded-3xl'
             }`}
           >
             {/* Window Header */}
-            <div className="relative px-5 py-4 border-b border-[#8B5CAD]/40 bg-[#F7F4FA]/80 flex items-center justify-between">
+            <div className="relative px-5 py-4 border-b border-[#6B4A87]/40 bg-[#2A1830]/80 flex items-center justify-between">
               {/* Role Switcher Selector */}
               <div className="relative">
                 <button
@@ -330,7 +330,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                     soundEngine.playClick('soft');
                     setIsRoleDropdownOpen(!isRoleDropdownOpen);
                   }}
-                  className="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl bg-[#FFFFFF]/80 border border-[#8B5CAD]/50 hover:border-[#E8A9C2] transition-colors interactive-target text-left"
+                  className="flex items-center space-x-2.5 px-3 py-1.5 rounded-xl bg-[#1E1024]/80 border border-[#6B4A87]/50 hover:border-[#E8A9C2] transition-colors interactive-target text-left"
                 >
                   <div
                     className="w-6 h-6 rounded-lg flex items-center justify-center"
@@ -340,12 +340,12 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   </div>
                   <div>
                     <div className="flex items-center space-x-1.5">
-                      <span className="text-xs font-bold font-heading text-[#241428]">
+                      <span className="text-xs font-bold font-heading text-[#F8F6FB]">
                         {currentRole.name}
                       </span>
-                      <ChevronDown className="w-3 h-3 text-[#5C4A6E]" />
+                      <ChevronDown className="w-3 h-3 text-[#B9A6D1]" />
                     </div>
-                    <span className="text-[10px] font-mono-accent text-[#8B5CAD] block">
+                    <span className="text-[10px] font-mono-accent text-[#6B4A87] block">
                       {currentRole.modelBadge}
                     </span>
                   </div>
@@ -358,9 +358,9 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                       initial={{ opacity: 0, y: 8, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                      className="absolute top-full left-0 mt-2 w-72 sm:w-80 rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD] shadow-2xl p-2 z-50 backdrop-blur-xl"
+                      className="absolute top-full left-0 mt-2 w-72 sm:w-80 rounded-2xl bg-[#1E1024] border border-[#6B4A87] shadow-2xl p-2 z-50 backdrop-blur-xl"
                     >
-                      <div className="px-2 py-1.5 text-[10px] font-mono-accent text-[#5C4A6E] uppercase tracking-wider border-b border-[#8B5CAD]/30 mb-1">
+                      <div className="px-2 py-1.5 text-[10px] font-mono-accent text-[#B9A6D1] uppercase tracking-wider border-b border-[#6B4A87]/30 mb-1">
                         Select Specialized AI Role
                       </div>
                       {ROLES.map((role) => {
@@ -372,8 +372,8 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                             onClick={() => handleRoleChange(role.id)}
                             className={`w-full p-2.5 rounded-xl text-left transition-all flex items-start space-x-3 mb-1 ${
                               isCurrent
-                                ? 'bg-[#F7F4FA] border border-[#E8A9C2]/60'
-                                : 'hover:bg-[#F7F4FA]/50 border border-transparent'
+                                ? 'bg-[#2A1830] border border-[#E8A9C2]/60'
+                                : 'hover:bg-[#2A1830]/50 border border-transparent'
                             }`}
                           >
                             <div
@@ -384,7 +384,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                             </div>
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center justify-between">
-                                <span className="text-xs font-bold text-[#241428]">{role.name}</span>
+                                <span className="text-xs font-bold text-[#F8F6FB]">{role.name}</span>
                                 <span
                                   className="text-[9px] font-mono-accent px-1.5 py-0.5 rounded"
                                   style={{ backgroundColor: `${role.color}20`, color: role.color }}
@@ -392,7 +392,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                                   {role.modelBadge.split(' ')[1]}
                                 </span>
                               </div>
-                              <p className="text-[11px] text-[#5C4A6E] line-clamp-2 mt-0.5">
+                              <p className="text-[11px] text-[#B9A6D1] line-clamp-2 mt-0.5">
                                 {role.description}
                               </p>
                             </div>
@@ -410,7 +410,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   onClick={handleClearHistory}
                   title="Reset conversation"
                   aria-label="Reset conversation"
-                  className="p-2 rounded-xl text-[#5C4A6E] hover:text-[#241428] hover:bg-[#FFFFFF]/60 transition-colors"
+                  className="p-2 rounded-xl text-[#B9A6D1] hover:text-[#F8F6FB] hover:bg-[#1E1024]/60 transition-colors"
                 >
                   <RotateCcw className="w-4 h-4" />
                 </button>
@@ -422,7 +422,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   }}
                   title={isExpanded ? 'Collapse' : 'Expand'}
                   aria-label={isExpanded ? 'Collapse' : 'Expand'}
-                  className="hidden sm:block p-2 rounded-xl text-[#5C4A6E] hover:text-[#241428] hover:bg-[#FFFFFF]/60 transition-colors"
+                  className="hidden sm:block p-2 rounded-xl text-[#B9A6D1] hover:text-[#F8F6FB] hover:bg-[#1E1024]/60 transition-colors"
                 >
                   {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
                 </button>
@@ -434,7 +434,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                     onClose();
                   }}
                   aria-label="Close Chat"
-                  className="p-2 rounded-xl text-[#5C4A6E] hover:text-[#E8A9C2] hover:bg-[#FFFFFF]/60 transition-colors"
+                  className="p-2 rounded-xl text-[#B9A6D1] hover:text-[#E8A9C2] hover:bg-[#1E1024]/60 transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -453,15 +453,15 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                     className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}
                   >
                     <div className="flex items-center space-x-2 mb-1 px-1">
-                      <span className="text-[10px] font-mono-accent text-[#5C4A6E]">
+                      <span className="text-[10px] font-mono-accent text-[#B9A6D1]">
                         {isUser ? 'You' : currentRole.name}
                       </span>
-                      <span className="text-[9px] text-[#8B5CAD]">•</span>
-                      <span className="text-[10px] font-mono-accent text-[#5C4A6E]/60">
+                      <span className="text-[9px] text-[#6B4A87]">•</span>
+                      <span className="text-[10px] font-mono-accent text-[#B9A6D1]/60">
                         {message.timestamp}
                       </span>
                       {message.modelUsed && !isUser && (
-                        <span className="text-[9px] font-mono-accent px-1.5 py-0.2 rounded bg-[#8B5CAD]/30 text-[#E8A9C2]">
+                        <span className="text-[9px] font-mono-accent px-1.5 py-0.2 rounded bg-[#6B4A87]/30 text-[#E8A9C2]">
                           {message.modelUsed}
                         </span>
                       )}
@@ -470,8 +470,8 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                     <div
                       className={`relative group max-w-[90%] sm:max-w-[85%] rounded-2xl p-3.5 sm:p-4 text-xs sm:text-sm leading-relaxed ${
                         isUser
-                          ? 'bg-gradient-to-r from-[#8B5CAD] to-[#A078C8] text-white rounded-tr-sm border border-[#8B5CAD]/40'
-                          : 'bg-[#F7F4FA]/90 text-[#241428] rounded-tl-sm border border-[#8B5CAD]/40 shadow-[0_4px_20px_rgba(139,92,173,0.08)]'
+                          ? 'bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-white rounded-tr-sm border border-[#6B4A87]/40'
+                          : 'bg-[#2A1830]/90 text-[#F8F6FB] rounded-tl-sm border border-[#6B4A87]/40 shadow-[0_4px_20px_rgba(107,74,135,0.08)]'
                       }`}
                     >
                       {/* Markdown rendered message */}
@@ -483,7 +483,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                       <button
                         onClick={() => handleCopyMessage(message.id, message.content)}
                         title="Copy message"
-                        className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 p-1 rounded-md bg-[#FFFFFF]/80 text-[#5C4A6E] hover:text-[#E8A9C2] transition-all"
+                        className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 p-1 rounded-md bg-[#1E1024]/80 text-[#B9A6D1] hover:text-[#E8A9C2] transition-all"
                       >
                         {copiedMessageId === message.id ? (
                           <Check className="w-3 h-3 text-[#52D172]" />
@@ -504,14 +504,14 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   className="flex flex-col items-start"
                 >
                   <div className="flex items-center space-x-2 mb-1 px-1">
-                    <span className="text-[10px] font-mono-accent text-[#8B5CAD]">
+                    <span className="text-[10px] font-mono-accent text-[#6B4A87]">
                       {currentRole.name} is thinking...
                     </span>
                   </div>
-                  <div className="rounded-2xl rounded-tl-sm p-4 bg-[#F7F4FA]/90 border border-[#8B5CAD]/40 flex items-center space-x-2">
+                  <div className="rounded-2xl rounded-tl-sm p-4 bg-[#2A1830]/90 border border-[#6B4A87]/40 flex items-center space-x-2">
                     <span className="w-2 h-2 rounded-full bg-[#E8A9C2] animate-bounce" />
-                    <span className="w-2 h-2 rounded-full bg-[#BEABD6] animate-bounce [animation-delay:0.15s]" />
-                    <span className="w-2 h-2 rounded-full bg-[#8B5CAD] animate-bounce [animation-delay:0.3s]" />
+                    <span className="w-2 h-2 rounded-full bg-[#B9A6D1] animate-bounce [animation-delay:0.15s]" />
+                    <span className="w-2 h-2 rounded-full bg-[#6B4A87] animate-bounce [animation-delay:0.3s]" />
                   </div>
                 </motion.div>
               )}
@@ -539,7 +539,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
             {/* Suggested Starter Prompts (if history is short) */}
             {messages.length <= 2 && (
               <div className="px-4 pb-2">
-                <p className="text-[10px] font-mono-accent text-[#5C4A6E]/80 mb-1.5 flex items-center space-x-1">
+                <p className="text-[10px] font-mono-accent text-[#B9A6D1]/80 mb-1.5 flex items-center space-x-1">
                   <Sparkles className="w-3 h-3 text-[#E8A9C2]" />
                   <span>Suggested queries for {currentRole.name}:</span>
                 </p>
@@ -548,7 +548,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                     <button
                       key={idx}
                       onClick={() => handleSendMessage(prompt)}
-                      className="text-[11px] text-left px-2.5 py-1.5 rounded-lg bg-[#F7F4FA] hover:bg-[#EDE8F3] border border-[#8B5CAD]/30 hover:border-[#E8A9C2]/60 text-[#5C4A6E] transition-colors"
+                      className="text-[11px] text-left px-2.5 py-1.5 rounded-lg bg-[#2A1830] hover:bg-[#1E1024] border border-[#6B4A87]/30 hover:border-[#E8A9C2]/60 text-[#B9A6D1] transition-colors"
                     >
                       {prompt}
                     </button>
@@ -558,13 +558,13 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
             )}
 
             {/* Message Input Form */}
-            <div className="p-3 sm:p-4 border-t border-[#8B5CAD]/40 bg-[#F7F4FA]/90">
+            <div className="p-3 sm:p-4 border-t border-[#6B4A87]/40 bg-[#2A1830]/90">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleSendMessage();
                 }}
-                className="relative flex items-center rounded-2xl bg-[#FFFFFF] border border-[#8B5CAD]/50 focus-within:border-[#E8A9C2] transition-colors p-1.5"
+                className="relative flex items-center rounded-2xl bg-[#1E1024] border border-[#6B4A87]/50 focus-within:border-[#E8A9C2] transition-colors p-1.5"
               >
                 <textarea
                   ref={inputRef}
@@ -573,7 +573,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   onKeyDown={handleKeyDown}
                   placeholder={`Ask ${currentRole.name}... (Enter to send, Shift+Enter for newline)`}
                   rows={1}
-                  className="w-full bg-transparent px-3 py-2 text-xs sm:text-sm text-[#241428] placeholder-[#5C4A6E]/50 focus:outline-none resize-none max-h-32 min-h-[40px]"
+                  className="w-full bg-transparent px-3 py-2 text-xs sm:text-sm text-[#F8F6FB] placeholder-[#B9A6D1]/50 focus:outline-none resize-none max-h-32 min-h-[40px]"
                 />
 
                 <button
@@ -581,13 +581,13 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
                   type="submit"
                   disabled={!inputValue.trim() || isLoading}
                   aria-label="Send message"
-                  className="p-2.5 rounded-xl bg-gradient-to-r from-[#8B5CAD] to-[#E8A9C2] text-[#241428] font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
+                  className="p-2.5 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#E8A9C2] text-[#F8F6FB] font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
                 >
                   <Send className="w-4 h-4" />
                 </button>
               </form>
 
-              <div className="flex items-center justify-between mt-2 px-1 text-[10px] font-mono-accent text-[#5C4A6E]/60">
+              <div className="flex items-center justify-between mt-2 px-1 text-[10px] font-mono-accent text-[#B9A6D1]/60">
                 <span className="flex items-center space-x-1">
                   <ShieldCheck className="w-3 h-3 text-[#52D172]" />
                   <span>Enterprise Zero-Retention Protocol</span>

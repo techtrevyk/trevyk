@@ -16,11 +16,11 @@ interface PersistentCoreBlockProps {
 
 // 5 cubes forming the Trevyk "Y" architecture formation matching the official logo
 const CUBE_CONFIGS = [
-  { id: 0, label: 'Edge Ingress', targetPos: [-0.85, 0.85, 0.15], color: '#E8A9C2', emissive: '#E8A9C2', accent: true }, // Top-Left (Blush Pink accent)
-  { id: 1, label: 'API Gateway', targetPos: [0.85, 0.85, -0.15], color: '#BEABD6', emissive: '#8F719A', accent: false }, // Top-Right (Lavender)
-  { id: 2, label: 'Distributed Services', targetPos: [0, 0.15, 0], color: '#8B5CAD', emissive: '#8B5CAD', accent: false }, // Center Junction (Royal purple)
-  { id: 3, label: 'Modular ERP Core', targetPos: [0, -0.75, 0], color: '#5A3875', emissive: '#E8E2F0', accent: false }, // Mid Stem
-  { id: 4, label: 'Resilient Data Store', targetPos: [0, -1.65, 0], color: '#E0D8EC', emissive: '#240C2C', accent: false }, // Base Stem
+  { id: 0, label: 'Edge Ingress', targetPos: [-0.85, 0.85, 0.15], color: '#E8A9C2', emissive: '#E8A9C2', accent: true },
+  { id: 1, label: 'API Gateway', targetPos: [0.85, 0.85, -0.15], color: '#C4B0E0', emissive: '#B9A6D1', accent: false },
+  { id: 2, label: 'Distributed Services', targetPos: [0, 0.15, 0], color: '#8B6BA8', emissive: '#6B4A87', accent: false },
+  { id: 3, label: 'Modular ERP Core', targetPos: [0, -0.75, 0], color: '#6B4A87', emissive: '#6B4A87', accent: false },
+  { id: 4, label: 'Resilient Data Store', targetPos: [0, -1.65, 0], color: '#B9A6D1', emissive: '#B9A6D1', accent: false },
 ];
 
 // Exploded positions for modular inspection
@@ -307,7 +307,7 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
                 clearcoat={0.35}
                 clearcoatRoughness={0.2}
                 reflectivity={0.65}
-                emissive={config.accent ? '#E8A9C2' : isHovered ? '#BEABD6' : config.emissive}
+                emissive={config.accent ? '#E8A9C2' : isHovered ? '#B9A6D1' : config.emissive}
                 emissiveIntensity={config.accent ? 0.38 : isHovered ? 0.5 : 0.12}
               />
             </mesh>

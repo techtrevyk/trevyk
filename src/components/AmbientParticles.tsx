@@ -42,10 +42,10 @@ export const AmbientParticles: React.FC<AmbientParticlesProps> = ({
 
     const colors =
       colorScheme === 'brand'
-        ? ['#E8A9C2', '#BEABD6', '#8B5CAD', '#241428']
+        ? ['#E8A9C2', '#B9A6D1', '#6B4A87', '#241428']
         : colorScheme === 'pink'
-        ? ['#E8A9C2', '#241428', '#BEABD6']
-        : ['#BEABD6', '#8B5CAD', '#5C4A6E'];
+        ? ['#E8A9C2', '#241428', '#B9A6D1']
+        : ['#B9A6D1', '#6B4A87', '#5C4A6E'];
 
     const particles: Particle[] = [];
 

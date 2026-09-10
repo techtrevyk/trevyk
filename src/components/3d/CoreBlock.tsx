@@ -16,11 +16,11 @@ interface CoreBlockProps {
 
 // 5 cubes forming the Trevyk "Y" architecture formation
 const DEFAULT_CUBE_CONFIGS = [
-  { id: 0, label: 'Edge Ingress', targetPos: [-0.85, 0.85, 0.15], color: '#E8A9C2', accent: true }, // Top-Left (Pink accent)
-  { id: 1, label: 'API Gateway', targetPos: [0.85, 0.85, -0.15], color: '#BEABD6', accent: false }, // Top-Right (Lavender)
-  { id: 2, label: 'Distributed Services', targetPos: [0, 0.15, 0], color: '#8B5CAD', accent: false }, // Center Junction (Royal purple)
-  { id: 3, label: 'Modular ERP Core', targetPos: [0, -0.75, 0], color: '#5A3875', accent: false }, // Mid Stem
-  { id: 4, label: 'Resilient Data Store', targetPos: [0, -1.65, 0], color: '#E0D8EC', accent: false }, // Base Stem
+  { id: 0, label: 'Edge Ingress', targetPos: [-0.85, 0.85, 0.15], color: '#E8A9C2', accent: true },
+  { id: 1, label: 'API Gateway', targetPos: [0.85, 0.85, -0.15], color: '#C4B0E0', accent: false },
+  { id: 2, label: 'Distributed Services', targetPos: [0, 0.15, 0], color: '#8B6BA8', accent: false },
+  { id: 3, label: 'Modular ERP Core', targetPos: [0, -0.75, 0], color: '#6B4A87', accent: false },
+  { id: 4, label: 'Resilient Data Store', targetPos: [0, -1.65, 0], color: '#B9A6D1', accent: false },
 ];
 
 // Exploded / shattered positions for disassembly animation
@@ -270,8 +270,8 @@ export const CoreBlock: React.FC<CoreBlockProps> = ({
                 clearcoat={0.35}
                 clearcoatRoughness={0.2}
                 reflectivity={0.6}
-                emissive={config.accent ? '#E8A9C2' : isHovered ? '#BEABD6' : '#301838'}
-                emissiveIntensity={config.accent ? 0.35 : isHovered ? 0.45 : 0.08}
+                emissive={config.accent ? '#E8A9C2' : isHovered ? '#C4B0E0' : '#6B4A87'}
+                emissiveIntensity={config.accent ? 0.45 : isHovered ? 0.55 : 0.22}
               />
             </mesh>
           );

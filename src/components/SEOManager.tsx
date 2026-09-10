@@ -1,6 +1,12 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { absoluteUrl, KIDUART_URL, SITE_NAME, SITE_ROUTES, SITE_URL } from '../config/site';
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import {
+  absoluteUrl,
+  KIDUART_URL,
+  SITE_NAME,
+  SITE_ROUTES,
+  SITE_URL,
+} from "../config/site";
 
 interface MetaConfig {
   title: string;
@@ -8,47 +14,52 @@ interface MetaConfig {
 }
 
 const ROUTE_META: Record<string, MetaConfig> = {
-  '/': {
-    title: 'TREVYK Technologies — Turning Vision Into Progress',
+  "/": {
+    title: "TREVYK Technologies | Turning Vision Into Progress",
     description:
-      'Trevyk Technologies is the parent company of Kiduart School ERP. We build B2B and B2C software — school products and custom IT services. Based in Noida, India.',
+      "Trevyk Technologies builds technology products and engineered digital solutions for institutions and organizations. Based in Noida, India.",
   },
-  '/services': {
-    title: 'Products & IT Services | TREVYK Technologies',
+  "/services": {
+    title: "Products & IT Services | TREVYK Technologies",
     description:
-      'Kiduart School ERP plus custom software, web/mobile, cloud, design, advisory, and practical security — scoped honestly for B2B and B2C work.',
+      "From Kiduart School ERP to custom software, web and mobile, cloud, design, and advisory — scoped for real operational outcomes.",
   },
-  '/technology': {
-    title: 'Technology & Architecture | TREVYK Technologies',
+  "/technology": {
+    title: "Technology & Architecture | TREVYK Technologies",
     description:
-      'How Trevyk approaches modular software architecture, with Kiduart as the flagship product and clear security practices we actually ship.',
+      "How Trevyk approaches modular software architecture, with Kiduart as a flagship product and security practices we actually ship.",
   },
-  '/kiduart': {
-    title: 'Kiduart School ERP | TREVYK Technologies',
+  "/kiduart": {
+    title: "Kiduart School ERP | TREVYK Technologies",
     description:
-      'Kiduart is Trevyk’s school ERP and school management system for Indian schools — admissions to parent updates. Explore modules here, then visit kiduart.com for demos.',
+      "Kiduart is Trevyk’s school ERP for Indian schools — admissions to parent updates. Explore modules here, then visit kiduart.com for demos.",
   },
-  '/process': {
-    title: 'How We Deliver | TREVYK Technologies',
+  "/process": {
+    title: "How We Deliver | TREVYK Technologies",
     description:
-      'A practical delivery process from discovery to launch — clear stages without invented SLAs or theatre.',
+      "A practical delivery process from discovery to launch — clear stages without invented SLAs or theatre.",
   },
-  '/about': {
-    title: 'About Trevyk | Parent Company of Kiduart',
+  "/about": {
+    title: "About Trevyk Technologies",
     description:
-      'Trevyk Technologies — Noida, India. Parent company of Kiduart. B2B services and B2C products with an honest claims policy.',
+      "Trevyk Technologies — Noida, India. A product and engineering company building software that institutions and organizations can run on.",
   },
-  '/contact': {
-    title: 'Contact Trevyk Technologies',
+  "/contact": {
+    title: "Contact Trevyk Technologies",
     description:
-      'Contact Trevyk for Kiduart demos or custom IT work. Noida, India. We reply within one business day.',
+      "Contact Trevyk for product demos or custom engineering work. Noida, India. We reply within one business day.",
   },
 };
 
-function upsertMeta(selector: string, attr: string, value: string, createAttrs?: Record<string, string>) {
+function upsertMeta(
+  selector: string,
+  attr: string,
+  value: string,
+  createAttrs?: Record<string, string>,
+) {
   let el = document.querySelector(selector) as HTMLMetaElement | null;
   if (!el && createAttrs) {
-    el = document.createElement('meta');
+    el = document.createElement("meta");
     Object.entries(createAttrs).forEach(([k, v]) => el!.setAttribute(k, v));
     document.head.appendChild(el);
   }
@@ -56,20 +67,22 @@ function upsertMeta(selector: string, attr: string, value: string, createAttrs?:
 }
 
 function upsertLink(rel: string, href: string) {
-  let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+  let el = document.querySelector(
+    `link[rel="${rel}"]`,
+  ) as HTMLLinkElement | null;
   if (!el) {
-    el = document.createElement('link');
-    el.setAttribute('rel', rel);
+    el = document.createElement("link");
+    el.setAttribute("rel", rel);
     document.head.appendChild(el);
   }
-  el.setAttribute('href', href);
+  el.setAttribute("href", href);
 }
 
 function upsertJsonLd(id: string, data: Record<string, unknown>) {
   let el = document.getElementById(id) as HTMLScriptElement | null;
   if (!el) {
-    el = document.createElement('script');
-    el.type = 'application/ld+json';
+    el = document.createElement("script");
+    el.type = "application/ld+json";
     el.id = id;
     document.head.appendChild(el);
   }
@@ -80,99 +93,129 @@ export const SEOManager: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const path = (SITE_ROUTES as readonly string[]).includes(pathname) ? pathname : '/';
-    const meta = ROUTE_META[path] || ROUTE_META['/'];
+    const path = (SITE_ROUTES as readonly string[]).includes(pathname)
+      ? pathname
+      : "/";
+    const meta = ROUTE_META[path] || ROUTE_META["/"];
     const url = absoluteUrl(path);
-    const image = absoluteUrl('/trevyk-logo.png');
+    const image = absoluteUrl("/trevyk-logo.png");
 
     document.title = meta.title;
-    document.documentElement.lang = 'en';
+    document.documentElement.lang = "en";
 
-    upsertMeta('meta[name="robots"]', 'content', 'index, follow, max-image-preview:large', { name: 'robots' });
-    upsertMeta('meta[property="og:locale"]', 'content', 'en_IN', { property: 'og:locale' });
+    upsertMeta(
+      'meta[name="robots"]',
+      "content",
+      "index, follow, max-image-preview:large",
+      { name: "robots" },
+    );
+    upsertMeta('meta[property="og:locale"]', "content", "en_IN", {
+      property: "og:locale",
+    });
 
-    upsertMeta('meta[property="og:description"]', 'content', meta.description, { property: 'og:description' });
-    upsertMeta('meta[property="og:type"]', 'content', 'website', { property: 'og:type' });
-    upsertMeta('meta[property="og:url"]', 'content', url, { property: 'og:url' });
-    upsertMeta('meta[property="og:image"]', 'content', image, { property: 'og:image' });
-    upsertMeta('meta[property="og:site_name"]', 'content', SITE_NAME, { property: 'og:site_name' });
-    upsertMeta('meta[name="twitter:card"]', 'content', 'summary_large_image', { name: 'twitter:card' });
-    upsertMeta('meta[name="twitter:title"]', 'content', meta.title, { name: 'twitter:title' });
-    upsertMeta('meta[name="twitter:description"]', 'content', meta.description, { name: 'twitter:description' });
-    upsertMeta('meta[name="twitter:image"]', 'content', image, { name: 'twitter:image' });
+    upsertMeta('meta[property="og:description"]', "content", meta.description, {
+      property: "og:description",
+    });
+    upsertMeta('meta[property="og:type"]', "content", "website", {
+      property: "og:type",
+    });
+    upsertMeta('meta[property="og:url"]', "content", url, {
+      property: "og:url",
+    });
+    upsertMeta('meta[property="og:image"]', "content", image, {
+      property: "og:image",
+    });
+    upsertMeta('meta[property="og:site_name"]', "content", SITE_NAME, {
+      property: "og:site_name",
+    });
+    upsertMeta('meta[name="twitter:card"]', "content", "summary_large_image", {
+      name: "twitter:card",
+    });
+    upsertMeta('meta[name="twitter:title"]', "content", meta.title, {
+      name: "twitter:title",
+    });
+    upsertMeta(
+      'meta[name="twitter:description"]',
+      "content",
+      meta.description,
+      { name: "twitter:description" },
+    );
+    upsertMeta('meta[name="twitter:image"]', "content", image, {
+      name: "twitter:image",
+    });
 
-    upsertLink('canonical', url);
+    upsertLink("canonical", url);
 
-    upsertJsonLd('ld-organization', {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
+    upsertJsonLd("ld-organization", {
+      "@context": "https://schema.org",
+      "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
       logo: image,
       description:
-        'Parent company of Kiduart School ERP. B2B and B2C software products and IT services. Based in Noida, India.',
+        "Trevyk Technologies builds technology products and engineered digital solutions for institutions and organizations. Based in Noida, India.",
       address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Noida',
-        addressRegion: 'Uttar Pradesh',
-        addressCountry: 'IN',
+        "@type": "PostalAddress",
+        addressLocality: "Noida",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
       },
       sameAs: [KIDUART_URL],
       contactPoint: [
         {
-          '@type': 'ContactPoint',
-          contactType: 'sales',
-          email: 'contact@trevyk.com',
-          availableLanguage: ['English', 'Hindi'],
+          "@type": "ContactPoint",
+          contactType: "sales",
+          email: "contact@trevyk.com",
+          availableLanguage: ["English", "Hindi"],
         },
         {
-          '@type': 'ContactPoint',
-          contactType: 'customer support',
-          telephone: '+91-92175-34128',
-          email: 'support@kiduart.com',
-          areaServed: 'IN',
-          availableLanguage: ['English', 'Hindi'],
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          telephone: "+91-92175-34128",
+          email: "support@kiduart.com",
+          areaServed: "IN",
+          availableLanguage: ["English", "Hindi"],
         },
       ],
     });
 
-    upsertJsonLd('ld-website', {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
+    upsertJsonLd("ld-website", {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
       name: SITE_NAME,
       url: SITE_URL,
       description: meta.description,
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+      publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
     });
 
-    if (path === '/kiduart') {
-      upsertJsonLd('ld-software', {
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: 'Kiduart School ERP',
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'Web',
+    if (path === "/kiduart") {
+      upsertJsonLd("ld-software", {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Kiduart School ERP",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
         url: KIDUART_URL,
         description:
-          'Cloud school ERP and school management system for Indian schools — admissions, fees, attendance, exams, and parent communication.',
+          "Cloud school ERP and school management system for Indian schools  admissions, fees, attendance, exams, and parent communication.",
         offers: {
-          '@type': 'Offer',
+          "@type": "Offer",
           url: KIDUART_URL,
-          availability: 'https://schema.org/InStock',
+          availability: "https://schema.org/InStock",
         },
         provider: {
-          '@type': 'Organization',
+          "@type": "Organization",
           name: SITE_NAME,
           url: SITE_URL,
         },
         isRelatedTo: {
-          '@type': 'WebPage',
-          url: absoluteUrl('/kiduart'),
-          name: 'Kiduart on TREVYK Technologies',
+          "@type": "WebPage",
+          url: absoluteUrl("/kiduart"),
+          name: "Kiduart on TREVYK Technologies",
         },
       });
     } else {
-      document.getElementById('ld-software')?.remove();
+      document.getElementById("ld-software")?.remove();
     }
   }, [pathname]);
 

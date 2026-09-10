@@ -81,7 +81,7 @@ export const Cursor: React.FC<CursorProps> = ({ reducedMotion = false }) => {
 
       {/* Trailing Fluid Halo */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border border-[#BEABD6]/60 flex items-center justify-center backdrop-blur-[1px]"
+        className="fixed top-0 left-0 rounded-full border border-[#B9A6D1]/60 flex items-center justify-center backdrop-blur-[1px]"
         animate={{
           x: pos.x - (cursorType === '3d' ? 36 : cursorType === 'pointer' ? 28 : 16),
           y: pos.y - (cursorType === '3d' ? 36 : cursorType === 'pointer' ? 28 : 16),
@@ -89,16 +89,16 @@ export const Cursor: React.FC<CursorProps> = ({ reducedMotion = false }) => {
           height: cursorType === '3d' ? 72 : cursorType === 'pointer' ? 56 : 32,
           backgroundColor:
             cursorType === '3d'
-              ? 'rgba(139, 92, 173, 0.25)'
+              ? 'rgba(107, 74, 135, 0.25)'
               : cursorType === 'pointer'
               ? 'rgba(232, 169, 194, 0.18)'
               : 'rgba(42, 24, 48, 0.05)',
-          borderColor: cursorType === '3d' ? '#E8A9C2' : cursorType === 'pointer' ? '#E8A9C2' : '#BEABD6',
+          borderColor: cursorType === '3d' ? '#E8A9C2' : cursorType === 'pointer' ? '#E8A9C2' : '#B9A6D1',
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 280, mass: 0.4 }}
       >
         {cursorLabel && (
-          <span className="font-mono-accent text-[9px] uppercase tracking-wider text-[#241428] font-bold px-1 select-none text-center leading-none">
+          <span className="font-mono-accent text-[9px] uppercase tracking-wider text-[#F8F6FB] font-bold px-1 select-none text-center leading-none">
             {cursorLabel}
           </span>
         )}

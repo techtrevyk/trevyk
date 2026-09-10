@@ -14,11 +14,11 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
   return (
     <div
       id="product-process-conduit"
-      className="relative w-full h-36 sm:h-48 flex items-center justify-center overflow-hidden pointer-events-none select-none bg-gradient-to-b from-[#FFFFFF] via-[#F5F1F8] to-[#F7F4FA]"
+      className="relative w-full h-36 sm:h-48 flex items-center justify-center overflow-hidden pointer-events-none select-none bg-gradient-to-b from-[#1E1024] via-[#201026] to-[#2A1830]"
     >
       {/* Background Soft Glow */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[520px] h-24 bg-gradient-to-r from-[#E8A9C2]/15 via-[#BEABD6]/25 to-[#8B5CAD]/20 blur-3xl rounded-full" />
+        <div className="w-[520px] h-24 bg-gradient-to-r from-[#E8A9C2]/15 via-[#B9A6D1]/25 to-[#6B4A87]/20 blur-3xl rounded-full" />
       </div>
 
       {/* SVG Stepped Isometric Pipeline */}
@@ -30,8 +30,8 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
         <defs>
           <linearGradient id="processTransitionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E8A9C2" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#BEABD6" stopOpacity="1" />
-            <stop offset="100%" stopColor="#8B5CAD" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#B9A6D1" stopOpacity="1" />
+            <stop offset="100%" stopColor="#6B4A87" stopOpacity="0.8" />
           </linearGradient>
 
           <filter id="transitionGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -44,7 +44,7 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
         <path
           d="M 300,0 L 300,60 L 500,100 L 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="1.5"
           strokeDasharray="4 8"
           opacity="0.35"
@@ -52,7 +52,7 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
         <path
           d="M 700,0 L 700,60 L 500,100 L 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="1.5"
           strokeDasharray="4 8"
           opacity="0.35"
@@ -62,7 +62,7 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
         <path
           d="M 500,0 L 500,200"
           fill="none"
-          stroke="#8B5CAD"
+          stroke="#6B4A87"
           strokeWidth="2"
           opacity="0.4"
         />
@@ -103,9 +103,9 @@ export const ProductProcessTransition: React.FC<ProductProcessTransitionProps> =
         />
       </svg>
 
-      <div className="absolute z-10 flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#FFFFFF]/90 border border-[#8B5CAD]/60 shadow-[0_4px_16px_rgba(139,92,173,0.12)]">
+      <div className="absolute z-10 flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1E1024]/90 border border-[#6B4A87]/60 shadow-[0_4px_16px_rgba(107,74,135,0.12)]">
         <GitBranch className="w-3.5 h-3.5 text-[#E8A9C2]" />
-        <span className="font-mono-accent text-[10px] text-[#5C4A6E] uppercase tracking-widest font-medium">
+        <span className="font-mono-accent text-[10px] text-[#B9A6D1] uppercase tracking-widest font-medium">
           PIPELINE TO METHODOLOGY
         </span>
       </div>
