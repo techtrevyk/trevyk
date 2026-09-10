@@ -29,6 +29,7 @@ import { SectionBridge } from "../components/SectionBridge";
 import { GapAccent } from "../components/GapAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
+import { trackDemoSubmit, trackOutbound } from "../utils/analytics";
 import { Link } from "react-router-dom";
 
 interface KiduartPageProps {
@@ -257,6 +258,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
           data.error || "Could not send the demo request. Please try again.",
         );
       }
+      trackDemoSubmit();
       setDemoRequested(true);
     } catch (err: unknown) {
       setDemoError(

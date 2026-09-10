@@ -15,6 +15,8 @@ import { Global3DCanvas } from './components/3d/Global3DCanvas';
 import { ArchitectureModal } from './components/ArchitectureModal';
 import { GeminiChatbot } from './components/GeminiChatbot';
 import { SEOManager } from './components/SEOManager';
+import { Analytics } from './components/Analytics';
+import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
 
 // Multi-Page Views
@@ -25,6 +27,7 @@ import { KiduartPage } from './pages/KiduartPage';
 import { ProcessPage } from './pages/ProcessPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { trackChatOpen } from './utils/analytics';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -62,6 +65,7 @@ function MainAppContent() {
   const openChatWithPrompt = (prompt?: string) => {
     setChatInitialPrompt(prompt);
     setChatOpen(true);
+    trackChatOpen();
   };
 
   const handleOpenArchitectureModal = (cubeIndex?: number | null) => {
@@ -168,6 +172,7 @@ function MainAppContent() {
     <div id="trevyk-app" className="relative min-h-screen bg-[#2A1830] text-[#F8F6FB] overflow-x-hidden">
       <ScrollToTop />
       <SEOManager />
+      <Analytics />
 
       {/* 1. Global Recurring Brand Device: Pinned Top Gradient Bar (4-5px) */}
       <BrandGradientBar height={5} pinnedTop={true} shimmer={true} />
@@ -203,6 +208,7 @@ function MainAppContent() {
 
       {/* 6. Multi-Page Routes with Smooth Transition Animations */}
       <main id="main-content" className="relative z-10">
+        <Breadcrumbs />
         <AnimatePresence mode="wait">
           <PageTransition
             key={location.pathname}
@@ -306,7 +312,10 @@ function MainAppContent() {
           setChatOpen(false);
           setChatInitialPrompt(undefined);
         }}
-        onOpen={() => setChatOpen(true)}
+        onOpen={() => {
+          setChatOpen(true);
+          trackChatOpen();
+        }}
         initialPrompt={chatInitialPrompt}
       />
     </div>

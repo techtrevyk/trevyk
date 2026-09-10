@@ -19,6 +19,7 @@ import { SectionBridge } from "../components/SectionBridge";
 import { GapAccent } from "../components/GapAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
+import { trackContactSubmit } from "../utils/analytics";
 import { Link } from "react-router-dom";
 
 interface ContactPageProps {
@@ -63,6 +64,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
           data.error || "Could not send your message. Please try again.",
         );
       }
+      trackContactSubmit(formType);
       setSubmitted(true);
     } catch (err: unknown) {
       setSubmitError(
