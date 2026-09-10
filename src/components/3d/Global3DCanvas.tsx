@@ -53,21 +53,67 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
     (isHome && scrollProgress >= 0.38 && scrollProgress <= 0.56);
 
   // Hero owns the interactive cube early on home — fade global in as you leave hero
+  // Inner pages: stronger presence, still soft enough not to fight left copy
   const canvasOpacity = useMemo(() => {
     if (isHome) {
       if (scrollProgress < 0.08) return 0;
       if (scrollProgress < 0.18) return smoothstep(0.08, 0.18, scrollProgress) * 0.85;
-      if (scrollProgress >= 0.38 && scrollProgress <= 0.56) return 0.42; // soft over light section
+      if (scrollProgress >= 0.38 && scrollProgress <= 0.56) return 0.42;
       return 0.88;
     }
-    if (path.startsWith('/services')) return 0.48; // stay present but never fight copy
-    if (path.startsWith('/technology')) return 0.75;
-    return 0.7;
+    if (path.startsWith('/services')) {
+      return 0.55 + scrollProgress * 0.12;
+    }
+    if (path.startsWith('/technology')) {
+      return 0.82;
+    }
+    if (path.startsWith('/kiduart')) {
+      return 0.58 + scrollProgress * 0.1;
+    }
+    if (path.startsWith('/process')) {
+      return 0.62 + scrollProgress * 0.12;
+    }
+    if (path.startsWith('/about')) {
+      return 0.68;
+    }
+    if (path.startsWith('/contact')) {
+      return 0.6;
+    }
+    return 0.72;
   }, [isHome, path, scrollProgress]);
 
+  // Canvas stays non-interactive so page UI remains clickable;
+  // Technology page drives cube hover via layer buttons instead.
   const fallbackTransform = useMemo(() => {
     if (path.startsWith('/services')) {
-      return isMobile ? 'translate(40px, -40px) scale(0.7)' : 'translate(260px, -20px) scale(0.72)';
+      return isMobile
+        ? 'translate(40px, -40px) scale(0.7)'
+        : `translate(280px, ${-20 - scrollProgress * 80}px) scale(0.78)`;
+    }
+    if (path.startsWith('/technology')) {
+      return isMobile
+        ? 'translate(0px, -20px) scale(0.85)'
+        : `translate(0px, ${-10 - scrollProgress * 40}px) scale(0.95)`;
+    }
+    if (path.startsWith('/kiduart')) {
+      return isMobile
+        ? 'translate(30px, -30px) scale(0.72)'
+        : `translate(240px, ${-10 - scrollProgress * 60}px) scale(0.8)`;
+    }
+    if (path.startsWith('/process')) {
+      return isMobile
+        ? 'translate(40px, -20px) scale(0.7)'
+        : `translate(260px, ${scrollProgress * -50}px) scale(0.78)`;
+    }
+    if (path.startsWith('/about')) {
+      return isMobile
+        ? 'translate(20px, -20px) scale(0.75)'
+        : `translate(220px, ${-scrollProgress * 40}px) scale(0.85)`;
+    }
+    if (path.startsWith('/contact')) {
+      return isMobile
+        ? 'translate(0px, -30px) scale(0.72)'
+        : `translate(200px, ${10 - scrollProgress * 50}px) scale(0.82)`;
     }
     if (isHome) {
       if (scrollProgress < 0.15) {
@@ -98,7 +144,7 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
   return (
     <div
       id="global-persistent-3d-container"
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden transition-opacity duration-500"
+      className="fixed inset-0 z-0 overflow-hidden transition-opacity duration-500 pointer-events-none"
       style={{ opacity: canvasOpacity }}
       aria-hidden="true"
     >

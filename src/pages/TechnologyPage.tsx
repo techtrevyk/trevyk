@@ -17,7 +17,11 @@ import {
 import { SiteSettings, TechCategory } from "../types";
 import { ARCHITECTURE_CUBES } from "../data/architecture";
 import { CAPABILITIES_DATA } from "../data/capabilities";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
+import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -52,12 +56,16 @@ const ENGINEERING_PRINCIPLES = [
 ];
 
 export const TechnologyPage: React.FC<TechnologyPageProps> = ({
+  settings,
   onOpenArchitectureModal,
   onCubeHover,
 }) => {
   const [selectedCube, setSelectedCube] = useState<number>(0);
   const [activeCategory, setActiveCategory] = useState<TechCategory>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [focusedCapability, setFocusedCapability] = useState<string | null>(
+    null,
+  );
 
   const filterTabs: { id: TechCategory; label: string }[] = [
     { id: "all", label: "All" },
@@ -84,6 +92,9 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
     return matchesCategory && matchesSearch;
   });
 
+  const focusedItem =
+    CAPABILITIES_DATA.find((c) => c.id === focusedCapability) || null;
+
   const activeCubeData =
     ARCHITECTURE_CUBES[selectedCube] || ARCHITECTURE_CUBES[0];
 
@@ -92,72 +103,68 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
       id="technology-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 40% at 10% 15%, rgba(107,74,135,0.3), transparent 58%), radial-gradient(ellipse 45% 35% at 92% 20%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 40%, #2A1830 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#B9A6D1 1px, transparent 1px), linear-gradient(90deg, #B9A6D1 1px, transparent 1px)",
-            backgroundSize: "52px 52px",
-            maskImage:
-              "linear-gradient(90deg, black 0%, black 58%, transparent 95%)",
-          }}
-        />
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere
+        variant="technology"
+        lightBand={{ top: "48%", height: "20%" }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-8 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
-              <Terminal className="w-3.5 h-3.5" />
-              <span>ENGINEERING & ARCHITECTURE</span>
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+                <Terminal className="w-3.5 h-3.5" />
+                <span>ENGINEERING & ARCHITECTURE</span>
+              </div>
+
+              <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+                How we design systems{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                  that stay maintainable
+                </span>
+              </h1>
+
+              <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+                A practical map of Trevyk’s engineering approach — the tools we
+                reach for, the modular architecture behind products like{" "}
+                <Link
+                  to="/kiduart"
+                  className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
+                >
+                  Kiduart
+                </Link>
+                , and the security controls we actually ship.
+              </p>
             </div>
 
-            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-              How we design systems{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                that stay maintainable
-              </span>
-            </h1>
-
-            <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-              A practical map of Trevyk’s engineering approach — the tools we
-              reach for, the modular architecture behind products like{" "}
-              <Link
-                to="/kiduart"
-                className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
-              >
-                Kiduart
-              </Link>
-              , and the security controls we actually ship.
-            </p>
+            <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
+              <GapAccent
+                variant="modules"
+                reducedMotion={settings.reducedMotion}
+                caption="Layered stack"
+              />
+              <div className="text-right">
+                <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
+                  Atlas
+                </div>
+                <div className="font-heading font-bold text-4xl text-[#F8F6FB]">
+                  {CAPABILITIES_DATA.length}
+                </div>
+                <div className="text-xs text-[#B9A6D1] text-right">
+                  capabilities · {ARCHITECTURE_CUBES.length} architecture layers
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-1 pb-1">
-            <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
-              Atlas
-            </div>
-            <div className="font-heading font-bold text-4xl text-[#F8F6FB]">
-              {CAPABILITIES_DATA.length}
-            </div>
-            <div className="text-xs text-[#B9A6D1] text-right">
-              capabilities · {ARCHITECTURE_CUBES.length} architecture layers
-            </div>
-          </div>
-        </div>
+        </ScrollReveal>
 
         {/* Principles bridge */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <ScrollReveal
+          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+          delay={0.05}
+          reducedMotion={settings.reducedMotion}
+        >
           {ENGINEERING_PRINCIPLES.map((p) => {
             const Icon = p.icon;
             return (
@@ -179,12 +186,24 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               </div>
             );
           })}
+        </ScrollReveal>
+
+        <SectionBridge
+          className="mt-10"
+          label="Stack"
+          reducedMotion={settings.reducedMotion}
+        />
+
+        <div className="mt-2 mb-8 hidden lg:flex justify-end pr-6">
+          <GapAccent
+            variant="nodes"
+            reducedMotion={settings.reducedMotion}
+            caption="In → core → out"
+          />
         </div>
 
-        <BrandGradientDivider className="mt-14" label="Stack" />
-
         {/* Capability atlas */}
-        <div id="capability-atlas" className="mt-4">
+        <div id="capability-atlas" className="mt-2">
           <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
               <span className="font-semibold text-[#F8F6FB]/50">01</span>
@@ -257,54 +276,111 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <AnimatePresence mode="popLayout">
-              {filteredCapabilities.map((item) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#1E1024]/95 border border-[#B9A6D1]/30 hover:border-[#E8A9C2]/55 hover:bg-[#24132B] transition-colors flex flex-col justify-between group shadow-[0_12px_30px_rgba(0,0,0,0.25)]"
-                >
-                  <div
-                    className="absolute left-0 top-0 bottom-0 w-1"
-                    style={{
-                      background: `linear-gradient(180deg, ${item.color}, #E8A9C2)`,
-                    }}
-                    aria-hidden
-                  />
-                  <div>
-                    <div className="flex items-center justify-between mb-3 gap-2">
-                      <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#E8A9C2] border border-[#B9A6D1]/25 uppercase tracking-wide">
-                        {item.category}
-                      </span>
-                      <span className="text-[10px] font-mono-accent text-[#B9A6D1] truncate">
-                        {item.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="font-heading font-bold text-base sm:text-lg text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors flex items-center gap-2">
-                      <span
-                        className="w-2.5 h-2.5 rounded-full shrink-0"
-                        style={{ backgroundColor: item.color }}
+              {filteredCapabilities.map((item) => {
+                const isFocused = focusedCapability === item.id;
+                return (
+                  <MagneticCard
+                    key={item.id}
+                    reducedMotion={settings.reducedMotion}
+                    className="h-full"
+                  >
+                    <motion.button
+                      type="button"
+                      layout
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{
+                        opacity: focusedCapability && !isFocused ? 0.45 : 1,
+                        y: 0,
+                      }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.22, ease: "easeOut" }}
+                      onClick={() => {
+                        soundEngine.playClick("soft");
+                        setFocusedCapability((prev) =>
+                          prev === item.id ? null : item.id,
+                        );
+                      }}
+                      className={`relative overflow-hidden p-5 pl-6 rounded-2xl bg-[#1E1024]/95 border text-left w-full h-full transition-colors flex flex-col justify-between group shadow-[0_12px_30px_rgba(0,0,0,0.25)] ${
+                        isFocused
+                          ? "border-[#E8A9C2] bg-[#24132B]"
+                          : "border-[#B9A6D1]/30 hover:border-[#E8A9C2]/55 hover:bg-[#24132B]"
+                      }`}
+                    >
+                      <div
+                        className="absolute left-0 top-0 bottom-0 w-1"
+                        style={{
+                          background: `linear-gradient(180deg, ${item.color}, #E8A9C2)`,
+                        }}
+                        aria-hidden
                       />
-                      <span>{item.name}</span>
-                    </h3>
+                      <div>
+                        <div className="flex items-center justify-between mb-3 gap-2">
+                          <span className="text-[10px] font-mono-accent px-2 py-0.5 rounded bg-[#2A1830] text-[#E8A9C2] border border-[#B9A6D1]/25 uppercase tracking-wide">
+                            {item.category}
+                          </span>
+                          <span className="text-[10px] font-mono-accent text-[#B9A6D1] truncate">
+                            {item.tag}
+                          </span>
+                        </div>
 
-                    <p className="mt-2.5 text-xs text-[#B9A6D1] leading-relaxed">
-                      {item.usageNote}
-                    </p>
-                  </div>
+                        <h3 className="font-heading font-bold text-base sm:text-lg text-[#F8F6FB] group-hover:text-[#E8A9C2] transition-colors flex items-center gap-2">
+                          <span
+                            className="w-2.5 h-2.5 rounded-full shrink-0"
+                            style={{ backgroundColor: item.color }}
+                          />
+                          <span>{item.name}</span>
+                        </h3>
 
-                  <div className="mt-4 pt-3 border-t border-[#B9A6D1]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#B9A6D1]">
-                    <span>{item.badge}</span>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E8A9C2] opacity-60 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </motion.div>
-              ))}
+                        <p className="mt-2.5 text-xs text-[#B9A6D1] leading-relaxed">
+                          {item.usageNote}
+                        </p>
+                      </div>
+
+                      <div className="mt-4 pt-3 border-t border-[#B9A6D1]/20 flex items-center justify-between text-[11px] font-mono-accent text-[#B9A6D1]">
+                        <span>{item.badge}</span>
+                        <span className="text-[#E8A9C2]">
+                          {isFocused ? "Pinned" : "Pin"}
+                        </span>
+                      </div>
+                    </motion.button>
+                  </MagneticCard>
+                );
+              })}
             </AnimatePresence>
           </motion.div>
+
+          <AnimatePresence>
+            {focusedItem && (
+              <motion.div
+                key={focusedItem.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                className="mt-6 p-5 sm:p-6 rounded-2xl border border-[#E8A9C2]/45 bg-[#1E1024]/95 shadow-[0_16px_40px_rgba(0,0,0,0.3)]"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <div>
+                    <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-widest">
+                      Stack explorer · focused
+                    </div>
+                    <h3 className="font-heading font-bold text-xl text-[#F8F6FB] mt-1">
+                      {focusedItem.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-[#B9A6D1] leading-relaxed max-w-2xl">
+                      {focusedItem.usageNote}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setFocusedCapability(null)}
+                    className="text-xs font-mono-accent text-[#E8A9C2] hover:text-[#F8F6FB] shrink-0"
+                  >
+                    Clear focus
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {filteredCapabilities.length === 0 && (
             <div className="text-center py-14 bg-[#1E1024]/70 rounded-2xl border border-[#B9A6D1]/25 mt-6">
@@ -325,10 +401,14 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           )}
         </div>
 
-        <BrandGradientDivider className="mt-16" label="Architecture" />
+        <SectionBridge
+          className="mt-10"
+          label="Architecture"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* 5-cube inspector */}
-        <div id="architecture-tiers" className="mt-4">
+        <div id="architecture-tiers" className="mt-2">
           <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
               <span className="font-semibold text-[#F8F6FB]/50">02</span>
@@ -484,10 +564,14 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-16" label="Trust" />
+        <SectionBridge
+          className="mt-10"
+          label="Trust"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* Security */}
-        <div id="security-practices" className="mt-4">
+        <div id="security-practices" className="mt-2">
           <div className="max-w-2xl mb-10">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
               <span className="font-semibold text-[#F8F6FB]/50">03</span>

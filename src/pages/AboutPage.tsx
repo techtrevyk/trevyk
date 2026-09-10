@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ShieldCheck,
   HeartHandshake,
@@ -14,7 +14,11 @@ import {
 } from "lucide-react";
 import { SiteSettings } from "../types";
 import { TrevykLogo } from "../components/TrevykLogo";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
+import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -45,147 +49,170 @@ const CORE_VALUES = [
 ];
 
 export const AboutPage: React.FC<AboutPageProps> = ({
+  settings,
   onOpenArchitectureModal,
 }) => {
+  const [activeValue, setActiveValue] = useState(0);
+
   return (
     <div
       id="about-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 40% at 10% 12%, rgba(107,74,135,0.3), transparent 58%), radial-gradient(ellipse 40% 35% at 92% 18%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 40%, #2A1830 100%)",
-          }}
-        />
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere
+        variant="about"
+        lightBand={{ top: "40%", height: "20%" }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
-              <Compass className="w-3.5 h-3.5" />
-              <span>ABOUT TREVYK TECHNOLOGIES</span>
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+                <Compass className="w-3.5 h-3.5" />
+                <span>ABOUT TREVYK TECHNOLOGIES</span>
+              </div>
+
+              <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+                Turning Vision Into{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                  Progress
+                </span>
+              </h1>
+
+              <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+                Trevyk Technologies designs and delivers technology products and
+                engineered solutions — including{" "}
+                <a
+                  href="https://kiduart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
+                >
+                  Kiduart
+                </a>
+                , our school ERP for Indian institutions, alongside custom
+                software for organizations that need a tailored system. Based in
+                Noida, we ship with an honesty standard: no invented adoption
+                numbers, no borrowed credibility.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  onClick={() => soundEngine.playClick("hero")}
+                  className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold border border-[#E8A9C2]/25 shadow-[0_12px_28px_rgba(107,74,135,0.35)]"
+                >
+                  <span>Talk to Trevyk</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="https://kiduart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#B9A6D1] hover:text-[#F8F6FB] hover:border-[#E8A9C2] font-mono-accent text-xs"
+                >
+                  <GraduationCap className="w-3.5 h-3.5 text-[#E8A9C2]" />
+                  <span>Visit kiduart.com</span>
+                </a>
+              </div>
             </div>
 
-            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-              Turning Vision Into{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                Progress
-              </span>
-            </h1>
-
-            <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-              Trevyk Technologies designs and delivers technology products and
-              engineered solutions — including{" "}
-              <a
-                href="https://kiduart.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#E8A9C2] font-semibold underline underline-offset-2 hover:text-[#F8F6FB]"
-              >
-                Kiduart
-              </a>
-              , our school ERP for Indian institutions, alongside custom
-              software for organizations that need a tailored system. Based in
-              Noida, we ship with an honesty standard: no invented adoption
-              numbers, no borrowed credibility.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                onClick={() => soundEngine.playClick("hero")}
-                className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold border border-[#E8A9C2]/25 shadow-[0_12px_28px_rgba(107,74,135,0.35)]"
-              >
-                <span>Talk to Trevyk</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="https://kiduart.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#B9A6D1] hover:text-[#F8F6FB] hover:border-[#E8A9C2] font-mono-accent text-xs"
-              >
-                <GraduationCap className="w-3.5 h-3.5 text-[#E8A9C2]" />
-                <span>Visit kiduart.com</span>
-              </a>
+            <div className="lg:col-span-5">
+              <MagneticCard reducedMotion={settings.reducedMotion}>
+                <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 shadow-[0_24px_50px_rgba(0,0,0,0.35)] flex flex-col items-center text-center space-y-6 overflow-hidden">
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
+                    aria-hidden
+                  />
+                  <TrevykLogo
+                    layout="horizontal"
+                    size="lg"
+                    theme="dark"
+                    showTagline={true}
+                  />
+                  <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                    <div className="p-3.5 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/25">
+                      <div className="flex items-center gap-2 text-[#E8A9C2] mb-1">
+                        <Building2 className="w-3.5 h-3.5" />
+                        <span className="text-[10px] font-mono-accent uppercase">
+                          Base
+                        </span>
+                      </div>
+                      <div className="text-sm font-heading font-semibold text-[#F8F6FB]">
+                        Noida, UP, India
+                      </div>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/25">
+                      <div className="flex items-center gap-2 text-[#E8A9C2] mb-1">
+                        <Briefcase className="w-3.5 h-3.5" />
+                        <span className="text-[10px] font-mono-accent uppercase">
+                          Focus
+                        </span>
+                      </div>
+                      <div className="text-sm font-heading font-semibold text-[#F8F6FB]">
+                        Products &amp; engineering
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-[#B9A6D1] leading-relaxed">
+                    Individual team profiles will be published when ready. Until
+                    then we keep this page honest — brand, product, and how to
+                    reach us.
+                  </p>
+                </div>
+              </MagneticCard>
             </div>
           </div>
+        </ScrollReveal>
 
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 shadow-[0_24px_50px_rgba(0,0,0,0.35)] flex flex-col items-center text-center space-y-6 overflow-hidden">
-              <div
-                className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
-                aria-hidden
-              />
-              <TrevykLogo
-                layout="horizontal"
-                size="lg"
-                theme="dark"
-                showTagline={true}
-              />
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
-                <div className="p-3.5 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/25">
-                  <div className="flex items-center gap-2 text-[#E8A9C2] mb-1">
-                    <Building2 className="w-3.5 h-3.5" />
-                    <span className="text-[10px] font-mono-accent uppercase">
-                      Base
-                    </span>
-                  </div>
-                  <div className="text-sm font-heading font-semibold text-[#F8F6FB]">
-                    Noida, UP, India
-                  </div>
-                </div>
-                <div className="p-3.5 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/25">
-                  <div className="flex items-center gap-2 text-[#E8A9C2] mb-1">
-                    <Briefcase className="w-3.5 h-3.5" />
-                    <span className="text-[10px] font-mono-accent uppercase">
-                      Focus
-                    </span>
-                  </div>
-                  <div className="text-sm font-heading font-semibold text-[#F8F6FB]">
-                    Products &amp; engineering
-                  </div>
-                </div>
+        <SectionBridge
+          className="mt-10"
+          label="Principles"
+          reducedMotion={settings.reducedMotion}
+        />
+
+        <div className="mt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10">
+            <div className="lg:col-span-8 max-w-2xl">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
+                <HeartHandshake className="w-3.5 h-3.5" />
+                <span>HOW WE WORK</span>
               </div>
-              <p className="text-xs text-[#B9A6D1] leading-relaxed">
-                Individual team profiles will be published when ready. Until
-                then we keep this page honest — brand, product, and how to
-                reach us.
+              <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
+                The same honesty we publish on Kiduart
+              </h2>
+              <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
+                Company standards match the product charter — trust first, polish
+                second.
               </p>
             </div>
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-14" label="Principles" />
-
-        <div className="mt-4">
-          <div className="max-w-2xl mb-10">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
-              <HeartHandshake className="w-3.5 h-3.5" />
-              <span>HOW WE WORK</span>
+            <div className="lg:col-span-4 hidden lg:flex justify-end">
+              <GapAccent
+                variant="pulse"
+                reducedMotion={settings.reducedMotion}
+                caption="Signal locked"
+              />
             </div>
-            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB]">
-              The same honesty we publish on Kiduart
-            </h2>
-            <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
-              Company standards match the product charter — trust first, polish
-              second.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {CORE_VALUES.map((val) => {
+            {CORE_VALUES.map((val, idx) => {
               const Icon = val.icon;
+              const isActive = activeValue === idx;
               return (
-                <div
+                <button
                   key={val.title}
-                  className="relative overflow-hidden p-6 pl-5 rounded-2xl bg-[#1E1024]/95 border border-[#B9A6D1]/30 hover:border-[#E8A9C2]/55 transition-colors flex flex-col justify-between"
+                  type="button"
+                  onClick={() => {
+                    soundEngine.playClick("soft");
+                    setActiveValue(idx);
+                  }}
+                  className={`relative overflow-hidden p-6 pl-5 rounded-2xl text-left border transition-all flex flex-col justify-between ${
+                    isActive
+                      ? "bg-[#24132B] border-[#E8A9C2] shadow-[0_0_24px_rgba(232,169,194,0.16)] scale-[1.02]"
+                      : "bg-[#1E1024]/95 border-[#B9A6D1]/30 hover:border-[#E8A9C2]/55 opacity-80 hover:opacity-100"
+                  }`}
                 >
                   <div
                     className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] to-[#E8A9C2]"
@@ -201,23 +228,33 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                     <h3 className="font-heading font-bold text-lg sm:text-xl text-[#F8F6FB] mt-1">
                       {val.title}
                     </h3>
-                    <p className="mt-3 text-xs sm:text-sm text-[#B9A6D1] leading-relaxed">
+                    <p
+                      className={`mt-3 text-xs sm:text-sm leading-relaxed transition-colors ${
+                        isActive ? "text-[#E7E1F0]" : "text-[#B9A6D1]"
+                      }`}
+                    >
                       {val.desc}
                     </p>
                   </div>
                   <div className="pt-4 mt-4 border-t border-[#B9A6D1]/20 flex items-center gap-1.5 text-xs font-mono-accent text-[#E8A9C2]">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Public commitment</span>
+                    <span>
+                      {isActive ? "Active principle" : "Public commitment"}
+                    </span>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
         </div>
 
-        <BrandGradientDivider className="mt-16" label="Build" />
+        <SectionBridge
+          className="mt-10"
+          label="Build"
+          reducedMotion={settings.reducedMotion}
+        />
 
-        <div className="mt-4 relative p-8 sm:p-12 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
+        <div className="mt-2 relative p-8 sm:p-12 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-4 flex justify-center">
               <TrevykLogo

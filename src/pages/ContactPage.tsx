@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import {
   Mail,
   Phone,
@@ -13,7 +14,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { SiteSettings } from "../types";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -21,10 +25,11 @@ interface ContactPageProps {
   settings: SiteSettings;
 }
 
-export const ContactPage: React.FC<ContactPageProps> = () => {
+export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
   const [formType, setFormType] = useState<"services" | "kiduart">("services");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,14 +38,41 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     scope: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
     soundEngine.playClick("hero");
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: formType === "kiduart" ? "kiduart" : "services",
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization,
+          phone: formData.phone,
+          scope: formData.scope,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(
+          data.error || "Could not send your message. Please try again.",
+        );
+      }
       setSubmitted(true);
-    }, 600);
+    } catch (err: unknown) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Could not send your message. Please email contact@trevyk.com.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -48,47 +80,90 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       id="contact-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 40% at 10% 14%, rgba(107,74,135,0.28), transparent 58%), radial-gradient(ellipse 40% 30% at 90% 18%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 40%, #2A1830 100%)",
-          }}
-        />
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere
+        variant="contact"
+        lightBand={{ top: "35%", height: "28%" }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
-            <Mail className="w-3.5 h-3.5" />
-            <span>CONTACT · PRODUCT &amp; SERVICES</span>
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+                <Mail className="w-3.5 h-3.5" />
+                <span>CONTACT · PRODUCT &amp; SERVICES</span>
+              </div>
+
+              <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+                Tell us what you need —{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                  we reply in one business day
+                </span>
+              </h1>
+
+              <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+                Kiduart demos for schools, or custom engineering for your
+                organisation. Choose a lane below — clear next steps, no queue
+                theatre.
+              </p>
+            </div>
+            <div className="lg:col-span-4 hidden lg:flex justify-end pb-2">
+              <GapAccent
+                variant="pulse"
+                reducedMotion={settings.reducedMotion}
+                caption="Channel open"
+              />
+            </div>
           </div>
+        </ScrollReveal>
 
-          <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-            Tell us what you need —{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-              we reply in one business day
-            </span>
-          </h1>
+        <SectionBridge
+          className="mt-8"
+          label="Reach us"
+          reducedMotion={settings.reducedMotion}
+        />
 
-          <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-            Kiduart demos for schools, or custom engineering for your
-            organisation. Choose a lane below — clear next steps, no queue
-            theatre.
-          </p>
-        </div>
-
-        <BrandGradientDivider className="mt-12" label="Reach us" />
-
-        <div className="mt-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <ScrollReveal
+          className="mt-2 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+          reducedMotion={settings.reducedMotion}
+        >
           <div className="lg:col-span-7 relative p-6 sm:p-10 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
             <div
               className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
               aria-hidden
             />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={formType}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.25 }}
+                className="mb-5 p-3.5 rounded-xl border border-[#B9A6D1]/30 bg-[#2A1830]/90"
+              >
+                <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-widest">
+                  Active lane
+                </div>
+                <div className="mt-1 flex items-center gap-2 text-sm font-heading font-semibold text-[#F8F6FB]">
+                  {formType === "services" ? (
+                    <>
+                      <Cpu className="w-4 h-4 text-[#E8A9C2]" />
+                      Custom engineering
+                    </>
+                  ) : (
+                    <>
+                      <GraduationCap className="w-4 h-4 text-[#E8A9C2]" />
+                      Kiduart School ERP
+                    </>
+                  )}
+                </div>
+                <p className="mt-1.5 text-xs text-[#B9A6D1] leading-relaxed">
+                  {formType === "services"
+                    ? "Scoped builds, advisory, and integrations — we reply with next steps for your organisation."
+                    : "Product demos and school walkthroughs — routed to the Kiduart team within one business day."}
+                </p>
+              </motion.div>
+            </AnimatePresence>
             {submitted ? (
               <div className="text-center py-16 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-[#341C3C] text-[#E8A9C2] mx-auto flex items-center justify-center border border-[#E8A9C2]/35">
@@ -250,6 +325,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     {isSubmitting ? "Sending…" : "Submit request"}
                   </span>
                 </button>
+                {submitError && (
+                  <p className="text-xs text-red-300 text-center leading-relaxed">
+                    {submitError}
+                  </p>
+                )}
               </form>
             )}
           </div>
@@ -369,7 +449,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

@@ -8,7 +8,10 @@ import { SiteSettings, ServiceItem } from "../types";
 import { SERVICES_DATA } from "../data/services";
 import { ServiceCard3D } from "../components/services/ServiceCard3D";
 import { ServiceDetailModal } from "../components/ServiceDetailModal";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -18,13 +21,14 @@ interface ServicesPageProps {
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
-  settings: _settings,
+  settings,
   onOpenArchitectureModal,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activeModalService, setActiveModalService] =
     useState<ServiceItem | null>(null);
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
+  const [spotlightId, setSpotlightId] = useState<string | null>(null);
 
   const categories = [
     { id: "all", label: "All" },
@@ -52,67 +56,52 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       id="services-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      {/* Page atmosphere — coordinated with brand plum, leaves right side clear for 3D */}
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 45% at 12% 18%, rgba(107,74,135,0.28), transparent 60%), radial-gradient(ellipse 40% 35% at 88% 22%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 35%, #2A1830 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#B9A6D1 1px, transparent 1px), linear-gradient(90deg, #B9A6D1 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-            maskImage:
-              "linear-gradient(90deg, black 0%, black 55%, transparent 92%)",
-          }}
-        />
-        {/* Corner frame marks — premium continuity with home hero */}
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere variant="services" lightBand={{ top: "42%", height: "22%" }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header — left content, right breathing room for persistent 3D */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-8 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>PRODUCTS &amp; SERVICES</span>
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+                <Cpu className="w-3.5 h-3.5" />
+                <span>PRODUCTS &amp; SERVICES</span>
+              </div>
+
+              <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.25rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+                Capabilities shaped for{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                  real operations
+                </span>
+              </h1>
+
+              <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+                From Kiduart School ERP to custom platforms, cloud, design, and
+                advisory — each engagement starts with a clear problem and a
+                delivery path your team can follow.
+              </p>
             </div>
 
-            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.25rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-              Capabilities shaped for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                real operations
-              </span>
-            </h1>
-
-            <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-              From Kiduart School ERP to custom platforms, cloud, design, and
-              advisory — each engagement starts with a clear problem and a
-              delivery path your team can follow.
-            </p>
-          </div>
-
-          <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-3 pb-1">
-            <div className="text-right">
-              <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
-                Catalogue
-              </div>
-              <div className="font-heading font-bold text-4xl text-[#F8F6FB] mt-1">
-                {SERVICES_DATA.length}
-              </div>
-              <div className="text-xs text-[#B9A6D1] mt-0.5">
-                offerings · scoped honestly
+            <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
+              <GapAccent
+                variant="orbit"
+                reducedMotion={settings.reducedMotion}
+                caption="Live catalogue mesh"
+              />
+              <div className="text-right">
+                <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
+                  Catalogue
+                </div>
+                <div className="font-heading font-bold text-4xl text-[#F8F6FB] mt-1">
+                  {SERVICES_DATA.length}
+                </div>
+                <div className="text-xs text-[#B9A6D1] mt-0.5">
+                  offerings · scoped honestly
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Category filters */}
         <div className="mt-10 flex flex-wrap gap-2 pb-5 border-b border-[#B9A6D1]/25">
@@ -137,8 +126,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           })}
         </div>
 
+        <SectionBridge
+          className="mt-12"
+          label="Catalogue"
+          reducedMotion={settings.reducedMotion}
+        />
+
         {/* Engagement strip — dark coordinated, no white mid-band */}
-        <div className="mt-10 relative rounded-2xl overflow-hidden border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+        <ScrollReveal
+          className="mt-2 relative rounded-2xl overflow-hidden border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+          reducedMotion={settings.reducedMotion}
+        >
           <div
             className="absolute inset-0 pointer-events-none opacity-80"
             style={{
@@ -181,27 +179,58 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               Talk to us
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Services grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <SectionBridge
+          className="mt-10"
+          label="Offerings"
+          reducedMotion={settings.reducedMotion}
+        />
+
+        {/* Services grid — spotlight dims siblings on hover */}
+        <div
+          className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          onMouseLeave={() => setSpotlightId(null)}
+        >
           {filteredServices.map((service, index) => (
-            <ServiceCard3D
+            <ScrollReveal
               key={service.id}
-              service={service}
-              index={index}
-              isSelected={activeModalService?.id === service.id}
-              onSelect={(s) => setActiveModalService(s)}
-              isExpandedInline={expandedCardId === service.id}
-              onToggleExpandInline={() => handleToggleExpandInline(service.id)}
-            />
+              delay={Math.min(index * 0.05, 0.25)}
+              reducedMotion={settings.reducedMotion}
+              className={`transition-opacity duration-300 ${
+                spotlightId && spotlightId !== service.id
+                  ? "opacity-40"
+                  : "opacity-100"
+              }`}
+            >
+              <div
+                onMouseEnter={() => setSpotlightId(service.id)}
+                onFocus={() => setSpotlightId(service.id)}
+              >
+                <ServiceCard3D
+                  service={service}
+                  index={index}
+                  isSelected={activeModalService?.id === service.id}
+                  onSelect={(s) => setActiveModalService(s)}
+                  isExpandedInline={expandedCardId === service.id}
+                  onToggleExpandInline={() => handleToggleExpandInline(service.id)}
+                />
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <BrandGradientDivider className="mt-16" label="Engage" />
+        <SectionBridge
+          className="mt-10"
+          label="Engage"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* Bottom CTA — same color system, clearer hierarchy */}
-        <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-12 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
+        <ScrollReveal
+          className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-12 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          reducedMotion={settings.reducedMotion}
+        >
           <div
             className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-40 pointer-events-none"
             style={{
@@ -253,7 +282,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3">
+            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-4">
+              <div className="hidden lg:block w-full">
+                <GapAccent
+                  variant="modules"
+                  reducedMotion={settings.reducedMotion}
+                  caption="Engagement stack"
+                />
+              </div>
               <Link
                 to="/contact"
                 onClick={() => soundEngine.playClick("hero")}
@@ -276,7 +312,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </button>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
 
       <ServiceDetailModal

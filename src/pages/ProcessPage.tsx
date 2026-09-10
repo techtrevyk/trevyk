@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   GitMerge,
   Search,
@@ -12,9 +12,14 @@ import {
   Activity,
   Workflow,
   Terminal,
+  Play,
+  Pause,
 } from "lucide-react";
 import { SiteSettings } from "../types";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -119,196 +124,277 @@ const HABITS = [
   },
 ];
 
-export const ProcessPage: React.FC<ProcessPageProps> = () => {
+export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const playRef = useRef(false);
   const active = STEPS[activeStep];
   const ActiveIcon = active.icon;
   const progress = ((activeStep + 1) / STEPS.length) * 100;
+
+  useEffect(() => {
+    playRef.current = isPlaying;
+  }, [isPlaying]);
+
+  useEffect(() => {
+    if (!isPlaying || settings.reducedMotion) return;
+    const id = window.setInterval(() => {
+      if (!playRef.current) return;
+      setActiveStep((prev) => {
+        if (prev >= STEPS.length - 1) {
+          setIsPlaying(false);
+          return prev;
+        }
+        soundEngine.playClick("soft");
+        return prev + 1;
+      });
+    }, 2800);
+    return () => window.clearInterval(id);
+  }, [isPlaying, settings.reducedMotion]);
 
   return (
     <div
       id="process-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 40% at 12% 14%, rgba(107,74,135,0.28), transparent 58%), radial-gradient(ellipse 40% 30% at 90% 20%, rgba(232,169,194,0.1), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 40%, #2A1830 100%)",
-          }}
-        />
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere
+        variant="process"
+        lightBand={{ top: "45%", height: "18%" }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
-          <div className="lg:col-span-8 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
-              <GitMerge className="w-3.5 h-3.5" />
-              <span>HOW WE DELIVER · 5 STAGES</span>
-            </div>
-            <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-              Delivery that stays{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                clear from day one
-              </span>
-            </h1>
-            <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-              The same practical path whether you adopt{" "}
-              <Link
-                to="/kiduart"
-                className="text-[#E8A9C2] font-semibold underline underline-offset-2"
-              >
-                Kiduart
-              </Link>{" "}
-              or commission custom software — listen, plan, build in slices,
-              launch carefully, then support.
-            </p>
-          </div>
-          <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-1 pb-1">
-            <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
-              Stages
-            </div>
-            <div className="font-heading font-bold text-4xl text-[#F8F6FB]">
-              05
-            </div>
-            <div className="text-xs text-[#B9A6D1] text-right">
-              no invented SLA theatre
-            </div>
-          </div>
-        </div>
-
-        <BrandGradientDivider className="mt-12" label="Stages" />
-
-        <div className="mt-4 mb-6">
-          <div className="flex items-center justify-between text-[10px] font-mono-accent text-[#B9A6D1] mb-2">
-            <span>
-              Stage {active.number} / {STEPS.length}
-            </span>
-            <span>{active.title}</span>
-          </div>
-          <div className="h-1 rounded-full bg-[#1E1024] border border-[#B9A6D1]/20 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2] transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-8">
-          {STEPS.map((step, idx) => (
-            <button
-              key={step.number}
-              type="button"
-              onClick={() => {
-                soundEngine.playClick("soft");
-                setActiveStep(idx);
-              }}
-              className={`p-3 rounded-2xl border text-center transition-all ${
-                activeStep === idx
-                  ? "bg-[#1E1024] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.18)]"
-                  : "bg-[#1E1024]/80 border-[#B9A6D1]/25 hover:border-[#E8A9C2]/45"
-              }`}
-            >
-              <span
-                className={`inline-flex w-7 h-7 rounded-full items-center justify-center font-mono-accent font-bold text-[10px] mb-1.5 ${
-                  activeStep === idx
-                    ? "bg-[#E8A9C2] text-[#241428]"
-                    : "bg-[#2A1830] text-[#B9A6D1]"
-                }`}
-              >
-                {step.number}
-              </span>
-              <div className="text-[11px] font-heading font-semibold text-[#F8F6FB]">
-                {step.shortName}
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
+                <GitMerge className="w-3.5 h-3.5" />
+                <span>HOW WE DELIVER · 5 STAGES</span>
               </div>
-              <div className="text-[10px] font-mono-accent text-[#B9A6D1]">
-                {step.timeline}
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="relative p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
-          <div
-            className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
-            aria-hidden
-          />
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] flex items-center justify-center">
-                <ActiveIcon className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
-                  Stage {active.number} · {active.timeline}
-                </div>
-                <h2 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB]">
-                  {active.title}
-                </h2>
-              </div>
-            </div>
-          </div>
-          <p className="mt-4 text-sm text-[#B9A6D1] leading-relaxed max-w-3xl">
-            {active.tagline}
-          </p>
-
-          <motion.div
-            key={active.number}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 pt-6 border-t border-[#B9A6D1]/20 space-y-6"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {active.details.map((detail) => (
-                <div
-                  key={detail}
-                  className="flex items-start gap-2.5 p-3 rounded-xl bg-[#2A1830]/90 border border-[#B9A6D1]/25 text-xs text-[#B9A6D1]"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0 mt-0.5" />
-                  <span>{detail}</span>
-                </div>
-              ))}
-            </div>
-            <div className="p-4 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <FileCode className="w-4 h-4 text-[#E8A9C2]" />
-                <span className="text-[10px] font-mono-accent text-[#B9A6D1] uppercase tracking-wider">
-                  Stage artifact
+              <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
+                Delivery that stays{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
+                  clear from day one
                 </span>
-              </div>
-              <span className="text-xs font-mono-accent text-[#E8A9C2]">
-                {active.output}
-              </span>
+              </h1>
+              <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
+                The same practical path whether you adopt{" "}
+                <Link
+                  to="/kiduart"
+                  className="text-[#E8A9C2] font-semibold underline underline-offset-2"
+                >
+                  Kiduart
+                </Link>{" "}
+                or commission custom software — listen, plan, build in slices,
+                launch carefully, then support.
+              </p>
             </div>
-            {activeStep < STEPS.length - 1 && (
+            <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
+              <GapAccent
+                variant="nodes"
+                reducedMotion={settings.reducedMotion}
+                caption="Delivery signal"
+              />
+              <div className="text-right">
+                <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">
+                  Stages
+                </div>
+                <div className="font-heading font-bold text-4xl text-[#F8F6FB]">
+                  05
+                </div>
+                <div className="text-xs text-[#B9A6D1] text-right">
+                  no invented SLA theatre
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <SectionBridge
+          className="mt-8"
+          label="Stages"
+          reducedMotion={settings.reducedMotion}
+        />
+
+        <ScrollReveal
+          className="mt-2"
+          delay={0.05}
+          reducedMotion={settings.reducedMotion}
+        >
+          <div className="mb-6">
+            <div className="flex items-center justify-between gap-3 text-[10px] font-mono-accent text-[#B9A6D1] mb-2">
+              <span>
+                Stage {active.number} / {STEPS.length}
+              </span>
+              <div className="flex items-center gap-3">
+                <span className="hidden sm:inline">{active.title}</span>
+                {!settings.reducedMotion && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundEngine.playClick("soft");
+                      if (!isPlaying && activeStep >= STEPS.length - 1) {
+                        setActiveStep(0);
+                      }
+                      setIsPlaying((p) => !p);
+                    }}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[#B9A6D1]/35 text-[#E8A9C2] hover:border-[#E8A9C2] hover:text-[#F8F6FB] transition-colors"
+                    aria-pressed={isPlaying}
+                    aria-label={isPlaying ? "Pause timeline" : "Play timeline"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-3 h-3" />
+                    ) : (
+                      <Play className="w-3 h-3" />
+                    )}
+                    <span>{isPlaying ? "Pause" : "Play stages"}</span>
+                  </button>
+                )}
+              </div>
+            </div>
+            <div className="h-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/20 overflow-hidden">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-8">
+            {STEPS.map((step, idx) => (
               <button
+                key={step.number}
                 type="button"
                 onClick={() => {
                   soundEngine.playClick("soft");
-                  setActiveStep((s) => s + 1);
+                  setIsPlaying(false);
+                  setActiveStep(idx);
                 }}
-                className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#E8A9C2] hover:text-[#F8F6FB]"
+                className={`p-3 rounded-2xl border text-center transition-all ${
+                  activeStep === idx
+                    ? "bg-[#1E1024] border-[#E8A9C2] shadow-[0_0_20px_rgba(232,169,194,0.18)]"
+                    : "bg-[#1E1024]/80 border-[#B9A6D1]/25 hover:border-[#E8A9C2]/45"
+                }`}
               >
-                Next: {STEPS[activeStep + 1].title}{" "}
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span
+                  className={`inline-flex w-7 h-7 rounded-full items-center justify-center font-mono-accent font-bold text-[10px] mb-1.5 ${
+                    activeStep === idx
+                      ? "bg-[#E8A9C2] text-[#241428]"
+                      : "bg-[#2A1830] text-[#B9A6D1]"
+                  }`}
+                >
+                  {step.number}
+                </span>
+                <div className="text-[11px] font-heading font-semibold text-[#F8F6FB]">
+                  {step.shortName}
+                </div>
+                <div className="text-[10px] font-mono-accent text-[#B9A6D1]">
+                  {step.timeline}
+                </div>
               </button>
-            )}
-          </motion.div>
-        </div>
+            ))}
+          </div>
 
-        <BrandGradientDivider className="mt-16" label="Habits" />
-
-        <div className="mt-4">
-          <div className="max-w-2xl mb-8">
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
-              Habits we keep on every engagement
-            </h2>
-            <p className="mt-2 text-sm text-[#B9A6D1]">
-              Practical quality — not theatre.
+          <div className="relative p-6 sm:p-8 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 shadow-[0_24px_50px_rgba(0,0,0,0.35)] overflow-hidden">
+            <div
+              className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
+              aria-hidden
+            />
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] flex items-center justify-center">
+                  <ActiveIcon className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono-accent text-[#E8A9C2] uppercase tracking-wider">
+                    Stage {active.number} · {active.timeline}
+                  </div>
+                  <h2 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB]">
+                    {active.title}
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <p className="mt-4 text-sm text-[#B9A6D1] leading-relaxed max-w-3xl">
+              {active.tagline}
             </p>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.number}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.28 }}
+                className="mt-6 pt-6 border-t border-[#B9A6D1]/20 space-y-6"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {active.details.map((detail) => (
+                    <div
+                      key={detail}
+                      className="flex items-start gap-2.5 p-3 rounded-xl bg-[#2A1830]/90 border border-[#B9A6D1]/25 text-xs text-[#B9A6D1]"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-[#E8A9C2] shrink-0 mt-0.5" />
+                      <span>{detail}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-4 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <FileCode className="w-4 h-4 text-[#E8A9C2]" />
+                    <span className="text-[10px] font-mono-accent text-[#B9A6D1] uppercase tracking-wider">
+                      Stage artifact
+                    </span>
+                  </div>
+                  <span className="text-xs font-mono-accent text-[#E8A9C2]">
+                    {active.output}
+                  </span>
+                </div>
+                {activeStep < STEPS.length - 1 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundEngine.playClick("soft");
+                      setIsPlaying(false);
+                      setActiveStep((s) => s + 1);
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono-accent text-[#E8A9C2] hover:text-[#F8F6FB]"
+                  >
+                    Next: {STEPS[activeStep + 1].title}{" "}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </ScrollReveal>
+
+        <SectionBridge
+          className="mt-10"
+          label="Habits"
+          reducedMotion={settings.reducedMotion}
+        />
+
+        <ScrollReveal
+          className="mt-2"
+          reducedMotion={settings.reducedMotion}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-8">
+            <div className="lg:col-span-8 max-w-2xl">
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
+                Habits we keep on every engagement
+              </h2>
+              <p className="mt-2 text-sm text-[#B9A6D1]">
+                Practical quality — not theatre.
+              </p>
+            </div>
+            <div className="lg:col-span-4 hidden lg:flex justify-end">
+              <GapAccent
+                variant="modules"
+                reducedMotion={settings.reducedMotion}
+                caption="Quality stack"
+              />
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {HABITS.map((h) => {
@@ -335,35 +421,40 @@ export const ProcessPage: React.FC<ProcessPageProps> = () => {
               );
             })}
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="mt-16 relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)] text-center">
-          <div
-            className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-35 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(232,169,194,0.4), transparent 70%)",
-            }}
-            aria-hidden
-          />
-          <h2 className="relative font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
-            Ready to start with a clear scope?
-          </h2>
-          <p className="relative text-sm text-[#B9A6D1] max-w-xl mx-auto mt-3 leading-relaxed">
-            Book a Kiduart demo or tell us about a custom build. We reply with
-            next steps — not a jargon deck.
-          </p>
-          <div className="relative pt-6">
-            <Link
-              to="/contact"
-              onClick={() => soundEngine.playClick("hero")}
-              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#6B4A87] text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold hover:bg-[#8558A5] border border-[#E8A9C2]/25 shadow-[0_12px_28px_rgba(107,74,135,0.35)]"
-            >
-              <span>Contact Trevyk</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+        <ScrollReveal
+          className="mt-16"
+          reducedMotion={settings.reducedMotion}
+        >
+          <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)] text-center">
+            <div
+              className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-35 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(232,169,194,0.4), transparent 70%)",
+              }}
+              aria-hidden
+            />
+            <h2 className="relative font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
+              Ready to start with a clear scope?
+            </h2>
+            <p className="relative text-sm text-[#B9A6D1] max-w-xl mx-auto mt-3 leading-relaxed">
+              Book a Kiduart demo or tell us about a custom build. We reply with
+              next steps — not a jargon deck.
+            </p>
+            <div className="relative pt-6">
+              <Link
+                to="/contact"
+                onClick={() => soundEngine.playClick("hero")}
+                className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-full bg-[#6B4A87] text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold hover:bg-[#8558A5] border border-[#E8A9C2]/25 shadow-[0_12px_28px_rgba(107,74,135,0.35)]"
+              >
+                <span>Contact Trevyk</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

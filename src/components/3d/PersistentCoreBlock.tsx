@@ -161,48 +161,62 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
         targetExplode = (1 - p) * 0.14;
       }
     } else if (normalizedPath.startsWith('/services')) {
-      // SERVICES: right-side companion (content is left-heavy) — was wrongly on left
-      targetX = isMobile ? 0.95 : 2.05;
-      targetY = isMobile ? 0.55 : 0.35 - scrollProgress * 0.35;
-      targetZ = -1.05;
-      targetScale = isMobile ? 0.42 : 0.55;
-      targetExplode = 0.1 + Math.sin(scrollProgress * Math.PI) * 0.1;
-      targetRotY = 0.65 + scrollProgress * Math.PI * 0.85;
+      // SERVICES: right companion — drifts with scroll, mild explode for presence
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 0.95 : 2.15 - p * 0.25;
+      targetY = isMobile ? 0.55 : 0.45 - p * 0.55;
+      targetZ = -0.95 - p * 0.2;
+      targetScale = isMobile ? 0.46 : 0.62;
+      targetExplode = 0.14 + Math.sin(p * Math.PI) * 0.16;
+      targetRotY = 0.7 + p * Math.PI * 1.1;
+      targetRotX = 0.22 + Math.sin(time * 0.4) * 0.06;
     } else if (normalizedPath.startsWith('/technology')) {
-      targetX = 0;
-      targetY = isMobile ? 0.1 : 0.15 - scrollProgress * 0.2;
-      targetZ = isMobile ? -0.4 : 0.2;
-      targetScale = isMobile ? 0.72 : 0.95;
-      targetExplode = 0.45 + scrollProgress * 0.25;
-      targetRotY = 0.55 + scrollProgress * 1.8;
+      // TECHNOLOGY: center-stage inspection — stronger explode, scroll deepens
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 0 : Math.sin(p * Math.PI) * 0.35;
+      targetY = isMobile ? 0.1 : 0.2 - p * 0.35;
+      targetZ = isMobile ? -0.35 : 0.15 - p * 0.3;
+      targetScale = isMobile ? 0.75 : 1.02;
+      targetExplode = 0.5 + p * 0.35;
+      targetRotY = 0.55 + p * 2.2 + time * 0.08;
+      targetRotX = 0.35 + Math.sin(p * Math.PI) * 0.12;
     } else if (normalizedPath.startsWith('/kiduart')) {
-      targetX = isMobile ? 0.8 : 1.8;
-      targetY = isMobile ? 0.8 : 0.3 - scrollProgress * 0.3;
-      targetZ = -0.8;
-      targetScale = isMobile ? 0.52 : 0.75;
-      targetExplode = 0.08;
-      targetRotY = 0.45 + Math.sin(time * 0.5) * 0.2;
+      // KIDUART: right companion, soft assemble — product calm
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 0.85 : 1.95 - p * 0.2;
+      targetY = isMobile ? 0.75 : 0.4 - p * 0.45;
+      targetZ = -0.75;
+      targetScale = isMobile ? 0.55 : 0.78;
+      targetExplode = 0.06 + Math.sin(p * Math.PI) * 0.08;
+      targetRotY = 0.42 + Math.sin(time * 0.45) * 0.25 + p * 0.4;
     } else if (normalizedPath.startsWith('/process')) {
-      targetX = isMobile ? 1.0 : 1.9;
-      targetY = isMobile ? 0.5 : 0.1 - scrollProgress * 0.3;
-      targetZ = -1.0;
-      targetScale = isMobile ? 0.48 : 0.68;
-      targetExplode = 0.35 + scrollProgress * 0.2;
-      targetRotY = 0.8 + scrollProgress * 1.2;
+      // PROCESS: stepped explode like delivery stages
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 1.0 : 2.0 - p * 0.15;
+      targetY = isMobile ? 0.45 : 0.2 - p * 0.4;
+      targetZ = -0.95;
+      targetScale = isMobile ? 0.5 : 0.72;
+      targetExplode = 0.28 + p * 0.4;
+      targetRotY = 0.85 + p * 1.5;
+      targetRotX = 0.25 + p * 0.15;
     } else if (normalizedPath.startsWith('/about')) {
-      targetX = isMobile ? 0.9 : 1.7;
-      targetY = isMobile ? 0.6 : 0.25 - scrollProgress * 0.2;
-      targetZ = -0.6;
-      targetScale = isMobile ? 0.55 : 0.8;
-      targetExplode = 0.02;
-      targetRotY = 0.55 + scrollProgress * 0.8;
+      // ABOUT: solid badge — almost assembled, gentle drift
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 0.9 : 1.85;
+      targetY = isMobile ? 0.55 : 0.3 - p * 0.25;
+      targetZ = -0.55;
+      targetScale = isMobile ? 0.58 : 0.86;
+      targetExplode = 0.03 + Math.sin(time * 0.6) * 0.02;
+      targetRotY = 0.5 + p * 0.9 + time * 0.04;
     } else if (normalizedPath.startsWith('/contact')) {
-      targetX = isMobile ? 0 : 1.4;
-      targetY = isMobile ? 0.8 : 0.1;
-      targetZ = isMobile ? -0.5 : 0;
-      targetScale = isMobile ? 0.6 : 0.85;
-      targetExplode = 0;
-      targetRotY = 0.55 + scrollProgress * 0.5;
+      // CONTACT: reassembled anchor, lower as you scroll to form
+      const p = ease(0, 1, scrollProgress);
+      targetX = isMobile ? 0.2 : 1.55;
+      targetY = isMobile ? 0.7 : 0.25 - p * 0.35;
+      targetZ = isMobile ? -0.4 : -0.1;
+      targetScale = isMobile ? 0.62 : 0.9;
+      targetExplode = 0.02;
+      targetRotY = 0.55 + p * 0.6;
     }
 
     const pulseFactor = Math.sin(routePulse.current * Math.PI) * 0.12;
@@ -241,10 +255,23 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
     groupRef.current.scale.setScalar(currentScale.current);
 
     if (orbitRef.current) {
-      orbitRef.current.rotation.y = time * 0.12;
+      const orbitSpeed =
+        normalizedPath.startsWith('/technology')
+          ? 0.18
+          : normalizedPath.startsWith('/process')
+            ? 0.14
+            : 0.12;
+      orbitRef.current.rotation.y = time * orbitSpeed;
       orbitRef.current.rotation.x = Math.sin(time * 0.18) * 0.08;
       orbitRef.current.position.copy(groupRef.current.position);
-      orbitRef.current.scale.setScalar(currentScale.current * 1.05);
+      const orbitBoost = normalizedPath.startsWith('/technology')
+        ? 1.18
+        : normalizedPath.startsWith('/services') || normalizedPath.startsWith('/process')
+          ? 1.08
+          : normalizedPath.startsWith('/about') || normalizedPath.startsWith('/contact')
+            ? 0.95
+            : 1.05;
+      orbitRef.current.scale.setScalar(currentScale.current * 1.05 * orbitBoost);
     }
 
     const cubeWorld: THREE.Vector3[] = [];
@@ -294,7 +321,14 @@ export const PersistentCoreBlock: React.FC<PersistentCoreBlockProps> = ({
       });
       pos.needsUpdate = true;
       const mat = linesRef.current.material as THREE.LineBasicMaterial;
-      mat.opacity = 0.22 + Math.sin(time * 1.4) * 0.06 + currentExplode.current * 0.2;
+      const edgeBase = normalizedPath.startsWith('/technology')
+        ? 0.32
+        : normalizedPath.startsWith('/process')
+          ? 0.28
+          : normalizedPath.startsWith('/kiduart')
+            ? 0.14
+            : 0.22;
+      mat.opacity = edgeBase + Math.sin(time * 1.4) * 0.06 + currentExplode.current * 0.2;
     }
 
     if (shadowRef.current) {

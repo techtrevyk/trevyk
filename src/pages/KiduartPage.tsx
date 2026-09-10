@@ -24,7 +24,10 @@ import {
   Landmark,
 } from "lucide-react";
 import { SiteSettings } from "../types";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
+import { PageAtmosphere } from "../components/PageAtmosphere";
+import { SectionBridge } from "../components/SectionBridge";
+import { GapAccent } from "../components/GapAccent";
+import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 
@@ -211,9 +214,11 @@ const CHARTER = [
   },
 ];
 
-export const KiduartPage: React.FC<KiduartPageProps> = () => {
+export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [demoRequested, setDemoRequested] = useState(false);
+  const [demoSubmitting, setDemoSubmitting] = useState(false);
+  const [demoError, setDemoError] = useState<string | null>(null);
   const [demoForm, setDemoForm] = useState({
     institution: "",
     contactName: "",
@@ -225,10 +230,43 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
   const ActiveIcon = active.icon;
   const progress = ((activeStep + 1) / SCHOOL_JOURNEY.length) * 100;
 
-  const handleDemoSubmit = (e: React.FormEvent) => {
+  const handleDemoSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     soundEngine.playClick("hero");
-    setDemoRequested(true);
+    setDemoSubmitting(true);
+    setDemoError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "demo",
+          name: demoForm.contactName,
+          contactName: demoForm.contactName,
+          email: demoForm.email,
+          organization: demoForm.institution,
+          institution: demoForm.institution,
+          phone: demoForm.phone,
+          scope: "Kiduart demo / walkthrough request from trevyk.in/kiduart",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(
+          data.error || "Could not send the demo request. Please try again.",
+        );
+      }
+      setDemoRequested(true);
+    } catch (err: unknown) {
+      setDemoError(
+        err instanceof Error
+          ? err.message
+          : "Could not send the demo request. Email support@kiduart.com.",
+      );
+    } finally {
+      setDemoSubmitting(false);
+    }
   };
 
   return (
@@ -236,21 +274,15 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
       id="kiduart-page"
       className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
     >
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 40% at 8% 12%, rgba(107,74,135,0.28), transparent 55%), radial-gradient(ellipse 40% 35% at 90% 18%, rgba(232,169,194,0.12), transparent 55%), linear-gradient(180deg, #1E1024 0%, #2A1830 38%, #2A1830 100%)",
-          }}
-        />
-        <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/30" />
-        <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/25" />
-      </div>
+      <PageAtmosphere
+        variant="kiduart"
+        lightBand={{ top: "38%", height: "24%" }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <ScrollReveal reducedMotion={settings.reducedMotion}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-5">
               <GraduationCap className="w-3.5 h-3.5" />
@@ -354,10 +386,21 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
+
+        <SectionBridge
+          className="mt-10"
+          label="Audience"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* Roles */}
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <ScrollReveal
+          className="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+          delay={0.05}
+          reducedMotion={settings.reducedMotion}
+        >
           {ROLES.map((role) => {
             const Icon = role.icon;
             return (
@@ -379,12 +422,29 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </div>
             );
           })}
+        </ScrollReveal>
+
+        <div className="mt-10 hidden lg:flex justify-end pr-8">
+          <GapAccent
+            variant="orbit"
+            reducedMotion={settings.reducedMotion}
+            caption="Campus mesh"
+          />
         </div>
 
-        <BrandGradientDivider className="mt-14" label="Journey" />
+        <SectionBridge
+          className="mt-10"
+          label="Journey"
+          reducedMotion={settings.reducedMotion}
+          tone="lilac"
+        />
 
         {/* Journey */}
-        <div id="kiduart-journey" className="mt-4">
+        <ScrollReveal
+          id="kiduart-journey"
+          className="mt-2"
+          reducedMotion={settings.reducedMotion}
+        >
           <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
               <span className="font-semibold text-[#F8F6FB]/50">01</span>
@@ -408,7 +468,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
             </p>
           </div>
 
-          {/* Progress connector */}
+          {/* Journey scrubber */}
           <div className="mb-6">
             <div className="flex items-center justify-between text-[10px] font-mono-accent text-[#B9A6D1] mb-2">
               <span>
@@ -416,11 +476,38 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </span>
               <span>{active.title}</span>
             </div>
-            <div className="h-1 rounded-full bg-[#1E1024] border border-[#B9A6D1]/20 overflow-hidden">
-              <div
-                className="h-full rounded-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2] transition-all duration-500"
-                style={{ width: `${progress}%` }}
+            <div className="relative">
+              <input
+                type="range"
+                min={0}
+                max={SCHOOL_JOURNEY.length - 1}
+                step={1}
+                value={activeStep}
+                aria-label="Scrub school-year journey"
+                onChange={(e) => {
+                  const next = Number(e.target.value);
+                  if (next !== activeStep) {
+                    soundEngine.playClick("soft");
+                    setActiveStep(next);
+                  }
+                }}
+                className="journey-scrubber w-full h-2 appearance-none rounded-full cursor-pointer bg-[#1E1024] border border-[#B9A6D1]/25 outline-none
+                  [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4
+                  [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#E8A9C2]
+                  [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-[#F8F6FB]
+                  [&::-webkit-slider-thumb]:shadow-[0_0_12px_rgba(232,169,194,0.55)]
+                  [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full
+                  [&::-moz-range-thumb]:bg-[#E8A9C2] [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-[#F8F6FB]"
+                style={{
+                  background: `linear-gradient(90deg, #6B4A87 0%, #B9A6D1 ${progress}%, #E8A9C2 ${progress}%, rgba(30,16,36,0.95) ${progress}%)`,
+                }}
               />
+              <div className="mt-2 flex justify-between text-[9px] font-mono-accent text-[#B9A6D1]/70 uppercase tracking-wider">
+                <span>Drag to scrub</span>
+                <span>
+                  {Math.round(progress)}% through the year
+                </span>
+              </div>
             </div>
           </div>
 
@@ -524,12 +611,20 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <BrandGradientDivider className="mt-16" label="Charter" />
+        <SectionBridge
+          className="mt-10"
+          label="Charter"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* Charter */}
-        <div id="kiduart-charter" className="mt-4">
+        <ScrollReveal
+          id="kiduart-charter"
+          className="mt-2"
+          reducedMotion={settings.reducedMotion}
+        >
           <div className="max-w-3xl mb-10">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#1E1024] border border-[#B9A6D1]/40 text-[#E8A9C2] font-mono-accent text-xs mb-3">
               <span className="font-semibold text-[#F8F6FB]/50">02</span>
@@ -575,14 +670,19 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
 
-        <BrandGradientDivider className="mt-16" label="Demo" />
+        <SectionBridge
+          className="mt-10"
+          label="Demo"
+          reducedMotion={settings.reducedMotion}
+        />
 
         {/* Demo */}
-        <div
+        <ScrollReveal
           id="kiduart-demo-section"
-          className="mt-4 relative p-8 sm:p-12 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          className="mt-2 relative p-8 sm:p-12 rounded-3xl bg-[#1E1024]/95 border border-[#B9A6D1]/35 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)]"
+          reducedMotion={settings.reducedMotion}
         >
           <div
             className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-35 pointer-events-none"
@@ -753,10 +853,16 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-[#F8F6FB] font-heading font-semibold text-xs hover:bg-[#8558A5] border border-[#E8A9C2]/20"
+                    disabled={demoSubmitting}
+                    className="w-full py-3 rounded-xl bg-[#6B4A87] text-[#F8F6FB] font-heading font-semibold text-xs hover:bg-[#8558A5] border border-[#E8A9C2]/20 disabled:opacity-50"
                   >
-                    Send request
+                    {demoSubmitting ? "Sending…" : "Send request"}
                   </button>
+                  {demoError && (
+                    <p className="text-xs text-red-300 text-center leading-relaxed">
+                      {demoError}
+                    </p>
+                  )}
                   <p className="text-[10px] text-[#B9A6D1] text-center">
                     Fastest path:{" "}
                     <a
@@ -772,7 +878,7 @@ export const KiduartPage: React.FC<KiduartPageProps> = () => {
               )}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

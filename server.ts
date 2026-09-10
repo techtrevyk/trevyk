@@ -3,6 +3,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
+import nodemailer from "nodemailer";
 
 dotenv.config();
 
@@ -10,6 +11,52 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
+
+function getSmtpPass() {
+  return (process.env.SMTP_PASS || "").replace(/\s+/g, "");
+}
+
+function isSmtpConfigured() {
+  return Boolean(process.env.SMTP_USER && getSmtpPass());
+}
+
+function createMailTransport() {
+  if (!isSmtpConfigured()) {
+    throw new Error("SMTP is not configured");
+  }
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: Number(process.env.SMTP_PORT || 587),
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: getSmtpPass(),
+    },
+  });
+}
+
+function escapeHtml(value: string) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function normalizeContactPayload(body: Record<string, unknown>) {
+  const type =
+    body.type === "kiduart" || body.type === "demo" ? String(body.type) : "services";
+  const name = String(body.name || body.contactName || "").trim();
+  const email = String(body.email || "").trim();
+  const organization = String(
+    body.organization || body.institution || "",
+  ).trim();
+  const phone = String(body.phone || "").trim();
+  const scope = String(body.scope || body.message || "").trim();
+
+  return { type, name, email, organization, phone, scope };
+}
 
 // Lazy-initialize Google GenAI client
 let aiClient: GoogleGenAI | null = null;
@@ -95,7 +142,113 @@ app.get("/api/health", (req, res) => {
     status: "ok",
     timestamp: new Date().toISOString(),
     geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+    smtpConfigured: isSmtpConfigured(),
   });
+});
+
+// Contact / demo form → SMTP inbox
+app.post("/api/contact", async (req, res) => {
+  try {
+    if (!isSmtpConfigured()) {
+      return res.status(503).json({
+        error: "Email delivery is not configured on this server yet.",
+      });
+    }
+
+    const { type, name, email, organization, phone, scope } =
+      normalizeContactPayload(req.body || {});
+
+    if (!name || !email || !organization) {
+      return res.status(400).json({
+        error: "Name, email, and organisation are required.",
+      });
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ error: "Please provide a valid email." });
+    }
+
+    const inbox =
+      process.env.MAIL_TO ||
+      (type === "kiduart" || type === "demo"
+        ? "support@kiduart.com"
+        : "contact@trevyk.com");
+    const fromAddress = process.env.SMTP_USER as string;
+    const subjectPrefix =
+      type === "kiduart" || type === "demo"
+        ? "[Kiduart demo]"
+        : "[Trevyk contact]";
+    const subject = `${subjectPrefix} ${organization} — ${name}`;
+
+    const textBody = [
+      `Type: ${type}`,
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Organisation: ${organization}`,
+      `Phone: ${phone || "—"}`,
+      "",
+      "Message / scope:",
+      scope || "(none provided)",
+      "",
+      `Submitted: ${new Date().toISOString()}`,
+      `Site: ${process.env.VITE_SITE_URL || "https://trevyk.in"}`,
+    ].join("\n");
+
+    const htmlBody = `
+      <div style="font-family:Arial,sans-serif;line-height:1.5;color:#241428">
+        <h2 style="margin:0 0 12px">${escapeHtml(subjectPrefix)} New enquiry</h2>
+        <p><strong>Type:</strong> ${escapeHtml(type)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Organisation:</strong> ${escapeHtml(organization)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
+        <p><strong>Message / scope:</strong></p>
+        <pre style="white-space:pre-wrap;background:#f6f2f8;padding:12px;border-radius:8px">${escapeHtml(scope || "(none provided)")}</pre>
+        <p style="color:#666;font-size:12px">Submitted ${escapeHtml(new Date().toISOString())}</p>
+      </div>
+    `;
+
+    const transport = createMailTransport();
+    await transport.sendMail({
+      from: `"Trevyk Website" <${fromAddress}>`,
+      to: inbox,
+      replyTo: email,
+      subject,
+      text: textBody,
+      html: htmlBody,
+    });
+
+    // Optional acknowledgement to the sender (best-effort)
+    try {
+      await transport.sendMail({
+        from: `"Trevyk Technologies" <${fromAddress}>`,
+        to: email,
+        subject: "We received your message — Trevyk",
+        text: [
+          `Hi ${name},`,
+          "",
+          "Thanks for writing to Trevyk. We received your enquiry and will reply within one business day.",
+          "",
+          type === "kiduart" || type === "demo"
+            ? "You can also book a product demo anytime at https://kiduart.com"
+            : "Meanwhile you can explore https://trevyk.in",
+          "",
+          "— Trevyk Technologies",
+        ].join("\n"),
+      });
+    } catch (ackErr) {
+      console.warn("Contact ack email failed (inbox mail still sent):", ackErr);
+    }
+
+    res.json({ ok: true });
+  } catch (error: any) {
+    console.error("Contact mail error:", error);
+    res.status(500).json({
+      error:
+        error.message ||
+        "Could not send your message right now. Please email contact@trevyk.com.",
+    });
+  }
 });
 
 // Chatbot Roles endpoint
