@@ -81,7 +81,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       title: "Flagship product: Kiduart",
       tagline: "Live product at kiduart.com.",
       description:
-        "Kiduart is Trevyk’s school ERP. Explore the journey here, then book demos on the product site — no invented school-count metrics.",
+        "Kiduart is Trevyk’s school ERP. Explore the journey here, then book demos on the product site  no invented school-count metrics.",
       icon: Users,
       color: "#E8A9C2",
       badge: "kiduart.com",

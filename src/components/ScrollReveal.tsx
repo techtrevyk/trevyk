@@ -31,7 +31,7 @@ const OFFSETS: Record<
 };
 
 /**
- * Scroll-triggered reveal — respects reducedMotion (prop or system preference).
+ * Scroll-triggered reveal  respects reducedMotion (prop or system preference).
  */
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,

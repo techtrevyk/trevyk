@@ -16,7 +16,7 @@ import {
 import { SiteSettings } from "../types";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
-import { GapAccent } from "../components/GapAccent";
+import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { trackContactSubmit } from "../utils/analytics";
@@ -80,7 +80,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
   return (
     <div
       id="contact-page"
-      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+      className="relative w-full min-h-screen pt-36 sm:pt-44 pb-28 overflow-hidden"
     >
       <PageAtmosphere
         variant="contact"
@@ -101,7 +101,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
               </div>
 
               <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.15rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-                Tell us what you need —{" "}
+                Tell us what you need{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
                   we reply in one business day
                 </span>
@@ -109,14 +109,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
                 Kiduart demos for schools, or custom engineering for your
-                organisation. Choose a lane below — clear next steps, no queue
+                organisation. Choose a lane below clear next steps, no queue
                 theatre.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex justify-end pb-2">
-              <GapAccent
-                variant="pulse"
+              <WowAccent
+                kind="beacon"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-48"
+                focus={formType === "kiduart" ? 0 : 1}
                 caption="Channel open"
               />
             </div>
@@ -165,8 +167,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                 </div>
                 <p className="mt-1.5 text-xs text-[#B9A6D1] leading-relaxed">
                   {formType === "services"
-                    ? "Scoped builds, advisory, and integrations — we reply with next steps for your organisation."
-                    : "Product demos and school walkthroughs — routed to the Kiduart team within one business day."}
+                    ? "Scoped builds, advisory, and integrations  we reply with next steps for your organisation."
+                    : "Product demos and school walkthroughs  routed to the Kiduart team within one business day."}
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -327,9 +329,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                   className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#6B4A87] to-[#8558A5] text-[#F8F6FB] font-heading font-semibold text-xs sm:text-sm shadow-[0_12px_28px_rgba(107,74,135,0.35)] border border-[#E8A9C2]/25 hover:opacity-95 flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
-                  <span>
-                    {isSubmitting ? "Sending…" : "Submit request"}
-                  </span>
+                  <span>{isSubmitting ? "Sending…" : "Submit request"}</span>
                 </button>
                 {submitError && (
                   <p className="text-xs text-red-300 text-center leading-relaxed">
@@ -395,8 +395,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                       Based in India
                     </div>
                     <span className="text-[#B9A6D1] leading-relaxed block mt-0.5">
-                      Noida, Uttar Pradesh — demos and support with the team
-                      that ships{" "}
+                      Noida, Uttar Pradesh demos and support with the team that
+                      ships{" "}
                       <a
                         href="https://kiduart.com"
                         target="_blank"
@@ -420,7 +420,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
                 </div>
                 <p className="text-xs text-[#B9A6D1] mt-1 leading-relaxed">
                   Product questions go to the Kiduart team. Custom engineering
-                  is reviewed by Trevyk — no invented SLAs.
+                  is reviewed by Trevyk no invented SLAs.
                 </p>
               </div>
             </div>

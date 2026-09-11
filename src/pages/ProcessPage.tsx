@@ -18,7 +18,7 @@ import {
 import { SiteSettings } from "../types";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
-import { GapAccent } from "../components/GapAccent";
+import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
@@ -64,7 +64,7 @@ const STEPS = [
     title: "Build in stages",
     shortName: "Build",
     timeline: "Delivery",
-    tagline: "Ship usable slices — not a big-bang dump at the end.",
+    tagline: "Ship usable slices  not a big-bang dump at the end.",
     details: [
       "Working increments you can click through",
       "Regular demos with your real workflows in mind",
@@ -94,7 +94,7 @@ const STEPS = [
     title: "Support & iterate",
     shortName: "Support",
     timeline: "Ongoing",
-    tagline: "Stay available after launch — improve what daily use reveals.",
+    tagline: "Stay available after launch  improve what daily use reveals.",
     details: [
       "Business-day response for product and project questions",
       "Prioritised fixes from real operator feedback",
@@ -115,12 +115,12 @@ const HABITS = [
   {
     icon: Server,
     title: "Parallel when it matters",
-    body: "For school cutovers we prefer running old and new methods side by side until numbers agree — the same idea Kiduart publishes publicly.",
+    body: "For school cutovers we prefer running old and new methods side by side until numbers agree  the same idea Kiduart publishes publicly.",
   },
   {
     icon: Workflow,
     title: "Written handoff",
-    body: "You leave with docs, access, and a named contact — not a black box. Custom work includes source ownership.",
+    body: "You leave with docs, access, and a named contact  not a black box. Custom work includes source ownership.",
   },
 ];
 
@@ -155,7 +155,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
   return (
     <div
       id="process-page"
-      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+      className="relative w-full min-h-screen pt-36 sm:pt-44 pb-28 overflow-hidden"
     >
       <PageAtmosphere
         variant="process"
@@ -188,14 +188,16 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                 >
                   Kiduart
                 </Link>{" "}
-                or commission custom software — listen, plan, build in slices,
+                or commission custom software listen, plan, build in slices,
                 launch carefully, then support.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
-              <GapAccent
-                variant="nodes"
+              <WowAccent
+                kind="pipeline"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-40"
+                focus={activeStep}
                 caption="Delivery signal"
               />
               <div className="text-right">
@@ -380,23 +382,21 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
           reducedMotion={settings.reducedMotion}
         />
 
-        <ScrollReveal
-          className="mt-2"
-          reducedMotion={settings.reducedMotion}
-        >
+        <ScrollReveal className="mt-2" reducedMotion={settings.reducedMotion}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-8">
             <div className="lg:col-span-8 max-w-2xl">
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
                 Habits we keep on every engagement
               </h2>
               <p className="mt-2 text-sm text-[#B9A6D1]">
-                Practical quality — not theatre.
+                Practical quality not theatre.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex justify-end">
-              <GapAccent
-                variant="modules"
+              <WowAccent
+                kind="layers"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-40"
                 caption="Quality stack"
               />
             </div>
@@ -428,10 +428,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal
-          className="mt-16"
-          reducedMotion={settings.reducedMotion}
-        >
+        <ScrollReveal className="mt-16" reducedMotion={settings.reducedMotion}>
           <div className="relative rounded-3xl border border-[#B9A6D1]/35 bg-[#1E1024]/95 p-8 sm:p-10 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.4)] text-center">
             <div
               className="absolute -right-16 -top-16 w-64 h-64 rounded-full blur-3xl opacity-35 pointer-events-none"
@@ -446,7 +443,7 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
             </h2>
             <p className="relative text-sm text-[#B9A6D1] max-w-xl mx-auto mt-3 leading-relaxed">
               Book a Kiduart demo or tell us about a custom build. We reply with
-              next steps — not a jargon deck.
+              next steps not a jargon deck.
             </p>
             <div className="relative pt-6">
               <Link

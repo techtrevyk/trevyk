@@ -4,4 +4,4 @@ Allow: /
 # Prefer the live Kiduart product site for deep product module pages
 Sitemap: https://trevyk.in/sitemap.xml
 
-# Hosted on https://trevyk.in — SPA routes must rewrite to index.html in production
+# Hosted on https://trevyk.in  SPA routes must rewrite to index.html in production

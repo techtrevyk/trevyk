@@ -2,14 +2,14 @@
 
 @layer base {
   :root {
-    --color-bg-primary: #2A1830;
-    --color-bg-darker: #1E1024;
-    --color-bg-ink: #160A1C;
-    --color-brand-purple: #6B4A87;
-    --color-brand-lavender: #B9A6D1;
-    --color-brand-lilac: #E7E1F0;
-    --color-brand-pink: #E8A9C2;
-    --color-text-light: #F8F6FB;
+    --color-bg-primary: #2a1830;
+    --color-bg-darker: #1e1024;
+    --color-bg-ink: #160a1c;
+    --color-brand-purple: #6b4a87;
+    --color-brand-lavender: #b9a6d1;
+    --color-brand-lilac: #e7e1f0;
+    --color-brand-pink: #e8a9c2;
+    --color-text-light: #f8f6fb;
     --color-text-ink: #241428;
     --surface-ink: rgba(22, 10, 28, 0.72);
     --surface-lilac: rgba(231, 225, 240, 0.08);
@@ -17,52 +17,86 @@
   }
 
   body {
-    background-color: #2A1830;
+    background-color: #2a1830;
     background-image:
-      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(107, 74, 135, 0.22), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 90% 10%, rgba(232, 169, 194, 0.08), transparent 50%);
+      radial-gradient(
+        ellipse 80% 50% at 20% 0%,
+        rgba(107, 74, 135, 0.22),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 90% 10%,
+        rgba(232, 169, 194, 0.08),
+        transparent 50%
+      );
     background-attachment: fixed;
-    color: #F8F6FB;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #f8f6fb;
+    font-family: "Plus Jakarta Sans", sans-serif;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-heading {
-    font-family: 'Space Grotesk', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .font-mono-accent {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
   }
 }
 
 /* Custom noise grain background */
 .bg-noise {
-  background-image: radial-gradient(rgba(232, 169, 194, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(
+    rgba(232, 169, 194, 0.04) 1px,
+    transparent 0
+  );
   background-size: 28px 28px;
 }
 
 /* Ambient gradient mesh */
 .ambient-gradient-glow {
-  background: radial-gradient(circle at 50% 40%, rgba(107, 74, 135, 0.35) 0%, rgba(42, 24, 48, 0.8) 55%, rgba(30, 16, 36, 1) 100%);
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(107, 74, 135, 0.35) 0%,
+    rgba(42, 24, 48, 0.8) 55%,
+    rgba(30, 16, 36, 1) 100%
+  );
 }
 
-/* Color-rhythm surface utilities — break single-plum panels */
+/* Color-rhythm surface utilities  break single-plum panels */
 .surface-ink {
-  background: linear-gradient(165deg, rgba(22, 10, 28, 0.95), rgba(30, 16, 36, 0.92));
+  background: linear-gradient(
+    165deg,
+    rgba(22, 10, 28, 0.95),
+    rgba(30, 16, 36, 0.92)
+  );
   border-color: rgba(185, 166, 209, 0.28);
 }
 
 .surface-lilac-mist {
-  background: linear-gradient(165deg, rgba(42, 24, 48, 0.9), rgba(231, 225, 240, 0.06));
+  background: linear-gradient(
+    165deg,
+    rgba(42, 24, 48, 0.9),
+    rgba(231, 225, 240, 0.06)
+  );
   border-color: rgba(231, 225, 240, 0.22);
 }
 
 .surface-pink-wash {
-  background: linear-gradient(165deg, rgba(42, 24, 48, 0.92), rgba(232, 169, 194, 0.08));
+  background: linear-gradient(
+    165deg,
+    rgba(42, 24, 48, 0.92),
+    rgba(232, 169, 194, 0.08)
+  );
   border-color: rgba(232, 169, 194, 0.32);
 }
 
@@ -79,14 +113,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1E1024;
+  background: #1e1024;
 }
 ::-webkit-scrollbar-thumb {
-  background: #6B4A87;
+  background: #6b4a87;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B9A6D1;
+  background: #b9a6d1;
 }
 
 /* For custom cursor support */
@@ -106,7 +140,8 @@
 
 /* Subtle keyframe animations */
 @keyframes subtle-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
@@ -128,7 +163,8 @@
 }
 
 @keyframes pulse-soft {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.75;
     transform: scale(1);
     box-shadow: 0 0 12px rgba(232, 169, 194, 0.55);

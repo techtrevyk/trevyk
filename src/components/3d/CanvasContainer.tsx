@@ -78,12 +78,14 @@ export const CanvasContainer: React.FC<CanvasContainerProps> = ({
           near: 0.1,
           far: 100,
         }}
-        dpr={Math.min(window.devicePixelRatio, 2)}
+        dpr={Math.min(window.devicePixelRatio, isMobile ? 1.25 : 1.5)}
         gl={{
-          antialias: true,
+          antialias: !isMobile,
           alpha: true,
           powerPreference: 'high-performance',
+          stencil: false,
         }}
+        frameloop={reducedMotion ? 'demand' : 'always'}
       >
         <Suspense fallback={null}>
           {/* Brighter lighting so cubes read clearly on dark plum bg */}

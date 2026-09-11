@@ -18,6 +18,7 @@ import { SEOManager } from './components/SEOManager';
 import { Analytics } from './components/Analytics';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
+import { RouteLoader } from './components/RouteLoader';
 
 // Multi-Page Views
 import { HomePage } from './pages/HomePage';
@@ -197,6 +198,8 @@ function MainAppContent() {
         onCubeHover={setHoveredCube}
         currentPath={location.pathname}
       />
+
+      <RouteLoader reducedMotion={settings.reducedMotion} />
 
       {/* 5. Persistent Multi-Page Navigation */}
       <Navbar

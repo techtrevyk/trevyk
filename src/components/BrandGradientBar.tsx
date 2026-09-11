@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface BrandGradientBarProps {
   /** Height in pixels (default 4px) */
@@ -18,12 +18,13 @@ interface BrandGradientBarProps {
 export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
   height = 5,
   pinnedTop = true,
-  className = '',
+  className = "",
   shimmer = true,
 }) => {
   const barStyle: React.CSSProperties = {
-    height: typeof height === 'number' ? `${height}px` : height,
-    background: 'linear-gradient(90deg, #2A1830 0%, #6B4A87 18%, #6B4A87 45%, #9E6B8E 68%, #C89B6C 82%, #E8A9C2 100%)',
+    height: typeof height === "number" ? `${height}px` : height,
+    background:
+      "linear-gradient(90deg, #2A1830 0%, #6B4A87 18%, #6B4A87 45%, #9E6B8E 68%, #C89B6C 82%, #E8A9C2 100%)",
   };
 
   if (pinnedTop) {
@@ -55,18 +56,22 @@ export const BrandGradientBar: React.FC<BrandGradientBarProps> = ({
 };
 
 /**
- * Reusable Divider Strip echoing the brand gradient — acts as a section bridge
+ * Reusable Divider Strip echoing the brand gradient  acts as a section bridge
  */
 export const BrandGradientDivider: React.FC<{
   className?: string;
   label?: string;
   reducedMotion?: boolean;
-}> = ({ className = "", label, reducedMotion = false }) => {
+  /** Tighter vertical padding for dense pages */
+  compact?: boolean;
+}> = ({ className = "", label, reducedMotion = false, compact = false }) => {
   return (
     <div
-      className={`relative py-10 sm:py-12 flex items-center justify-center ${className}`}
+      className={`relative flex items-center justify-center ${
+        compact ? "py-4 sm:py-5" : "py-10 sm:py-12"
+      } ${className}`}
     >
-      {/* Soft vertical pulse — ties sections into one scroll narrative */}
+      {/* Soft vertical pulse  ties sections into one scroll narrative */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 opacity-50"
         style={{
@@ -88,20 +93,14 @@ export const BrandGradientDivider: React.FC<{
           )}
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <span
-            className="w-1 h-1 rounded-full bg-[#B9A6D1]/60"
-            aria-hidden
-          />
+          <span className="w-1 h-1 rounded-full bg-[#B9A6D1]/60" aria-hidden />
           <span
             className={`w-2.5 h-2.5 rounded-full bg-[#E8A9C2] shadow-[0_0_16px_rgba(232,169,194,0.85)] ${
               reducedMotion ? "" : "animate-pulse-soft"
             }`}
             aria-hidden
           />
-          <span
-            className="w-1 h-1 rounded-full bg-[#E7E1F0]/50"
-            aria-hidden
-          />
+          <span className="w-1 h-1 rounded-full bg-[#E7E1F0]/50" aria-hidden />
         </div>
         {label ? (
           <span className="font-mono-accent text-[10px] tracking-[0.28em] uppercase text-[#E8A9C2]/80 shrink-0">

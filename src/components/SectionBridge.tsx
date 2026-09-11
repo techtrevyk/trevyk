@@ -9,12 +9,14 @@ interface SectionBridgeProps {
   stream?: boolean;
   reducedMotion?: boolean;
   className?: string;
-  /** Visual tone — soft for dark pages, lilac for light rhythm */
+  /** Visual tone  soft for dark pages, lilac for light rhythm */
   tone?: "dark" | "lilac" | "pink";
+  /** Slim bridge  divider only (or short stream) for home gap diet */
+  compact?: boolean;
 }
 
 /**
- * Section connector — dual energy paths + labeled brand divider.
+ * Section connector  dual energy paths + labeled brand divider.
  */
 export const SectionBridge: React.FC<SectionBridgeProps> = ({
   label,
@@ -22,6 +24,7 @@ export const SectionBridge: React.FC<SectionBridgeProps> = ({
   reducedMotion = false,
   className = "",
   tone = "dark",
+  compact = false,
 }) => {
   const uid = useId().replace(/:/g, "");
   const gradId = `bridgeGrad-${uid}`;
@@ -35,9 +38,11 @@ export const SectionBridge: React.FC<SectionBridgeProps> = ({
         ? "bg-gradient-to-r from-[#6B4A87]/15 via-[#E8A9C2]/28 to-[#B9A6D1]/12"
         : "bg-gradient-to-r from-[#6B4A87]/22 via-[#B9A6D1]/28 to-[#E8A9C2]/22";
 
+  const showStream = stream && !compact;
+
   return (
     <div className={`relative ${className}`}>
-      {stream ? (
+      {showStream ? (
         <div
           className="relative w-full h-28 sm:h-36 flex items-center justify-center overflow-hidden pointer-events-none select-none"
           aria-hidden
@@ -164,7 +169,11 @@ export const SectionBridge: React.FC<SectionBridgeProps> = ({
         </div>
       ) : null}
 
-      <BrandGradientDivider label={label} reducedMotion={reducedMotion} />
+      <BrandGradientDivider
+        label={label}
+        reducedMotion={reducedMotion}
+        compact={compact}
+      />
     </div>
   );
 };

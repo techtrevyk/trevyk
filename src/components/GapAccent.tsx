@@ -11,7 +11,7 @@ interface GapAccentProps {
 }
 
 /**
- * Interactive gap filler — sits in empty layout columns / margins.
+ * Interactive gap filler  sits in empty layout columns / margins.
  * Pointer-friendly micro-scene that does not compete with primary copy.
  */
 export const GapAccent: React.FC<GapAccentProps> = ({
@@ -94,9 +94,7 @@ export const GapAccent: React.FC<GapAccentProps> = ({
                 marginLeft: i * 10,
               }}
               animate={
-                reducedMotion
-                  ? undefined
-                  : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
+                reducedMotion ? undefined : { y: [0, i % 2 === 0 ? -4 : 4, 0] }
               }
               transition={{
                 duration: 2.8 + i * 0.4,

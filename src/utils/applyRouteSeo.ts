@@ -181,7 +181,7 @@ export function applyRouteSeo(pathname: string) {
       operatingSystem: "Web",
       url: KIDUART_URL,
       description:
-        "Cloud school ERP and school management system for Indian schools — admissions, fees, attendance, exams, and parent communication.",
+        "Cloud school ERP and school management system for Indian schools  admissions, fees, attendance, exams, and parent communication.",
       offers: {
         "@type": "Offer",
         url: KIDUART_URL,

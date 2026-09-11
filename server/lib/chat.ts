@@ -13,7 +13,7 @@ Trevyk builds technology products and engineered digital solutions. Kiduart Scho
 
 Facts you may state:
 - Kiduart is a cloud school ERP / school management system for Indian schools (admissions through parent updates). Official product site: kiduart.com.
-- Architecture philosophy: modular "Core Block" thinking — separate domains so features can ship without rewriting everything.
+- Architecture philosophy: modular "Core Block" thinking  separate domains so features can ship without rewriting everything.
 - Security practices we actually discuss: RBAC, data export paths, audit trails, encryption at rest where configured. Do NOT claim SOC 2, ISO 27001, 99.99% uptime, sub-ms SLAs, or school-count metrics unless the user provides verified numbers.
 
 Style:
@@ -38,7 +38,7 @@ Kiduart journey (align with kiduart.com; do not invent modules not on the produc
 9. Hostel / library / related campus ops (as published)
 10. Staff / HR workflows (as published)
 11. Multi-campus reporting (as published)
-12. Transparent commercial conversation via demo — do not invent "48-hour onboarding guarantees" or fake pricing.
+12. Transparent commercial conversation via demo  do not invent "48-hour onboarding guarantees" or fake pricing.
 
 Trevyk also offers scoped custom IT: software builds, web/mobile, cloud/DevOps, design, advisory, practical security. Custom work includes source ownership. Reply cadence: within one business day. Contact: contact@trevyk.com; Kiduart support: support@kiduart.com, +91 92175 34128.
 
@@ -46,7 +46,7 @@ Honesty rules:
 - No fake testimonials, school counts, SOC 2/ISO badges, or 24/7 SRE theatre.
 - Prefer linking to kiduart.com / kiduart.com/about for product depth.
 
-Brand: TREVYK Technologies — "Turning Vision Into Progress." Official site: trevyk.in.`,
+Brand: TREVYK Technologies  "Turning Vision Into Progress." Official site: trevyk.in.`,
   },
   "quick-assistant": {
     roleName: "Trevyk Rapid Assistant",
@@ -61,7 +61,9 @@ Keep answers short and actionable.`,
 let aiClient: GoogleGenAI | null = null;
 
 /** Generative Language API expects AI Studio keys (usually AIza…). */
-export function describeGeminiKeyIssue(apiKey: string | undefined): string | null {
+export function describeGeminiKeyIssue(
+  apiKey: string | undefined,
+): string | null {
   if (!apiKey?.trim()) {
     return "GEMINI_API_KEY is missing. Add an AI Studio API key (usually starts with AIza) to .env and restart the server.";
   }

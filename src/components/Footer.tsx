@@ -91,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
               </p>
               <p className="mt-2.5 text-sm text-[#E7E1F0] leading-relaxed max-w-sm">
                 We design and ship technology products and engineered systems
-                that institutions and organisations can actually run — clear
+                that institutions and organisations can actually run clear
                 scope, honest claims, and progress you can measure.
               </p>
               <p className="mt-3 text-xs text-[#B9A6D1] leading-relaxed max-w-sm">
@@ -104,8 +104,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 >
                   Kiduart School ERP
                 </a>{" "}
-                for Indian schools — plus custom software when a product alone
-                is not enough.
+                for Indian schools plus custom software when a product alone is
+                not enough.
               </p>
             </div>
 
@@ -120,7 +120,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 href="https://kiduart.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackOutbound("https://kiduart.com", "footer_kiduart")}
+                onClick={() =>
+                  trackOutbound("https://kiduart.com", "footer_kiduart")
+                }
                 className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-[#1E1024] border border-[#B9A6D1]/40 text-xs font-mono-accent text-[#E7E1F0] hover:border-[#E8A9C2] hover:text-[#F8F6FB] transition-colors"
               >
                 <GraduationCap className="w-3.5 h-3.5 text-[#E8A9C2]" />

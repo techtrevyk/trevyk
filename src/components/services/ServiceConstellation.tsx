@@ -18,7 +18,7 @@ interface ServiceConstellationProps {
 }
 
 /**
- * Interactive catalogue constellation — click a node to filter services.
+ * Interactive catalogue constellation  click a node to filter services.
  * Fills the empty right rail beside the offerings grid.
  */
 export const ServiceConstellation: React.FC<ServiceConstellationProps> = ({
@@ -132,7 +132,9 @@ export const ServiceConstellation: React.FC<ServiceConstellationProps> = ({
           </span>
           <span
             className={`text-[8px] font-mono-accent uppercase tracking-wider ${
-              selectedCategory === "all" ? "text-[#F8F6FB]/90" : "text-[#B9A6D1]"
+              selectedCategory === "all"
+                ? "text-[#F8F6FB]/90"
+                : "text-[#B9A6D1]"
             }`}
           >
             All

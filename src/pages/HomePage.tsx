@@ -7,10 +7,8 @@ import { KiduartTeaser } from "../components/home/KiduartTeaser";
 import { ProcessTeaser } from "../components/home/ProcessTeaser";
 import { AboutTeaser } from "../components/home/AboutTeaser";
 import { ContactTeaser } from "../components/home/ContactTeaser";
+import { ProofStrip } from "../components/home/ProofStrip";
 import { SectionBridge } from "../components/SectionBridge";
-import { ProductProcessTransition } from "../components/ProductProcessTransition";
-import { ProcessStatsTransition } from "../components/ProcessStatsTransition";
-import { TestimonialsCtaTransition } from "../components/TestimonialsCtaTransition";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 
 interface HomePageProps {
@@ -39,9 +37,9 @@ export const HomePage: React.FC<HomePageProps> = ({
       <PageAtmosphere
         variant="home"
         bands={[
-          { top: "18%", height: "12%", tone: "pink" },
-          { top: "42%", height: "14%", tone: "ink" },
-          { top: "68%", height: "12%", tone: "lilac" },
+          { top: "18%", height: "10%", tone: "pink" },
+          { top: "48%", height: "10%", tone: "ink" },
+          { top: "72%", height: "10%", tone: "lilac" },
         ]}
       />
 
@@ -56,6 +54,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <SectionBridge
         label="Capabilities"
+        compact
+        stream={false}
         reducedMotion={quiet}
         tone="pink"
       />
@@ -64,6 +64,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <SectionBridge
         label="Architecture"
+        compact
+        stream={false}
         reducedMotion={quiet}
         tone="dark"
       />
@@ -77,29 +79,42 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <SectionBridge
         label="Flagship product"
+        compact
+        stream={false}
         reducedMotion={quiet}
         tone="lilac"
       />
 
       <KiduartTeaser settings={settings} />
 
-      <ProductProcessTransition
-        scrollProgress={scrollProgress}
+      <SectionBridge
+        label="Delivery"
+        compact
+        stream={false}
         reducedMotion={quiet}
+        tone="dark"
       />
 
       <ProcessTeaser settings={settings} />
 
-      <ProcessStatsTransition
-        scrollProgress={scrollProgress}
+      <SectionBridge
+        label="Company"
+        compact
+        stream={false}
         reducedMotion={quiet}
+        tone="pink"
       />
 
       <AboutTeaser settings={settings} />
 
-      <TestimonialsCtaTransition
-        scrollProgress={scrollProgress}
+      <ProofStrip settings={settings} />
+
+      <SectionBridge
+        label="Engage"
+        compact
+        stream={false}
         reducedMotion={quiet}
+        tone="lilac"
       />
 
       <ContactTeaser settings={settings} onOpenGeminiChat={onOpenGeminiChat} />

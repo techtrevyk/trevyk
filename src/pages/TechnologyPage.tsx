@@ -19,7 +19,7 @@ import { ARCHITECTURE_CUBES } from "../data/architecture";
 import { CAPABILITIES_DATA } from "../data/capabilities";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
-import { GapAccent } from "../components/GapAccent";
+import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
@@ -35,7 +35,7 @@ interface TechnologyPageProps {
 const ENGINEERING_PRINCIPLES = [
   {
     title: "Modular by default",
-    body: "Separate domains so a fees change does not force an attendance rewrite — the same idea behind our Core Block metaphor.",
+    body: "Separate domains so a fees change does not force an attendance rewrite  the same idea behind our Core Block metaphor.",
     icon: Boxes,
   },
   {
@@ -45,12 +45,12 @@ const ENGINEERING_PRINCIPLES = [
   },
   {
     title: "Observable in production",
-    body: "Logging, error paths, and audit trails where sensitive actions happen — so support can answer what changed, and when.",
+    body: "Logging, error paths, and audit trails where sensitive actions happen  so support can answer what changed, and when.",
     icon: Eye,
   },
   {
     title: "Honest security claims",
-    body: "RBAC, encryption where configured, export paths — published as shipped controls, not borrowed certification badges.",
+    body: "RBAC, encryption where configured, export paths  published as shipped controls, not borrowed certification badges.",
     icon: ShieldCheck,
   },
 ];
@@ -101,7 +101,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
   return (
     <div
       id="technology-page"
-      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+      className="relative w-full min-h-screen pt-36 sm:pt-44 pb-28 overflow-hidden"
     >
       <PageAtmosphere
         variant="technology"
@@ -130,7 +130,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               </h1>
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-                A practical map of Trevyk’s engineering approach — the tools we
+                A practical map of Trevyk’s engineering approach the tools we
                 reach for, the modular architecture behind products like{" "}
                 <Link
                   to="/kiduart"
@@ -143,9 +143,10 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             </div>
 
             <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
-              <GapAccent
-                variant="modules"
+              <WowAccent
+                kind="layers"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-44"
                 caption="Layered stack"
               />
               <div className="text-right">
@@ -199,9 +200,10 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
         />
 
         <div className="mt-2 mb-8 hidden lg:flex justify-end pr-6">
-          <GapAccent
-            variant="nodes"
+          <WowAccent
+            kind="pipeline"
             reducedMotion={settings.reducedMotion}
+            className="w-48 h-40"
             caption="In → core → out"
           />
         </div>
@@ -218,7 +220,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             </h2>
             <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
               Filter by layer. Each card explains where the tool fits in real
-              product and custom delivery — not a buzzword wall.
+              product and custom delivery not a buzzword wall.
             </p>
           </div>
 
@@ -584,11 +586,11 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               <span>SECURITY PRACTICES</span>
             </div>
             <h2 className="font-heading font-bold text-2xl sm:text-3xl text-[#F8F6FB]">
-              Controls we ship — not badges we borrow
+              Controls we ship not badges we borrow
             </h2>
             <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
-              The same honesty standard as Kiduart: publish what exists. Anything
-              not audited stays unpublished.
+              The same honesty standard as Kiduart: publish what exists.
+              Anything not audited stays unpublished.
             </p>
           </div>
 
@@ -597,7 +599,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               {
                 icon: ShieldCheck,
                 title: "Role-based access",
-                body: "Each role sees only the work it needs — teachers, accountants, leadership, parents.",
+                body: "Each role sees only the work it needs  teachers, accountants, leadership, parents.",
               },
               {
                 icon: Lock,
@@ -607,7 +609,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
               {
                 icon: Globe2,
                 title: "Data export",
-                body: "School data can leave with the school — CSV, Excel, or PDF on request.",
+                body: "School data can leave with the school  CSV, Excel, or PDF on request.",
               },
               {
                 icon: Server,
@@ -659,7 +661,7 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
                 Need a stack recommendation for your build?
               </h3>
               <p className="text-sm text-[#B9A6D1] mt-2 max-w-xl leading-relaxed">
-                Walk through architecture tradeoffs for your scale — or see how
+                Walk through architecture tradeoffs for your scale or see how
                 the same modular thinking powers Kiduart.
               </p>
             </div>

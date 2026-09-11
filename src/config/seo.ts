@@ -20,15 +20,14 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/services": {
     title: "Products & IT Services | TREVYK Technologies",
     description:
-      "From Kiduart School ERP to custom software, web and mobile, cloud, design, and advisory — scoped for real operational outcomes.",
+      "From Kiduart School ERP to custom software, web and mobile, cloud, design, and advisory  scoped for real operational outcomes.",
     crumb: "Services",
-    keywords:
-      "IT services, custom software, school ERP, cloud DevOps, Trevyk",
+    keywords: "IT services, custom software, school ERP, cloud DevOps, Trevyk",
   },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
     description:
-      "How Trevyk designs maintainable systems — capability atlas, modular architecture tiers, and security practices we actually ship.",
+      "How Trevyk designs maintainable systems  capability atlas, modular architecture tiers, and security practices we actually ship.",
     crumb: "Technology",
     keywords:
       "software architecture, modular systems, engineering stack, Trevyk",
@@ -36,22 +35,21 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/kiduart": {
     title: "Kiduart School ERP | TREVYK Technologies",
     description:
-      "Kiduart is Trevyk’s school ERP for the Indian school year — admissions to parent updates. Explore modules, then book a demo on kiduart.com.",
+      "Kiduart is Trevyk’s school ERP for the Indian school year  admissions to parent updates. Explore modules, then book a demo on kiduart.com.",
     crumb: "Kiduart",
-    keywords:
-      "Kiduart, school ERP, school management system, Indian schools",
+    keywords: "Kiduart, school ERP, school management system, Indian schools",
   },
   "/process": {
     title: "How We Deliver | TREVYK Technologies",
     description:
-      "A clear five-stage delivery process — listen, plan, build in slices, launch carefully, then support. No invented SLA theatre.",
+      "A clear five-stage delivery process  listen, plan, build in slices, launch carefully, then support. No invented SLA theatre.",
     crumb: "Process",
     keywords: "software delivery process, scoped builds, Trevyk engineering",
   },
   "/about": {
     title: "About Trevyk Technologies",
     description:
-      "Trevyk Technologies — Noida, India. A product and engineering company building software institutions and organizations can run on.",
+      "Trevyk Technologies  Noida, India. A product and engineering company building software institutions and organizations can run on.",
     crumb: "About",
     keywords: "About Trevyk, Noida tech company, Turning Vision Into Progress",
   },

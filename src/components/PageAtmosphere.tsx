@@ -21,7 +21,7 @@ interface PageAtmosphereProps {
   variant: AtmosphereVariant;
   /** Mid-page lilac light band (legacy) */
   lightBand?: { top: string; height: string };
-  /** Extra color-rhythm bands — ink / lilac / pink to break flat plum */
+  /** Extra color-rhythm bands  ink / lilac / pink to break flat plum */
   bands?: RhythmBand[];
 }
 
@@ -46,7 +46,8 @@ const VARIANT_GLOWS: Record<
     bottom:
       "radial-gradient(ellipse 50% 35% at 50% 95%, rgba(185,166,209,0.14), transparent 60%)",
     wash: "linear-gradient(180deg, #1A0D20 0%, #2A1830 28%, #241428 55%, #2A1830 78%, #1E1024 100%)",
-    accent: "linear-gradient(90deg, transparent, rgba(232,169,194,0.06), transparent)",
+    accent:
+      "linear-gradient(90deg, transparent, rgba(232,169,194,0.06), transparent)",
   },
   technology: {
     left: "radial-gradient(ellipse 50% 42% at 8% 20%, rgba(107,74,135,0.36), transparent 58%)",
@@ -55,7 +56,8 @@ const VARIANT_GLOWS: Record<
     bottom:
       "radial-gradient(ellipse 40% 30% at 70% 88%, rgba(232,169,194,0.12), transparent 55%)",
     wash: "linear-gradient(180deg, #160A1C 0%, #1E1024 30%, #2A1830 58%, #241428 82%, #1A0D20 100%)",
-    accent: "linear-gradient(115deg, transparent 40%, rgba(185,166,209,0.08) 50%, transparent 60%)",
+    accent:
+      "linear-gradient(115deg, transparent 40%, rgba(185,166,209,0.08) 50%, transparent 60%)",
   },
   kiduart: {
     left: "radial-gradient(ellipse 52% 40% at 10% 16%, rgba(107,74,135,0.3), transparent 58%)",
@@ -64,7 +66,8 @@ const VARIANT_GLOWS: Record<
     bottom:
       "radial-gradient(ellipse 60% 40% at 40% 100%, rgba(231,225,240,0.1), transparent 55%)",
     wash: "linear-gradient(180deg, #1E1024 0%, #2A1830 26%, #2E1A36 52%, #241428 78%, #1E1024 100%)",
-    accent: "linear-gradient(180deg, transparent, rgba(231,225,240,0.05), transparent)",
+    accent:
+      "linear-gradient(180deg, transparent, rgba(231,225,240,0.05), transparent)",
   },
   process: {
     left: "radial-gradient(ellipse 48% 40% at 14% 22%, rgba(107,74,135,0.32), transparent 58%)",
@@ -73,7 +76,8 @@ const VARIANT_GLOWS: Record<
     bottom:
       "radial-gradient(ellipse 45% 32% at 55% 92%, rgba(232,169,194,0.12), transparent 55%)",
     wash: "linear-gradient(180deg, #1A0D20 0%, #241428 34%, #2A1830 62%, #1E1024 100%)",
-    accent: "linear-gradient(90deg, rgba(107,74,135,0.08), transparent 40%, rgba(232,169,194,0.07))",
+    accent:
+      "linear-gradient(90deg, rgba(107,74,135,0.08), transparent 40%, rgba(232,169,194,0.07))",
   },
   about: {
     left: "radial-gradient(ellipse 55% 42% at 12% 14%, rgba(107,74,135,0.34), transparent 58%)",
@@ -82,7 +86,8 @@ const VARIANT_GLOWS: Record<
     bottom:
       "radial-gradient(ellipse 50% 30% at 30% 90%, rgba(185,166,209,0.12), transparent 55%)",
     wash: "linear-gradient(180deg, #160A1C 0%, #2A1830 32%, #241428 68%, #1E1024 100%)",
-    accent: "linear-gradient(125deg, transparent 30%, rgba(231,225,240,0.07) 50%, transparent 70%)",
+    accent:
+      "linear-gradient(125deg, transparent 30%, rgba(231,225,240,0.07) 50%, transparent 70%)",
   },
   contact: {
     left: "radial-gradient(ellipse 50% 40% at 10% 18%, rgba(107,74,135,0.3), transparent 58%)",
@@ -103,7 +108,7 @@ const BAND_FILL: Record<RhythmBandTone, string> = {
 };
 
 /**
- * Shared page-depth atmosphere — layered washes, mesh, orbs,
+ * Shared page-depth atmosphere  layered washes, mesh, orbs,
  * and multi-tone rhythm bands so pages never read as flat plum.
  */
 export const PageAtmosphere: React.FC<PageAtmosphereProps> = ({
@@ -130,7 +135,7 @@ export const PageAtmosphere: React.FC<PageAtmosphereProps> = ({
       ) : null}
       <div className="absolute inset-0" style={{ background: g.accent }} />
 
-      {/* Soft mesh grid — fades on the right so 3D companion stays clear */}
+      {/* Soft mesh grid  fades on the right so 3D companion stays clear */}
       <div
         className="absolute inset-0 opacity-[0.05]"
         style={{
@@ -142,7 +147,7 @@ export const PageAtmosphere: React.FC<PageAtmosphereProps> = ({
         }}
       />
 
-      {/* Diagonal sheen — breaks flat color */}
+      {/* Diagonal sheen  breaks flat color */}
       <div
         className="absolute inset-0 opacity-[0.08]"
         style={{
@@ -185,7 +190,7 @@ export const PageAtmosphere: React.FC<PageAtmosphereProps> = ({
         />
       ))}
 
-      {/* Corner frames — continuity with home hero */}
+      {/* Corner frames  continuity with home hero */}
       <div className="absolute top-24 left-4 sm:left-8 w-8 h-8 border-l border-t border-[#E8A9C2]/35" />
       <div className="absolute top-24 right-4 sm:right-10 w-8 h-8 border-r border-t border-[#B9A6D1]/30" />
       <div className="absolute bottom-10 left-4 sm:left-8 w-8 h-8 border-l border-b border-[#B9A6D1]/25" />

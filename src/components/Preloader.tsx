@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { TrevykLogo } from './TrevykLogo';
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { TrevykLogo } from "./TrevykLogo";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -8,13 +8,18 @@ interface PreloaderProps {
 }
 
 /**
- * Preloader must not restart when parent re-renders (e.g. mouse move updating App state).
- * onComplete is read via ref so the progress interval stays stable until 100%.
+ * Cinematic brand boot  assembling architecture core + wipe exit.
+ * Timing is intentional (not instant) so the first impression feels premium.
  */
-export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion = false }) => {
+export const Preloader: React.FC<PreloaderProps> = ({
+  onComplete,
+  reducedMotion = false,
+}) => {
   const [progress, setProgress] = useState(0);
-  const [statusText, setStatusText] = useState('LOADING');
-  const [isLeaving, setIsLeaving] = useState(false);
+  const [phase, setPhase] = useState<"boot" | "assemble" | "ready" | "wipe">(
+    "boot",
+  );
+  const [visible, setVisible] = useState(true);
   const onCompleteRef = useRef(onComplete);
   const finishedRef = useRef(false);
 
@@ -24,114 +29,167 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete, reducedMotion 
 
   useEffect(() => {
     if (reducedMotion) {
-      const timer = setTimeout(() => {
+      const t = setTimeout(() => {
         if (!finishedRef.current) {
           finishedRef.current = true;
           onCompleteRef.current();
         }
-      }, 400);
-      return () => clearTimeout(timer);
+      }, 500);
+      return () => clearTimeout(t);
     }
 
-    let currentProgress = 0;
+    let current = 0;
     let leaveTimer: ReturnType<typeof setTimeout> | undefined;
-    let completeTimer: ReturnType<typeof setTimeout> | undefined;
+    let doneTimer: ReturnType<typeof setTimeout> | undefined;
 
     const interval = setInterval(() => {
       if (finishedRef.current) return;
+      const step = current < 30 ? 2 : current < 70 ? 1.5 : 2.2;
+      current = Math.min(current + step, 100);
+      setProgress(Math.floor(current));
 
-      const step = currentProgress < 40 ? 4 : currentProgress < 75 ? 3 : 5;
-      currentProgress = Math.min(currentProgress + step, 100);
-      setProgress(currentProgress);
+      if (current < 25) setPhase("boot");
+      else if (current < 85) setPhase("assemble");
+      else setPhase("ready");
 
-      if (currentProgress < 40) {
-        setStatusText('PREPARING');
-      } else if (currentProgress < 75) {
-        setStatusText('LOADING BRAND');
-      } else {
-        setStatusText('READY');
-      }
-
-      if (currentProgress >= 100) {
+      if (current >= 100) {
         clearInterval(interval);
+        setPhase("wipe");
         leaveTimer = setTimeout(() => {
-          setIsLeaving(true);
-          completeTimer = setTimeout(() => {
+          setVisible(false);
+          doneTimer = setTimeout(() => {
             if (!finishedRef.current) {
               finishedRef.current = true;
               onCompleteRef.current();
             }
-          }, 500);
-        }, 250);
+          }, 700);
+        }, 420);
       }
-    }, 35);
+    }, 48);
 
     return () => {
       clearInterval(interval);
       if (leaveTimer) clearTimeout(leaveTimer);
-      if (completeTimer) clearTimeout(completeTimer);
+      if (doneTimer) clearTimeout(doneTimer);
     };
-    // Intentionally mount-once for the progress run (reducedMotion only restarts)
   }, [reducedMotion]);
 
   if (reducedMotion) {
     return (
-      <div
-        id="preloader-reduced"
-        className="fixed inset-0 z-50 bg-[#2A1830] flex items-center justify-center text-[#F8F6FB]"
-      >
-        <TrevykLogo layout="horizontal" size="lg" showTagline={true} />
+      <div className="fixed inset-0 z-[999] bg-[#2A1830] flex items-center justify-center">
+        <TrevykLogo layout="horizontal" size="lg" showTagline />
       </div>
     );
   }
 
+  const statuses = {
+    boot: "INITIALIZING CORE",
+    assemble: "ASSEMBLING MODULES",
+    ready: "SYSTEM READY",
+    wipe: "ENTERING TREVYK",
+  };
+
   return (
     <AnimatePresence>
-      <motion.div
-        id="preloader-overlay"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: isLeaving ? 0 : 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-0 z-[999] bg-[#2A1830] flex flex-col items-center justify-center overflow-hidden select-none pointer-events-none"
-        aria-busy="true"
-        aria-live="polite"
-      >
-        <div className="absolute w-[520px] h-[520px] rounded-full bg-gradient-to-tr from-[#B9A6D1]/35 via-[#E8A9C2]/15 to-transparent blur-3xl pointer-events-none" />
-
+      {visible && (
         <motion.div
-          initial={{ opacity: 0, y: 8, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 px-6"
+          id="preloader-overlay"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-[999] bg-[#160A1C] flex flex-col items-center justify-center overflow-hidden select-none"
+          aria-busy="true"
+          aria-live="polite"
         >
-          <TrevykLogo layout="horizontal" size="xl" showTagline={false} />
-        </motion.div>
+          {/* Atmosphere */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(107,74,135,0.35),transparent_65%)]" />
+          <div className="absolute inset-0 bg-noise opacity-30" />
 
-        <div className="relative z-10 flex flex-col items-center mt-8">
-          <p className="text-[11px] sm:text-xs text-[#B9A6D1] font-sans text-center max-w-xs">
-            Turning Vision Into Progress.
-          </p>
-
-          <div className="mt-5 flex items-center space-x-3 text-xs tracking-wider text-[#B9A6D1]">
-            <span className="font-mono-accent font-semibold text-sm text-[#F8F6FB]">
-              {String(progress).padStart(2, '0')}%
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6B4A87] animate-ping" />
-            <span className="font-mono-accent uppercase tracking-widest text-[10px] sm:text-[11px] opacity-80">
-              {statusText}
-            </span>
-          </div>
-
-          <div className="w-56 h-[2px] bg-[#1E1024] mt-3 rounded-full overflow-hidden border border-[#6B4A87]/15">
+          {/* Assembling core  CSS isometric cubes (no WebGL on boot) */}
+          <div className="relative z-10 w-40 h-40 sm:w-48 sm:h-48 mb-10">
+            {[
+              { x: -28, y: -36, delay: 0, c: "#E8A9C2" },
+              { x: 28, y: -36, delay: 0.12, c: "#C4B0E0" },
+              { x: 0, y: -6, delay: 0.22, c: "#8B6BA8" },
+              { x: 0, y: 24, delay: 0.32, c: "#6B4A87" },
+              { x: 0, y: 54, delay: 0.42, c: "#B9A6D1" },
+            ].map((cube, i) => (
+              <motion.div
+                key={i}
+                className="absolute left-1/2 top-1/2 w-11 h-11 sm:w-12 sm:h-12 -ml-[22px] -mt-[22px] sm:-ml-6 sm:-mt-6 rounded-md border border-white/20 shadow-[0_0_24px_rgba(232,169,194,0.25)]"
+                style={{
+                  background: `linear-gradient(145deg, ${cube.c}, #2A1830)`,
+                }}
+                initial={{
+                  opacity: 0,
+                  x: cube.x * 2.2,
+                  y: cube.y * 2.2,
+                  rotate: 25,
+                  scale: 0.4,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: cube.x,
+                  y: cube.y,
+                  rotate: phase === "wipe" ? 8 : 12,
+                  scale: phase === "ready" || phase === "wipe" ? 1.05 : 1,
+                }}
+                transition={{
+                  duration: 0.9,
+                  delay: cube.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              />
+            ))}
             <motion.div
-              className="h-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
-              style={{ width: `${progress}%` }}
-              transition={{ ease: 'linear' }}
+              className="absolute inset-6 rounded-full border border-dashed border-[#E8A9C2]/30"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
             />
           </div>
-        </div>
-      </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+            className="relative z-10"
+          >
+            <TrevykLogo layout="horizontal" size="lg" showTagline={false} />
+          </motion.div>
+
+          <p className="relative z-10 mt-4 text-[11px] sm:text-xs text-[#B9A6D1] font-mono-accent tracking-[0.28em] uppercase">
+            Turning Vision Into Progress
+          </p>
+
+          <div className="relative z-10 mt-8 w-56 sm:w-72">
+            <div className="h-[3px] rounded-full bg-[#2A1830] overflow-hidden border border-[#6B4A87]/40">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between text-[10px] font-mono-accent tracking-wider text-[#B9A6D1]">
+              <span className="text-[#E8A9C2]">{statuses[phase]}</span>
+              <span className="text-[#F8F6FB]">
+                {String(progress).padStart(2, "0")}%
+              </span>
+            </div>
+          </div>
+
+          {/* Brand wipe curtain */}
+          <AnimatePresence>
+            {phase === "wipe" && (
+              <motion.div
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.55, ease: [0.65, 0, 0.35, 1] }}
+                className="absolute inset-0 z-20 origin-bottom bg-gradient-to-t from-[#2A1830] via-[#6B4A87] to-[#E8A9C2]"
+              />
+            )}
+          </AnimatePresence>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 };

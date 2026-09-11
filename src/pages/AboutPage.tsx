@@ -16,7 +16,7 @@ import { SiteSettings } from "../types";
 import { TrevykLogo } from "../components/TrevykLogo";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
-import { GapAccent } from "../components/GapAccent";
+import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
@@ -31,19 +31,19 @@ const CORE_VALUES = [
   {
     title: "Publish only what exists",
     tagline: "Honest claims",
-    desc: "We describe capabilities that are built and shippable. Anything still in development is labelled clearly — not billed as live. Same charter our Kiduart product team holds publicly.",
+    desc: "We describe capabilities that are built and shippable. Anything still in development is labelled clearly  not billed as live. Same charter our Kiduart product team holds publicly.",
     icon: ShieldCheck,
   },
   {
     title: "Support that stays close",
     tagline: "Accountable team",
-    desc: "Demos, onboarding, and support run with the people who ship the product. No invented 24/7 SLA theatre — we reply within one business day and stay accountable.",
+    desc: "Demos, onboarding, and support run with the people who ship the product. No invented 24/7 SLA theatre  we reply within one business day and stay accountable.",
     icon: HeartHandshake,
   },
   {
     title: "Partnership for progress",
     tagline: "Product + engineering",
-    desc: "Trevyk builds platforms like Kiduart and delivers custom software when a product alone is not enough — for schools, organizations, and teams that need systems they can own.",
+    desc: "Trevyk builds platforms like Kiduart and delivers custom software when a product alone is not enough  for schools, organizations, and teams that need systems they can own.",
     icon: TrendingUp,
   },
 ];
@@ -57,7 +57,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   return (
     <div
       id="about-page"
-      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+      className="relative w-full min-h-screen pt-36 sm:pt-44 pb-28 overflow-hidden"
     >
       <PageAtmosphere
         variant="about"
@@ -86,7 +86,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
                 Trevyk Technologies designs and delivers technology products and
-                engineered solutions — including{" "}
+                engineered solutions including{" "}
                 <a
                   href="https://kiduart.com"
                   target="_blank"
@@ -161,7 +161,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   </div>
                   <p className="text-xs text-[#B9A6D1] leading-relaxed">
                     Individual team profiles will be published when ready. Until
-                    then we keep this page honest — brand, product, and how to
+                    then we keep this page honest brand, product, and how to
                     reach us.
                   </p>
                 </div>
@@ -187,14 +187,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 The same honesty we publish on Kiduart
               </h2>
               <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed">
-                Company standards match the product charter — trust first, polish
+                Company standards match the product charter trust first, polish
                 second.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex justify-end">
-              <GapAccent
-                variant="pulse"
+              <WowAccent
+                kind="brand"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-48"
                 caption="Signal locked"
               />
             </div>
@@ -277,7 +278,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Products for schools. Engineering for teams that need more.
               </h3>
               <p className="text-sm text-[#B9A6D1] leading-relaxed">
-                Our flagship product is Kiduart School ERP — admissions through
+                Our flagship product is Kiduart School ERP admissions through
                 parent updates in one system. Alongside it, Trevyk delivers
                 custom software, web/mobile apps, and cloud work when an
                 institution needs something beyond the product surface.
@@ -287,7 +288,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <strong className="text-[#E8A9C2] block mb-0.5">
                     Product
                   </strong>
-                  Kiduart for schools and trusts —{" "}
+                  Kiduart for schools and trusts{" "}
                   <a
                     href="https://kiduart.com"
                     target="_blank"
@@ -334,7 +335,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Ready to talk product or a custom build?
               </h4>
               <p className="text-xs text-[#B9A6D1] mt-1">
-                Kiduart demos and Trevyk service requests — one contact path,
+                Kiduart demos and Trevyk service requests one contact path,
                 honest timelines.
               </p>
             </div>

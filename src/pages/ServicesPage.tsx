@@ -7,7 +7,7 @@ import { ServiceDetailModal } from "../components/ServiceDetailModal";
 import { ServiceConstellation } from "../components/services/ServiceConstellation";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
-import { GapAccent } from "../components/GapAccent";
+import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
@@ -55,7 +55,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   return (
     <div
       id="services-page"
-      className="relative w-full min-h-screen pt-28 sm:pt-36 pb-28 overflow-hidden"
+      className="relative w-full min-h-screen pt-36 sm:pt-44 pb-28 overflow-hidden"
     >
       <PageAtmosphere
         variant="services"
@@ -85,7 +85,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
                 From Kiduart School ERP to custom platforms, cloud, design, and
-                advisory — each engagement starts with a clear problem and a
+                advisory each engagement starts with a clear problem and a
                 delivery path your team can follow.
               </p>
             </div>
@@ -112,10 +112,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                         offerings · scoped honestly
                       </div>
                     </div>
-                    <GapAccent
-                      variant="pulse"
+                    <WowAccent
+                      kind="beacon"
                       reducedMotion={settings.reducedMotion}
-                      className="scale-75 origin-bottom-right -mb-2"
+                      className="w-36 h-36 scale-90 origin-bottom-right -mb-2"
+                      caption="Engage signal"
                     />
                   </div>
                 </div>
@@ -168,10 +169,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         />
 
         {/* Engagement + nodes filler */}
-        <ScrollReveal
-          className="mt-2"
-          reducedMotion={settings.reducedMotion}
-        >
+        <ScrollReveal className="mt-2" reducedMotion={settings.reducedMotion}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             <div className="lg:col-span-8 relative rounded-2xl overflow-hidden border border-[#B9A6D1]/35 surface-lilac-mist p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
               <div
@@ -218,9 +216,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
             </div>
             <div className="lg:col-span-4 hidden lg:flex items-center justify-center rounded-2xl border border-[#B9A6D1]/30 surface-pink-wash p-4">
-              <GapAccent
-                variant="nodes"
+              <WowAccent
+                kind="pipeline"
                 reducedMotion={settings.reducedMotion}
+                className="w-48 h-44"
                 caption="Problem → build → handoff"
               />
             </div>
@@ -324,10 +323,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 />
               </div>
               <div className="rounded-2xl border border-[#B9A6D1]/30 surface-lilac-mist p-4 flex justify-center">
-                <GapAccent
-                  variant="orbit"
+                <WowAccent
+                  kind="lattice"
                   reducedMotion={settings.reducedMotion}
-                  caption="Live mesh · persistent 3D behind"
+                  className="w-48 h-48"
+                  caption="Capability lattice"
                 />
               </div>
               <div className="rounded-2xl border border-[#E8A9C2]/30 surface-pink-wash p-4 text-xs text-[#B9A6D1] leading-relaxed">
@@ -335,7 +335,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   Tip
                 </div>
                 Click a constellation node or a chip above to focus the
-                catalogue. Hover a card to spotlight it — open details for the
+                catalogue. Hover a card to spotlight it open details for the
                 full scope.
               </div>
             </div>
@@ -381,8 +381,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                 Pick the lane that matches the problem
               </h2>
               <p className="mt-3 text-sm text-[#B9A6D1] leading-relaxed max-w-xl">
-                Product demos for Kiduart, scoped custom builds, or advisory —
-                we reply within one business day.
+                Product demos for Kiduart, scoped custom builds, or advisory we
+                reply within one business day.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -417,9 +417,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
             <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-4">
               <div className="hidden lg:block w-full">
-                <GapAccent
-                  variant="modules"
+                <WowAccent
+                  kind="layers"
                   reducedMotion={settings.reducedMotion}
+                  className="w-48 h-44"
                   caption="Engagement stack"
                 />
               </div>

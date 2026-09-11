@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Menu, 
-  X, 
-  Layers, 
-  GraduationCap, 
-  Cpu, 
-  Sparkles, 
-  EyeOff, 
+import React, { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Menu,
+  X,
+  Layers,
+  GraduationCap,
+  Cpu,
+  Sparkles,
+  EyeOff,
   Eye,
   Volume2,
   VolumeX,
@@ -18,12 +18,12 @@ import {
   MessageSquareQuote,
   Mail,
   ChevronRight,
-  Info
-} from 'lucide-react';
-import { MagneticButton } from './MagneticButton';
-import { TrevykLogo } from './TrevykLogo';
-import { SiteSettings } from '../types';
-import { soundEngine } from '../utils/audioEngine';
+  Info,
+} from "lucide-react";
+import { MagneticButton } from "./MagneticButton";
+import { TrevykLogo } from "./TrevykLogo";
+import { SiteSettings } from "../types";
+import { soundEngine } from "../utils/audioEngine";
 
 interface NavbarProps {
   settings: SiteSettings;
@@ -46,19 +46,19 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Lock body scroll when mobile menu is active
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
 
@@ -74,19 +74,19 @@ export const Navbar: React.FC<NavbarProps> = ({
         setMobileMenuOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [mobileMenuOpen]);
 
   // Handle ESC key to close mobile menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
+      if (e.key === "Escape" && mobileMenuOpen) {
         setMobileMenuOpen(false);
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
 
   const handleToggleSound = () => {
@@ -97,32 +97,37 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Multi-page navigation link configuration
   const navLinks = [
-    { label: 'Home', path: '/', icon: Sparkles },
-    { label: 'Services', path: '/services', icon: Cpu },
-    { label: 'Technology', path: '/technology', badge: 'Core', icon: Layers },
-    { label: 'Kiduart ERP', path: '/kiduart', badge: 'Flagship', icon: GraduationCap },
-    { label: 'Process', path: '/process', icon: GitMerge },
-    { label: 'About', path: '/about', icon: Info },
-    { label: 'Contact', path: '/contact', icon: Mail },
+    { label: "Home", path: "/", icon: Sparkles },
+    { label: "Services", path: "/services", icon: Cpu },
+    { label: "Technology", path: "/technology", badge: "Core", icon: Layers },
+    {
+      label: "Kiduart ERP",
+      path: "/kiduart",
+      badge: "Flagship",
+      icon: GraduationCap,
+    },
+    { label: "Process", path: "/process", icon: GitMerge },
+    { label: "About", path: "/about", icon: Info },
+    { label: "Contact", path: "/contact", icon: Mail },
   ];
 
   return (
     <>
       <header
         id="main-navigation"
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#1E1024]/98 backdrop-blur-xl border-b border-[#B9A6D1]/35 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]'
-            : 'bg-[#2A1830]/92 backdrop-blur-md border-b border-[#6B4A87]/40 py-4 sm:py-5 lg:py-6'
+            ? "bg-[#1E1024]/98 backdrop-blur-xl border-b border-[#B9A6D1]/35 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+            : "bg-[#2A1830]/92 backdrop-blur-md border-b border-[#6B4A87]/40 py-4 sm:py-5 lg:py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-          {/* Official Trevyk logo — dark-bg wordmark */}
+          {/* Official Trevyk logo  dark-bg wordmark */}
           <NavLink
             id="brand-logo-link"
             to="/"
             onClick={() => {
-              soundEngine.playClick('hero');
+              soundEngine.playClick("hero");
               if (mobileMenuOpen) setMobileMenuOpen(false);
             }}
             className="group flex items-center shrink-0 interactive-target focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] rounded-xl p-1"
@@ -133,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </NavLink>
 
           {/* Desktop Nav Links */}
-          <nav 
+          <nav
             className="hidden lg:flex items-center space-x-1 xl:space-x-1.5 bg-[#1A0D20]/90 backdrop-blur-md px-2 xl:px-3 py-1.5 rounded-full border border-[#B9A6D1]/45 shadow-[inset_0_1px_0_rgba(248,246,251,0.06),0_0_0_1px_rgba(107,74,135,0.25)]"
             aria-label="Main Desktop Navigation"
           >
@@ -143,22 +148,24 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <NavLink
                   key={link.label}
                   to={link.path}
-                  onClick={() => soundEngine.playClick('soft')}
+                  onClick={() => soundEngine.playClick("soft")}
                   onMouseEnter={() => soundEngine.playHover()}
                   className={`relative px-2.5 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all flex items-center space-x-1.5 group shrink-0 ${
                     isActive
-                      ? 'text-[#F8F6FB] bg-[#3D224E] border border-[#E8A9C2]/70 shadow-[0_0_18px_rgba(232,169,194,0.28)]'
-                      : 'text-[#E7E1F0]/85 hover:text-[#F8F6FB] hover:bg-[#2A1830] border border-transparent'
+                      ? "text-[#F8F6FB] bg-[#3D224E] border border-[#E8A9C2]/70 shadow-[0_0_18px_rgba(232,169,194,0.28)]"
+                      : "text-[#E7E1F0]/85 hover:text-[#F8F6FB] hover:bg-[#2A1830] border border-transparent"
                   }`}
                   data-cursor-label={link.label.toUpperCase()}
                 >
                   <span>{link.label}</span>
                   {link.badge && (
-                    <span className={`text-[9px] xl:text-[10px] uppercase font-mono-accent px-1.5 py-0.2 rounded border ${
-                      isActive
-                        ? 'bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2]'
-                        : 'bg-[#6B4A87]/40 text-[#E8A9C2] border-[#6B4A87]/50'
-                    }`}>
+                    <span
+                      className={`text-[9px] xl:text-[10px] uppercase font-mono-accent px-1.5 py-0.2 rounded border ${
+                        isActive
+                          ? "bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2]"
+                          : "bg-[#6B4A87]/40 text-[#E8A9C2] border-[#6B4A87]/50"
+                      }`}
+                    >
                       {link.badge}
                     </span>
                   )}
@@ -166,7 +173,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <motion.div
                       layoutId="active-nav-pill"
                       className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E8A9C2]"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </NavLink>
@@ -180,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {onOpenGeminiChat && (
               <button
                 onClick={() => {
-                  soundEngine.playClick('soft');
+                  soundEngine.playClick("soft");
                   onOpenGeminiChat();
                 }}
                 title="Open Trevyk AI Assistant"
@@ -196,31 +207,51 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="sound-toggle-btn"
               onClick={handleToggleSound}
-              title={settings.soundEnabled ? 'Mute Audio Sound FX' : 'Enable Interactive Sound FX'}
-              aria-label={settings.soundEnabled ? 'Mute Audio Sound FX' : 'Enable Interactive Sound FX'}
+              title={
+                settings.soundEnabled
+                  ? "Mute Audio Sound FX"
+                  : "Enable Interactive Sound FX"
+              }
+              aria-label={
+                settings.soundEnabled
+                  ? "Mute Audio Sound FX"
+                  : "Enable Interactive Sound FX"
+              }
               className={`p-2 rounded-full border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] ${
                 settings.soundEnabled
-                  ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#E8A9C2] shadow-[0_0_10px_rgba(232,169,194,0.3)]'
-                  : 'bg-[#1E1024]/80 border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#E8A9C2]'
+                  ? "bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#E8A9C2] shadow-[0_0_10px_rgba(232,169,194,0.3)]"
+                  : "bg-[#1E1024]/80 border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#E8A9C2]"
               }`}
-              data-cursor-label={settings.soundEnabled ? 'MUTE' : 'UNMUTE'}
+              data-cursor-label={settings.soundEnabled ? "MUTE" : "UNMUTE"}
             >
-              {settings.soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+              {settings.soundEnabled ? (
+                <Volume2 className="w-4 h-4" />
+              ) : (
+                <VolumeX className="w-4 h-4" />
+              )}
             </button>
 
             {/* Motion Preference Toggle */}
             <button
               id="motion-toggle-btn"
               onClick={() => {
-                soundEngine.playClick('soft');
+                soundEngine.playClick("soft");
                 onUpdateSettings({ reducedMotion: !settings.reducedMotion });
               }}
-              title={settings.reducedMotion ? 'Enable 3D Motion' : 'Reduce Motion'}
-              aria-label={settings.reducedMotion ? 'Enable 3D Motion' : 'Reduce Motion'}
+              title={
+                settings.reducedMotion ? "Enable 3D Motion" : "Reduce Motion"
+              }
+              aria-label={
+                settings.reducedMotion ? "Enable 3D Motion" : "Reduce Motion"
+              }
               className="p-2 rounded-full bg-[#1E1024]/80 border border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#E8A9C2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] transition-colors"
               data-cursor-label="MOTION"
             >
-              {settings.reducedMotion ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+              {settings.reducedMotion ? (
+                <EyeOff className="w-4 h-4" />
+              ) : (
+                <Eye className="w-4 h-4" />
+              )}
             </button>
 
             {/* Architecture Modal CTA */}
@@ -228,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               id="nav-consult-btn"
               variant="primary"
               onClick={() => {
-                soundEngine.playClick('hero');
+                soundEngine.playClick("hero");
                 onOpenArchitectureModal();
               }}
               className="!py-2 !px-3.5 !text-xs whitespace-nowrap"
@@ -247,7 +278,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 id="mobile-ai-chat-quick-btn"
                 onClick={() => {
-                  soundEngine.playClick('soft');
+                  soundEngine.playClick("soft");
                   onOpenGeminiChat();
                 }}
                 title="Open AI Assistant"
@@ -263,29 +294,41 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               id="mobile-sound-toggle-btn"
               onClick={handleToggleSound}
-              aria-label={settings.soundEnabled ? 'Mute Audio' : 'Enable Audio'}
+              aria-label={settings.soundEnabled ? "Mute Audio" : "Enable Audio"}
               className={`p-2 rounded-xl border transition-all ${
                 settings.soundEnabled
-                  ? 'bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#E8A9C2]'
-                  : 'bg-[#1E1024]/80 border-[#6B4A87]/40 text-[#B9A6D1]'
+                  ? "bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#E8A9C2]"
+                  : "bg-[#1E1024]/80 border-[#6B4A87]/40 text-[#B9A6D1]"
               }`}
             >
-              {settings.soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+              {settings.soundEnabled ? (
+                <Volume2 className="w-4 h-4" />
+              ) : (
+                <VolumeX className="w-4 h-4" />
+              )}
             </button>
 
             {/* Mobile Hamburger / Close Button */}
             <button
               id="mobile-menu-toggle"
               onClick={() => {
-                soundEngine.playClick('soft');
+                soundEngine.playClick("soft");
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation-drawer"
-              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-label={
+                mobileMenuOpen
+                  ? "Close Navigation Menu"
+                  : "Open Navigation Menu"
+              }
               className="p-2.5 rounded-xl bg-[#1E1024]/90 border border-[#6B4A87]/50 text-[#F8F6FB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] active:scale-95 transition-transform"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-[#E8A9C2]" /> : <Menu className="w-5 h-5 text-[#B9A6D1]" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-[#E8A9C2]" />
+              ) : (
+                <Menu className="w-5 h-5 text-[#B9A6D1]" />
+              )}
             </button>
           </div>
         </div>
@@ -312,7 +355,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="relative w-full bg-[#1E1024] border-b border-[#6B4A87]/40 shadow-2xl pt-20 pb-8 px-4 sm:px-6 max-h-[92vh] overflow-y-auto"
             >
               {/* Brand Tagline in Drawer Header */}
@@ -340,20 +383,24 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <NavLink
                         to={link.path}
                         onClick={() => {
-                          soundEngine.playClick('soft');
+                          soundEngine.playClick("soft");
                           setMobileMenuOpen(false);
                         }}
                         className={`flex items-center justify-between p-3 rounded-xl border text-sm font-medium transition-all group ${
                           isActive
-                            ? 'bg-[#3D1D45] border-[#E8A9C2] text-[#F8F6FB] shadow-[0_0_15px_rgba(232,169,194,0.25)]'
-                            : 'bg-[#1E1024]/60 hover:bg-[#2A1830] border-[#6B4A87]/30 text-[#B9A6D1]'
+                            ? "bg-[#3D1D45] border-[#E8A9C2] text-[#F8F6FB] shadow-[0_0_15px_rgba(232,169,194,0.25)]"
+                            : "bg-[#1E1024]/60 hover:bg-[#2A1830] border-[#6B4A87]/30 text-[#B9A6D1]"
                         }`}
                       >
                         <div className="flex items-center space-x-3">
                           {Icon && (
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform ${
-                              isActive ? 'bg-[#E8A9C2] text-[#241428]' : 'bg-[#2A1830] text-[#E8A9C2] border border-[#6B4A87]/40'
-                            }`}>
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform ${
+                                isActive
+                                  ? "bg-[#E8A9C2] text-[#241428]"
+                                  : "bg-[#2A1830] text-[#E8A9C2] border border-[#6B4A87]/40"
+                              }`}
+                            >
                               <Icon className="w-3.5 h-3.5" />
                             </div>
                           )}
@@ -376,14 +423,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <button
                     onClick={() => {
-                      soundEngine.playClick('soft');
-                      onUpdateSettings({ reducedMotion: !settings.reducedMotion });
+                      soundEngine.playClick("soft");
+                      onUpdateSettings({
+                        reducedMotion: !settings.reducedMotion,
+                      });
                     }}
                     className="flex items-center justify-between text-xs text-[#B9A6D1] p-3 rounded-xl bg-[#1E1024]/80 border border-[#6B4A87]/30"
                   >
                     <span className="text-[#B9A6D1]">3D Motion Engine:</span>
                     <span className="text-[#E8A9C2] font-semibold">
-                      {settings.reducedMotion ? 'Reduced' : 'Cinematic 3D'}
+                      {settings.reducedMotion ? "Reduced" : "Cinematic 3D"}
                     </span>
                   </button>
 
@@ -393,7 +442,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   >
                     <span className="text-[#B9A6D1]">Sound FX:</span>
                     <span className="text-[#E8A9C2] font-semibold">
-                      {settings.soundEnabled ? 'Enabled' : 'Muted'}
+                      {settings.soundEnabled ? "Enabled" : "Muted"}
                     </span>
                   </button>
                 </div>
@@ -401,7 +450,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {/* Primary Action Button in Drawer */}
                 <button
                   onClick={() => {
-                    soundEngine.playClick('hero');
+                    soundEngine.playClick("hero");
                     setMobileMenuOpen(false);
                     onOpenArchitectureModal();
                   }}

@@ -31,9 +31,9 @@ export const Hero: React.FC<HeroProps> = ({
   const [showEasterEggToast, setShowEasterEggToast] = useState(false);
 
   const handleDisassembleToggle = () => {
-    const nextState = !disassembled;
-    setDisassembled(nextState);
-    soundEngine.playDisassemble(nextState);
+    const next = !disassembled;
+    setDisassembled(next);
+    soundEngine.playDisassemble(next);
   };
 
   const handleEasterEggTriggered = () => {
@@ -59,8 +59,12 @@ export const Hero: React.FC<HeroProps> = ({
               <Zap className="w-3.5 h-3.5" />
             </div>
             <div>
-              <span className="text-[#E8A9C2] font-bold block">EASTER EGG UNLOCKED</span>
-              <span className="text-xs text-[#B9A6D1]">Modular Resonance Synchronized</span>
+              <span className="text-[#E8A9C2] font-bold block">
+                EASTER EGG UNLOCKED
+              </span>
+              <span className="text-xs text-[#B9A6D1]">
+                Modular Resonance Synchronized
+              </span>
             </div>
           </motion.div>
         )}
@@ -70,10 +74,6 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_70%_40%,rgba(107,74,135,0.35),transparent_58%),radial-gradient(ellipse_50%_40%_at_15%_80%,rgba(232,169,194,0.14),transparent_50%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1E1024]/75 via-[#2A1830]/80 to-[#1E1024]" />
         <div className="absolute inset-0 bg-noise opacity-25" />
-        <div className="absolute top-24 left-4 sm:left-8 w-10 h-10 border-l border-t border-[#E8A9C2]/35" />
-        <div className="absolute top-24 right-4 sm:right-8 w-10 h-10 border-r border-t border-[#B9A6D1]/30" />
-        <div className="absolute bottom-10 left-4 sm:left-8 w-10 h-10 border-l border-b border-[#B9A6D1]/25" />
-        <div className="absolute bottom-10 right-4 sm:right-8 w-10 h-10 border-r border-b border-[#E8A9C2]/25" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
@@ -116,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: 0.3 }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              From Kiduart School ERP to modular custom builds — architecture,
+              From Kiduart School ERP to modular custom builds architecture,
               delivery, and support designed as one continuous practice.
             </motion.p>
 
@@ -144,7 +144,6 @@ export const Hero: React.FC<HeroProps> = ({
                 to="/kiduart"
                 onClick={() => soundEngine.playClick("soft")}
                 className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-heading font-semibold text-[#F8F6FB] bg-[#1E1024] border border-[#B9A6D1]/50 hover:border-[#E8A9C2]/75 transition-all interactive-target"
-                data-cursor-label="PRODUCT"
               >
                 <span>Explore Kiduart</span>
               </Link>
@@ -168,7 +167,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
                   Product
                 </div>
-                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
                   Kiduart School ERP
                 </div>
               </div>
@@ -176,7 +175,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
                   Engineering
                 </div>
-                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
                   Modular custom systems
                 </div>
               </div>
@@ -184,7 +183,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
                   Base
                 </div>
-                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
                   Noida, India
                 </div>
               </div>
@@ -193,8 +192,6 @@ export const Hero: React.FC<HeroProps> = ({
 
           <div className="lg:col-span-6 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
             <div className="absolute inset-[10%] rounded-full border border-[#B9A6D1]/18 pointer-events-none" />
-            <div className="absolute inset-[16%] rounded-full border border-dashed border-[#E8A9C2]/14 pointer-events-none animate-[spin_48s_linear_infinite]" />
-
             <div className="absolute top-2 left-2 right-2 z-20 flex items-center justify-between gap-2">
               <div className="hidden sm:flex items-center space-x-2 bg-[#1E1024]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#B9A6D1]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2] animate-ping" />
@@ -208,7 +205,6 @@ export const Hero: React.FC<HeroProps> = ({
                     onOpenArchitectureModal();
                   }}
                   className="px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#E8A9C2] hover:border-[#E8A9C2] transition-colors"
-                  data-cursor-label="INSPECT"
                 >
                   Inspect layers
                 </button>
@@ -216,8 +212,7 @@ export const Hero: React.FC<HeroProps> = ({
                   id="toggle-disassemble-btn"
                   type="button"
                   onClick={handleDisassembleToggle}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/35 text-[10px] font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] hover:border-[#E8A9C2]/60 transition-colors"
-                  data-cursor-label={disassembled ? "ASSEMBLE" : "EXPLODE"}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/35 text-[10px] font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] transition-colors"
                 >
                   <Cpu className="w-3 h-3 text-[#E8A9C2]" />
                   <span className="hidden sm:inline">

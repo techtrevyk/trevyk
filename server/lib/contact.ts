@@ -65,14 +65,14 @@ export async function handleContact(
     type === "kiduart" || type === "demo"
       ? "[Kiduart demo]"
       : "[Trevyk contact]";
-  const subject = `${subjectPrefix} ${organization} — ${name}`;
+  const subject = `${subjectPrefix} ${organization}  ${name}`;
 
   const textBody = [
     `Type: ${type}`,
     `Name: ${name}`,
     `Email: ${email}`,
     `Organisation: ${organization}`,
-    `Phone: ${phone || "—"}`,
+    `Phone: ${phone || ""}`,
     "",
     "Message / scope:",
     scope || "(none provided)",
@@ -88,7 +88,7 @@ export async function handleContact(
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Organisation:</strong> ${escapeHtml(organization)}</p>
-        <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone || "")}</p>
         <p><strong>Message / scope:</strong></p>
         <pre style="white-space:pre-wrap;background:#f6f2f8;padding:12px;border-radius:8px">${escapeHtml(scope || "(none provided)")}</pre>
         <p style="color:#666;font-size:12px">Submitted ${escapeHtml(new Date().toISOString())}</p>
@@ -110,7 +110,7 @@ export async function handleContact(
       await transport.sendMail({
         from: `"Trevyk Technologies" <${fromAddress}>`,
         to: email,
-        subject: "We received your message — Trevyk",
+        subject: "We received your message  Trevyk",
         text: [
           `Hi ${name},`,
           "",
@@ -120,7 +120,7 @@ export async function handleContact(
             ? "You can also book a product demo anytime at https://kiduart.com"
             : "Meanwhile you can explore https://trevyk.in",
           "",
-          "— Trevyk Technologies",
+          " Trevyk Technologies",
         ].join("\n"),
       });
     } catch (ackErr) {
