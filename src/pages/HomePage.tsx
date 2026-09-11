@@ -7,8 +7,11 @@ import { KiduartTeaser } from "../components/home/KiduartTeaser";
 import { ProcessTeaser } from "../components/home/ProcessTeaser";
 import { AboutTeaser } from "../components/home/AboutTeaser";
 import { ContactTeaser } from "../components/home/ContactTeaser";
-import { BrandGradientDivider } from "../components/BrandGradientBar";
-import { ConnectiveStream } from "../components/ConnectiveStream";
+import { SectionBridge } from "../components/SectionBridge";
+import { ProductProcessTransition } from "../components/ProductProcessTransition";
+import { ProcessStatsTransition } from "../components/ProcessStatsTransition";
+import { TestimonialsCtaTransition } from "../components/TestimonialsCtaTransition";
+import { PageAtmosphere } from "../components/PageAtmosphere";
 
 interface HomePageProps {
   settings: SiteSettings;
@@ -29,16 +32,17 @@ export const HomePage: React.FC<HomePageProps> = ({
   onCubeHover,
   onOpenGeminiChat,
 }) => {
+  const quiet = settings.reducedMotion;
+
   return (
     <div id="home-page" className="relative w-full">
-      {/* Continuous atmospheric wash — keeps sections in one color story */}
-      <div
-        className="pointer-events-none fixed inset-0 z-0 opacity-40"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 20% 10%, rgba(107,74,135,0.18), transparent 50%), radial-gradient(ellipse 60% 40% at 90% 60%, rgba(232,169,194,0.08), transparent 55%)",
-        }}
+      <PageAtmosphere
+        variant="home"
+        bands={[
+          { top: "18%", height: "12%", tone: "pink" },
+          { top: "42%", height: "14%", tone: "ink" },
+          { top: "68%", height: "12%", tone: "lilac" },
+        ]}
       />
 
       <Hero
@@ -50,14 +54,19 @@ export const HomePage: React.FC<HomePageProps> = ({
         onCubeHover={onCubeHover}
       />
 
-      <ConnectiveStream
-        scrollProgress={scrollProgress}
-        reducedMotion={settings.reducedMotion}
+      <SectionBridge
+        label="Capabilities"
+        reducedMotion={quiet}
+        tone="pink"
       />
 
       <ServicesTeaser settings={settings} />
 
-      <BrandGradientDivider label="Architecture" />
+      <SectionBridge
+        label="Architecture"
+        reducedMotion={quiet}
+        tone="dark"
+      />
 
       <TechnologyTeaser
         settings={settings}
@@ -66,24 +75,31 @@ export const HomePage: React.FC<HomePageProps> = ({
         onCubeHover={onCubeHover}
       />
 
-      <ConnectiveStream
-        scrollProgress={scrollProgress}
-        reducedMotion={settings.reducedMotion}
+      <SectionBridge
+        label="Flagship product"
+        reducedMotion={quiet}
+        tone="lilac"
       />
 
       <KiduartTeaser settings={settings} />
 
-      <BrandGradientDivider label="Delivery" />
+      <ProductProcessTransition
+        scrollProgress={scrollProgress}
+        reducedMotion={quiet}
+      />
 
       <ProcessTeaser settings={settings} />
 
-      <BrandGradientDivider label="Company" />
+      <ProcessStatsTransition
+        scrollProgress={scrollProgress}
+        reducedMotion={quiet}
+      />
 
       <AboutTeaser settings={settings} />
 
-      <ConnectiveStream
+      <TestimonialsCtaTransition
         scrollProgress={scrollProgress}
-        reducedMotion={settings.reducedMotion}
+        reducedMotion={quiet}
       />
 
       <ContactTeaser settings={settings} onOpenGeminiChat={onOpenGeminiChat} />

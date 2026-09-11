@@ -9,15 +9,17 @@ import {
   Send,
   ExternalLink,
   CheckCircle2,
+  School,
 } from "lucide-react";
 import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
+import { ScrollReveal } from "../ScrollReveal";
 
 interface KiduartTeaserProps {
   settings: SiteSettings;
 }
 
-export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
+export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
   const features = [
     {
       title: "Admissions to student records",
@@ -47,7 +49,6 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#E7E1F0] text-[#241428] overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,_rgba(232,169,194,0.22),_transparent_55%)]" />
-      {/* Distinctive element: large watermark numeral */}
       <div
         className="pointer-events-none absolute -right-4 top-8 font-heading font-bold text-[9rem] sm:text-[12rem] leading-none text-[#6B4A87]/10 select-none"
         aria-hidden
@@ -56,7 +57,10 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end justify-between mb-12">
+        <ScrollReveal
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end justify-between mb-12"
+          reducedMotion={settings.reducedMotion}
+        >
           <div className="lg:col-span-8">
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/30 text-[#6B4A87] font-mono-accent text-xs mb-4 shadow-sm">
               <GraduationCap className="w-3.5 h-3.5" />
@@ -64,24 +68,20 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
             </div>
 
             <h2 className="font-heading font-bold text-3xl sm:text-5xl text-[#241428] leading-tight tracking-tight">
-              Kiduart — school ERP built for Indian campuses
+              Kiduart — the school operating system we ship.
             </h2>
 
             <p className="mt-4 text-[#5C4A6E] text-base sm:text-lg max-w-3xl leading-relaxed">
-              Kiduart is Trevyk&apos;s school management product: a cloud platform
-              that connects admissions, records, attendance, exams, fees,
-              transport, library, HR, and parent communication — the same
-              journey published on{" "}
-              <a
-                href="https://kiduart.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#6B4A87] font-semibold underline underline-offset-2"
-              >
-                kiduart.com
-              </a>
-              .
+              Kiduart is Trevyk&apos;s flagship product: a cloud school ERP that
+              connects admissions, academics, attendance, exams, fees,
+              transport, library, HR, and parent communication into one daily
+              operating rhythm for Indian campuses.
             </p>
+
+            <div className="mt-5 inline-flex items-center gap-2 text-xs font-mono-accent text-[#6B4A87]">
+              <School className="w-3.5 h-3.5" />
+              <span>Live product desk · kiduart.com</span>
+            </div>
           </div>
 
           <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-3">
@@ -104,47 +104,54 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-            {features.map((feature) => {
+            {features.map((feature, i) => {
               const Icon = feature.icon;
               return (
-                <div
+                <ScrollReveal
                   key={feature.title}
-                  className="p-4 sm:p-5 rounded-2xl bg-white border border-[#6B4A87]/20 shadow-[0_8px_24px_rgba(107,74,135,0.08)] hover:border-[#6B4A87]/40 hover:shadow-[0_14px_30px_rgba(107,74,135,0.12)] transition-all flex items-start space-x-4"
+                  delay={0.06 * i}
+                  reducedMotion={settings.reducedMotion}
                 >
-                  <div className="p-2.5 rounded-xl bg-[#E7E1F0] border border-[#6B4A87]/20 text-[#6B4A87] shrink-0">
-                    <Icon className="w-5 h-5" />
+                  <div className="p-4 sm:p-5 rounded-2xl bg-white/90 border border-[#6B4A87]/20 shadow-[0_8px_24px_rgba(107,74,135,0.08)] hover:border-[#6B4A87]/40 transition-all flex items-start space-x-4">
+                    <div className="p-2.5 rounded-xl bg-[#E7E1F0] border border-[#6B4A87]/20 text-[#6B4A87] shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading font-bold text-sm text-[#241428]">
+                        {feature.title}
+                      </h3>
+                      <p className="text-xs text-[#5C4A6E] mt-1 leading-relaxed">
+                        {feature.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-sm text-[#241428]">
-                      {feature.title}
-                    </h3>
-                    <p className="text-xs text-[#5C4A6E] mt-1 leading-relaxed">
-                      {feature.desc}
-                    </p>
-                  </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
 
-          <div className="lg:col-span-7">
+          <ScrollReveal
+            className="lg:col-span-7"
+            delay={0.12}
+            reducedMotion={settings.reducedMotion}
+          >
             <div className="h-full rounded-2xl sm:rounded-3xl bg-white border border-[#6B4A87]/20 shadow-[0_16px_40px_rgba(107,74,135,0.10)] p-6 sm:p-8 flex flex-col justify-between gap-6 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#6B4A87] via-[#B9A6D1] to-[#E8A9C2]" />
               <div>
                 <div className="text-[10px] font-mono-accent uppercase tracking-widest text-[#6B4A87] mb-2 font-semibold">
-                  Product standard
+                  Why schools choose it
                 </div>
                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#241428]">
-                  Built for daily school work — not slide-deck theatre
+                  Built for daily campus work — not slide-deck theatre
                 </h3>
                 <p className="mt-3 text-sm text-[#5C4A6E] leading-relaxed">
-                  Capabilities match what ships on the product site. When we
-                  speak about adoption or AI features, we only claim what is
-                  live — or clearly label what is next.
+                  Capabilities match what ships on the product site. Adoption,
+                  integrations, and roadmap items are stated plainly — live
+                  today, or clearly labeled as next.
                 </p>
               </div>
 
@@ -170,17 +177,16 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = () => {
                 >
                   Book a free demo <ExternalLink className="w-3.5 h-3.5" />
                 </a>
-                <a
-                  href="https://kiduart.com/about"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/process"
+                  onClick={() => soundEngine.playClick("soft")}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E7E1F0] border border-[#6B4A87]/25 text-[#6B4A87] text-xs font-mono-accent font-semibold hover:bg-white transition-colors"
                 >
-                  About the product
-                </a>
+                  How we implement →
+                </Link>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

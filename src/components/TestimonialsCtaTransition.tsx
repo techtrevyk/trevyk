@@ -145,7 +145,7 @@ export const TestimonialsCtaTransition: React.FC<TestimonialsCtaTransitionProps>
       <div className="absolute z-10 flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-[#1E1024]/95 border border-[#E8A9C2]/50 shadow-[0_0_30px_rgba(232,169,194,0.3)] backdrop-blur-md">
         <Layers className="w-3.5 h-3.5 text-[#E8A9C2]" />
         <span className="font-mono-accent text-[11px] text-[#F8F6FB] uppercase tracking-widest font-semibold">
-          MODULAR ARCHITECTURE • REASSEMBLED & READY
+          READY TO ENGAGE
         </span>
         <Sparkles className="w-3.5 h-3.5 text-[#E8A9C2] animate-pulse" />
       </div>

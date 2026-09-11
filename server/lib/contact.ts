@@ -130,13 +130,19 @@ export async function handleContact(
     return { ok: true };
   } catch (error: unknown) {
     console.error("Contact mail error:", error);
+    const raw =
+      error instanceof Error
+        ? error.message
+        : "Could not send your message right now. Please email contact@trevyk.com.";
+    const isBadCreds =
+      /Invalid login|BadCredentials|535-5\.7\.8/i.test(raw) ||
+      /Username and Password not accepted/i.test(raw);
     return {
       ok: false,
       status: 500,
-      error:
-        error instanceof Error
-          ? error.message
-          : "Could not send your message right now. Please email contact@trevyk.com.",
+      error: isBadCreds
+        ? "Gmail rejected SMTP login (535 BadCredentials). Create a new App Password for tech.trevyk@gmail.com at https://myaccount.google.com/apppasswords (2-Step Verification must be on), put it in SMTP_PASS, restart the server, and try again. Do not use your normal Gmail password."
+        : raw,
     };
   }
 }

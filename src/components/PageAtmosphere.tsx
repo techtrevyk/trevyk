@@ -1,6 +1,7 @@
 import React from "react";
 
 export type AtmosphereVariant =
+  | "home"
   | "services"
   | "technology"
   | "kiduart"
@@ -28,6 +29,16 @@ const VARIANT_GLOWS: Record<
   AtmosphereVariant,
   { left: string; right: string; bottom?: string; wash: string; accent: string }
 > = {
+  home: {
+    left: "radial-gradient(ellipse 60% 48% at 18% 12%, rgba(107,74,135,0.32), transparent 58%)",
+    right:
+      "radial-gradient(ellipse 48% 42% at 88% 28%, rgba(232,169,194,0.14), transparent 55%)",
+    bottom:
+      "radial-gradient(ellipse 55% 38% at 45% 96%, rgba(185,166,209,0.12), transparent 58%)",
+    wash: "linear-gradient(180deg, #160A1C 0%, #2A1830 22%, #241428 48%, #2A1830 72%, #1E1024 100%)",
+    accent:
+      "linear-gradient(115deg, transparent 38%, rgba(231,225,240,0.06) 50%, transparent 62%)",
+  },
   services: {
     left: "radial-gradient(ellipse 55% 45% at 12% 18%, rgba(107,74,135,0.34), transparent 60%)",
     right:

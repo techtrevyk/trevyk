@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Cpu, ChevronDown, Zap } from "lucide-react";
 import { CanvasContainer } from "./3d/CanvasContainer";
@@ -25,6 +26,7 @@ export const Hero: React.FC<HeroProps> = ({
   onCubeHover,
   onEasterEggDiscovered,
 }) => {
+  const navigate = useNavigate();
   const [disassembled, setDisassembled] = useState(false);
   const [showEasterEggToast, setShowEasterEggToast] = useState(false);
 
@@ -65,10 +67,9 @@ export const Hero: React.FC<HeroProps> = ({
       </AnimatePresence>
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 right-1/4 w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] rounded-full bg-gradient-to-tr from-[#6B4A87]/28 via-[#B9A6D1]/10 to-[#E8A9C2]/12 blur-3xl opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E1024]/70 via-[#2A1830]/85 to-[#1E1024]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_70%_40%,rgba(107,74,135,0.35),transparent_58%),radial-gradient(ellipse_50%_40%_at_15%_80%,rgba(232,169,194,0.14),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1E1024]/75 via-[#2A1830]/80 to-[#1E1024]" />
         <div className="absolute inset-0 bg-noise opacity-25" />
-        {/* Premium corner frame marks */}
         <div className="absolute top-24 left-4 sm:left-8 w-10 h-10 border-l border-t border-[#E8A9C2]/35" />
         <div className="absolute top-24 right-4 sm:right-8 w-10 h-10 border-r border-t border-[#B9A6D1]/30" />
         <div className="absolute bottom-10 left-4 sm:left-8 w-10 h-10 border-l border-b border-[#B9A6D1]/25" />
@@ -76,129 +77,154 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-[#1E1024]/90 border border-[#B9A6D1]/40 mb-6"
+              transition={{ duration: 0.55, delay: 0.05 }}
+              className="font-mono-accent text-[11px] sm:text-xs tracking-[0.28em] uppercase text-[#E8A9C2] mb-3"
             >
-              <span className="w-2 h-2 rounded-full bg-[#E8A9C2] shadow-[0_0_10px_rgba(232,169,194,0.8)]" />
-              <span className="font-mono-accent text-xs tracking-wider text-[#E8A9C2] font-semibold uppercase">
-                Turning Vision Into Progress
-              </span>
-            </motion.div>
+              Turning Vision Into Progress
+            </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="font-heading font-bold text-3xl sm:text-5xl lg:text-6xl text-[#F8F6FB] tracking-tight leading-[1.12]"
+              transition={{ duration: 0.7, delay: 0.12 }}
+              className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[0.95]"
             >
-              Software engineered for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                clarity and scale
+              TREVYK
+              <span className="block text-xl sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
+                Technologies
               </span>
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-6 text-base sm:text-lg text-[#B9A6D1] max-w-2xl font-normal leading-relaxed"
+              transition={{ duration: 0.65, delay: 0.22 }}
+              className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
-              Trevyk Technologies designs and delivers digital products and
-              custom platforms — from institutional systems to tailored
-              enterprise builds — with architecture you can trust and ownership
-              you can keep.
+              Product platforms and engineered systems for institutions that
+              need software they can own.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.3 }}
+              className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
+            >
+              From Kiduart School ERP to modular custom builds — architecture,
+              delivery, and support designed as one continuous practice.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
-              className="mt-5 flex items-center space-x-2.5 text-xs font-mono-accent text-[#E7E1F0]/90 bg-[#1E1024]/80 px-4 py-2.5 rounded-lg border border-[#6B4A87]/35 border-l-[3px] border-l-[#E8A9C2]"
-            >
-              <span>
-                Modular systems. Measurable delivery. Built in India for teams
-                that expect craft.
-              </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5"
+              transition={{ duration: 0.65, delay: 0.4 }}
+              className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <MagneticButton
                 id="hero-primary-cta"
                 variant="primary"
                 onClick={() => {
                   soundEngine.playClick("hero");
-                  onOpenArchitectureModal();
+                  navigate("/contact");
                 }}
-                cursorLabel="INSPECT"
+                cursorLabel="ENGAGE"
                 reducedMotion={settings.reducedMotion}
               >
-                <span>Explore our architecture</span>
+                <span>Start a conversation</span>
                 <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
 
-              <button
-                id="toggle-disassemble-btn"
-                onClick={handleDisassembleToggle}
-                className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-medium text-[#E7E1F0] bg-[#1E1024] border border-[#B9A6D1]/45 hover:border-[#E8A9C2]/70 hover:text-[#F8F6FB] transition-all interactive-target"
-                data-cursor-label={disassembled ? "ASSEMBLE" : "EXPLODE"}
+              <Link
+                to="/kiduart"
+                onClick={() => soundEngine.playClick("soft")}
+                className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-heading font-semibold text-[#F8F6FB] bg-[#1E1024] border border-[#B9A6D1]/50 hover:border-[#E8A9C2]/75 transition-all interactive-target"
+                data-cursor-label="PRODUCT"
               >
-                <Cpu className="w-4 h-4 text-[#E8A9C2]" />
-                <span>
-                  {disassembled ? "Reassemble Core Blocks" : "Disassemble 3D Cluster"}
-                </span>
-              </button>
+                <span>Explore Kiduart</span>
+              </Link>
+
+              <Link
+                to="/services"
+                onClick={() => soundEngine.playClick("soft")}
+                className="inline-flex items-center text-xs font-mono-accent text-[#B9A6D1] hover:text-[#E8A9C2] transition-colors px-2 py-2"
+              >
+                View capabilities →
+              </Link>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-10 sm:mt-12 pt-6 border-t border-[#6B4A87]/35 w-full grid grid-cols-3 gap-4"
+              transition={{ duration: 0.8, delay: 0.55 }}
+              className="mt-10 sm:mt-12 pt-6 border-t border-[#6B4A87]/40 w-full grid grid-cols-3 gap-4"
             >
               <div>
-                <div className="font-mono-accent font-bold text-lg sm:text-2xl text-[#F8F6FB]">
-                  Products
+                <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
+                  Product
                 </div>
-                <div className="text-[11px] sm:text-xs text-[#B9A6D1] mt-0.5">
-                  Platforms that ship
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                  Kiduart School ERP
                 </div>
               </div>
               <div>
-                <div className="font-mono-accent font-bold text-lg sm:text-2xl text-[#F8F6FB]">
+                <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
                   Engineering
                 </div>
-                <div className="text-[11px] sm:text-xs text-[#B9A6D1] mt-0.5">
-                  Scoped custom builds
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                  Modular custom systems
                 </div>
               </div>
               <div>
-                <div className="font-mono-accent font-bold text-lg sm:text-2xl text-[#F8F6FB]">
-                  Noida
+                <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
+                  Base
                 </div>
-                <div className="text-[11px] sm:text-xs text-[#B9A6D1] mt-0.5">
-                  India headquarters
+                <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium leading-snug">
+                  Noida, India
                 </div>
               </div>
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
-            {/* Orbit ring — premium focal frame around 3D */}
-            <div className="absolute inset-[12%] rounded-full border border-[#B9A6D1]/20 pointer-events-none" />
-            <div className="absolute inset-[18%] rounded-full border border-dashed border-[#E8A9C2]/15 pointer-events-none animate-[spin_48s_linear_infinite]" />
-            <div className="absolute top-2 right-2 z-20 hidden sm:flex items-center space-x-2 bg-[#1E1024]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#B9A6D1]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2] animate-ping" />
-              <span>INTERACTIVE CORE</span>
+          <div className="lg:col-span-6 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
+            <div className="absolute inset-[10%] rounded-full border border-[#B9A6D1]/18 pointer-events-none" />
+            <div className="absolute inset-[16%] rounded-full border border-dashed border-[#E8A9C2]/14 pointer-events-none animate-[spin_48s_linear_infinite]" />
+
+            <div className="absolute top-2 left-2 right-2 z-20 flex items-center justify-between gap-2">
+              <div className="hidden sm:flex items-center space-x-2 bg-[#1E1024]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#B9A6D1]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2] animate-ping" />
+                <span>LIVE ARCHITECTURE CORE</span>
+              </div>
+              <div className="flex items-center gap-2 ml-auto">
+                <button
+                  type="button"
+                  onClick={() => {
+                    soundEngine.playClick("hero");
+                    onOpenArchitectureModal();
+                  }}
+                  className="px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#E8A9C2] hover:border-[#E8A9C2] transition-colors"
+                  data-cursor-label="INSPECT"
+                >
+                  Inspect layers
+                </button>
+                <button
+                  id="toggle-disassemble-btn"
+                  type="button"
+                  onClick={handleDisassembleToggle}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/35 text-[10px] font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] hover:border-[#E8A9C2]/60 transition-colors"
+                  data-cursor-label={disassembled ? "ASSEMBLE" : "EXPLODE"}
+                >
+                  <Cpu className="w-3 h-3 text-[#E8A9C2]" />
+                  <span className="hidden sm:inline">
+                    {disassembled ? "Reassemble" : "Disassemble"}
+                  </span>
+                </button>
+              </div>
             </div>
 
             <CanvasContainer
@@ -236,7 +262,7 @@ export const Hero: React.FC<HeroProps> = ({
 
       <div className="relative z-10 w-full flex flex-col items-center justify-center mt-6 text-center">
         <div className="flex items-center space-x-2 text-xs font-mono-accent uppercase tracking-widest text-[#B9A6D1]/80">
-          <span>Scroll to continue</span>
+          <span>Scroll the full practice</span>
         </div>
         <motion.div
           animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}

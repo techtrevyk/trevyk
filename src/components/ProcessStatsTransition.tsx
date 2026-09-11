@@ -126,7 +126,7 @@ export const ProcessStatsTransition: React.FC<ProcessStatsTransitionProps> = ({
       <div className="absolute z-10 flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#1E1024]/90 border border-[#E8A9C2]/40 shadow-[0_4px_20px_rgba(232,169,194,0.2)]">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span className="font-mono-accent text-[10px] text-[#E8A9C2] uppercase tracking-widest font-semibold">
-          VERIFIED PLATFORM TRUST & PROOF
+          METHOD → COMPANY
         </span>
       </div>
     </div>
