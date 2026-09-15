@@ -5,7 +5,7 @@ import { SiteSettings } from "../../types";
 import { TrevykLogo } from "../TrevykLogo";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { WowAccent } from "../WowAccent";
+import { LottieAccent } from "../motion/LottieAccent";
 
 interface AboutTeaserProps {
   settings: SiteSettings;
@@ -46,9 +46,8 @@ export const AboutTeaser: React.FC<AboutTeaserProps> = ({ settings }) => {
                 <MapPin className="w-3.5 h-3.5" />
                 <span>Headquarters · Noida, India</span>
               </div>
-              <WowAccent
-                kind="brand"
-                focus={principle}
+              <LottieAccent
+                preset="brand-pulse"
                 reducedMotion={settings.reducedMotion}
                 className="w-full max-w-[200px]"
                 caption="Brand mark"

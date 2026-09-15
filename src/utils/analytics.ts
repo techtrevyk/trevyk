@@ -7,7 +7,10 @@ declare global {
   }
 }
 
-const GA_ID = (import.meta.env.VITE_GA_MEASUREMENT_ID || "").trim();
+/** Prefer env; fall back to production GA4 property so live builds always track. */
+const GA_ID = (
+  import.meta.env.VITE_GA_MEASUREMENT_ID || "G-CH828R29RV"
+).trim();
 
 export function isAnalyticsEnabled() {
   return Boolean(GA_ID) && typeof window !== "undefined";

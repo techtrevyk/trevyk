@@ -13,7 +13,7 @@ import {
 import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { WowAccent } from "../WowAccent";
+import { LottieAccent } from "../motion/LottieAccent";
 
 interface ProcessTeaserProps {
   settings: SiteSettings;
@@ -122,9 +122,8 @@ export const ProcessTeaser: React.FC<ProcessTeaserProps> = ({ settings }) => {
           </div>
         </ScrollReveal>
 
-        <WowAccent
-          kind="pipeline"
-          focus={active}
+        <LottieAccent
+          preset="progress-token"
           reducedMotion={settings.reducedMotion}
           className="w-full max-w-md mx-auto mb-8"
           caption="Delivery pipeline"

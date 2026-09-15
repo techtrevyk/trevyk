@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Cpu, ChevronDown, Zap } from "lucide-react";
@@ -6,6 +6,7 @@ import { CanvasContainer } from "./3d/CanvasContainer";
 import { MagneticButton } from "./MagneticButton";
 import { SiteSettings } from "../types";
 import { soundEngine } from "../utils/audioEngine";
+import { consumeEntryHandoff } from "../utils/entryHandoff";
 
 interface HeroProps {
   settings: SiteSettings;
@@ -29,6 +30,12 @@ export const Hero: React.FC<HeroProps> = ({
   const navigate = useNavigate();
   const [disassembled, setDisassembled] = useState(false);
   const [showEasterEggToast, setShowEasterEggToast] = useState(false);
+  const [handoff] = useState(() =>
+    settings.reducedMotion ? false : consumeEntryHandoff()
+  );
+
+  const ease = [0.22, 1, 0.36, 1] as const;
+  const copyDelay = useMemo(() => (handoff ? 0.35 : 0.05), [handoff]);
 
   const handleDisassembleToggle = () => {
     const next = !disassembled;
@@ -76,13 +83,24 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-noise opacity-25" />
       </div>
 
+      {/* Entry veil — fades with handoff from preloader wipe */}
+      {handoff && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[15] bg-gradient-to-b from-[#E8A9C2]/25 via-[#6B4A87]/35 to-[#2A1830]"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 0.85, ease }}
+        />
+      )}
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           <div className="lg:col-span-6 flex flex-col items-start text-left">
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.05 }}
+              transition={{ duration: 0.55, delay: copyDelay, ease }}
               className="font-mono-accent text-[11px] sm:text-xs tracking-[0.28em] uppercase text-[#E8A9C2] mb-3"
             >
               Turning Vision Into Progress
@@ -91,7 +109,7 @@ export const Hero: React.FC<HeroProps> = ({
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.12 }}
+              transition={{ duration: 0.7, delay: copyDelay + 0.08, ease }}
               className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[0.95]"
             >
               TREVYK
@@ -103,7 +121,7 @@ export const Hero: React.FC<HeroProps> = ({
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.22 }}
+              transition={{ duration: 0.65, delay: copyDelay + 0.16, ease }}
               className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
               Product platforms and engineered systems for institutions that
@@ -113,17 +131,17 @@ export const Hero: React.FC<HeroProps> = ({
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.3 }}
+              transition={{ duration: 0.65, delay: copyDelay + 0.24, ease }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              From Kiduart School ERP to modular custom builds architecture,
+              From Kiduart School ERP to modular custom builds — architecture,
               delivery, and support designed as one continuous practice.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.4 }}
+              transition={{ duration: 0.65, delay: copyDelay + 0.34, ease }}
               className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4"
             >
               <MagneticButton
@@ -160,7 +178,7 @@ export const Hero: React.FC<HeroProps> = ({
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.55 }}
+              transition={{ duration: 0.8, delay: copyDelay + 0.48, ease }}
               className="mt-10 sm:mt-12 pt-6 border-t border-[#6B4A87]/40 w-full grid grid-cols-3 gap-4"
             >
               <div>
@@ -190,7 +208,16 @@ export const Hero: React.FC<HeroProps> = ({
             </motion.div>
           </div>
 
-          <div className="lg:col-span-6 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center">
+          <motion.div
+            className="lg:col-span-6 relative w-full h-[380px] sm:h-[480px] lg:h-[560px] flex items-center justify-center"
+            initial={
+              handoff
+                ? { opacity: 0.35, scale: 0.86, y: 24 }
+                : { opacity: 1, scale: 1, y: 0 }
+            }
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: handoff ? 0.9 : 0.01, ease, delay: 0.05 }}
+          >
             <div className="absolute inset-[10%] rounded-full border border-[#B9A6D1]/18 pointer-events-none" />
             <div className="absolute top-2 left-2 right-2 z-20 flex items-center justify-between gap-2">
               <div className="hidden sm:flex items-center space-x-2 bg-[#1E1024]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#B9A6D1]/40 text-[10px] font-mono-accent text-[#B9A6D1]">
@@ -251,7 +278,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </span>
               </motion.div>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
 

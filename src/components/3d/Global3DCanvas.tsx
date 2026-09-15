@@ -66,7 +66,8 @@ export const Global3DCanvas: React.FC<Global3DCanvasProps> = ({
       return 0.4 + scrollProgress * 0.08;
     }
     if (path.startsWith("/technology")) {
-      return 0.62;
+      // Damp companion WebGL so Technology Spline can own the heavy budget.
+      return 0.12;
     }
     if (path.startsWith("/kiduart")) {
       return 0.45 + scrollProgress * 0.08;

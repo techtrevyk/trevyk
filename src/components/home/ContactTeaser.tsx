@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { WowAccent } from "../WowAccent";
+import { LottieAccent } from "../motion/LottieAccent";
 
 interface ContactTeaserProps {
   settings: SiteSettings;
@@ -110,9 +110,8 @@ export const ContactTeaser: React.FC<ContactTeaserProps> = ({
                 ))}
               </div>
 
-              <WowAccent
-                kind="beacon"
-                focus={track}
+              <LottieAccent
+                preset="signal-rings"
                 reducedMotion={settings.reducedMotion}
                 className="mt-6 w-full max-w-[200px]"
                 caption="Signal beacon"

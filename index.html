@@ -45,12 +45,29 @@
     <link rel="shortcut icon" href="/favicon.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
+    <!-- LCP: discover logo from the document ASAP -->
+    <link
+      rel="preload"
+      as="image"
+      href="/trevyk-logo-on-dark.png"
+      fetchpriority="high"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking Google Fonts (swap after load) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
   </head>
   <body
     class="bg-[#2A1830] text-[#F8F6FB] antialiased selection:bg-[#E8A9C2] selection:text-[#241428] overflow-x-hidden"

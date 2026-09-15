@@ -1,0 +1,18 @@
+# Trevyk Technologies
+
+> Technology products and engineered digital solutions for institutions and organizations. Based in Noida, India.
+
+## Site
+
+- [Home](https://trevyk.in/)
+- [Kiduart](https://trevyk.in/kiduart)
+- [Services](https://trevyk.in/services)
+- [Technology](https://trevyk.in/technology)
+- [About](https://trevyk.in/about)
+- [Process](https://trevyk.in/process)
+- [Contact](https://trevyk.in/contact)
+
+## Optional
+
+- [Sitemap](https://trevyk.in/sitemap.xml)
+- [Robots](https://trevyk.in/robots.txt)

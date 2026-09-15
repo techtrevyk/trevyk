@@ -281,7 +281,7 @@ export const GeminiChatbot: React.FC<GeminiChatbotProps> = ({
               soundEngine.playClick('hero');
               onOpen();
             }}
-            aria-label="Open Trevyk AI Assistant"
+            aria-label="Trevyk AI — Online. Ask about products and delivery"
             className="group relative flex items-center space-x-3 px-5 py-3.5 rounded-full bg-gradient-to-r from-[#2A1830] via-[#1E1024] to-[#2A1830] border border-[#6B4A87]/55 hover:border-[#8558A5] shadow-[0_0_28px_rgba(107,74,135,0.40)] hover:shadow-[0_0_36px_rgba(107,74,135,0.55)] transition-all hover:scale-105 active:scale-95 cursor-pointer interactive-target text-left"
             data-cursor-label="CHAT"
           >

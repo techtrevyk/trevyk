@@ -2,33 +2,37 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { TrevykLogo } from "./TrevykLogo";
+import { peekEntryHandoff } from "../utils/entryHandoff";
 
 interface RouteLoaderProps {
   reducedMotion?: boolean;
 }
 
 /**
- * Brief brand-core veil on route change  represents the layered T/core
- * without spinning up extra WebGL during navigation.
+ * Brief brand-core veil on route change.
+ * Skips first paint and preloader→home entry handoff.
  */
 export const RouteLoader: React.FC<RouteLoaderProps> = ({
   reducedMotion = false,
 }) => {
   const { pathname } = useLocation();
   const [show, setShow] = useState(false);
-  const [first, setFirst] = useState(true);
+  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
-    if (first) {
-      setFirst(false);
-      return;
-    }
-    if (reducedMotion) return;
+    const t = window.setTimeout(() => setArmed(true), 900);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (!armed || reducedMotion) return;
+    if (peekEntryHandoff()) return;
+    if (pathname === "/" || pathname === "") return;
 
     setShow(true);
     const t = window.setTimeout(() => setShow(false), 680);
     return () => window.clearTimeout(t);
-  }, [pathname, reducedMotion, first]);
+  }, [pathname, reducedMotion, armed]);
 
   return (
     <AnimatePresence>

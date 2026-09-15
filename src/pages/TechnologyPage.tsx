@@ -20,6 +20,7 @@ import { CAPABILITIES_DATA } from "../data/capabilities";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 import { SectionBridge } from "../components/SectionBridge";
 import { WowAccent } from "../components/WowAccent";
+import { SplineMount } from "../components/3d/SplineMount";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
@@ -143,11 +144,10 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             </div>
 
             <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
-              <WowAccent
-                kind="layers"
+              <SplineMount
                 reducedMotion={settings.reducedMotion}
-                className="w-48 h-44"
-                caption="Layered stack"
+                className="w-full max-w-[280px]"
+                caption="Interactive stack"
               />
               <div className="text-right">
                 <div className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#E8A9C2]/80">

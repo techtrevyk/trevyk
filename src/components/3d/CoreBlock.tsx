@@ -265,8 +265,9 @@ export const CoreBlock: React.FC<CoreBlockProps> = ({
             >
               <meshPhysicalMaterial
                 color={config.color}
-                roughness={0.28}
-                metalness={0.12}
+                roughness={0.22}
+                metalness={0.28}
+                envMapIntensity={0.85}
                 clearcoat={0.35}
                 clearcoatRoughness={0.2}
                 reflectivity={0.6}

@@ -24,6 +24,9 @@ const LOGO_ON_DARK = '/trevyk-logo-on-dark.png';
 const ICON_ON_LIGHT = '/trevyk-icon.png';
 const ICON_ON_DARK = '/trevyk-icon-on-dark.png';
 
+/** Intrinsic wordmark aspect: 900×254 */
+const LOGO_ASPECT = 900 / 254;
+
 const HEIGHTS: Record<NonNullable<TrevykLogoProps['size']>, number> = {
   xs: 28,
   sm: 36,
@@ -32,6 +35,10 @@ const HEIGHTS: Record<NonNullable<TrevykLogoProps['size']>, number> = {
   xl: 96,
   card: 72,
 };
+
+function logoWidthForHeight(height: number) {
+  return Math.round(height * LOGO_ASPECT);
+}
 
 /**
  * Official Trevyk Technologies logo (transparent PNG).
@@ -50,6 +57,7 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   const iconSrc = onDark ? ICON_ON_DARK : ICON_ON_LIGHT;
   const iconH = iconSize ?? HEIGHTS[size];
   const logoH = iconSize ? Math.round(iconSize * 0.85) : HEIGHTS[size];
+  const logoW = logoWidthForHeight(logoH);
   const taglineClass = onDark ? 'text-[#B9A6D1]' : 'text-[#5C4A6E]';
 
   if (layout === 'icon-only') {
@@ -71,6 +79,8 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   }
 
   if (layout === 'card-banner') {
+    const bannerH = 56;
+    const bannerW = logoWidthForHeight(bannerH);
     return (
       <div
         className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#1E1024] border border-[#6B4A87]/35 shadow-sm flex flex-col sm:flex-row items-center gap-5 sm:gap-8 ${className}`}
@@ -78,6 +88,8 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
         <img
           src={logoSrc}
           alt="Trevyk Technologies"
+          width={bannerW}
+          height={bannerH}
           className="h-14 sm:h-16 w-auto max-w-full object-contain"
           draggable={false}
           decoding="async"
@@ -93,12 +105,16 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
   }
 
   if (layout === 'vertical') {
+    const vH = Math.round(logoH * 1.15);
+    const vW = logoWidthForHeight(vH);
     return (
       <div className={`flex flex-col items-center text-center ${className}`}>
         <img
           src={logoSrc}
           alt="Trevyk Technologies"
-          style={{ height: Math.round(logoH * 1.15), width: 'auto', maxWidth: '100%' }}
+          width={vW}
+          height={vH}
+          style={{ height: vH, width: 'auto', maxWidth: '100%' }}
           className="object-contain drop-shadow-[0_8px_24px_rgba(107,74,135,0.45)]"
           draggable={false}
           decoding="async"
@@ -118,6 +134,8 @@ export const TrevykLogo: React.FC<TrevykLogoProps> = ({
       <img
         src={logoSrc}
         alt="Trevyk Technologies"
+        width={logoW}
+        height={logoH}
         style={{ height: logoH, width: 'auto', maxWidth: 'min(100%, 280px)' }}
         className="object-contain object-left transition-opacity duration-300 group-hover:opacity-95 drop-shadow-[0_0_18px_rgba(185,166,209,0.25)]"
         draggable={false}

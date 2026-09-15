@@ -11,9 +11,34 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes('node_modules')) return;
+            if (
+              id.includes('three') ||
+              id.includes('@react-three') ||
+              id.includes('/drei/')
+            ) {
+              return 'three-vendor';
+            }
+            if (id.includes('@splinetool')) {
+              return 'spline-vendor';
+            }
+            if (id.includes('lottie') || id.includes('lottie-web')) {
+              return 'lottie-vendor';
+            }
+            if (id.includes('motion') || id.includes('framer-motion')) {
+              return 'motion-vendor';
+            }
+          },
+        },
+      },
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},

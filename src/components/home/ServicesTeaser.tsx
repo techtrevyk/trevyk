@@ -11,7 +11,7 @@ import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
 import { MagneticCard } from "../MagneticCard";
-import { WowAccent } from "../WowAccent";
+import { LottieAccent } from "../motion/LottieAccent";
 
 interface ServicesTeaserProps {
   settings: SiteSettings;
@@ -91,9 +91,8 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               ))}
             </ul>
 
-            <WowAccent
-              kind="lattice"
-              focus={focus}
+            <LottieAccent
+              preset="module-dock"
               reducedMotion={settings.reducedMotion}
               className="mt-8 w-full max-w-xs"
               caption="Capability lattice"

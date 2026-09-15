@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { TrevykLogo } from "./TrevykLogo";
+import { markEntryHandoff } from "../utils/entryHandoff";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -8,8 +9,8 @@ interface PreloaderProps {
 }
 
 /**
- * Cinematic brand boot  assembling architecture core + wipe exit.
- * Timing is intentional (not instant) so the first impression feels premium.
+ * Cinematic brand boot — assembling architecture core + wipe exit.
+ * Marks entry handoff so Hero can continue the motion smoothly.
  */
 export const Preloader: React.FC<PreloaderProps> = ({
   onComplete,
@@ -17,7 +18,7 @@ export const Preloader: React.FC<PreloaderProps> = ({
 }) => {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState<"boot" | "assemble" | "ready" | "wipe">(
-    "boot",
+    "boot"
   );
   const [visible, setVisible] = useState(true);
   const onCompleteRef = useRef(onComplete);
@@ -28,13 +29,15 @@ export const Preloader: React.FC<PreloaderProps> = ({
   }, [onComplete]);
 
   useEffect(() => {
+    const finish = () => {
+      if (finishedRef.current) return;
+      finishedRef.current = true;
+      if (!reducedMotion) markEntryHandoff();
+      onCompleteRef.current();
+    };
+
     if (reducedMotion) {
-      const t = setTimeout(() => {
-        if (!finishedRef.current) {
-          finishedRef.current = true;
-          onCompleteRef.current();
-        }
-      }, 500);
+      const t = setTimeout(finish, 500);
       return () => clearTimeout(t);
     }
 
@@ -57,12 +60,7 @@ export const Preloader: React.FC<PreloaderProps> = ({
         setPhase("wipe");
         leaveTimer = setTimeout(() => {
           setVisible(false);
-          doneTimer = setTimeout(() => {
-            if (!finishedRef.current) {
-              finishedRef.current = true;
-              onCompleteRef.current();
-            }
-          }, 700);
+          doneTimer = setTimeout(finish, 700);
         }, 420);
       }
     }, 48);
@@ -101,11 +99,9 @@ export const Preloader: React.FC<PreloaderProps> = ({
           aria-busy="true"
           aria-live="polite"
         >
-          {/* Atmosphere */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,rgba(107,74,135,0.35),transparent_65%)]" />
           <div className="absolute inset-0 bg-noise opacity-30" />
 
-          {/* Assembling core  CSS isometric cubes (no WebGL on boot) */}
           <div className="relative z-10 w-40 h-40 sm:w-48 sm:h-48 mb-10">
             {[
               { x: -28, y: -36, delay: 0, c: "#E8A9C2" },
@@ -176,7 +172,6 @@ export const Preloader: React.FC<PreloaderProps> = ({
             </div>
           </div>
 
-          {/* Brand wipe curtain */}
           <AnimatePresence>
             {phase === "wipe" && (
               <motion.div

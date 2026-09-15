@@ -10,7 +10,7 @@ import {
 import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { WowAccent } from "../WowAccent";
+import { LottieAccent } from "../motion/LottieAccent";
 
 interface KiduartTeaserProps {
   settings: SiteSettings;
@@ -137,8 +137,8 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
             className="lg:col-span-7 flex flex-col gap-4"
             reducedMotion={settings.reducedMotion}
           >
-            <WowAccent
-              kind="campus"
+            <LottieAccent
+              preset="nodes-pulse"
               step={step}
               reducedMotion={settings.reducedMotion}
               className="w-full max-w-md mx-auto"

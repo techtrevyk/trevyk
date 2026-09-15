@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import Lenis from 'lenis';
@@ -11,7 +11,6 @@ import { Cursor } from './components/Cursor';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BrandGradientBar } from './components/BrandGradientBar';
-import { Global3DCanvas } from './components/3d/Global3DCanvas';
 import { ArchitectureModal } from './components/ArchitectureModal';
 import { GeminiChatbot } from './components/GeminiChatbot';
 import { SEOManager } from './components/SEOManager';
@@ -20,15 +19,31 @@ import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
 import { RouteLoader } from './components/RouteLoader';
 
-// Multi-Page Views
+// Keep home eager for LCP; lazy-load the rest + heavy 3D shell
 import { HomePage } from './pages/HomePage';
-import { ServicesPage } from './pages/ServicesPage';
-import { TechnologyPage } from './pages/TechnologyPage';
-import { KiduartPage } from './pages/KiduartPage';
-import { ProcessPage } from './pages/ProcessPage';
-import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
 import { trackChatOpen } from './utils/analytics';
+
+const Global3DCanvas = lazy(() =>
+  import('./components/3d/Global3DCanvas').then((m) => ({ default: m.Global3DCanvas })),
+);
+const ServicesPage = lazy(() =>
+  import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })),
+);
+const TechnologyPage = lazy(() =>
+  import('./pages/TechnologyPage').then((m) => ({ default: m.TechnologyPage })),
+);
+const KiduartPage = lazy(() =>
+  import('./pages/KiduartPage').then((m) => ({ default: m.KiduartPage })),
+);
+const ProcessPage = lazy(() =>
+  import('./pages/ProcessPage').then((m) => ({ default: m.ProcessPage })),
+);
+const AboutPage = lazy(() =>
+  import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })),
+);
+const ContactPage = lazy(() =>
+  import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
+);
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -189,15 +204,17 @@ function MainAppContent() {
         />
       )}
 
-      {/* 4. Global Persistent 3D WebGL Canvas (Persists across route changes) */}
-      <Global3DCanvas
-        scrollProgress={scrollProgress}
-        mousePos={mousePos}
-        settings={settings}
-        hoveredCube={hoveredCube}
-        onCubeHover={setHoveredCube}
-        currentPath={location.pathname}
-      />
+      {/* 4. Global Persistent 3D WebGL Canvas (lazy — keeps first paint light) */}
+      <Suspense fallback={null}>
+        <Global3DCanvas
+          scrollProgress={scrollProgress}
+          mousePos={mousePos}
+          settings={settings}
+          hoveredCube={hoveredCube}
+          onCubeHover={setHoveredCube}
+          currentPath={location.pathname}
+        />
+      </Suspense>
 
       <RouteLoader reducedMotion={settings.reducedMotion} />
 
@@ -218,78 +235,80 @@ function MainAppContent() {
             pathname={location.pathname}
             reducedMotion={settings.reducedMotion}
           >
-            <Routes location={location}>
-              <Route
-                path="/"
-                element={
-                  <HomePage
-                    settings={settings}
-                    scrollProgress={scrollProgress}
-                    mousePos={mousePos}
-                    onOpenArchitectureModal={handleOpenArchitectureModal}
-                    hoveredCube={hoveredCube}
-                    onCubeHover={setHoveredCube}
-                    onOpenGeminiChat={() => openChatWithPrompt()}
-                  />
-                }
-              />
-              <Route
-                path="/services"
-                element={
-                  <ServicesPage
-                    settings={settings}
-                    onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
-                  />
-                }
-              />
-              <Route
-                path="/technology"
-                element={
-                  <TechnologyPage
-                    settings={settings}
-                    onOpenArchitectureModal={handleOpenArchitectureModal}
-                    hoveredCube={hoveredCube}
-                    onCubeHover={setHoveredCube}
-                  />
-                }
-              />
-              <Route
-                path="/kiduart"
-                element={<KiduartPage settings={settings} />}
-              />
-              <Route
-                path="/process"
-                element={<ProcessPage settings={settings} />}
-              />
-              <Route
-                path="/about"
-                element={
-                  <AboutPage
-                    settings={settings}
-                    onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
-                  />
-                }
-              />
-              <Route
-                path="/contact"
-                element={<ContactPage settings={settings} />}
-              />
-              {/* Fallback route */}
-              <Route
-                path="*"
-                element={
-                  <HomePage
-                    settings={settings}
-                    scrollProgress={scrollProgress}
-                    mousePos={mousePos}
-                    onOpenArchitectureModal={handleOpenArchitectureModal}
-                    hoveredCube={hoveredCube}
-                    onCubeHover={setHoveredCube}
-                    onOpenGeminiChat={() => openChatWithPrompt()}
-                  />
-                }
-              />
-            </Routes>
+            <Suspense fallback={null}>
+              <Routes location={location}>
+                <Route
+                  path="/"
+                  element={
+                    <HomePage
+                      settings={settings}
+                      scrollProgress={scrollProgress}
+                      mousePos={mousePos}
+                      onOpenArchitectureModal={handleOpenArchitectureModal}
+                      hoveredCube={hoveredCube}
+                      onCubeHover={setHoveredCube}
+                      onOpenGeminiChat={() => openChatWithPrompt()}
+                    />
+                  }
+                />
+                <Route
+                  path="/services"
+                  element={
+                    <ServicesPage
+                      settings={settings}
+                      onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
+                    />
+                  }
+                />
+                <Route
+                  path="/technology"
+                  element={
+                    <TechnologyPage
+                      settings={settings}
+                      onOpenArchitectureModal={handleOpenArchitectureModal}
+                      hoveredCube={hoveredCube}
+                      onCubeHover={setHoveredCube}
+                    />
+                  }
+                />
+                <Route
+                  path="/kiduart"
+                  element={<KiduartPage settings={settings} />}
+                />
+                <Route
+                  path="/process"
+                  element={<ProcessPage settings={settings} />}
+                />
+                <Route
+                  path="/about"
+                  element={
+                    <AboutPage
+                      settings={settings}
+                      onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
+                    />
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={<ContactPage settings={settings} />}
+                />
+                {/* Fallback route */}
+                <Route
+                  path="*"
+                  element={
+                    <HomePage
+                      settings={settings}
+                      scrollProgress={scrollProgress}
+                      mousePos={mousePos}
+                      onOpenArchitectureModal={handleOpenArchitectureModal}
+                      hoveredCube={hoveredCube}
+                      onCubeHover={setHoveredCube}
+                      onOpenGeminiChat={() => openChatWithPrompt()}
+                    />
+                  }
+                />
+              </Routes>
+            </Suspense>
           </PageTransition>
         </AnimatePresence>
       </main>

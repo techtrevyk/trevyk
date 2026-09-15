@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { initAnalytics, getGaMeasurementId } from "../utils/analytics";
 
-/**
- * Loads GA4 when VITE_GA_MEASUREMENT_ID is set.
- * No-op locally / until the env var is configured for production.
- */
+/** Loads GA4 (env `VITE_GA_MEASUREMENT_ID` or production fallback in analytics.ts). */
 export const Analytics: React.FC = () => {
   useEffect(() => {
     if (getGaMeasurementId()) {
