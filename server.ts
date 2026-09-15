@@ -2,8 +2,9 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
-import { getHealthPayload, handleChat, listChatRoles } from "./server/lib/chat";
+import { handleChat, listChatRoles } from "./server/lib/chat";
 import { handleContact } from "./server/lib/contact";
+import { getHealthPayload } from "./server/lib/health";
 
 dotenv.config();
 
