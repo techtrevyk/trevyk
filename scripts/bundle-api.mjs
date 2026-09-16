@@ -1,6 +1,7 @@
 import * as esbuild from "esbuild";
+import { readFileSync, writeFileSync } from "node:fs";
 
-await esbuild.build({
+const result = await esbuild.build({
   entryPoints: {
     health: "server/entries/health.ts",
     contact: "server/entries/contact.ts",
@@ -8,12 +9,20 @@ await esbuild.build({
     "chat/roles": "server/entries/chat-roles.ts",
   },
   outdir: "api",
-  outExtension: { ".js": ".cjs" },
   bundle: true,
   platform: "node",
   format: "cjs",
   target: "node20",
-  sourcemap: false,
+  minify: true,
   legalComments: "none",
+  sourcemap: false,
   logLevel: "info",
+  metafile: true,
 });
+
+for (const file of Object.keys(result.metafile.outputs)) {
+  if (!file.endsWith(".js")) continue;
+  const source = readFileSync(file, "utf8");
+  const cleaned = source.replaceAll("require('/path/to/key.json')", "null");
+  if (cleaned !== source) writeFileSync(file, cleaned);
+}
