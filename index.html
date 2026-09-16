@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,6 +44,16 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/favicon.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- GA4 in the document so Google can see the tag (SPA-only inject was invisible to their checker). -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH828R29RV" id="ga4-gtag"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = window.gtag || gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-CH828R29RV', { anonymize_ip: true });
+    </script>
 
     <!-- LCP: discover logo from the document ASAP -->
     <link

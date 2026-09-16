@@ -9,7 +9,7 @@ export const ROLE_SYSTEM_INSTRUCTIONS: Record<
 > = {
   "enterprise-architect": {
     roleName: "Principal Enterprise Architect",
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash",
     instruction: `You are a Principal Enterprise Architect at Trevyk Technologies (Noida, India).
 Trevyk builds technology products and engineered digital solutions. Kiduart School ERP (https://kiduart.com) is a Trevyk product. We also deliver custom software for institutions and organizations, with an honest-claims policy.
 
@@ -25,7 +25,7 @@ Style:
   },
   "solutions-consultant": {
     roleName: "Trevyk Solutions Consultant",
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash",
     instruction: `You are a Solutions Consultant at Trevyk Technologies (Noida, India). Kiduart School ERP (https://kiduart.com) is a Trevyk product.
 
 Kiduart journey (align with kiduart.com; do not invent modules not on the product site):
@@ -52,7 +52,7 @@ Brand: TREVYK Technologies  "Turning Vision Into Progress." Official site: trevy
   },
   "quick-assistant": {
     roleName: "Trevyk Rapid Assistant",
-    model: "gemini-2.0-flash",
+    model: "gemini-2.5-flash",
     instruction: `You are the Trevyk Rapid Assistant for Trevyk Technologies. Kiduart (kiduart.com) is a Trevyk school ERP product.
 Answer quickly and factually. Never invent SLAs, certifications, or school counts.
 Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128; contact@trevyk.com; reply within one business day.
@@ -128,7 +128,13 @@ export async function handleChat(body: {
     const roleConfig =
       ROLE_SYSTEM_INSTRUCTIONS[roleId] ||
       ROLE_SYSTEM_INSTRUCTIONS["solutions-consultant"];
-    const selectedModel = modelOverride || roleConfig.model;
+    const preferred = modelOverride || roleConfig.model;
+    const models = [
+      preferred,
+      "gemini-2.5-flash",
+      "gemini-2.5-flash-lite",
+      "gemini-flash-latest",
+    ].filter((model, index, all) => all.indexOf(model) === index);
     const ai = getGenAI();
 
     const contents = messages.map((m) => ({
@@ -136,14 +142,32 @@ export async function handleChat(body: {
       parts: [{ text: m.content }],
     }));
 
-    const response = await ai.models.generateContent({
-      model: selectedModel,
-      contents,
-      config: {
-        systemInstruction: roleConfig.instruction,
-        temperature: roleId === "enterprise-architect" ? 0.4 : 0.7,
-      },
-    });
+    let response: { text?: string } | null = null;
+    let selectedModel = preferred;
+    let lastError: unknown;
+    for (const model of models) {
+      try {
+        response = await ai.models.generateContent({
+          model,
+          contents,
+          config: {
+            systemInstruction: roleConfig.instruction,
+            temperature: roleId === "enterprise-architect" ? 0.4 : 0.7,
+          },
+        });
+        selectedModel = model;
+        lastError = undefined;
+        break;
+      } catch (error) {
+        lastError = error;
+        const message = error instanceof Error ? error.message : "";
+        const retryable = /not found|no longer available|not supported|404/i.test(
+          message,
+        );
+        if (!retryable) throw error;
+      }
+    }
+    if (!response) throw lastError;
 
     const replyText =
       response.text ||
@@ -158,13 +182,17 @@ export async function handleChat(body: {
     };
   } catch (error: unknown) {
     console.error("Chat error:", error);
+    const message =
+      error instanceof Error
+        ? error.message
+        : "An error occurred while communicating with Gemini AI";
+    const denied = /denied access|PERMISSION_DENIED|403/i.test(message);
     return {
       ok: false,
-      status: 500,
-      error:
-        error instanceof Error
-          ? error.message
-          : "An error occurred while communicating with Gemini AI",
+      status: denied ? 403 : 500,
+      error: denied
+        ? "Gemini key is present, but this Google project is denied generate access. Create a new key at https://aistudio.google.com/apikey in a project where the Gemini API is enabled."
+        : message,
     };
   }
 }

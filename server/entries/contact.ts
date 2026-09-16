@@ -1,7 +1,12 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { handleContact } from "../server/lib/contact";
+import { handleContact } from "../lib/contact";
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+type ApiReq = { method?: string; body?: unknown };
+type ApiRes = {
+  setHeader: (name: string, value: string) => void;
+  status: (code: number) => { json: (body: unknown) => unknown; end: () => unknown };
+};
+
+export default async function handler(req: ApiReq, res: ApiRes) {
   res.setHeader("Cache-Control", "no-store");
 
   if (req.method === "OPTIONS") {

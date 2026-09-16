@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import Lenis from 'lenis';
@@ -48,13 +48,23 @@ const ContactPage = lazy(() =>
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Helper to scroll to top on route change
-function ScrollToTop() {
+// Instant scroll reset. useEffect was too late, and html.scroll-smooth made the jump visible as footer-first.
+function ScrollToTop({ lenisRef }: { lenisRef: React.RefObject<Lenis | null> }) {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-  }, [pathname]);
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    root.scrollTop = 0;
+    document.body.scrollTop = 0;
+    lenisRef.current?.scrollTo(0, { immediate: true, force: true });
+    root.style.scrollBehavior = previous;
+  }, [pathname, lenisRef]);
 
   return null;
 }
@@ -77,6 +87,7 @@ function MainAppContent() {
 
   const location = useLocation();
   const lenisRef = useRef<Lenis | null>(null);
+  const [mount3d, setMount3d] = useState(false);
 
   const openChatWithPrompt = (prompt?: string) => {
     setChatInitialPrompt(prompt);
@@ -151,9 +162,19 @@ function MainAppContent() {
       lenis.destroy();
       lenisRef.current = null;
     };
-  }, [settings.reducedMotion, location.pathname]);
+  }, [settings.reducedMotion]);
 
-  // Pause page smooth-scroll while chatbot is open so the chat panel can scroll
+  // Defer WebGL until after first paint so navigation and Lighthouse aren't blocked by three.js.
+  useEffect(() => {
+    if (settings.reducedMotion) return;
+    const start = () => setMount3d(true);
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(start, { timeout: 2200 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const timer = window.setTimeout(start, 1600);
+    return () => window.clearTimeout(timer);
+  }, [settings.reducedMotion]);
   useEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
@@ -186,7 +207,7 @@ function MainAppContent() {
 
   return (
     <div id="trevyk-app" className="relative min-h-screen bg-[#2A1830] text-[#F8F6FB] overflow-x-hidden">
-      <ScrollToTop />
+      <ScrollToTop lenisRef={lenisRef} />
       <SEOManager />
       <Analytics />
 
@@ -205,6 +226,7 @@ function MainAppContent() {
       )}
 
       {/* 4. Global Persistent 3D WebGL Canvas (lazy — keeps first paint light) */}
+      {mount3d && (
       <Suspense fallback={null}>
         <Global3DCanvas
           scrollProgress={scrollProgress}
@@ -215,6 +237,7 @@ function MainAppContent() {
           currentPath={location.pathname}
         />
       </Suspense>
+      )}
 
       <RouteLoader reducedMotion={settings.reducedMotion} />
 
@@ -227,7 +250,7 @@ function MainAppContent() {
       />
 
       {/* 6. Multi-Page Routes with Smooth Transition Animations */}
-      <main id="main-content" className="relative z-10">
+      <main id="main-content" className="relative z-10 min-h-screen">
         <Breadcrumbs />
         <AnimatePresence mode="wait">
           <PageTransition
@@ -235,7 +258,7 @@ function MainAppContent() {
             pathname={location.pathname}
             reducedMotion={settings.reducedMotion}
           >
-            <Suspense fallback={null}>
+            <Suspense fallback={<div className="min-h-screen" aria-hidden />}>
               <Routes location={location}>
                 <Route
                   path="/"

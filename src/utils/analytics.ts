@@ -47,9 +47,9 @@ export function initAnalytics() {
 
 export function trackPageView(pathname: string) {
   if (!isAnalyticsEnabled()) return;
-  // Ensure gtag exists before the first SPA page_view (SEOManager can mount before Analytics).
   initAnalytics();
   if (!window.gtag) return;
+  // HTML snippet already sends the first hit. SPA navigations still need this.
   window.gtag("event", "page_view", {
     page_path: pathname,
     page_location: window.location.href,

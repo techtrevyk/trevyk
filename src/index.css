@@ -29,7 +29,7 @@
         rgba(232, 169, 194, 0.08),
         transparent 50%
       );
-    background-attachment: fixed;
+    background-attachment: scroll;
     color: #f8f6fb;
     font-family: "Plus Jakarta Sans", sans-serif;
     margin: 0;
