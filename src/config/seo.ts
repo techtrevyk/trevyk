@@ -10,19 +10,20 @@ export interface RouteSeo {
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
-    title: "TREVYK Technologies | Turning Vision Into Progress",
+    title: "Custom Website, Software & Growth | Trevyk Technologies",
     description:
-      "Trevyk Technologies builds technology products and engineered digital solutions for institutions and organizations. Based in Noida, India.",
+      "Trevyk builds custom websites, web applications, and custom software for startups and local businesses in Noida, plus SEO, digital marketing, social media, video, and scripts. Starter plans. Reply in one business day.",
     crumb: "Home",
     keywords:
-      "Trevyk Technologies, Kiduart, school ERP, custom software, Noida",
+      "custom website development, web application development, custom software Noida, affordable website design, SEO services, digital marketing for startups, social media management, business growth, Trevyk Technologies",
   },
   "/services": {
-    title: "Products & IT Services | TREVYK Technologies",
+    title: "Website, Software, SEO & Marketing Services | Trevyk",
     description:
-      "From Kiduart School ERP to custom software, web and mobile, cloud, design, and advisory  scoped for real operational outcomes.",
+      "Custom websites, web apps, custom software, SEO, campaigns, social media management, and video for growing businesses. Starter plans. Noida, India.",
     crumb: "Services",
-    keywords: "IT services, custom software, school ERP, cloud DevOps, Trevyk",
+    keywords:
+      "website development services, web application development, custom software, SEO company Noida, digital marketing, social media management, video scripts",
   },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",

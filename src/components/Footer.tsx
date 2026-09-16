@@ -33,7 +33,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
       path: "https://kiduart.com",
       external: true,
     },
-    { label: "Cloud Architecture & DevOps", path: "/services" },
+    { label: "Custom websites", path: "/services" },
+    { label: "SEO & digital marketing", path: "/services" },
     { label: "Custom Software", path: "/services" },
     { label: "Modular Core Technology", path: "/technology", badge: "Core" },
     { label: "Book Consultation", path: "/contact" },
@@ -90,9 +91,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 {SITE_TAGLINE}
               </p>
               <p className="mt-2.5 text-sm text-[#E7E1F0] leading-relaxed max-w-sm">
-                We design and ship technology products and engineered systems
-                that institutions and organisations can actually run clear
-                scope, honest claims, and progress you can measure.
+                We build custom websites, web applications, and custom software,
+                then help the business get found with SEO, campaigns, social
+                media, and video. Starter plans. Clear scope. Based in Noida.
               </p>
               <p className="mt-3 text-xs text-[#B9A6D1] leading-relaxed max-w-sm">
                 Flagship product:{" "}

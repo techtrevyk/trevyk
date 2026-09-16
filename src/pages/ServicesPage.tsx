@@ -21,7 +21,8 @@ interface ServicesPageProps {
 const CATEGORIES = [
   { id: "all", label: "All", short: "ALL" },
   { id: "custom-software", label: "Custom Software", short: "SW" },
-  { id: "web-mobile", label: "Web & Mobile", short: "APP" },
+  { id: "web-mobile", label: "Web & Apps", short: "APP" },
+  { id: "growth", label: "Growth & Marketing", short: "GRO" },
   { id: "cloud-devops", label: "Cloud & DevOps", short: "CLD" },
   { id: "ai-ml", label: "AI & Automation", short: "AI" },
   { id: "erp-crm", label: "Kiduart ERP", short: "ERP" },
@@ -77,16 +78,17 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
 
               <h1 className="font-heading font-bold text-3xl sm:text-5xl lg:text-[3.25rem] text-[#F8F6FB] leading-[1.12] tracking-tight">
-                Capabilities shaped for{" "}
+                Custom websites, software, and{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2]">
-                  real operations
+                  growth services
                 </span>
               </h1>
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-                From Kiduart School ERP to custom platforms, cloud, design, and
-                advisory each engagement starts with a clear problem and a
-                delivery path your team can follow.
+                Websites, web applications, custom software, SEO, digital
+                marketing, social media, video, and scripts for startups and
+                local businesses. Starter plans are priced with early budgets
+                in mind. Kiduart School ERP stays the product lane.
               </p>
             </div>
 

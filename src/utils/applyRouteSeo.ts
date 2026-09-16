@@ -11,6 +11,7 @@ import {
   normalizeSeoPath,
   webPageJsonLd,
 } from "../config/seo";
+import { SERVICES_DATA } from "../data/services";
 
 function upsertMeta(
   selector: string,
@@ -133,7 +134,7 @@ export function applyRouteSeo(pathname: string) {
     logo: fallbackImage,
     image: image,
     description:
-      "Trevyk Technologies builds technology products and engineered digital solutions for institutions and organizations. Based in Noida, India.",
+      "Trevyk Technologies builds custom websites, web applications, and custom software, and supports SEO, digital marketing, social media, and video for growing businesses. Based in Noida, India.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",
@@ -171,6 +172,18 @@ export function applyRouteSeo(pathname: string) {
 
   upsertJsonLd("ld-webpage", webPageJsonLd(path));
   upsertJsonLd("ld-breadcrumbs", breadcrumbJsonLd(path));
+  upsertJsonLd("ld-offers", {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "Trevyk services",
+    itemListElement: SERVICES_DATA.map((service, index) => ({
+      "@type": "Offer",
+      position: index + 1,
+      name: service.title,
+      description: service.tagline,
+      url: absoluteUrl("/services"),
+    })),
+  });
 
   if (path === "/kiduart") {
     upsertJsonLd("ld-software", {

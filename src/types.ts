@@ -26,7 +26,7 @@ export interface ServiceItem {
   title: string;
   tagline: string;
   description: string;
-  category: 'custom-software' | 'web-mobile' | 'cloud-devops' | 'ai-ml' | 'erp-crm' | 'ui-ux' | 'it-consulting' | 'cybersecurity' | 'core' | 'product' | 'cloud' | 'data' | 'security';
+  category: 'custom-software' | 'web-mobile' | 'cloud-devops' | 'ai-ml' | 'erp-crm' | 'ui-ux' | 'it-consulting' | 'cybersecurity' | 'growth' | 'core' | 'product' | 'cloud' | 'data' | 'security';
   badge?: string;
   tech: string[];
   metrics: { label: string; value: string };

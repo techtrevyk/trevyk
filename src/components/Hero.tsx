@@ -124,8 +124,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.16, ease }}
               className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
-              Product platforms and engineered systems for institutions that
-              need software they can own.
+              Product, websites, and growth systems for businesses that
+              want to be found and then keep the software.
             </motion.p>
 
             <motion.p
@@ -134,8 +134,10 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.24, ease }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              From Kiduart School ERP to modular custom builds — architecture,
-              delivery, and support designed as one continuous practice.
+              Custom websites, web applications, and custom software for
+              startups and local businesses, plus SEO, campaigns, social media,
+              and video. Starter plans are scoped to your budget. Based in
+              Noida.
             </motion.p>
 
             <motion.div
@@ -154,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({
                 cursorLabel="ENGAGE"
                 reducedMotion={settings.reducedMotion}
               >
-                <span>Start a conversation</span>
+                <span>Get a starter plan</span>
                 <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
 
@@ -194,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({
                   Engineering
                 </div>
                 <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
-                  Modular custom systems
+                  Websites, apps, SEO
                 </div>
               </div>
               <div>

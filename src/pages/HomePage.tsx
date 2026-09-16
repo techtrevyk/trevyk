@@ -8,6 +8,7 @@ import { ProcessTeaser } from "../components/home/ProcessTeaser";
 import { AboutTeaser } from "../components/home/AboutTeaser";
 import { ContactTeaser } from "../components/home/ContactTeaser";
 import { ProofStrip } from "../components/home/ProofStrip";
+import { GrowthOffer } from "../components/home/GrowthOffer";
 import { SectionBridge } from "../components/SectionBridge";
 import { PageAtmosphere } from "../components/PageAtmosphere";
 
@@ -51,6 +52,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         hoveredCube={hoveredCube}
         onCubeHover={onCubeHover}
       />
+
+      <GrowthOffer />
 
       <SectionBridge
         label="Capabilities"

@@ -47,23 +47,19 @@ export const Preloader: React.FC<PreloaderProps> = ({
 
     const interval = setInterval(() => {
       if (finishedRef.current) return;
-      const step = current < 30 ? 2 : current < 70 ? 1.5 : 2.2;
-      current = Math.min(current + step, 100);
+      current = Math.min(current + 22, 100);
       setProgress(Math.floor(current));
-
-      if (current < 25) setPhase("boot");
-      else if (current < 85) setPhase("assemble");
-      else setPhase("ready");
+      setPhase(current < 50 ? "assemble" : "ready");
 
       if (current >= 100) {
         clearInterval(interval);
         setPhase("wipe");
         leaveTimer = setTimeout(() => {
           setVisible(false);
-          doneTimer = setTimeout(finish, 700);
-        }, 420);
+          doneTimer = setTimeout(finish, 180);
+        }, 120);
       }
-    }, 48);
+    }, 16);
 
     return () => {
       clearInterval(interval);

@@ -41,9 +41,9 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
     },
     {
       id: "experiences",
-      title: "Web, mobile & cloud",
-      desc: "Reliable applications and infrastructure designed for the people who operate them daily.",
-      tag: "03 / DELIVERY",
+      title: "Websites, apps & growth",
+      desc: "Custom websites, web applications, SEO, campaigns, social media, and video for businesses that need to be found.",
+      tag: "03 / GROWTH",
       icon: Layers3,
       href: "/services",
       outcome: "Plan a delivery track",
@@ -66,13 +66,13 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               <span>PRODUCTS &amp; SERVICES</span>
             </div>
 
-            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB] leading-tight">
-              Two lanes. One engineering standard.
+              <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB] leading-tight">
+              Websites, software, and the work that brings customers in.
             </h2>
-
             <p className="mt-4 text-[#B9A6D1] text-sm sm:text-base leading-relaxed">
-              Trevyk runs a product practice and a custom engineering practice
-              under the same architecture discipline.
+              Custom website development, web applications, SEO, campaigns,
+              social media, and video. Plus Kiduart for schools. Starter plans
+              for businesses that are still early.
             </p>
 
             <ul className="mt-6 space-y-2.5 w-full">
