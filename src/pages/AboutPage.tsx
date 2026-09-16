@@ -21,6 +21,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface AboutPageProps {
   settings: SiteSettings;
@@ -95,10 +96,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 >
                   Kiduart
                 </a>
-                , our school ERP for Indian institutions, alongside custom
-                software for organizations that need a tailored system. Based in
-                Noida, we ship with an honesty standard: no invented adoption
-                numbers, no borrowed credibility.
+                alongside custom websites, web applications, and the growth work
+                around them: SEO, campaigns, social pages, and video. Based in
+                Noida. We publish only what we can actually deliver.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -169,6 +169,30 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </div>
           </div>
         </ScrollReveal>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <h2 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              A company page, not a slogan wall
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              Trevyk is a Noida practice for custom websites, software, and the
+              marketing that helps a business get found. Kiduart is the school
+              product. We do not invent client counts to look larger than we are.
+            </p>
+            <Link to="/work/custom-websites" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+              How a starter website is scoped
+            </Link>
+          </div>
+          <div className="lg:col-span-7">
+            <StudioFrame
+              src="/images/studio-about.jpg"
+              alt="Gouache painting of a studio table with plans and a cup"
+              caption="Plans on the table. The work still has to be nameable."
+              kicker="About"
+            />
+          </div>
+        </div>
 
         <SectionBridge
           className="mt-10"

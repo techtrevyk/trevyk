@@ -25,6 +25,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface TechnologyPageProps {
   settings: SiteSettings;
@@ -163,6 +164,34 @@ export const TechnologyPage: React.FC<TechnologyPageProps> = ({
             </div>
           </div>
         </ScrollReveal>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="font-mono-accent text-[11px] uppercase tracking-[0.22em] text-[#E8A9C2]">
+              Same standard on every page
+            </p>
+            <h2 className="mt-3 font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              Systems a growing company can keep running
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              Technology here means the stack behind a website, a web app, or
+              Kiduart: modular pieces, documented handoff, and security claims
+              we actually ship. The painting is the same studio language as the
+              rest of the site, not a stock screenshot.
+            </p>
+            <Link to="/work/web-applications" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+              Read how web applications are scoped
+            </Link>
+          </div>
+          <div className="lg:col-span-7">
+            <StudioFrame
+              src="/images/studio-technology.jpg"
+              alt="Gouache painting of stacked blocks suggesting software layers"
+              caption="Architecture stays visible. The customer should still understand the offer."
+              kicker="Technology"
+            />
+          </div>
+        </div>
 
         {/* Principles bridge */}
         <ScrollReveal

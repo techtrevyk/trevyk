@@ -44,6 +44,12 @@ const AboutPage = lazy(() =>
 const ContactPage = lazy(() =>
   import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
 );
+const GuidePage = lazy(() =>
+  import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })),
+);
+const SitemapPage = lazy(() =>
+  import('./pages/SitemapPage').then((m) => ({ default: m.SitemapPage })),
+);
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -315,6 +321,8 @@ function MainAppContent() {
                   path="/contact"
                   element={<ContactPage settings={settings} />}
                 />
+                <Route path="/sitemap" element={<SitemapPage />} />
+                <Route path="/work/:slug" element={<GuidePage />} />
                 {/* Fallback route */}
                 <Route
                   path="*"

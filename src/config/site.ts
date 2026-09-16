@@ -17,6 +17,7 @@ export const SITE_ROUTES = [
   '/process',
   '/about',
   '/contact',
+  '/sitemap',
 ] as const;
 
 export function absoluteUrl(path: string): string {

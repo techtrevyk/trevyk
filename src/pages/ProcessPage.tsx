@@ -22,6 +22,7 @@ import { WowAccent } from "../components/WowAccent";
 import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface ProcessPageProps {
   settings: SiteSettings;
@@ -188,8 +189,8 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
                 >
                   Kiduart
                 </Link>{" "}
-                or commission custom software listen, plan, build in slices,
-                launch carefully, then support.
+                or commission a website, a web app, SEO, or a campaign. Listen,
+                plan, build in slices, launch carefully, then support.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex flex-col items-end gap-5 pb-1">
@@ -214,6 +215,31 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
             </div>
           </div>
         </ScrollReveal>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-7 lg:order-2">
+            <StudioFrame
+              src="/images/studio-process.jpg"
+              alt="Gouache painting of a garden path used as a picture of delivery stages"
+              caption="Five stages, written so a founder can follow them without a diagram legend."
+              kicker="Process"
+            />
+          </div>
+          <div className="lg:col-span-5 lg:order-1">
+            <h2 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              The same path for a website, an app, or a campaign
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              Listen, plan, build in slices, launch, then support. That applies
+              to a starter website, a web application, SEO, or a social
+              calendar. You see a working piece before the whole engagement
+              is called done.
+            </p>
+            <Link to="/contact" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+              Start with a scoped plan
+            </Link>
+          </div>
+        </div>
 
         <SectionBridge
           className="mt-8"

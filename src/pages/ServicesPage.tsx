@@ -12,6 +12,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface ServicesPageProps {
   settings: SiteSettings;
@@ -162,6 +163,30 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </button>
             );
           })}
+        </div>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <StudioFrame
+              src="/images/growth-website.jpg"
+              alt="Gouache painting of a founder reviewing a custom website"
+              caption="Every service on this page can be requested as a starter plan."
+              kicker="Services"
+            />
+          </div>
+          <div className="lg:col-span-5">
+            <h2 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              Read the offer before you scroll the cards
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              Custom websites, web applications, SEO, campaigns, social media,
+              and video are linked from here into longer guides, so this page
+              is not the only place the words live.
+            </p>
+            <Link to="/sitemap" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+              See every page
+            </Link>
+          </div>
         </div>
 
         <SectionBridge

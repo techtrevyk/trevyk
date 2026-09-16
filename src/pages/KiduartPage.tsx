@@ -31,6 +31,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { trackDemoSubmit, trackOutbound } from "../utils/analytics";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface KiduartPageProps {
   settings: SiteSettings;
@@ -311,9 +312,9 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
                 >
                   Kiduart
                 </a>{" "}
-                is Trevyk’s cloud school management platform admissions through
-                fees, attendance, exams, transport, library, HR and parent
-                updates in one operational system.
+                is Trevyk’s cloud school management platform: admissions,
+                fees, attendance, exams, and parent updates. A school that also
+                needs a public website or campaign can ask for that separately.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -396,6 +397,30 @@ export const KiduartPage: React.FC<KiduartPageProps> = ({ settings }) => {
             </div>
           </div>
         </ScrollReveal>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-7 lg:order-2">
+            <StudioFrame
+              src="/images/studio-kiduart.jpg"
+              alt="Gouache painting of a quiet school courtyard in morning light"
+              caption="Kiduart is the product lane. Custom websites and growth work sit beside it."
+              kicker="Kiduart"
+            />
+          </div>
+          <div className="lg:col-span-5 lg:order-1">
+            <h2 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              A school system with a public product site
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              Admissions, fees, attendance, exams, and parent updates are the
+              work Kiduart is built for. Schools that also need a public website
+              or a campaign can ask Trevyk for that as a separate starter plan.
+            </p>
+            <Link to="/contact" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+              Ask for a school demo
+            </Link>
+          </div>
+        </div>
 
         <SectionBridge
           className="mt-10"

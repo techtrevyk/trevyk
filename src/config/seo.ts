@@ -1,3 +1,4 @@
+import { getGuide } from "../data/guides";
 import { absoluteUrl, SITE_NAME, SITE_ROUTES, SITE_URL } from "./site";
 
 export interface RouteSeo {
@@ -28,7 +29,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
     description:
-      "How Trevyk designs maintainable systems  capability atlas, modular architecture tiers, and security practices we actually ship.",
+      "How Trevyk designs websites, web apps, and school systems that stay maintainable: modular architecture, documented handoff, and security practices we actually ship.",
     crumb: "Technology",
     keywords:
       "software architecture, modular systems, engineering stack, Trevyk",
@@ -43,14 +44,14 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/process": {
     title: "How We Deliver | TREVYK Technologies",
     description:
-      "A clear five-stage delivery process  listen, plan, build in slices, launch carefully, then support. No invented SLA theatre.",
+      "A five-stage path for a website, web app, SEO plan, or campaign: listen, agree the plan, build in slices, launch, then support.",
     crumb: "Process",
     keywords: "software delivery process, scoped builds, Trevyk engineering",
   },
   "/about": {
     title: "About Trevyk Technologies",
     description:
-      "Trevyk Technologies  Noida, India. A product and engineering company building software institutions and organizations can run on.",
+      "Trevyk Technologies, Noida. Custom websites, software, SEO, and campaigns for growing businesses, plus Kiduart for schools. Honest claims, no invented client counts.",
     crumb: "About",
     keywords: "About Trevyk, Noida tech company, Turning Vision Into Progress",
   },
@@ -59,16 +60,35 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     description:
       "Contact Trevyk for Kiduart demos or custom engineering. Noida, India. We reply within one business day.",
     crumb: "Contact",
-    keywords: "contact Trevyk, Kiduart demo, custom software enquiry",
+    keywords: "contact Trevyk, Kiduart demo, custom software enquiry, starter website plan",
+  },
+  "/sitemap": {
+    title: "Site map | Trevyk Technologies",
+    description:
+      "Every public Trevyk page: services, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, campaigns, social media, and video.",
+    crumb: "Site map",
+    keywords: "Trevyk sitemap, website services, SEO, custom software",
   },
 };
 
 export function normalizeSeoPath(pathname: string): string {
+  if (pathname === "/sitemap" || pathname.startsWith("/work/")) return pathname;
   return (SITE_ROUTES as readonly string[]).includes(pathname) ? pathname : "/";
 }
 
 export function getRouteSeo(pathname: string): RouteSeo {
   const path = normalizeSeoPath(pathname);
+  if (path.startsWith("/work/")) {
+    const guide = getGuide(path.replace("/work/", ""));
+    if (guide) {
+      return {
+        title: `${guide.title} | Trevyk`,
+        description: guide.description,
+        crumb: guide.kicker,
+        keywords: guide.keywords,
+      };
+    }
+  }
   return ROUTE_SEO[path] || ROUTE_SEO["/"];
 }
 
@@ -77,6 +97,9 @@ export function buildBreadcrumbItems(pathname: string) {
   const items: { name: string; path: string }[] = [
     { name: ROUTE_SEO["/"].crumb, path: "/" },
   ];
+  if (path.startsWith("/work/")) {
+    items.push({ name: "Guides", path: "/sitemap" });
+  }
   if (path !== "/") {
     items.push({ name: getRouteSeo(path).crumb, path });
   }

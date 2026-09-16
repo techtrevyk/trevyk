@@ -11,6 +11,13 @@
 - [About](https://trevyk.in/about)
 - [Process](https://trevyk.in/process)
 - [Contact](https://trevyk.in/contact)
+- [Site map](https://trevyk.in/sitemap)
+- [Custom websites](https://trevyk.in/work/custom-websites)
+- [Web applications](https://trevyk.in/work/web-applications)
+- [SEO](https://trevyk.in/work/seo)
+- [Digital marketing](https://trevyk.in/work/digital-marketing)
+- [Social media](https://trevyk.in/work/social-media)
+- [Video and scripts](https://trevyk.in/work/video-scripts)
 
 ## Optional
 

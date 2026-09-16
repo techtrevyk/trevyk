@@ -21,6 +21,7 @@ import { ScrollReveal } from "../components/ScrollReveal";
 import { soundEngine } from "../utils/audioEngine";
 import { trackContactSubmit } from "../utils/analytics";
 import { Link } from "react-router-dom";
+import { StudioFrame } from "../components/StudioFrame";
 
 interface ContactPageProps {
   settings: SiteSettings;
@@ -108,9 +109,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
               </h1>
 
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
-                Kiduart demos for schools, or custom engineering for your
-                organisation. Choose a lane below clear next steps, no queue
-                theatre.
+                Kiduart demos for schools, or a starter plan for a website,
+                web app, SEO, social page, or video. Name the business and we
+                reply within one business day.
               </p>
             </div>
             <div className="lg:col-span-4 hidden lg:flex justify-end pb-2">
@@ -124,6 +125,28 @@ export const ContactPage: React.FC<ContactPageProps> = ({ settings }) => {
             </div>
           </div>
         </ScrollReveal>
+
+        <div className="mt-12 grid items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <h2 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-3xl">
+              Tell us the business. We reply in one business day.
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
+              A clinic, a shop, a school, or a startup can use the same form.
+              Name the service: website, web app, SEO, social, video, or
+              Kiduart. Share a budget if you have one. Starter plans are
+              scoped from that, not from a price we invented on the page.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <StudioFrame
+              src="/images/studio-contact.jpg"
+              alt="Gouache painting of an envelope and a lit window"
+              caption="The form below is the same conversation, written down."
+              kicker="Contact"
+            />
+          </div>
+        </div>
 
         <SectionBridge
           className="mt-8"
