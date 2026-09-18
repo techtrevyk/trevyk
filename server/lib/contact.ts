@@ -78,7 +78,7 @@ export async function handleContact(
     scope || "(none provided)",
     "",
     `Submitted: ${new Date().toISOString()}`,
-    `Site: ${process.env.VITE_SITE_URL || "https://trevyk.in"}`,
+    `Site: ${process.env.VITE_SITE_URL || "https://www.trevyk.in"}`,
   ].join("\n");
 
   const htmlBody = `
@@ -118,7 +118,7 @@ export async function handleContact(
           "",
           type === "kiduart" || type === "demo"
             ? "You can also book a product demo anytime at https://kiduart.com"
-            : "Meanwhile you can explore https://trevyk.in",
+            : "Meanwhile you can explore https://www.trevyk.in",
           "",
           " Trevyk Technologies",
         ].join("\n"),

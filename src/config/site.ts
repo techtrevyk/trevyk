@@ -1,8 +1,9 @@
 /**
  * Site-wide SEO / URL config.
- * Set VITE_SITE_URL in .env for production (e.g. https://trevyk.in).
+ * Set VITE_SITE_URL in .env for production (must match the live host, including www).
+ * Example: https://www.trevyk.in
  */
-export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://trevyk.in').replace(/\/$/, '');
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://www.trevyk.in').replace(/\/$/, '');
 
 export const SITE_NAME = 'TREVYK Technologies';
 export const SITE_TAGLINE = 'Turning Vision Into Progress.';
