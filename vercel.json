@@ -1,17 +1,13 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "trailingSlash": false,
+  "cleanUrls": true,
   "functions": {
     "api/**/*.js": {
       "maxDuration": 10
     }
   },
-  "rewrites": [
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/api/(.*)",

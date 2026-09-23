@@ -50,6 +50,9 @@ const GuidePage = lazy(() =>
 const SitemapPage = lazy(() =>
   import('./pages/SitemapPage').then((m) => ({ default: m.SitemapPage })),
 );
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
+);
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -323,21 +326,7 @@ function MainAppContent() {
                 />
                 <Route path="/sitemap" element={<SitemapPage />} />
                 <Route path="/work/:slug" element={<GuidePage />} />
-                {/* Fallback route */}
-                <Route
-                  path="*"
-                  element={
-                    <HomePage
-                      settings={settings}
-                      scrollProgress={scrollProgress}
-                      mousePos={mousePos}
-                      onOpenArchitectureModal={handleOpenArchitectureModal}
-                      hoveredCube={hoveredCube}
-                      onCubeHover={setHoveredCube}
-                      onOpenGeminiChat={() => openChatWithPrompt()}
-                    />
-                  }
-                />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Suspense>
           </PageTransition>

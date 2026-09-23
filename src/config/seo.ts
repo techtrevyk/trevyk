@@ -71,9 +71,24 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   },
 };
 
+export const NOT_FOUND_SEO: RouteSeo = {
+  title: "Page not found | Trevyk Technologies",
+  description:
+    "That URL is not a public page on trevyk.in. Open the site map or return home.",
+  crumb: "Not found",
+};
+
+export function isIndexablePath(pathname: string): boolean {
+  if ((SITE_ROUTES as readonly string[]).includes(pathname)) return true;
+  if (pathname.startsWith("/work/")) {
+    return Boolean(getGuide(pathname.replace("/work/", "")));
+  }
+  return false;
+}
+
 export function normalizeSeoPath(pathname: string): string {
-  if (pathname === "/sitemap" || pathname.startsWith("/work/")) return pathname;
-  return (SITE_ROUTES as readonly string[]).includes(pathname) ? pathname : "/";
+  if (isIndexablePath(pathname)) return pathname;
+  return "/404";
 }
 
 export function getRouteSeo(pathname: string): RouteSeo {
@@ -89,7 +104,8 @@ export function getRouteSeo(pathname: string): RouteSeo {
       };
     }
   }
-  return ROUTE_SEO[path] || ROUTE_SEO["/"];
+  if (path === "/404") return NOT_FOUND_SEO;
+  return ROUTE_SEO[path] || NOT_FOUND_SEO;
 }
 
 export function buildBreadcrumbItems(pathname: string) {
@@ -97,6 +113,10 @@ export function buildBreadcrumbItems(pathname: string) {
   const items: { name: string; path: string }[] = [
     { name: ROUTE_SEO["/"].crumb, path: "/" },
   ];
+  if (path === "/404" || !isIndexablePath(pathname)) {
+    items.push({ name: NOT_FOUND_SEO.crumb, path: pathname });
+    return items;
+  }
   if (path.startsWith("/work/")) {
     items.push({ name: "Guides", path: "/sitemap" });
   }

@@ -4,20 +4,14 @@ import { ArrowRight } from "lucide-react";
 import { GUIDES, getGuide } from "../data/guides";
 import { StudioFrame } from "../components/StudioFrame";
 import { PageAtmosphere } from "../components/PageAtmosphere";
+import { NotFoundPage } from "./NotFoundPage";
 
 export const GuidePage: React.FC = () => {
   const { slug = "" } = useParams();
   const guide = getGuide(slug);
 
   if (!guide) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 py-40">
-        <h1 className="font-heading text-3xl font-bold text-[#F8F6FB]">Page not found</h1>
-        <Link to="/sitemap" className="mt-4 inline-block text-[#E8A9C2]">
-          Open the site map
-        </Link>
-      </div>
-    );
+    return <NotFoundPage />;
   }
 
   const related = GUIDES.filter((item) => guide.related.includes(item.slug));

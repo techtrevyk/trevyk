@@ -112,9 +112,9 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.7, delay: copyDelay + 0.08, ease }}
               className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[0.95]"
             >
-              TREVYK
+              Custom websites, software, and growth
               <span className="block text-xl sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
-                Technologies
+                Trevyk Technologies, Noida
               </span>
             </motion.h1>
 

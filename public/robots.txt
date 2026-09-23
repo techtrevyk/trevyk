@@ -3,5 +3,4 @@ Allow: /
 
 Sitemap: https://www.trevyk.in/sitemap.xml
 
-# Canonical host is https://www.trevyk.in (apex trevyk.in 308-redirects here).
-# SPA routes must rewrite to index.html in production.
+# Canonical host is https://www.trevyk.in (apex trevyk.in should 301 here).

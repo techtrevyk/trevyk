@@ -8,6 +8,7 @@ import {
 import {
   breadcrumbJsonLd,
   getRouteSeo,
+  isIndexablePath,
   normalizeSeoPath,
   webPageJsonLd,
 } from "../config/seo";
@@ -56,9 +57,10 @@ function upsertJsonLd(id: string, data: Record<string, unknown>) {
  * Client-side for SPA; keep index.html home defaults for first paint / no-JS.
  */
 export function applyRouteSeo(pathname: string) {
+  const indexable = isIndexablePath(pathname);
   const path = normalizeSeoPath(pathname);
   const meta = getRouteSeo(path);
-  const url = absoluteUrl(path);
+  const url = indexable ? absoluteUrl(pathname) : `${SITE_URL}${pathname}`;
   const image = absoluteUrl("/trevyk-logo-on-dark.png");
   const fallbackImage = absoluteUrl("/trevyk-logo.png");
 
@@ -76,7 +78,9 @@ export function applyRouteSeo(pathname: string) {
   upsertMeta(
     'meta[name="robots"]',
     "content",
-    "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    indexable
+      ? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      : "noindex, follow",
     { name: "robots" },
   );
   upsertMeta('meta[name="author"]', "content", SITE_NAME, { name: "author" });
@@ -171,7 +175,11 @@ export function applyRouteSeo(pathname: string) {
   });
 
   upsertJsonLd("ld-webpage", webPageJsonLd(path));
-  upsertJsonLd("ld-breadcrumbs", breadcrumbJsonLd(path));
+  if (indexable) {
+    upsertJsonLd("ld-breadcrumbs", breadcrumbJsonLd(path));
+  } else {
+    document.getElementById("ld-breadcrumbs")?.remove();
+  }
   upsertJsonLd("ld-offers", {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
