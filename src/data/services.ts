@@ -104,7 +104,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "AI & Workflow Automation",
     tagline: "Practical automation  only where data and process are ready.",
     description:
-      "We add AI and automation where they save real staff time: document handling, assisted support, and internal copilots. We do not sell vapour “AI ERP” claims. Kiduart’s next intelligence layer is labelled separately when it ships.",
+      "We add AI and automation where they save real staff time: custom agents, document handling, assisted support, and RAG over your knowledge. The AI solutions hub and guides go deeper. We do not sell vapour “AI ERP” claims. Kiduart’s next intelligence layer is labelled separately when it ships.",
     category: "ai-ml",
     badge: "Automation",
     tech: ["Gemini API", "Python", "RAG patterns", "Workflow tools"],
@@ -113,10 +113,11 @@ export const SERVICES_DATA: ServiceItem[] = [
     iconName: "Brain",
     includes: [
       "Use-case discovery before model choice",
-      "Private knowledge / RAG over your documents when appropriate",
+      "Custom agents and private knowledge / RAG when appropriate",
       "Guardrails and role-aware access",
       "Clear labelling of what is live vs in development",
       "Cost and quality monitoring",
+      "Link out to the AI solutions hub and deeper guides",
     ],
     fitsFor:
       "Teams with repetitive document or support work who want automation without sacrificing honesty about readiness.",

@@ -33,12 +33,16 @@ const templatePath = path.join(dist, "index.html");
 const NAV: { href: string; label: string }[] = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/ai", label: "AI solutions" },
   { href: "/work/custom-websites", label: "Custom websites" },
   { href: "/work/web-applications", label: "Web applications" },
   { href: "/work/seo", label: "SEO" },
   { href: "/work/digital-marketing", label: "Digital marketing" },
   { href: "/work/social-media", label: "Social media" },
   { href: "/work/video-scripts", label: "Video and scripts" },
+  { href: "/work/ai-agents", label: "AI agents" },
+  { href: "/work/rag-knowledge-assistants", label: "RAG assistants" },
+  { href: "/work/ai-for-schools", label: "AI for schools" },
   { href: "/technology", label: "Technology" },
   { href: "/process", label: "Process" },
   { href: "/about", label: "About" },
@@ -60,7 +64,14 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "Custom websites, software, and growth services",
     paragraphs: [
       "Websites, web applications, custom software, SEO, digital marketing, social media, video, and scripts for startups and local businesses. Starter plans are priced with early budgets in mind. Kiduart School ERP stays the product lane.",
-      "Each offer below is something Trevyk can scope and deliver. Guides go deeper on the services we want searchers to find.",
+      "Each offer below is something Trevyk can scope and deliver. Guides go deeper on the services we want searchers to find. AI agents and RAG are covered on the AI solutions hub.",
+    ],
+  },
+  "/ai": {
+    h1: "AI that owns a workflow—not a slide deck",
+    paragraphs: [
+      "Trevyk builds practical AI for Indian SMBs, startups, and schools: custom agents, RAG assistants, and automation beside systems you already run.",
+      "The public site assistant uses Gemini with role prompts. Deeper school-data agents inside Kiduart are labelled separately when they ship. Start with /work/ai-agents, /work/rag-knowledge-assistants, or /work/ai-for-schools.",
     ],
   },
   "/technology": {
@@ -177,8 +188,18 @@ function bodyFor(route: string): string {
 
   if (!copy) throw new Error(`Missing static copy for ${route}`);
 
+  const faqBlock =
+    guide?.faqs && guide.faqs.length > 0
+      ? `<h2>Questions buyers ask</h2>${guide.faqs
+          .map(
+            (faq) =>
+              `<h3>${escapeHtml(faq.question)}</h3><p>${escapeHtml(faq.answer)}</p>`,
+          )
+          .join("")}`
+      : "";
+
   const extra = guide
-    ? `<h2>What you leave with</h2>${textList(guide.points)}<p><a href="/contact">Start this conversation</a></p>`
+    ? `<h2>What you leave with</h2>${textList(guide.points)}${faqBlock}<p><a href="/contact">Start this conversation</a></p><p><a href="/ai">AI solutions hub</a></p>`
     : "";
 
   const serviceList =
@@ -298,6 +319,22 @@ function render(template: string, route: string): string {
     "twitter:image",
   );
 
+  const faqLd =
+    guide?.faqs && guide.faqs.length > 0
+      ? jsonScript("ld-faq", {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: guide.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        })
+      : "";
+
   const structured = isIndexablePath(route)
     ? [
         jsonScript("ld-organization", {
@@ -319,7 +356,10 @@ function render(template: string, route: string): string {
         }),
         jsonScript("ld-webpage", webPageJsonLd(route)),
         jsonScript("ld-breadcrumbs", breadcrumbJsonLd(route)),
-      ].join("\n    ")
+        faqLd,
+      ]
+        .filter(Boolean)
+        .join("\n    ")
     : "";
 
   if (structured) {

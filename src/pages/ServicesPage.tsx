@@ -181,9 +181,16 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
               Custom websites, web applications, SEO, campaigns, social media,
-              and video are linked from here into longer guides, so this page
+              video, and AI are linked from here into longer guides, so this page
               is not the only place the words live.
             </p>
+            <Link
+              to="/ai"
+              className="mt-4 inline-flex items-center text-sm font-semibold text-[#E8A9C2] underline underline-offset-2 hover:text-[#F8F6FB]"
+            >
+              AI solutions hub
+              <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
             <ul className="mt-5 space-y-2">
               {GUIDES.map((guide) => (
                 <li key={guide.slug}>

@@ -64,6 +64,7 @@ export const KIDUART_ABOUT_URL = "https://kiduart.com/about";
 export const SITE_ROUTES = [
   "/",
   "/services",
+  "/ai",
   "/technology",
   "/kiduart",
   "/process",

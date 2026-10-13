@@ -26,6 +26,14 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     keywords:
       "website development services, web application development, custom software, SEO company Noida, digital marketing, social media management, video scripts",
   },
+  "/ai": {
+    title: "AI Agents, RAG & Automation | Trevyk Technologies",
+    description:
+      "Custom AI agents, RAG knowledge assistants, and practical automation for Indian SMBs and schools. Honest scope: what is live on this site versus what we build to order.",
+    crumb: "AI",
+    keywords:
+      "custom AI agent development India, RAG knowledge assistants, AI automation Noida, AI for schools, Trevyk AI",
+  },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
     description:
@@ -65,9 +73,9 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/sitemap": {
     title: "Site map | Trevyk Technologies",
     description:
-      "Every public Trevyk page: services, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, campaigns, social media, and video.",
+      "Every public Trevyk page: services, AI solutions, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, AI, campaigns, social media, and video.",
     crumb: "Site map",
-    keywords: "Trevyk sitemap, website services, SEO, custom software",
+    keywords: "Trevyk sitemap, website services, SEO, custom software, AI agents",
   },
 };
 

@@ -19,6 +19,7 @@ import {
   Mail,
   ChevronRight,
   Info,
+  Brain,
 } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 import { TrevykLogo } from "./TrevykLogo";
@@ -99,6 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navLinks = [
     { label: "Home", path: "/", icon: Sparkles },
     { label: "Services", path: "/services", icon: Cpu },
+    { label: "AI", path: "/ai", icon: Brain },
     { label: "Technology", path: "/technology", badge: "Core", icon: Layers },
     {
       label: "Kiduart ERP",

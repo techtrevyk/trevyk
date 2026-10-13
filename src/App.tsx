@@ -47,6 +47,9 @@ const ContactPage = lazy(() =>
 const GuidePage = lazy(() =>
   import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })),
 );
+const AiPage = lazy(() =>
+  import('./pages/AiPage').then((m) => ({ default: m.AiPage })),
+);
 const SitemapPage = lazy(() =>
   import('./pages/SitemapPage').then((m) => ({ default: m.SitemapPage })),
 );
@@ -330,6 +333,7 @@ function MainAppContent() {
                   path="/contact"
                   element={<ContactPage settings={settings} />}
                 />
+                <Route path="/ai" element={<AiPage />} />
                 <Route path="/sitemap" element={<SitemapPage />} />
                 <Route path="/work/:slug" element={<GuidePage />} />
                 <Route path="*" element={<NotFoundPage />} />

@@ -13,6 +13,7 @@ import {
   webPageJsonLd,
 } from "../config/seo";
 import { SERVICES_DATA } from "../data/services";
+import { getGuide } from "../data/guides";
 
 function upsertMeta(
   selector: string,
@@ -221,5 +222,27 @@ export function applyRouteSeo(pathname: string) {
     });
   } else {
     document.getElementById("ld-software")?.remove();
+  }
+
+  if (path.startsWith("/work/")) {
+    const guide = getGuide(path.replace("/work/", ""));
+    if (guide?.faqs && guide.faqs.length > 0) {
+      upsertJsonLd("ld-faq", {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: guide.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      });
+    } else {
+      document.getElementById("ld-faq")?.remove();
+    }
+  } else {
+    document.getElementById("ld-faq")?.remove();
   }
 }

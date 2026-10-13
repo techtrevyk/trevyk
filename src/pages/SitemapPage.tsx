@@ -6,6 +6,7 @@ import { PageAtmosphere } from "../components/PageAtmosphere";
 const CORE = [
   { path: "/", label: "Home", note: "Websites, software, and growth in one introduction." },
   { path: "/services", label: "Services", note: "The full catalogue, including starter plans." },
+  { path: "/ai", label: "AI solutions", note: "Agents, RAG, school AI—honest about what is live." },
   { path: "/technology", label: "Technology", note: "How systems are designed and kept maintainable." },
   { path: "/process", label: "Process", note: "Listen, plan, build, launch, support." },
   { path: "/about", label: "About", note: "Noida practice, honest claims, who we work with." },
@@ -76,7 +77,7 @@ export const SitemapPage: React.FC = () => {
                     height={540}
                     className="aspect-video w-full rounded-2xl object-cover"
                   />
-                  <span className="py啟發式2 pr-2">
+                  <span className="py-2 pr-2">
                     <span className="font-mono-accent text-[10px] uppercase tracking-[0.2em] text-[#E8A9C2]">
                       /work/{guide.slug}
                     </span>

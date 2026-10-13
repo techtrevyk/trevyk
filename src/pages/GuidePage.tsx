@@ -49,6 +49,31 @@ export const GuidePage: React.FC = () => {
                 {paragraph}
               </p>
             ))}
+            {guide.faqs && guide.faqs.length > 0 ? (
+              <section className="mt-10" aria-labelledby="guide-faq-heading">
+                <h2
+                  id="guide-faq-heading"
+                  className="font-heading text-2xl font-semibold text-[#F8F6FB]"
+                >
+                  Questions buyers ask
+                </h2>
+                <dl className="mt-4 space-y-4">
+                  {guide.faqs.map((faq) => (
+                    <div
+                      key={faq.question}
+                      className="rounded-2xl border border-[#B9A6D1]/25 bg-[#160A1C]/50 px-4 py-4"
+                    >
+                      <dt className="font-heading text-base font-semibold text-[#F8F6FB]">
+                        {faq.question}
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-[#B9A6D1]">
+                        {faq.answer}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            ) : null}
           </div>
           <aside className="lg:col-span-5">
             <div className="rounded-3xl border border-[#B9A6D1]/30 bg-[#1E1024]/80 p-6">
@@ -66,6 +91,13 @@ export const GuidePage: React.FC = () => {
               >
                 Start this conversation
                 <ArrowRight className="ml-1.5 h-4 w-4" />
+              </Link>
+              <Link
+                to="/ai"
+                className="mt-3 flex items-center text-sm font-semibold text-[#E8A9C2]"
+              >
+                AI solutions hub
+                <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </div>
           </aside>
@@ -85,6 +117,15 @@ export const GuidePage: React.FC = () => {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                to="/ai"
+                className="block rounded-2xl border border-[#B9A6D1]/30 px-4 py-4 text-sm text-[#F8F6FB] hover:border-[#E8A9C2]"
+              >
+                AI solutions
+                <span className="mt-1 block text-[#B9A6D1]">Hub for agents, RAG, and schools</span>
+              </Link>
+            </li>
             <li>
               <Link
                 to="/services"
