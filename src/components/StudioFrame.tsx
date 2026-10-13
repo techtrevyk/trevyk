@@ -19,6 +19,12 @@ export const StudioFrame: React.FC<StudioFrameProps> = ({
       <div className="rounded-[1.6rem] border border-[#B9A6D1]/35 bg-[#160A1C]/90 p-2.5 sm:p-3 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
         <img
           src={src}
+          srcSet={
+            src.endsWith(".jpg")
+              ? `${src.replace(/\.jpg$/i, "-640.jpg")} 640w, ${src} 960w`
+              : undefined
+          }
+          sizes="(max-width: 768px) 92vw, (max-width: 1280px) 45vw, 560px"
           alt={alt}
           width={960}
           height={540}

@@ -241,9 +241,11 @@ export const Hero: React.FC<HeroProps> = ({
                   id="toggle-disassemble-btn"
                   type="button"
                   onClick={handleDisassembleToggle}
+                  aria-label={disassembled ? "Reassemble architecture core" : "Disassemble architecture core"}
+                  aria-pressed={disassembled}
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/35 text-[10px] font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] transition-colors"
                 >
-                  <Cpu className="w-3 h-3 text-[#E8A9C2]" />
+                  <Cpu className="w-3 h-3 text-[#E8A9C2]" aria-hidden />
                   <span className="hidden sm:inline">
                     {disassembled ? "Reassemble" : "Disassemble"}
                   </span>

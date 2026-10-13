@@ -47,7 +47,7 @@ export const Preloader: React.FC<PreloaderProps> = ({
 
     const interval = setInterval(() => {
       if (finishedRef.current) return;
-      current = Math.min(current + 22, 100);
+      current = Math.min(current + 34, 100);
       setProgress(Math.floor(current));
       setPhase(current < 50 ? "assemble" : "ready");
 
@@ -56,8 +56,8 @@ export const Preloader: React.FC<PreloaderProps> = ({
         setPhase("wipe");
         leaveTimer = setTimeout(() => {
           setVisible(false);
-          doneTimer = setTimeout(finish, 180);
-        }, 120);
+          doneTimer = setTimeout(finish, 120);
+        }, 80);
       }
     }, 16);
 

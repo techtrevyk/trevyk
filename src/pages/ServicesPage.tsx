@@ -13,6 +13,7 @@ import { MagneticCard } from "../components/MagneticCard";
 import { soundEngine } from "../utils/audioEngine";
 import { Link } from "react-router-dom";
 import { StudioFrame } from "../components/StudioFrame";
+import { GUIDES } from "../data/guides";
 
 interface ServicesPageProps {
   settings: SiteSettings;
@@ -183,7 +184,22 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               and video are linked from here into longer guides, so this page
               is not the only place the words live.
             </p>
-            <Link to="/sitemap" className="mt-4 inline-block text-sm text-[#E8A9C2] underline underline-offset-2">
+            <ul className="mt-5 space-y-2">
+              {GUIDES.map((guide) => (
+                <li key={guide.slug}>
+                  <Link
+                    to={`/work/${guide.slug}`}
+                    className="text-sm text-[#E8A9C2] underline underline-offset-2 hover:text-[#F8F6FB]"
+                  >
+                    {guide.kicker}: {guide.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/sitemap"
+              className="mt-4 inline-block text-sm text-[#B9A6D1] underline underline-offset-2 hover:text-[#E8A9C2]"
+            >
               See every page
             </Link>
           </div>

@@ -198,8 +198,10 @@ function bodyFor(route: string): string {
       })
     : [];
 
+  // Class trevyk-seo-shell is visually clipped by critical CSS in index.html
+  // so users never see this plain-text shell; crawlers still get the HTML.
   return `<!-- trevyk-static-start -->
-      <article style="max-width:48rem;margin:0 auto;padding:6rem 1rem 3rem;font-family:sans-serif">
+      <article class="trevyk-seo-shell">
         <nav aria-label="Site">${NAV.map(
           (link) =>
             `<a href="${escapeHtml(link.href)}">${escapeHtml(link.label)}</a> `,

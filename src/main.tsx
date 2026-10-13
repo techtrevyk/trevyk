@@ -8,3 +8,9 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Drop the HTML boot shell once React has mounted (Preloader takes over).
+// Kept outside #root so createRoot does not remove it mid-paint.
+requestAnimationFrame(() => {
+  document.getElementById('trevyk-boot')?.remove();
+});

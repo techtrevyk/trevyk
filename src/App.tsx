@@ -79,7 +79,9 @@ function ScrollToTop({ lenisRef }: { lenisRef: React.RefObject<Lenis | null> }) 
 }
 
 function MainAppContent() {
-  const [loading, setLoading] = useState(true);
+  // HTML #trevyk-boot already covers first paint. Skip the second cinematic
+  // overlay so LCP is the real page, not a delayed preloader animation.
+  const [loading, setLoading] = useState(false);
   const [settings, setSettings] = useState<SiteSettings>({
     reducedMotion: false,
     highQuality3D: true,
@@ -177,11 +179,15 @@ function MainAppContent() {
   useEffect(() => {
     if (settings.reducedMotion) return;
     const start = () => setMount3d(true);
+    const isNarrow =
+      typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+    const timeout = isNarrow ? 4500 : 2200;
+    const fallbackMs = isNarrow ? 3200 : 1600;
     if (typeof window.requestIdleCallback === 'function') {
-      const id = window.requestIdleCallback(start, { timeout: 2200 });
+      const id = window.requestIdleCallback(start, { timeout });
       return () => window.cancelIdleCallback(id);
     }
-    const timer = window.setTimeout(start, 1600);
+    const timer = window.setTimeout(start, fallbackMs);
     return () => window.clearTimeout(timer);
   }, [settings.reducedMotion]);
   useEffect(() => {

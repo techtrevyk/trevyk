@@ -11,18 +11,39 @@ const FRAMES = [
     href: "/work/custom-websites",
   },
   {
+    src: "/images/studio-technology.jpg",
+    alt: "Gouache painting of stacked blocks suggesting a software system",
+    kicker: "Software",
+    caption: "Web apps and custom software when a brochure site is not enough.",
+    href: "/work/web-applications",
+  },
+  {
     src: "/images/growth-content.jpg",
     alt: "Gouache painting of a camera, notebook, and phone for content work",
-    kicker: "Campaigns",
-    caption: "SEO, social, and video from the same offer.",
+    kicker: "Search",
+    caption: "SEO written for the enquiry, not vanity traffic.",
     href: "/work/seo",
   },
   {
     src: "/images/growth-business.jpg",
     alt: "Gouache painting of a storefront and vine as a picture of business growth",
-    kicker: "Growth",
-    caption: "Any business type. The plan follows the buyer, not a generic deck.",
+    kicker: "Campaigns",
+    caption: "Ads and landing pages sized for starter budgets.",
     href: "/work/digital-marketing",
+  },
+  {
+    src: "/images/growth-content.jpg",
+    alt: "Gouache painting suggesting social and content work on a desk",
+    kicker: "Social",
+    caption: "Calendars and captions so the page stays alive.",
+    href: "/work/social-media",
+  },
+  {
+    src: "/images/studio-process.jpg",
+    alt: "Gouache painting of a path, used here as a picture of a story moving forward",
+    kicker: "Video",
+    caption: "Short scripts that say what you sell before the viewer guesses.",
+    href: "/work/video-scripts",
   },
 ];
 
@@ -44,7 +65,7 @@ export const GrowthOffer: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FRAMES.map((frame) => (
             <Link
               key={frame.href}
