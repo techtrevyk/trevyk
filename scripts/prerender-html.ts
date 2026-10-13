@@ -18,6 +18,7 @@ import {
 } from "../src/config/seo";
 import {
   absoluteUrl,
+  CANONICAL_SITE_URL,
   KIDUART_URL,
   SITE_NAME,
   SITE_ROUTES,
@@ -341,10 +342,24 @@ function render(template: string, route: string): string {
   return html;
 }
 
+function assertSiteUrlForPrerender() {
+  // Defense in depth: apex must never ship in prerendered canonicals.
+  // normalizeSiteUrl already maps apex → www; this fails loudly if that regresses.
+  const host = new URL(SITE_URL).hostname.toLowerCase();
+  if (host === "trevyk.in") {
+    throw new Error(
+      `Refusing to prerender with apex SITE_URL=${SITE_URL}. ` +
+        `Set VITE_SITE_URL=${CANONICAL_SITE_URL} (apex redirects to www).`,
+    );
+  }
+  console.log(`prerender SITE_URL=${SITE_URL}`);
+}
+
 function main() {
   if (!fs.existsSync(templatePath)) {
     throw new Error(`Build index.html not found at ${templatePath}. Run vite build first.`);
   }
+  assertSiteUrlForPrerender();
   const template = fs.readFileSync(templatePath, "utf8");
   const all = [...routes(), "/404"];
   for (const route of all) {
