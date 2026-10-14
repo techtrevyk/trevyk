@@ -71,7 +71,10 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "AI that owns a workflow—not a slide deck",
     paragraphs: [
       "Trevyk builds practical AI for Indian SMBs, startups, and organisations: custom agents, RAG assistants, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
-      "Engagements move from discovery to prototype, hardening, and operate—with security, evaluation, and monitoring. The public site assistant uses Gemini with role prompts. Deeper school-data agents inside Kiduart are labelled separately when they ship.",
+      "Problems we solve: repeat support and ops work, answers trapped in documents, and integrations that need a human gate—not unsupervised autonomy over money or student records.",
+      "Discovery to deployment: Discover the workflow and roles; Prototype a narrow path with an eval set; Harden permissions, logging, and production credentials; Operate with monitoring, cost alerts, and controlled prompt changes.",
+      "Security, evaluation, and monitoring: least-privilege tool access, audit logs, human approval on irreversible actions, evaluation sets for grounding and safe refusals, and monitoring for latency, token spend, and retrieval misses.",
+      "Questions buyers ask: What AI services does Trevyk offer? Custom agents, RAG assistants, and workflow automation—school ERP product needs belong primarily on kiduart.com. Do you sell separate AEO or GEO packages? No—we improve crawlable structure and clear answers as part of honest SEO. How is cost determined? Integrations, corpus size, languages, traffic, evaluation depth, and write-action risk; we quote from scope.",
       "Start with /work/ai-agents, /work/rag-knowledge-assistants, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
     ],
   },

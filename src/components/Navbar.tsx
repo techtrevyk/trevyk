@@ -218,11 +218,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                   onOpenGeminiChat();
                 }}
                 title="Open Trevyk AI Assistant"
-                className="px-2.5 py-1.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/45 text-xs font-mono-accent text-[#E8A9C2] hover:bg-[#24132B] hover:border-[#E8A9C2]/60 flex items-center space-x-1.5 transition-all"
+                aria-label="Open Trevyk AI Assistant"
+                className="px-2 py-1.5 xl:px-2.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/45 text-xs font-mono-accent text-[#E8A9C2] hover:bg-[#24132B] hover:border-[#E8A9C2]/60 flex items-center space-x-1.5 transition-all"
                 data-cursor-label="GEMINI"
               >
                 <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                <span>AI</span>
+                <span className="hidden xl:inline">AI</span>
               </button>
             )}
 
@@ -285,12 +286,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundEngine.playClick("hero");
                 onOpenArchitectureModal();
               }}
-              className="!py-2 !px-3.5 !text-xs whitespace-nowrap"
+              className="!py-2 !px-2.5 xl:!px-3.5 !text-xs whitespace-nowrap"
               cursorLabel="INSPECT"
               reducedMotion={settings.reducedMotion}
             >
-              <Layers className="w-3.5 h-3.5 mr-1 text-white" />
-              <span>Inspect Core</span>
+              <Layers className="w-3.5 h-3.5 xl:mr-1 text-white" aria-hidden />
+              <span className="sr-only">Inspect Core</span>
+              <span className="hidden xl:inline" aria-hidden>
+                Inspect Core
+              </span>
             </MagneticButton>
           </div>
 
