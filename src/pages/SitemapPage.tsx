@@ -6,7 +6,7 @@ import { PageAtmosphere } from "../components/PageAtmosphere";
 const CORE = [
   { path: "/", label: "Home", note: "Websites, software, and growth in one introduction." },
   { path: "/services", label: "Services", note: "The full catalogue, including starter plans." },
-  { path: "/ai", label: "AI solutions", note: "Agents, RAG, school AI—honest about what is live." },
+  { path: "/ai", label: "AI solutions", note: "Agents, RAG, and a Kiduart bridge—honest about what is live." },
   { path: "/technology", label: "Technology", note: "How systems are designed and kept maintainable." },
   { path: "/process", label: "Process", note: "Listen, plan, build, launch, support." },
   { path: "/about", label: "About", note: "Noida practice, honest claims, who we work with." },

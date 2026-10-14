@@ -49,6 +49,23 @@ export const GuidePage: React.FC = () => {
                 {paragraph}
               </p>
             ))}
+            {guide.sections?.map((section) => (
+              <section key={section.heading} className="pt-4">
+                <h2 className="font-heading text-2xl font-semibold text-[#F8F6FB]">
+                  {section.heading}
+                </h2>
+                <div className="mt-3 space-y-4">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 28)}
+                      className="text-base leading-relaxed text-[#E7E1F0]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            ))}
             {guide.faqs && guide.faqs.length > 0 ? (
               <section className="mt-10" aria-labelledby="guide-faq-heading">
                 <h2

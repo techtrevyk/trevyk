@@ -3,6 +3,11 @@ export interface GuideFaq {
   answer: string;
 }
 
+export interface GuideSection {
+  heading: string;
+  paragraphs: string[];
+}
+
 export interface Guide {
   slug: string;
   title: string;
@@ -15,6 +20,8 @@ export interface Guide {
   related: string[];
   paragraphs: string[];
   points: string[];
+  /** Deeper H2 sections for service guides (agents, RAG, etc.). */
+  sections?: GuideSection[];
   /** Optional Q&A for humans and answer-style discovery; keep facts honest. */
   faqs?: GuideFaq[];
 }
@@ -178,39 +185,86 @@ export const GUIDES: Guide[] = [
     description:
       "Scoped AI agents that call your tools, follow role rules, and escalate to humans—built for SMBs and product teams in India, not vapour demos.",
     keywords:
-      "custom AI agent development India, business AI agents, LLM workflow automation, Gemini agents",
+      "custom AI agent development India, business AI agents, LLM workflow automation, Gemini agents, human-in-the-loop AI",
     kicker: "AI agents",
-    image: "/images/studio-technology.jpg",
-    alt: "Painting of stacked blocks suggesting a modular software system",
-    caption: "An agent is useful when it owns a workflow, not when it only chats.",
-    related: ["rag-knowledge-assistants", "ai-for-schools", "web-applications"],
+    image: "/images/ai-agents-workflow.jpg",
+    alt: "Painterly diagram of an AI agent workflow with tool steps and an approval checkpoint",
+    caption: "Intake → tools → human gate → action. Chat alone is not an agent.",
+    related: ["rag-knowledge-assistants", "web-applications", "seo"],
     paragraphs: [
       "Businesses hire partners for AI agents when staff repeat the same lookups, ticket replies, booking steps, or document handoffs. The buyer is usually an operations lead, founder, or IT owner who wants hours back—not a research paper.",
-      "Trevyk builds custom agents on top of models such as Google Gemini, with tool calls into your APIs, WhatsApp or web channels when needed, and clear handoff to a human. We start with one workflow: intake, retrieval, action, audit log. Multi-agent orchestration comes only after the first path is stable.",
-      "India’s agency market already prices starter agents and RAG builds for SMBs; published vendor ranges often start near mid–five figures INR for a narrow workflow and rise with integrations. We quote from your scope, not a generic brochure. You keep the source for custom work.",
-      "What we will not do: invent school counts, claim an agent is “live inside Kiduart ERP” unless that product surface is actually shipped, or promise unsupervised autonomy over money, exams, or student records.",
+      "Trevyk builds custom agents that combine a language model with approved tools (APIs, search, forms, messaging). We start with one workflow: intake, retrieval or classification, proposed action, human review where risk is high, then an audit log. Multi-agent orchestration comes only after the first path is stable.",
+      "Cost depends on integrations, languages, traffic, evaluation depth, and whether write actions are allowed. We quote from your scope. You keep the source for custom work. We do not invent school counts or claim an agent is live inside Kiduart ERP unless that product surface has shipped.",
     ],
     points: [
       "One primary workflow before multi-agent theatre",
-      "Tool access and role rules written down",
-      "Human escalation path",
-      "Eval checklist and cost monitoring notes",
+      "Precise tool definitions and least-privilege access",
+      "Human escalation and approval checkpoints",
+      "Eval set, traces, and cost monitoring notes",
+    ],
+    sections: [
+      {
+        heading: "Agent types we actually scope",
+        paragraphs: [
+          "Support triage agents classify and draft replies, then hand off to a person when confidence is low or policy requires it.",
+          "Operations agents look up order, ticket, or CRM state through your APIs and prepare the next step—never inventing a record that is not returned by a tool.",
+          "Document and intake agents extract fields, validate them against rules, and open a case for staff confirmation on sensitive writes.",
+          "Internal copilots help employees search approved knowledge; they are not unsupervised spenders, buyers, or exam graders.",
+        ],
+      },
+      {
+        heading: "Workflow and architecture",
+        paragraphs: [
+          "A practical agent loop is: understand the request, decide which tool (if any) to call, execute with structured inputs, check the result, answer or act, and log the path. Predictable steps belong in deterministic code; the model should not reinvent them every time.",
+          "Enterprise guidance from providers such as Google Cloud emphasises loading only task-specific tools rather than stuffing every API into context, wrapping external APIs so the model sees only relevant fields, and governing tool calls with identity, policy, and audit.",
+          "We write role instructions, tool schemas, refusal rules, and iteration limits before the first demo. That documentation becomes part of the handoff.",
+        ],
+      },
+      {
+        heading: "Tool calling, integrations, and memory",
+        paragraphs: [
+          "Approved integrations are listed in the scope: CRM, helpdesk, ERP read endpoints, WhatsApp or web widgets, calendars, and internal search. Write actions stay behind permissions and usually behind confirmation.",
+          "Short-term conversation memory is fine for a session. Long-term memory of customer facts belongs in your systems of record—not in an opaque model cache—so access controls stay enforceable.",
+          "When several tools must run together, we prefer one composed tool or a callback chain so behaviour stays deterministic instead of hoping the model invents the sequence.",
+        ],
+      },
+      {
+        heading: "Human-in-the-loop, reliability, and security",
+        paragraphs: [
+          "Human approval sits on money moves, identity changes, exam or fee updates, legal language, and any action your policy marks as irreversible.",
+          "Reliability work includes an evaluation set of real questions, simulated tool failures, grounding checks where RAG is involved, and traces you can review after an incident.",
+          "Security basics: least-privilege service accounts, secrets outside the prompt, PII redaction where needed, rate limits, and a clear kill switch. Failure handling returns a safe message and opens a human queue—never a silent wrong write.",
+        ],
+      },
+      {
+        heading: "Implementation phases and what you receive",
+        paragraphs: [
+          "Discovery maps the workflow, data sources, roles, and decisions a human must keep. Prototype proves the path on a narrow corpus or sandbox API. Hardening adds evals, logging, and production credentials. Operate covers monitoring, cost alerts, and a change process for prompts and tools.",
+          "Typical deliverables: scoped agent service or module, tool wrappers, prompt and policy notes, eval checklist, runbook, and source ownership for custom code.",
+          "Voice agents are optional and only proposed when the channel and latency requirements are real—not as a default upsell.",
+        ],
+      },
     ],
     faqs: [
       {
         question: "What is a custom AI agent in this context?",
         answer:
-          "Software that uses a language model plus tools (APIs, search, forms) to complete a defined business workflow, with logging and a path to a human when confidence is low.",
+          "Software that uses a language model plus tools (APIs, search, forms) to complete a defined business workflow, with logging and a path to a human when confidence is low or policy requires review.",
       },
       {
         question: "Do you only use Gemini?",
         answer:
-          "The public Trevyk site assistant uses Gemini today. Custom projects can integrate other model providers when the engagement requires it; we choose based on cost, privacy, and quality for the workflow.",
+          "The public Trevyk site assistant uses Gemini today. Custom projects can integrate other model providers when the engagement requires it; we choose based on cost, privacy, latency, and quality for the workflow.",
       },
       {
         question: "Can an agent update our ERP or CRM?",
         answer:
-          "Yes when you authorize scoped API access and accept audit logging. Write actions stay behind permissions and usually behind a confirmation or human review for sensitive changes.",
+          "Yes when you authorize scoped API access and accept audit logging. Sensitive writes usually require confirmation or human review.",
+      },
+      {
+        question: "How do you measure success?",
+        answer:
+          "Against an agreed evaluation set: task completion, safe refusals, grounding where documents are required, escalation rate, latency, and token cost—not vanity chat volume.",
       },
     ],
   },
@@ -220,23 +274,56 @@ export const GUIDES: Guide[] = [
     description:
       "Retrieval-augmented generation over your documents and systems so answers cite your sources instead of inventing them.",
     keywords:
-      "RAG development India, private knowledge assistant, enterprise document AI, LLM retrieval",
+      "RAG development India, private knowledge assistant, enterprise document AI, LLM retrieval, grounded answers",
     kicker: "RAG",
-    image: "/images/growth-content.jpg",
-    alt: "Painting of a notebook and desk for content and knowledge work",
-    caption: "Retrieval first. Generation second. Hallucinations get caught in between.",
-    related: ["ai-agents", "ai-for-schools", "seo"],
+    image: "/images/ai-rag-knowledge.jpg",
+    alt: "Painterly illustration of documents being retrieved into a grounded answer with citation marks",
+    caption: "Retrieve first. Generate second. Cite the passage you used.",
+    related: ["ai-agents", "seo", "web-applications"],
     paragraphs: [
-      "RAG is the pattern teams ask for when they need answers grounded in their own PDFs, policies, product manuals, or ticket history. Market research for India points to strong interest in retrieval-augmented systems for search, support, and internal copilots—alongside concerns about data readiness and governance.",
-      "Trevyk designs chunking, embeddings, retrieval filters, and answer prompts so the model must show which passage it used. Role-aware access matters: a finance clerk and a school principal should not see the same corpus.",
-      "A useful first project is narrow: one policy handbook, one product FAQ set, or one support playbook. Wide “chat with the whole company drive” projects fail when permissions and freshness are ignored.",
-      "We document evaluation questions, refusal behaviour, and what happens when retrieval finds nothing. That is more valuable than a flashy demo that cannot be audited.",
+      "RAG is the pattern teams ask for when answers must come from their own PDFs, policies, product manuals, or ticket history—not from a model’s training memory alone.",
+      "Trevyk designs ingestion, chunking, embeddings, retrieval filters, and answer prompts so the model must show which passage it used. Role-aware access matters: different roles should not see the same corpus.",
+      "A useful first project is narrow. Wide “chat with the whole company drive” projects fail when permissions and freshness are ignored. Training or fine-tuning on private corpora is a separate, explicit decision—not a default.",
     ],
     points: [
       "Corpus selection and permission model",
-      "Chunking and retrieval quality checks",
-      "Cited answers and refusal rules",
+      "Chunking, retrieval, and optional reranking checks",
+      "Cited answers and refusal when context is thin",
       "Refresh path when documents change",
+    ],
+    sections: [
+      {
+        heading: "Ingestion, chunking, and embeddings",
+        paragraphs: [
+          "We inventory sources (drives, CMS, ticketing exports, manuals), clean formats, and attach metadata such as department, language, and sensitivity.",
+          "Chunking follows document structure where possible so retrieval returns coherent passages. Embeddings index those chunks for semantic search; exact filters (product line, date, role) sit beside vectors so retrieval stays precise.",
+          "Reference architectures from cloud providers describe event-driven refresh so new or updated documents enter the store without waiting for a monthly rebuild. Freshness is a product requirement, not an afterthought.",
+        ],
+      },
+      {
+        heading: "Retrieval, grounded answers, and citations",
+        paragraphs: [
+          "At query time the system retrieves candidate passages, optionally reranks them, and asks the model to answer only from that context. If context is insufficient, the assistant should say so or escalate—not guess.",
+          "Agentic RAG patterns (query rewriting, multi-hop search, sufficient-context checks) help on complex questions; we use them when a single retrieval pass is not enough, not as decoration.",
+          "Visible citations—document title, section, or link—let a reviewer verify the answer. That is how private knowledge assistants earn trust inside a company.",
+        ],
+      },
+      {
+        heading: "Permissions, isolation, and failure handling",
+        paragraphs: [
+          "Document ACLs must travel with retrieval. A finance clerk and an admissions officer should never share an unfiltered index.",
+          "Data residency and provider settings are chosen with you. Secrets and raw uploads stay out of client-side code.",
+          "When retrieval returns nothing, the UX refuses cleanly, offers a human path, and logs the miss so you can improve the corpus.",
+        ],
+      },
+      {
+        heading: "Evaluation, deployment, and deliverables",
+        paragraphs: [
+          "We build a golden question set from real staff queries: accuracy, citation presence, refusal correctness, latency, and cost per answer.",
+          "Deployment may be a secured web assistant, an internal chat surface, or a tool behind an agent. Integrations stay on approved APIs.",
+          "You leave with: indexed corpus design, retrieval pipeline notes, assistant UI or API, eval report, refresh runbook, and source for custom components.",
+        ],
+      },
     ],
     faqs: [
       {
@@ -249,37 +336,78 @@ export const GUIDES: Guide[] = [
         answer:
           "We design for retrieval and API-based generation with your configured providers. Training or fine-tuning on private corpora is a separate, explicit decision—not a default.",
       },
+      {
+        question: "How is this different from a public chatbot?",
+        answer:
+          "Answers are constrained to your corpus and roles. Without retrieval hits, the system should refuse or escalate instead of inventing policy.",
+      },
+      {
+        question: "What drives cost?",
+        answer:
+          "Corpus size and refresh frequency, embedding and inference usage, languages, integrations, and how deep evaluation and monitoring need to be. We estimate from your scope rather than quoting a fixed brochure price.",
+      },
     ],
   },
   {
     slug: "ai-for-schools",
-    title: "AI for schools and education operations",
+    title: "School operations AI — Trevyk custom work beside Kiduart",
     description:
-      "Practical AI around school operations: assistants for staff questions, document help, and honest integration paths with products like Kiduart—without student-data theatre.",
+      "How Trevyk scopes custom AI beside school systems, and when to use Kiduart (kiduart.com) for the school ERP product itself—without claiming live student-data agents that are not shipped.",
     keywords:
-      "AI for schools India, school ERP AI assistant, education workflow automation, Kiduart AI",
+      "school operations AI, education workflow automation, Kiduart ERP, custom AI for schools India",
     kicker: "Education AI",
-    image: "/images/studio-kiduart.jpg",
-    alt: "Painting suggesting a school campus and structured system",
-    caption: "School AI starts with roles and permissions, not a public chatbot.",
+    image: "/images/ai-schools-operations.jpg",
+    alt: "Painterly campus and ledger scene suggesting role-aware school operations assistance",
+    caption: "Product demos live on kiduart.com. Custom AI beside the ERP is scoped here.",
     related: ["ai-agents", "rag-knowledge-assistants", "custom-websites"],
     paragraphs: [
-      "Schools ask for AI when principals and office staff spend hours answering the same timetable, fee, and policy questions—or when they want help drafting notices in English and Hindi. The risk is higher than a retail FAQ: student and fee data are sensitive.",
-      "Kiduart (kiduart.com) is Trevyk’s school ERP product for Indian schools: admissions, records, attendance, exams, fees, and parent communication. The public Trevyk website already runs a Gemini-powered assistant with role prompts for architecture and solutions questions. A deeper school-data agent that reads live ERP records is only described here when it is authorized, scoped, and labelled as live—not as marketing fiction.",
-      "Credible near-term work includes: policy and handbook assistants for staff, enquiry triage for admissions teams, draft generation for circulars, and reporting helpers that sit on approved exports—not open internet chatbots with student PII.",
-      "If you need a demo of Kiduart itself, book through kiduart.com. If you need a custom AI workflow beside the ERP, contact Trevyk with the role, the data source, and the decision the assistant must never take alone.",
+      "Trevyk is the technology and services company. Kiduart is the school ERP product brand. If you need the ERP itself—admissions, fees, attendance, exams, parent updates—start at kiduart.com for product detail and demos.",
+      "This page explains custom AI work Trevyk can scope around school operations: staff policy assistants, enquiry triage, notice drafting, and permissioned workflows. It is not a substitute for the Kiduart product site, and it does not claim a live inside-ERP agent over student records unless that surface has shipped and is labelled as live.",
+      "School data is sensitive. Credible near-term projects stay role-aware, authenticated, and human-supervised on irreversible actions.",
     ],
     points: [
+      "Kiduart product → kiduart.com",
+      "Custom AI workflows → contact Trevyk",
       "Role-aware access before model choice",
-      "Clear live vs prototype labelling",
       "No unsupervised writes to exam or fee records",
-      "Path to kiduart.com for product demos",
+    ],
+    sections: [
+      {
+        heading: "Where Kiduart ends and custom AI begins",
+        paragraphs: [
+          "Kiduart (kiduart.com) is Trevyk’s cloud school management / ERP product for Indian schools. Book product demos and explore modules there.",
+          "Custom AI on Trevyk covers assistants and automations that sit beside your systems: handbook Q&A for staff, admissions enquiry triage, bilingual draft help for circulars, or reporting helpers on approved exports.",
+          "A deeper agent that reads live student marks or fees inside Kiduart is only described as live when implementation confirms it. Until then it remains a scoped future engagement—not a marketing claim.",
+        ],
+      },
+      {
+        heading: "Practical use cases we will discuss",
+        paragraphs: [
+          "Staff knowledge assistants over policies and handbooks (RAG with role filters).",
+          "Enquiry triage that drafts replies for office review before parents see them.",
+          "Operational drafts in English and Hindi that a principal still approves.",
+          "Not in default scope: anonymous public chat over a child’s marks, unsupervised fee changes, or exam grade writes.",
+        ],
+      },
+      {
+        heading: "If you are choosing where to go next",
+        paragraphs: [
+          "Need the school ERP product? Open kiduart.com or the Kiduart overview on this site, then book a demo.",
+          "Need a custom AI workflow beside an existing ERP (Kiduart or another)? Contact Trevyk with the role, the data source, and the decision the assistant must never take alone.",
+          "We recommend keeping detailed school-product AI roadmaps on the Kiduart site as features ship, so Trevyk stays focused on broader business and enterprise AI services.",
+        ],
+      },
     ],
     faqs: [
       {
+        question: "Should school AI content live on Kiduart instead?",
+        answer:
+          "Product-specific AI features should be documented on kiduart.com when they ship. This Trevyk page stays as a bridge for custom services and honest positioning. We will not delete or redirect this URL without an explicit decision.",
+      },
+      {
         question: "Does Kiduart already include a full AI ERP layer?",
         answer:
-          "Kiduart is a live school ERP product. Deeper intelligence features are labelled separately when they ship. Do not assume every AI idea on this page is inside the current Kiduart product UI.",
+          "Kiduart is a live school ERP product. Deeper intelligence features are labelled separately when they ship. Do not assume every AI idea here is inside the current Kiduart UI.",
       },
       {
         question: "Can parents chat with school AI about a child’s marks?",

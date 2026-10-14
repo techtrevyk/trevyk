@@ -96,20 +96,25 @@ export const Navbar: React.FC<NavbarProps> = ({
     onUpdateSettings({ soundEnabled: nextSound });
   };
 
-  // Multi-page navigation link configuration
+  // Pill links stay compact; Contact is a separate CTA so the active-dot
+  // circle never collides with a crowded last item.
   const navLinks = [
     { label: "Home", path: "/", icon: Sparkles },
     { label: "Services", path: "/services", icon: Cpu },
     { label: "AI", path: "/ai", icon: Brain },
     { label: "Technology", path: "/technology", badge: "Core", icon: Layers },
     {
-      label: "Kiduart ERP",
+      label: "Kiduart",
       path: "/kiduart",
       badge: "Flagship",
       icon: GraduationCap,
     },
     { label: "Process", path: "/process", icon: GitMerge },
     { label: "About", path: "/about", icon: Info },
+  ];
+
+  const mobileNavLinks = [
+    ...navLinks,
     { label: "Contact", path: "/contact", icon: Mail },
   ];
 
@@ -141,7 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Desktop Nav Links */}
           <nav
-            className="hidden lg:flex items-center space-x-1 xl:space-x-1.5 bg-[#1A0D20]/90 backdrop-blur-md px-2 xl:px-3 py-1.5 rounded-full border border-[#B9A6D1]/45 shadow-[inset_0_1px_0_rgba(248,246,251,0.06),0_0_0_1px_rgba(107,74,135,0.25)]"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#1A0D20]/90 backdrop-blur-md px-1.5 xl:px-2.5 py-1.5 rounded-full border border-[#B9A6D1]/45 shadow-[inset_0_1px_0_rgba(248,246,251,0.06),0_0_0_1px_rgba(107,74,135,0.25)]"
             aria-label="Main Desktop Navigation"
           >
             {navLinks.map((link) => {
@@ -152,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   to={link.path}
                   onClick={() => soundEngine.playClick("soft")}
                   onMouseEnter={() => soundEngine.playHover()}
-                  className={`relative px-2.5 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all flex items-center space-x-1.5 group shrink-0 ${
+                  className={`relative px-2 xl:px-3 py-1.5 rounded-full text-[11px] xl:text-[13px] font-medium transition-all flex items-center gap-1 xl:gap-1.5 group shrink-0 ${
                     isActive
                       ? "text-[#F8F6FB] bg-[#3D224E] border border-[#E8A9C2]/70 shadow-[0_0_18px_rgba(232,169,194,0.28)]"
                       : "text-[#E7E1F0]/85 hover:text-[#F8F6FB] hover:bg-[#2A1830] border border-transparent"
@@ -162,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span>{link.label}</span>
                   {link.badge && (
                     <span
-                      className={`text-[9px] xl:text-[10px] uppercase font-mono-accent px-1.5 py-0.2 rounded border ${
+                      className={`hidden xl:inline text-[9px] uppercase font-mono-accent px-1.5 py-0.5 rounded border ${
                         isActive
                           ? "bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2]"
                           : "bg-[#6B4A87]/40 text-[#E8A9C2] border-[#6B4A87]/50"
@@ -174,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   {isActive && (
                     <motion.div
                       layoutId="active-nav-pill"
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E8A9C2]"
+                      className="pointer-events-none absolute -bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#E8A9C2]"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -187,8 +192,24 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Desktop Right Header Actions (Audio, Motion, Blueprint CTA, Gemini Chat) */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3">
+          {/* Desktop Right Header Actions (Contact CTA, Audio, Motion, Blueprint, Gemini) */}
+          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
+            <NavLink
+              to="/contact"
+              onClick={() => soundEngine.playClick("soft")}
+              onMouseEnter={() => soundEngine.playHover()}
+              className={`inline-flex h-9 items-center justify-center gap-1.5 rounded-full border px-3.5 text-xs font-semibold transition-all ${
+                location.pathname === "/contact"
+                  ? "border-[#E8A9C2] bg-[#E8A9C2] text-[#241428]"
+                  : "border-[#E8A9C2]/55 bg-[#2A1830] text-[#F8F6FB] hover:border-[#E8A9C2] hover:bg-[#3D224E]"
+              }`}
+              data-cursor-label="CONTACT"
+              aria-label="Contact Trevyk"
+            >
+              <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span>Contact</span>
+            </NavLink>
+
             {/* AI Assistant Quick Trigger */}
             {onOpenGeminiChat && (
               <button
@@ -372,7 +393,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Navigation Links Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {navLinks.map((link, idx) => {
+                {mobileNavLinks.map((link, idx) => {
                   const Icon = link.icon;
                   const isActive = location.pathname === link.path;
                   return (

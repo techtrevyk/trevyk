@@ -242,6 +242,37 @@ export function applyRouteSeo(pathname: string) {
     } else {
       document.getElementById("ld-faq")?.remove();
     }
+  } else if (path === "/ai") {
+    upsertJsonLd("ld-faq", {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What AI services does Trevyk offer?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Custom AI agents, RAG and private knowledge assistants, workflow automation beside your systems, and honest integration work. School ERP product needs belong primarily on kiduart.com.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you sell separate AEO or GEO packages?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Clear answers and crawlable structure support both classic SEO and AI-answer surfaces. We do not promise citations.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How is AI project cost determined?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Integrations, corpus size, languages, traffic, evaluation depth, and whether write actions are allowed. We quote from scope—not invented ROI.",
+          },
+        },
+      ],
+    });
   } else {
     document.getElementById("ld-faq")?.remove();
   }

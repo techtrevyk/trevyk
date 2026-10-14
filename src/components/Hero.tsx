@@ -110,10 +110,10 @@ export const Hero: React.FC<HeroProps> = ({
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: copyDelay + 0.08, ease }}
-              className="font-heading font-bold text-4xl sm:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[0.95]"
+              className="font-heading font-bold text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[1.05] break-words max-w-full"
             >
               Custom websites, software, and growth
-              <span className="block text-xl sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
+              <span className="block text-lg sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
                 Trevyk Technologies, Noida
               </span>
             </motion.h1>

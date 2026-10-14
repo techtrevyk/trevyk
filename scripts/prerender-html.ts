@@ -70,8 +70,9 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/ai": {
     h1: "AI that owns a workflow—not a slide deck",
     paragraphs: [
-      "Trevyk builds practical AI for Indian SMBs, startups, and schools: custom agents, RAG assistants, and automation beside systems you already run.",
-      "The public site assistant uses Gemini with role prompts. Deeper school-data agents inside Kiduart are labelled separately when they ship. Start with /work/ai-agents, /work/rag-knowledge-assistants, or /work/ai-for-schools.",
+      "Trevyk builds practical AI for Indian SMBs, startups, and organisations: custom agents, RAG assistants, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
+      "Engagements move from discovery to prototype, hardening, and operate—with security, evaluation, and monitoring. The public site assistant uses Gemini with role prompts. Deeper school-data agents inside Kiduart are labelled separately when they ship.",
+      "Start with /work/ai-agents, /work/rag-knowledge-assistants, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
     ],
   },
   "/technology": {
@@ -188,6 +189,18 @@ function bodyFor(route: string): string {
 
   if (!copy) throw new Error(`Missing static copy for ${route}`);
 
+  const sectionsBlock =
+    guide?.sections && guide.sections.length > 0
+      ? guide.sections
+          .map(
+            (section) =>
+              `<h2>${escapeHtml(section.heading)}</h2>${section.paragraphs
+                .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+                .join("")}`,
+          )
+          .join("")
+      : "";
+
   const faqBlock =
     guide?.faqs && guide.faqs.length > 0
       ? `<h2>Questions buyers ask</h2>${guide.faqs
@@ -199,7 +212,7 @@ function bodyFor(route: string): string {
       : "";
 
   const extra = guide
-    ? `<h2>What you leave with</h2>${textList(guide.points)}${faqBlock}<p><a href="/contact">Start this conversation</a></p><p><a href="/ai">AI solutions hub</a></p>`
+    ? `${sectionsBlock}<h2>What you leave with</h2>${textList(guide.points)}${faqBlock}<p><a href="/contact">Start this conversation</a></p><p><a href="/ai">AI solutions hub</a></p>`
     : "";
 
   const serviceList =
@@ -246,7 +259,13 @@ function render(template: string, route: string): string {
   const seo = getRouteSeo(route);
   const url = absoluteUrl(route);
   const guide = GUIDES.find((item) => route === `/work/${item.slug}`);
-  const image = absoluteUrl(guide?.image || "/trevyk-logo-on-dark.png");
+  const routeImages: Record<string, string> = {
+    "/ai": "/images/ai-hub-systems.jpg",
+    "/kiduart": "/images/studio-kiduart.jpg",
+  };
+  const image = absoluteUrl(
+    guide?.image || routeImages[route] || "/trevyk-logo-on-dark.png",
+  );
 
   let html = template;
   html = replaceOnce(html, /(<title>)[^<]*(<\/title>)/, seo.title, "title");
