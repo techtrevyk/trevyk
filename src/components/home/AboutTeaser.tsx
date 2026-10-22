@@ -1,131 +1,149 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, GraduationCap, Briefcase, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Boxes,
+  Lightbulb,
+  BarChart3,
+  Users,
+} from "lucide-react";
 import { SiteSettings } from "../../types";
-import { TrevykLogo } from "../TrevykLogo";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { LottieAccent } from "../motion/LottieAccent";
 
 interface AboutTeaserProps {
   settings: SiteSettings;
 }
 
-const PRINCIPLES = [
-  "Architecture before features",
-  "Measurable delivery stages",
-  "Claims that match shipped reality",
+const PILLARS = [
+  {
+    num: "01",
+    title: "Product-first thinking",
+    desc: "We start with real problems, user needs and long-term value.",
+    icon: Lightbulb,
+    accent: true,
+  },
+  {
+    num: "02",
+    title: "Measurable delivery",
+    desc: "Clear milestones, transparent progress and outcomes you can track.",
+    icon: BarChart3,
+    accent: false,
+  },
+  {
+    num: "03",
+    title: "Built for real workflows",
+    desc: "Systems that fit your operations, not the other way around.",
+    icon: Users,
+    accent: false,
+  },
 ];
 
+/**
+ * Full-bleed plum surface (same as client reviews) — not the mid-band grid.
+ * Image slot on the right for a future asset from design.
+ */
 export const AboutTeaser: React.FC<AboutTeaserProps> = ({ settings }) => {
-  const [principle, setPrinciple] = useState<number | null>(null);
-
   return (
     <section
       id="about-teaser"
-      className="relative py-14 sm:py-20 px-4 sm:px-6 lg:px-8"
+      className="trevyk-viewport-section relative w-full border-t border-[#B9A6D1]/15 bg-background py-16 sm:py-20 lg:py-24"
     >
-      <div className="max-w-7xl mx-auto relative rounded-3xl border border-[#B9A6D1]/40 bg-[#1E1024]/95 overflow-hidden px-5 sm:px-10 py-10 sm:py-14">
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <ScrollReveal
-            className="lg:col-span-5"
+            className="lg:col-span-6 xl:col-span-5"
             reducedMotion={settings.reducedMotion}
           >
-            <div className="rounded-2xl border border-[#B9A6D1]/40 bg-[#2A1830] p-6 sm:p-8 flex flex-col items-center text-center gap-4">
-              <TrevykLogo
-                layout="horizontal"
-                size="lg"
-                theme="dark"
-                showTagline
-              />
-              <p className="text-sm text-[#B9A6D1] max-w-md leading-relaxed">
-                A technology company that ships product platforms and custom
-                systems with the same engineering discipline based in Noida.
-              </p>
-              <div className="flex items-center gap-2 text-[11px] font-mono-accent text-[#E8A9C2]">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>Headquarters · Noida, India</span>
-              </div>
-              <LottieAccent
-                preset="brand-pulse"
-                reducedMotion={settings.reducedMotion}
-                className="w-full max-w-[200px]"
-                caption="Brand mark"
-              />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#E8A9C2]/45 bg-[#1E1024]/80 px-3.5 py-1.5 font-mono-accent text-xs text-[#E8A9C2]">
+              <span className="font-semibold text-[#F8F6FB]/55">04</span>
+              <span>ABOUT TREVYK</span>
+            </div>
+
+            <h2 className="mt-5 font-heading text-3xl font-bold leading-[1.12] tracking-tight text-[#F8F6FB] sm:text-4xl lg:text-[2.65rem]">
+              We turn complex ideas into working{" "}
+              <span className="bg-gradient-to-r from-[#F8F6FB] via-[#B9A6D1] to-[#E8A9C2] bg-clip-text text-transparent">
+                digital products.
+              </span>
+            </h2>
+
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#B9A6D1] sm:text-lg">
+              A technology company building product platforms and custom systems
+              with disciplined engineering.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/35 bg-[#1E1024]/60 px-4 py-2 font-mono-accent text-[11px] text-[#E7E1F0] sm:text-xs">
+                <Code2 className="h-3.5 w-3.5 text-[#E8A9C2]" aria-hidden />
+                Product Engineering
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/35 bg-[#1E1024]/60 px-4 py-2 font-mono-accent text-[11px] text-[#E7E1F0] sm:text-xs">
+                <Boxes className="h-3.5 w-3.5 text-[#E8A9C2]" aria-hidden />
+                Custom Software
+              </span>
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/who-we-are"
+                onClick={() => soundEngine.playClick("soft")}
+                className="group inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/45 bg-[#1E1024]/70 px-6 py-3 font-heading text-xs font-semibold text-[#F8F6FB] transition-colors hover:border-[#E8A9C2]/55 sm:text-sm"
+              >
+                <span>Read our story</span>
+                <ArrowRight className="h-4 w-4 text-[#E8A9C2] transition-transform group-hover:translate-x-0.5" />
+              </Link>
             </div>
           </ScrollReveal>
 
           <ScrollReveal
-            className="lg:col-span-7 flex flex-col items-start"
+            className="lg:col-span-6 xl:col-span-7"
             variant="right"
             reducedMotion={settings.reducedMotion}
           >
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/45 text-[#E8A9C2] font-mono-accent text-xs mb-4">
-              <span className="font-semibold text-[#F8F6FB]/50">05</span>
-              <span>ABOUT TREVYK</span>
-            </div>
-            <h2 className="font-heading font-bold text-2xl sm:text-4xl text-[#F8F6FB] leading-tight">
-              Turning vision into progress with product discipline.
-            </h2>
-            <p className="mt-4 text-[#B9A6D1] text-sm sm:text-base leading-relaxed">
-              Kiduart is our flagship school ERP; custom engagements apply the
-              same modular architecture.
-            </p>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-              <div className="p-4 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/35">
-                <GraduationCap className="w-4 h-4 text-[#E8A9C2] mb-2" />
-                <div className="text-sm text-[#F8F6FB] font-heading font-semibold">
-                  Product line
-                </div>
-                <div className="text-xs text-[#B9A6D1] mt-1">
-                  Kiduart School ERP
-                </div>
-              </div>
-              <div className="p-4 rounded-xl bg-[#2A1830] border border-[#B9A6D1]/35">
-                <Briefcase className="w-4 h-4 text-[#E8A9C2] mb-2" />
-                <div className="text-sm text-[#F8F6FB] font-heading font-semibold">
-                  Engineering practice
-                </div>
-                <div className="text-xs text-[#B9A6D1] mt-1">
-                  Custom software &amp; integrations
-                </div>
-              </div>
-            </div>
-            <ul className="mt-6 space-y-2 w-full">
-              {PRINCIPLES.map((p, i) => {
-                const on = principle === i;
-                return (
-                  <li key={p}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setPrinciple(on ? null : i);
-                        soundEngine.playClick("soft");
-                      }}
-                      className={`w-full flex items-center gap-2 text-left text-xs font-mono-accent px-3 py-2 rounded-lg border transition-colors ${
-                        on
-                          ? "text-[#F8F6FB] border-[#E8A9C2]/60 bg-[#2A1830]"
-                          : "text-[#E7E1F0] border-transparent hover:border-[#B9A6D1]/35"
-                      }`}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E8A9C2]" />
-                      {p}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-            <div className="mt-8">
-              <Link
-                to="/about"
-                onClick={() => soundEngine.playClick("soft")}
-                className="inline-flex items-center space-x-2 px-5 py-3 rounded-full bg-[#2A1830] border border-[#B9A6D1]/45 text-[#F8F6FB] font-heading text-xs sm:text-sm font-semibold group"
-              >
-                <span>Read our story</span>
-                <ArrowRight className="w-4 h-4 text-[#E8A9C2] group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            <figure className="mx-auto w-full max-w-xl lg:mx-0 lg:ml-auto lg:max-w-none">
+              <img
+                src="/about.png"
+                alt="Product, systems, and delivery — Trevyk builds ideas into shipped software"
+                width={1152}
+                height={864}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full max-h-[min(72vh,1250px)] object-contain object-center"
+                sizes="(max-width: 1024px) 92vw, (max-width: 1280px) 48vw, 640px"
+              />
+            </figure>
           </ScrollReveal>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 divide-y divide-[#B9A6D1]/20 border-t border-[#B9A6D1]/20 sm:mt-20 md:grid-cols-3 md:divide-x md:divide-y-0">
+          {PILLARS.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <ScrollReveal
+                key={pillar.num}
+                className="px-0 py-8 md:px-8 md:py-10 first:md:pl-0 last:md:pr-0"
+                reducedMotion={settings.reducedMotion}
+              >
+                <p className="font-mono-accent text-[11px] tracking-[0.2em] text-[#B9A6D1]/80">
+                  {pillar.num}
+                </p>
+                <div className="mt-3 inline-flex rounded-lg border border-[#B9A6D1]/30 bg-[#1E1024]/80 p-2.5">
+                  <Icon className="h-4 w-4 text-[#E8A9C2]" aria-hidden />
+                </div>
+                <h3
+                  className={`mt-4 font-heading text-lg font-semibold sm:text-xl ${
+                    pillar.accent ? "text-[#E8A9C2]" : "text-[#F8F6FB]"
+                  }`}
+                >
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#B9A6D1]">
+                  {pillar.desc}
+                </p>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>

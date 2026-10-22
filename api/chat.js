@@ -74,7 +74,7 @@ Facts you may state:
 Style:
 - Rigorous, clear trade-offs, practical diagrams in Markdown/ASCII.
 - Prefer honest "we can design for X" over invented production guarantees.
-- Point product demos to kiduart.com and support@kiduart.com / +91 92175 34128.`},"solutions-consultant":{roleName:"Trevyk Solutions Consultant",model:"gemini-2.5-flash",instruction:`You are a Solutions Consultant at Trevyk Technologies (Noida, India). Kiduart School ERP (https://kiduart.com) is a Trevyk product.
+- Point product demos to kiduart.com and support@kiduart.com / +91 92175 34128, +91 88106 64797.`},"solutions-consultant":{roleName:"Trevyk Solutions Consultant",model:"gemini-2.5-flash",instruction:`You are a Solutions Consultant at Trevyk Technologies (Noida, India). Kiduart School ERP (https://kiduart.com) is a Trevyk product.
 
 Kiduart journey (align with kiduart.com; do not invent modules not on the product site):
 1. Online admissions & enquiry
@@ -90,7 +90,7 @@ Kiduart journey (align with kiduart.com; do not invent modules not on the produc
 11. Multi-campus reporting (as published)
 12. Transparent commercial conversation via demo  do not invent "48-hour onboarding guarantees" or fake pricing.
 
-Trevyk also offers scoped custom IT: software builds, web/mobile, cloud/DevOps, design, advisory, practical security. Custom work includes source ownership. Reply cadence: within one business day. Contact: contact@trevyk.com; Kiduart support: support@kiduart.com, +91 92175 34128.
+Trevyk also offers scoped custom IT: software builds, web/mobile, cloud/DevOps, design, advisory, practical security. Custom work includes source ownership. Reply cadence: within one business day. Contact: contact@trevyk.com; Kiduart support: support@kiduart.com, +91 92175 34128, +91 88106 64797.
 
 Honesty rules:
 - No fake testimonials, school counts, SOC 2/ISO badges, or 24/7 SRE theatre.
@@ -98,5 +98,5 @@ Honesty rules:
 
 Brand: TREVYK Technologies  "Turning Vision Into Progress." Official site: trevyk.in.`},"quick-assistant":{roleName:"Trevyk Rapid Assistant",model:"gemini-2.5-flash",instruction:`You are the Trevyk Rapid Assistant for Trevyk Technologies. Kiduart (kiduart.com) is a Trevyk school ERP product.
 Answer quickly and factually. Never invent SLAs, certifications, or school counts.
-Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128; contact@trevyk.com; reply within one business day.
+Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128, +91 88106 64797; contact@trevyk.com; reply within one business day.
 Keep answers short and actionable.`}},Hp=null;function Mq(){let t=process.env.GEMINI_API_KEY,e=Nl(t);if(e)throw new Error(e);return Hp||(Hp=new Rl({apiKey:t.trim()})),Hp}async function IC(t){try{let{messages:e,roleId:n="solutions-consultant",modelOverride:r}=t||{};if(!Array.isArray(e)||e.length===0)return{ok:!1,status:400,error:"Messages array is required and cannot be empty"};if(!process.env.GEMINI_API_KEY)return{ok:!1,status:503,error:"Gemini API is not configured on this server yet."};let i=Nl(process.env.GEMINI_API_KEY);if(i)return{ok:!1,status:401,error:i};let o=wC[n]||wC["solutions-consultant"],a=r||o.model,u=[a,"gemini-2.5-flash","gemini-2.5-flash-lite","gemini-flash-latest"].filter((y,E,S)=>S.indexOf(y)===E),d=Mq(),f=e.map(y=>({role:y.role==="user"?"user":"model",parts:[{text:y.content}]})),p=null,m=a,g;for(let y of u)try{p=await d.models.generateContent({model:y,contents:f,config:{systemInstruction:o.instruction,temperature:n==="enterprise-architect"?.4:.7}}),m=y,g=void 0;break}catch(E){g=E;let S=E instanceof Error?E.message:"";if(!/not found|no longer available|not supported|404/i.test(S))throw E}if(!p)throw g;return{ok:!0,role:"model",content:p.text||"I apologize, but I could not generate a response. Please try again.",modelUsed:m,roleId:n}}catch(e){console.error("Chat error:",e);let n=e instanceof Error?e.message:"An error occurred while communicating with Gemini AI",r=/denied access|PERMISSION_DENIED|403/i.test(n);return{ok:!1,status:r?403:500,error:r?"Gemini key is present, but this Google project is denied generate access. Create a new key at https://aistudio.google.com/apikey in a project where the Gemini API is enabled.":n}}}async function RC(t,e){if(e.setHeader("Cache-Control","no-store"),t.method==="OPTIONS")return e.setHeader("Allow","POST, OPTIONS"),e.status(204).end();if(t.method!=="POST")return e.setHeader("Allow","POST, OPTIONS"),e.status(405).json({error:"Method not allowed. Use POST."});let n=typeof t.body=="string"?JSON.parse(t.body):t.body||{},r=await IC(n);return r.ok===!1?e.status(r.status).json({error:r.error}):e.status(200).json({role:r.role,content:r.content,modelUsed:r.modelUsed,roleId:r.roleId})}

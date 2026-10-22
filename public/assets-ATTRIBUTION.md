@@ -22,6 +22,20 @@ Used only on the home Hero R3F canvas (`Environment`), not as a full-screen back
 
 These are lightweight JSON animations authored for brand fit (not stock SaaS kits). Runtime: `lottie-react`.
 
+## Growth offer card art (light plum)
+
+| File | Notes | License |
+|------|--------|---------|
+| `images/growth-card-*-plum.jpg` (+ `-640` variants) | Home “For startups…” service cards — light plum / mauve set | Generated for Trevyk — free to use with the site |
+
+Legacy dark-purple cards (`growth-card-*.jpg` without `-plum`) remain on disk for rollback.
+
+## Kiduart campus illustration
+
+| File | Notes | License |
+|------|--------|---------|
+| `images/kiduart/campus-graph.jpg` | Isometric connected-campus hero for home Kiduart teaser (plum / lavender / blush palette) | Generated for Trevyk — free to use with the site |
+
 ## Spline
 
 | Surface | Scene | Notes |
@@ -33,6 +47,23 @@ Replace the default URL with a brand-authored abstract stack scene when ready; c
 ## Rive
 
 Not shipped in this round (Lottie-only for process / teasers).
+
+## Home About teaser
+
+| File | Notes | License |
+|------|--------|---------|
+| `about.png` | Product / Systems / Delivery pillar art (plum/lavender/blush theme) | Original for Trevyk |
+| `about-neon-backup.png` | Previous about art with brighter neon accents (backup) | Original for Trevyk |
+| `capacities.png` | Hub-and-spoke capability lattice (Products & Services row 2) | Original for Trevyk — themed from team layout reference |
+| `images/architecture/layer-*.jpg` | Architecture stack layer visuals (edge, shield, code, database, server) | Generated for Trevyk — plum 3D layer icons |
+| `images/architecture/glass-slab-plum-{0,20,40,60,80}.jpg` | Empty glass slabs (0–80% plum tint) | Generated for Trevyk |
+| `images/architecture/glass-slab-plum-{0,20,40,60,80}-transparent.png` | Glass slabs with alpha background (glass only) | Derived from matching `glass-slab-plum-*.jpg` via matting |
+
+## Home growth cards (photography-style)
+
+| File pattern | Notes | License |
+|--------------|--------|---------|
+| `images/growth-card-*.jpg` (+ `-640` variants) | AI-generated hero art for home service cards; plum / lavender grade matched to site wave background | Original for Trevyk — use with the site |
 
 ## Runtime libraries
 

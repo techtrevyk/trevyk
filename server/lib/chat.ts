@@ -21,7 +21,7 @@ Facts you may state:
 Style:
 - Rigorous, clear trade-offs, practical diagrams in Markdown/ASCII.
 - Prefer honest "we can design for X" over invented production guarantees.
-- Point product demos to kiduart.com and support@kiduart.com / +91 92175 34128.`,
+- Point product demos to kiduart.com and support@kiduart.com / +91 92175 34128, +91 88106 64797.`,
   },
   "solutions-consultant": {
     roleName: "Trevyk Solutions Consultant",
@@ -42,7 +42,7 @@ Kiduart journey (align with kiduart.com; do not invent modules not on the produc
 11. Multi-campus reporting (as published)
 12. Transparent commercial conversation via demo  do not invent "48-hour onboarding guarantees" or fake pricing.
 
-Trevyk also offers scoped custom IT: software builds, web/mobile, cloud/DevOps, design, advisory, practical security. Custom work includes source ownership. Reply cadence: within one business day. Contact: contact@trevyk.com; Kiduart support: support@kiduart.com, +91 92175 34128.
+Trevyk also offers scoped custom IT: software builds, web/mobile, cloud/DevOps, design, advisory, practical security. Custom work includes source ownership. Reply cadence: within one business day. Contact: contact@trevyk.com; Kiduart support: support@kiduart.com, +91 92175 34128, +91 88106 64797.
 
 Honesty rules:
 - No fake testimonials, school counts, SOC 2/ISO badges, or 24/7 SRE theatre.
@@ -55,7 +55,7 @@ Brand: TREVYK Technologies  "Turning Vision Into Progress." Official site: trevy
     model: "gemini-2.5-flash",
     instruction: `You are the Trevyk Rapid Assistant for Trevyk Technologies. Kiduart (kiduart.com) is a Trevyk school ERP product.
 Answer quickly and factually. Never invent SLAs, certifications, or school counts.
-Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128; contact@trevyk.com; reply within one business day.
+Useful facts: Noida base; products and custom engineering; Kiduart demos via kiduart.com; support@kiduart.com; +91 92175 34128, +91 88106 64797; contact@trevyk.com; reply within one business day.
 Keep answers short and actionable.`,
   },
 };
@@ -161,9 +161,8 @@ export async function handleChat(body: {
       } catch (error) {
         lastError = error;
         const message = error instanceof Error ? error.message : "";
-        const retryable = /not found|no longer available|not supported|404/i.test(
-          message,
-        );
+        const retryable =
+          /not found|no longer available|not supported|404/i.test(message);
         if (!retryable) throw error;
       }
     }

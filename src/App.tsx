@@ -1,61 +1,30 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, Suspense } from 'react';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'motion/react';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import { SiteSettings } from './types';
-import { Preloader } from './components/Preloader';
 import { Cursor } from './components/Cursor';
 import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
+import { SolarFooterStage } from './components/plum/sections/SolarFooterStage';
+import { SiteFooter } from './components/plum/layout/SiteFooter';
 import { BrandGradientBar } from './components/BrandGradientBar';
 import { ArchitectureModal } from './components/ArchitectureModal';
 import { GeminiChatbot } from './components/GeminiChatbot';
+import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 import { SEOManager } from './components/SEOManager';
 import { Analytics } from './components/Analytics';
-import { Breadcrumbs } from './components/Breadcrumbs';
 import { PageTransition } from './components/PageTransition';
+import { AppRoutes } from './components/AppRoutes';
 import { RouteLoader } from './components/RouteLoader';
-
-// Keep home eager for LCP; lazy-load the rest + heavy 3D shell
-import { HomePage } from './pages/HomePage';
+import { useRouteTransitionOverlay } from './hooks/useRouteTransitionOverlay';
 import { trackChatOpen } from './utils/analytics';
-
-const Global3DCanvas = lazy(() =>
-  import('./components/3d/Global3DCanvas').then((m) => ({ default: m.Global3DCanvas })),
-);
-const ServicesPage = lazy(() =>
-  import('./pages/ServicesPage').then((m) => ({ default: m.ServicesPage })),
-);
-const TechnologyPage = lazy(() =>
-  import('./pages/TechnologyPage').then((m) => ({ default: m.TechnologyPage })),
-);
-const KiduartPage = lazy(() =>
-  import('./pages/KiduartPage').then((m) => ({ default: m.KiduartPage })),
-);
-const ProcessPage = lazy(() =>
-  import('./pages/ProcessPage').then((m) => ({ default: m.ProcessPage })),
-);
-const AboutPage = lazy(() =>
-  import('./pages/AboutPage').then((m) => ({ default: m.AboutPage })),
-);
-const ContactPage = lazy(() =>
-  import('./pages/ContactPage').then((m) => ({ default: m.ContactPage })),
-);
-const GuidePage = lazy(() =>
-  import('./pages/GuidePage').then((m) => ({ default: m.GuidePage })),
-);
-const AiPage = lazy(() =>
-  import('./pages/AiPage').then((m) => ({ default: m.AiPage })),
-);
-const SitemapPage = lazy(() =>
-  import('./pages/SitemapPage').then((m) => ({ default: m.SitemapPage })),
-);
-const NotFoundPage = lazy(() =>
-  import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
-);
+import { setRouteOverlayPathname } from './utils/routeTransitionOverlay';
+import { dismissTrevykBoot } from './utils/heroVideoPreload';
+import { soundEngine } from './utils/audioEngine';
+import { isOurProductsPath, isWhoWeArePath } from './config/site';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -82,13 +51,27 @@ function ScrollToTop({ lenisRef }: { lenisRef: React.RefObject<Lenis | null> }) 
 }
 
 function MainAppContent() {
-  // HTML #trevyk-boot already covers first paint. Skip the second cinematic
-  // overlay so LCP is the real page, not a delayed preloader animation.
-  const [loading, setLoading] = useState(false);
+  const location = useLocation();
+  const pathname = location.pathname;
+  const hideFooterNextProject =
+    pathname === "/contact" ||
+    isWhoWeArePath(pathname) ||
+    isOurProductsPath(pathname);
+  const compactFooterTop = pathname === "/technology";
+  const { overlayVisible } = useRouteTransitionOverlay(pathname);
+
+  useLayoutEffect(() => {
+    setRouteOverlayPathname(pathname);
+  }, [pathname]);
+
+  useLayoutEffect(() => {
+    if (!overlayVisible) dismissTrevykBoot();
+  }, [overlayVisible]);
+
   const [settings, setSettings] = useState<SiteSettings>({
     reducedMotion: false,
     highQuality3D: true,
-    soundEnabled: false,
+    soundEnabled: true,
   });
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -99,9 +82,7 @@ function MainAppContent() {
   const [selectedCubeIndex, setSelectedCubeIndex] = useState<number | null>(null);
   const [hoveredCube, setHoveredCube] = useState<number | null>(null);
 
-  const location = useLocation();
   const lenisRef = useRef<Lenis | null>(null);
-  const [mount3d, setMount3d] = useState(false);
 
   const openChatWithPrompt = (prompt?: string) => {
     setChatInitialPrompt(prompt);
@@ -113,6 +94,10 @@ function MainAppContent() {
     setSelectedCubeIndex(cubeIndex !== undefined ? cubeIndex : null);
     setModalOpen(true);
   };
+
+  useEffect(() => {
+    soundEngine.setEnabled(settings.soundEnabled, { feedback: false });
+  }, [settings.soundEnabled]);
 
   // Check system prefers-reduced-motion
   useEffect(() => {
@@ -153,6 +138,7 @@ function MainAppContent() {
     lenis.on('scroll', (e: { scroll: number; limit: number; progress: number }) => {
       ScrollTrigger.update();
       setScrollProgress(e.progress || 0);
+      window.dispatchEvent(new Event('scroll'));
     });
 
     const raf = (time: number) => {
@@ -178,21 +164,6 @@ function MainAppContent() {
     };
   }, [settings.reducedMotion]);
 
-  // Defer WebGL until after first paint so navigation and Lighthouse aren't blocked by three.js.
-  useEffect(() => {
-    if (settings.reducedMotion) return;
-    const start = () => setMount3d(true);
-    const isNarrow =
-      typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
-    const timeout = isNarrow ? 4500 : 2200;
-    const fallbackMs = isNarrow ? 3200 : 1600;
-    if (typeof window.requestIdleCallback === 'function') {
-      const id = window.requestIdleCallback(start, { timeout });
-      return () => window.cancelIdleCallback(id);
-    }
-    const timer = window.setTimeout(start, fallbackMs);
-    return () => window.clearTimeout(timer);
-  }, [settings.reducedMotion]);
   useEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
@@ -202,10 +173,6 @@ function MainAppContent() {
       lenis.start();
     }
   }, [chatOpen]);
-
-  const handlePreloaderComplete = useCallback(() => {
-    setLoading(false);
-  }, []);
 
   // Normalized mouse coordinates (-1 to 1) for 3D parallax
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -224,127 +191,73 @@ function MainAppContent() {
   };
 
   return (
-    <div id="trevyk-app" className="relative min-h-screen bg-[#2A1830] text-[#F8F6FB] overflow-x-hidden">
+    <div id="trevyk-app" className="relative min-h-screen max-w-[100vw] bg-[#1a0f18] text-[#F8F6FB]">
+      {pathname !== "/" && !overlayVisible && (
+        <div
+          className="trevyk-checkered-bg pointer-events-none fixed inset-0 z-0"
+          aria-hidden
+        />
+      )}
       <ScrollToTop lenisRef={lenisRef} />
       <SEOManager />
       <Analytics />
 
-      {/* 1. Global Recurring Brand Device: Pinned Top Gradient Bar (4-5px) */}
-      <BrandGradientBar height={5} pinnedTop={true} shimmer={true} />
-
-      {/* 2. Global Custom Cursor */}
-      <Cursor reducedMotion={settings.reducedMotion} />
-
-      {/* 3. Cinematic Preloader with real loading & shattering wipe */}
-      {loading && (
-        <Preloader
-          onComplete={handlePreloaderComplete}
-          reducedMotion={settings.reducedMotion}
-        />
+      {!overlayVisible && (
+        <BrandGradientBar height={5} pinnedTop={true} shimmer={true} />
       )}
 
-      {/* 4. Global Persistent 3D WebGL Canvas (lazy — keeps first paint light) */}
-      {mount3d && (
-      <Suspense fallback={null}>
-        <Global3DCanvas
-          scrollProgress={scrollProgress}
-          mousePos={mousePos}
+      {!overlayVisible && <Cursor reducedMotion={settings.reducedMotion} />}
+
+      <RouteLoader visible={overlayVisible} />
+
+      {!overlayVisible && (
+        <Navbar
           settings={settings}
-          hoveredCube={hoveredCube}
-          onCubeHover={setHoveredCube}
-          currentPath={location.pathname}
+          onUpdateSettings={updateSettings}
+          onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
         />
-      </Suspense>
       )}
 
-      <RouteLoader reducedMotion={settings.reducedMotion} />
-
-      {/* 5. Persistent Multi-Page Navigation */}
-      <Navbar
-        settings={settings}
-        onUpdateSettings={updateSettings}
-        onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
-        onOpenGeminiChat={() => openChatWithPrompt()}
-      />
-
-      {/* 6. Multi-Page Routes with Smooth Transition Animations */}
-      <main id="main-content" className="relative z-10 min-h-screen">
-        <Breadcrumbs />
-        <AnimatePresence mode="wait">
+      <main
+        id="main-content"
+        className={`relative z-10 min-h-screen${overlayVisible ? " invisible" : ""}`}
+        aria-hidden={overlayVisible}
+      >
+        <AnimatePresence mode="sync">
           <PageTransition
-            key={location.pathname}
-            pathname={location.pathname}
+            key={pathname}
+            pathname={pathname}
             reducedMotion={settings.reducedMotion}
           >
-            <Suspense fallback={<div className="min-h-screen" aria-hidden />}>
-              <Routes location={location}>
-                <Route
-                  path="/"
-                  element={
-                    <HomePage
-                      settings={settings}
-                      scrollProgress={scrollProgress}
-                      mousePos={mousePos}
-                      onOpenArchitectureModal={handleOpenArchitectureModal}
-                      hoveredCube={hoveredCube}
-                      onCubeHover={setHoveredCube}
-                      onOpenGeminiChat={() => openChatWithPrompt()}
-                    />
-                  }
-                />
-                <Route
-                  path="/services"
-                  element={
-                    <ServicesPage
-                      settings={settings}
-                      onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
-                    />
-                  }
-                />
-                <Route
-                  path="/technology"
-                  element={
-                    <TechnologyPage
-                      settings={settings}
-                      onOpenArchitectureModal={handleOpenArchitectureModal}
-                      hoveredCube={hoveredCube}
-                      onCubeHover={setHoveredCube}
-                    />
-                  }
-                />
-                <Route
-                  path="/kiduart"
-                  element={<KiduartPage settings={settings} />}
-                />
-                <Route
-                  path="/process"
-                  element={<ProcessPage settings={settings} />}
-                />
-                <Route
-                  path="/about"
-                  element={
-                    <AboutPage
-                      settings={settings}
-                      onOpenArchitectureModal={() => handleOpenArchitectureModal(null)}
-                    />
-                  }
-                />
-                <Route
-                  path="/contact"
-                  element={<ContactPage settings={settings} />}
-                />
-                <Route path="/ai" element={<AiPage />} />
-                <Route path="/sitemap" element={<SitemapPage />} />
-                <Route path="/work/:slug" element={<GuidePage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
+            <Suspense fallback={null}>
+              <AppRoutes
+                location={location}
+                settings={settings}
+                scrollProgress={scrollProgress}
+                mousePos={mousePos}
+                onOpenArchitectureModal={handleOpenArchitectureModal}
+                hoveredCube={hoveredCube}
+                onCubeHover={setHoveredCube}
+              />
             </Suspense>
           </PageTransition>
         </AnimatePresence>
       </main>
 
-      {/* 7. Persistent Multi-Page Footer */}
-      <Footer onOpenArchitectureModal={() => handleOpenArchitectureModal(null)} />
+      {/* 7. Plum footer — “Next project” band hidden on contact & who-we-are */}
+      {pathname === "/" ? (
+        <div className="relative z-[35]">
+          <SolarFooterStage />
+        </div>
+      ) : (
+        <div className="relative z-[35]">
+          <SiteFooter
+            showSolarVideo
+            hideNextProjectCta={hideFooterNextProject}
+            compactTop={compactFooterTop}
+          />
+        </div>
+      )}
 
       {/* 8. Interactive 3D Architecture Modal */}
       <ArchitectureModal
@@ -356,6 +269,8 @@ function MainAppContent() {
           setHoveredCube(index);
         }}
       />
+
+      <WhatsAppFloatingButton />
 
       {/* 9. Trevyk AI Assistant */}
       <GeminiChatbot

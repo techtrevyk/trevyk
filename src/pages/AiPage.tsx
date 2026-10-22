@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Brain } from "lucide-react";
-import { PageAtmosphere } from "../components/PageAtmosphere";
 import { StudioFrame } from "../components/StudioFrame";
+import { AI_HUB_FAQS } from "../data/aiHub";
 
 const TRACKS = [
   {
@@ -65,31 +65,9 @@ const PHASES = [
   },
 ] as const;
 
-const HUB_FAQS = [
-  {
-    q: "What AI services does Trevyk offer?",
-    a: "Custom AI agents, RAG / private knowledge assistants, workflow automation beside your systems, and honest integration work. School ERP product needs belong primarily on kiduart.com.",
-  },
-  {
-    q: "Do you sell separate AEO or GEO packages?",
-    a: "No. Clear answers and crawlable structure support both classic SEO and AI-answer surfaces. See the SEO guide. We do not promise citations.",
-  },
-  {
-    q: "How is cost determined?",
-    a: "Integrations, corpus size, languages, traffic, evaluation depth, and whether write actions are allowed. We quote from scope—not invented ROI.",
-  },
-] as const;
-
 export const AiPage: React.FC = () => {
   return (
     <div className="relative min-h-screen overflow-hidden pb-28 pt-36 sm:pt-44">
-      <PageAtmosphere
-        variant="services"
-        bands={[
-          { top: "18%", height: "12%", tone: "ink" },
-          { top: "70%", height: "14%", tone: "pink" },
-        ]}
-      />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-end gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -116,7 +94,7 @@ export const AiPage: React.FC = () => {
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </Link>
               <Link
-                to="/services"
+                to="/what-we-do"
                 className="inline-flex items-center rounded-full border border-[#B9A6D1]/40 px-5 py-3 text-sm font-semibold text-[#F8F6FB]"
               >
                 Full services catalogue
@@ -268,13 +246,13 @@ export const AiPage: React.FC = () => {
                 Questions buyers ask
               </h2>
               <dl className="mt-4 space-y-4">
-                {HUB_FAQS.map((faq) => (
-                  <div key={faq.q}>
+                {AI_HUB_FAQS.map((faq) => (
+                  <div key={faq.question}>
                     <dt className="font-heading text-sm font-semibold text-[#F8F6FB]">
-                      {faq.q}
+                      {faq.question}
                     </dt>
                     <dd className="mt-1 text-sm leading-relaxed text-[#B9A6D1]">
-                      {faq.a}
+                      {faq.answer}
                     </dd>
                   </div>
                 ))}

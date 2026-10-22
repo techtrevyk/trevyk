@@ -18,11 +18,11 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     keywords:
       "custom website development, web application development, custom software Noida, affordable website design, SEO services, digital marketing for startups, social media management, business growth, Trevyk Technologies",
   },
-  "/services": {
+  "/what-we-do": {
     title: "Website, Software, SEO & Marketing Services | Trevyk",
     description:
       "Custom websites, web apps, custom software, SEO, campaigns, social media management, and video for growing businesses. Starter plans. Noida, India.",
-    crumb: "Services",
+    crumb: "What we do",
     keywords:
       "website development services, web application development, custom software, SEO company Noida, digital marketing, social media management, video scripts",
   },
@@ -42,11 +42,11 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     keywords:
       "software architecture, modular systems, engineering stack, Trevyk",
   },
-  "/kiduart": {
+  "/our-products": {
     title: "Kiduart School ERP | TREVYK Technologies",
     description:
       "Kiduart is Trevyk’s school ERP for the Indian school year  admissions to parent updates. Explore modules, then book a demo on kiduart.com.",
-    crumb: "Kiduart",
+    crumb: "Our products",
     keywords: "Kiduart, school ERP, school management system, Indian schools",
   },
   "/process": {
@@ -56,12 +56,13 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     crumb: "Process",
     keywords: "software delivery process, scoped builds, Trevyk engineering",
   },
-  "/about": {
-    title: "About Trevyk Technologies",
+  "/who-we-are": {
+    title: "Who We Are | Trevyk Technologies",
     description:
-      "Trevyk Technologies, Noida. Custom websites, software, SEO, and campaigns for growing businesses, plus Kiduart for schools. Honest claims, no invented client counts.",
-    crumb: "About",
-    keywords: "About Trevyk, Noida tech company, Turning Vision Into Progress",
+      "Who Trevyk is: a Noida practice for Kiduart, custom websites, software, SEO, and campaigns. Our purpose, how we work, and what we commit to — honest claims, no invented client counts.",
+    crumb: "Who we are",
+    keywords:
+      "Who we are Trevyk, Noida tech company, Turning Vision Into Progress, Kiduart",
   },
   "/contact": {
     title: "Contact Trevyk Technologies",
@@ -100,7 +101,15 @@ export function normalizeSeoPath(pathname: string): string {
 }
 
 export function getRouteSeo(pathname: string): RouteSeo {
-  const path = normalizeSeoPath(pathname);
+  const normalizedPath =
+    pathname === "/about"
+      ? "/who-we-are"
+      : pathname === "/services"
+        ? "/what-we-do"
+        : pathname === "/kiduart"
+          ? "/our-products"
+          : pathname;
+  const path = normalizeSeoPath(normalizedPath);
   if (path.startsWith("/work/")) {
     const guide = getGuide(path.replace("/work/", ""));
     if (guide) {
@@ -114,6 +123,42 @@ export function getRouteSeo(pathname: string): RouteSeo {
   }
   if (path === "/404") return NOT_FOUND_SEO;
   return ROUTE_SEO[path] || NOT_FOUND_SEO;
+}
+
+/** Shared social / OG image path so prerender HTML and client SEO stay aligned. */
+const ROUTE_SOCIAL_IMAGES: Record<string, string> = {
+  "/ai": "/images/ai-hub-systems.jpg",
+  "/what-we-do": "/images/what-we-do/hero-backdrop.jpg",
+  "/contact": "/images/contact/hero-backdrop.jpg",
+  "/technology": "/images/technology/hero-backdrop.jpg",
+  "/process": "/images/studio-process.jpg",
+  "/who-we-are": "/images/studio-about.jpg",
+  "/contact": "/images/studio-contact.jpg",
+  "/our-products": "/images/studio-kiduart.jpg",
+};
+
+export function getSocialImagePath(pathname: string): string {
+  const path = normalizeSeoPath(pathname);
+  if (path.startsWith("/work/")) {
+    const guide = getGuide(path.replace("/work/", ""));
+    if (guide?.image) return guide.image;
+  }
+  return ROUTE_SOCIAL_IMAGES[path] || "/trevyk-logo-on-dark.png";
+}
+
+export function getSocialImageAlt(pathname: string): string {
+  const path = normalizeSeoPath(pathname);
+  if (path.startsWith("/work/")) {
+    const guide = getGuide(path.replace("/work/", ""));
+    if (guide?.alt) return guide.alt;
+  }
+  if (path === "/ai") {
+    return "Painterly diagram of connected AI systems and workflow nodes";
+  }
+  if (ROUTE_SOCIAL_IMAGES[path]) {
+    return `${SITE_NAME} — ${getRouteSeo(path).crumb}`;
+  }
+  return `${SITE_NAME} logo`;
 }
 
 export function buildBreadcrumbItems(pathname: string) {

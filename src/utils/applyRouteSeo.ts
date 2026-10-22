@@ -8,12 +8,15 @@ import {
 import {
   breadcrumbJsonLd,
   getRouteSeo,
+  getSocialImageAlt,
+  getSocialImagePath,
   isIndexablePath,
   normalizeSeoPath,
   webPageJsonLd,
 } from "../config/seo";
 import { SERVICES_DATA } from "../data/services";
 import { getGuide } from "../data/guides";
+import { AI_HUB_FAQS } from "../data/aiHub";
 
 function upsertMeta(
   selector: string,
@@ -62,7 +65,8 @@ export function applyRouteSeo(pathname: string) {
   const path = normalizeSeoPath(pathname);
   const meta = getRouteSeo(path);
   const url = indexable ? absoluteUrl(pathname) : `${SITE_URL}${pathname}`;
-  const image = absoluteUrl("/trevyk-logo-on-dark.png");
+  const image = absoluteUrl(getSocialImagePath(path));
+  const imageAlt = getSocialImageAlt(path);
   const fallbackImage = absoluteUrl("/trevyk-logo.png");
 
   document.title = meta.title;
@@ -107,7 +111,7 @@ export function applyRouteSeo(pathname: string) {
   upsertMeta('meta[property="og:image"]', "content", image, {
     property: "og:image",
   });
-  upsertMeta('meta[property="og:image:alt"]', "content", `${SITE_NAME} logo`, {
+  upsertMeta('meta[property="og:image:alt"]', "content", imageAlt, {
     property: "og:image:alt",
   });
   upsertMeta('meta[property="og:site_name"]', "content", SITE_NAME, {
@@ -190,11 +194,11 @@ export function applyRouteSeo(pathname: string) {
       position: index + 1,
       name: service.title,
       description: service.tagline,
-      url: absoluteUrl("/services"),
+      url: absoluteUrl("/what-we-do"),
     })),
   });
 
-  if (path === "/kiduart") {
+  if (path === "/our-products") {
     upsertJsonLd("ld-software", {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -216,7 +220,7 @@ export function applyRouteSeo(pathname: string) {
       },
       isRelatedTo: {
         "@type": "WebPage",
-        url: absoluteUrl("/kiduart"),
+        url: absoluteUrl("/our-products"),
         name: "Kiduart on TREVYK Technologies",
       },
     });

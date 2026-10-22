@@ -7,9 +7,6 @@ import {
   Layers,
   GraduationCap,
   Cpu,
-  Sparkles,
-  EyeOff,
-  Eye,
   Volume2,
   VolumeX,
   MessageSquareCode,
@@ -19,37 +16,33 @@ import {
   Mail,
   ChevronRight,
   Info,
-  Brain,
 } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 import { TrevykLogo } from "./TrevykLogo";
 import { SiteSettings } from "../types";
 import { soundEngine } from "../utils/audioEngine";
+import { beginRouteTransition } from "../utils/routeTransitionOverlay";
 
 interface NavbarProps {
   settings: SiteSettings;
   onUpdateSettings: (settings: Partial<SiteSettings>) => void;
   onOpenArchitectureModal: () => void;
-  onOpenGeminiChat?: () => void;
 }
+
+type MainNavLink = {
+  label: string;
+  path: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badge?: string;
+};
 
 export const Navbar: React.FC<NavbarProps> = ({
   settings,
   onUpdateSettings,
   onOpenArchitectureModal,
-  onOpenGeminiChat,
 }) => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Lock body scroll when mobile menu is active
   useEffect(() => {
@@ -96,136 +89,111 @@ export const Navbar: React.FC<NavbarProps> = ({
     onUpdateSettings({ soundEnabled: nextSound });
   };
 
-  // Pill links stay compact; Contact is a separate CTA so the active-dot
-  // circle never collides with a crowded last item.
-  const navLinks = [
-    { label: "Home", path: "/", icon: Sparkles },
-    { label: "Services", path: "/services", icon: Cpu },
-    { label: "AI", path: "/ai", icon: Brain },
-    { label: "Technology", path: "/technology", badge: "Core", icon: Layers },
+  const navLinks: MainNavLink[] = [
+    { label: "Who we are", path: "/who-we-are", icon: Info },
+    { label: "What we do", path: "/what-we-do", icon: Cpu },
     {
-      label: "Kiduart",
-      path: "/kiduart",
-      badge: "Flagship",
+      label: "Our Products",
+      path: "/our-products",
       icon: GraduationCap,
+      // label: "Kiduart",
+      // badge: "Flagship",
+    },
+    {
+      label: "Technology",
+      path: "/technology",
+      icon: Layers,
+      // badge: "Core",
     },
     { label: "Process", path: "/process", icon: GitMerge },
-    { label: "About", path: "/about", icon: Info },
-  ];
-
-  const mobileNavLinks = [
-    ...navLinks,
     { label: "Contact", path: "/contact", icon: Mail },
+    /*
+    Legacy main nav (restore labels/badges here if needed):
+    { label: "Services", path: "/services", icon: Cpu },
+    { label: "Technology", path: "/technology", badge: "Core", icon: Layers },
+    { label: "Kiduart", path: "/kiduart", badge: "Flagship", icon: GraduationCap },
+    { label: "Who we are", path: "/who-we-are", icon: Info },
+    Separate Contact pill CTA lived in the right action cluster (pre–text-link nav).
+    */
   ];
 
   return (
     <>
       <header
-        id="main-navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-[#1E1024]/98 backdrop-blur-xl border-b border-[#B9A6D1]/35 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
-            : "bg-[#2A1830]/92 backdrop-blur-md border-b border-[#6B4A87]/40 py-4 sm:py-5 lg:py-6"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-[#B9A6D1]/10 bg-transparent backdrop-blur-md shadow-[inset_0_1px_0_rgba(248,246,251,0.06)]"
       >
-        <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-          {/* Official Trevyk logo  dark-bg wordmark */}
-          <NavLink
-            id="brand-logo-link"
-            to="/"
-            onClick={() => {
-              soundEngine.playClick("hero");
-              if (mobileMenuOpen) setMobileMenuOpen(false);
-            }}
-            className="group flex items-center shrink-0 interactive-target focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] rounded-xl p-1"
-            data-cursor-label="TREVYK"
-            aria-label="Trevyk Technologies Home"
-          >
-            <TrevykLogo size="sm" theme="dark" showTagline={false} />
-          </NavLink>
+        <div
+          className="pointer-events-none absolute inset-0 bg-[#1a0f18]/[0.03] supports-[backdrop-filter]:bg-[#1a0f18]/[0.02]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F8F6FB]/12 to-transparent"
+          aria-hidden
+        />
+        <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-3.5 sm:px-6 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center lg:px-8">
+          <div className="flex justify-start lg:col-start-1">
+            <NavLink
+              id="brand-logo-link"
+              to="/"
+              onClick={() => {
+                beginRouteTransition();
+                soundEngine.playClick("hero");
+                if (mobileMenuOpen) setMobileMenuOpen(false);
+              }}
+              className="group flex shrink-0 items-center interactive-target rounded-xl p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2]"
+              data-cursor-label="TREVYK"
+              aria-label="Trevyk Technologies Home"
+            >
+              <TrevykLogo size="sm" theme="dark" showTagline={false} />
+            </NavLink>
+          </div>
 
-          {/* Desktop Nav Links */}
           <nav
-            className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-[#1A0D20]/90 backdrop-blur-md px-1.5 xl:px-2.5 py-1.5 rounded-full border border-[#B9A6D1]/45 shadow-[inset_0_1px_0_rgba(248,246,251,0.06),0_0_0_1px_rgba(107,74,135,0.25)]"
+            className="hidden items-center justify-center gap-0.5 lg:col-start-2 lg:flex xl:gap-2"
             aria-label="Main Desktop Navigation"
           >
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <NavLink
-                  key={link.label}
-                  to={link.path}
-                  onClick={() => soundEngine.playClick("soft")}
-                  onMouseEnter={() => soundEngine.playHover()}
-                  className={`relative px-2 xl:px-3 py-1.5 rounded-full text-[11px] xl:text-[13px] font-medium transition-all flex items-center gap-1 xl:gap-1.5 group shrink-0 ${
-                    isActive
-                      ? "text-[#F8F6FB] bg-[#3D224E] border border-[#E8A9C2]/70 shadow-[0_0_18px_rgba(232,169,194,0.28)]"
-                      : "text-[#E7E1F0]/85 hover:text-[#F8F6FB] hover:bg-[#2A1830] border border-transparent"
-                  }`}
-                  data-cursor-label={link.label.toUpperCase()}
-                >
-                  <span>{link.label}</span>
-                  {link.badge && (
-                    <span
-                      className={`hidden xl:inline text-[9px] uppercase font-mono-accent px-1.5 py-0.5 rounded border ${
-                        isActive
-                          ? "bg-[#E8A9C2] text-[#241428] font-bold border-[#E8A9C2]"
-                          : "bg-[#6B4A87]/40 text-[#E8A9C2] border-[#6B4A87]/50"
-                      }`}
-                    >
-                      {link.badge}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <NavLink
+                    key={link.label}
+                    to={link.path}
+                    onClick={() => {
+                      beginRouteTransition();
+                      soundEngine.playClick("soft");
+                    }}
+                    onMouseEnter={() => soundEngine.playHover()}
+                    className={`group relative flex shrink-0 items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium transition-colors xl:gap-1.5 xl:px-2.5 xl:text-[13px] ${
+                      isActive
+                        ? "text-[#F8F6FB]"
+                        : "text-[#E7E1F0]/78 hover:text-[#F8F6FB]"
+                    }`}
+                  >
+                    <span className="relative inline-block pb-1">
+                      {link.label}
+                      <span
+                        className={`pointer-events-none absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#E8A9C2] via-[#4A3058] to-[#E8A9C2] transition-[width] duration-300 ease-out ${
+                          isActive ? "w-full opacity-100" : "w-0 opacity-90 group-hover:w-full"
+                        }`}
+                        aria-hidden
+                      />
                     </span>
-                  )}
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-nav-pill"
-                      className="pointer-events-none absolute -bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#E8A9C2]"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </NavLink>
-              );
-            })}
+                    {link.badge ? (
+                      <span className="hidden rounded px-1.5 py-0.5 font-mono-accent text-[9px] uppercase text-[#E8A9C2]/85 xl:inline">
+                        {link.badge}
+                      </span>
+                    ) : null}
+                    {/* Active dot — replaced by gradient underline; restore if needed:
+                    {isActive && (
+                      <motion.div layoutId="active-nav-dot" ... />
+                    )}
+                    */}
+                  </NavLink>
+                );
+              })}
           </nav>
 
-          {/* Desktop Right Header Actions (Contact CTA, Audio, Motion, Blueprint, Gemini) */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-3 shrink-0">
-            <NavLink
-              to="/contact"
-              onClick={() => soundEngine.playClick("soft")}
-              onMouseEnter={() => soundEngine.playHover()}
-              className={`inline-flex h-9 items-center justify-center gap-1.5 rounded-full border px-3.5 text-xs font-semibold transition-all ${
-                location.pathname === "/contact"
-                  ? "border-[#E8A9C2] bg-[#E8A9C2] text-[#241428]"
-                  : "border-[#E8A9C2]/55 bg-[#2A1830] text-[#F8F6FB] hover:border-[#E8A9C2] hover:bg-[#3D224E]"
-              }`}
-              data-cursor-label="CONTACT"
-              aria-label="Contact Trevyk"
-            >
-              <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              <span>Contact</span>
-            </NavLink>
-
-            {/* AI Assistant Quick Trigger */}
-            {onOpenGeminiChat && (
-              <button
-                onClick={() => {
-                  soundEngine.playClick("soft");
-                  onOpenGeminiChat();
-                }}
-                title="Open Trevyk AI Assistant"
-                aria-label="Open Trevyk AI Assistant"
-                className="px-2 py-1.5 xl:px-2.5 rounded-full bg-[#2A1830] border border-[#B9A6D1]/45 text-xs font-mono-accent text-[#E8A9C2] hover:bg-[#24132B] hover:border-[#E8A9C2]/60 flex items-center space-x-1.5 transition-all"
-                data-cursor-label="GEMINI"
-              >
-                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                <span className="hidden xl:inline">AI</span>
-              </button>
-            )}
+          <div className="hidden shrink-0 items-center justify-end space-x-2 lg:col-start-3 lg:flex xl:space-x-3">
 
             {/* Audio Toggle */}
             <button
@@ -255,28 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Motion Preference Toggle */}
-            <button
-              id="motion-toggle-btn"
-              onClick={() => {
-                soundEngine.playClick("soft");
-                onUpdateSettings({ reducedMotion: !settings.reducedMotion });
-              }}
-              title={
-                settings.reducedMotion ? "Enable 3D Motion" : "Reduce Motion"
-              }
-              aria-label={
-                settings.reducedMotion ? "Enable 3D Motion" : "Reduce Motion"
-              }
-              className="p-2 rounded-full bg-[#1E1024]/80 border border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#E8A9C2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] transition-colors"
-              data-cursor-label="MOTION"
-            >
-              {settings.reducedMotion ? (
-                <EyeOff className="w-4 h-4" />
-              ) : (
-                <Eye className="w-4 h-4" />
-              )}
-            </button>
+            {/* Motion (eye) toggle — removed from header; prefers-reduced-motion still respected via OS setting in App */}
 
             {/* Architecture Modal CTA */}
             <MagneticButton
@@ -300,23 +247,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile / Tablet Header Controls (< 1024px) */}
           <div className="flex items-center space-x-2 lg:hidden">
-            {/* Quick AI Assistant Button on Mobile */}
-            {onOpenGeminiChat && (
-              <button
-                id="mobile-ai-chat-quick-btn"
-                onClick={() => {
-                  soundEngine.playClick("soft");
-                  onOpenGeminiChat();
-                }}
-                title="Open AI Assistant"
-                aria-label="Open Trevyk AI Assistant"
-                className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-[#2A1830] border border-[#E8A9C2]/40 text-[#E8A9C2] hover:bg-[#1E1024] text-xs font-mono-accent flex items-center space-x-1.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2]"
-              >
-                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                <span className="hidden sm:inline">AI Chat</span>
-              </button>
-            )}
-
             {/* Mobile Sound FX Toggle */}
             <button
               id="mobile-sound-toggle-btn"
@@ -383,7 +313,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="relative w-full bg-[#1E1024] border-b border-[#6B4A87]/40 shadow-2xl pt-20 pb-8 px-4 sm:px-6 max-h-[92vh] overflow-y-auto"
+              className="relative w-full max-h-[92vh] overflow-y-auto border-b border-[#6B4A87]/40 bg-[#1E1024] px-4 pb-8 pt-16 shadow-2xl sm:px-6"
             >
               {/* Brand Tagline in Drawer Header */}
               <div className="mb-4 pb-3 border-b border-[#6B4A87]/30 flex items-center justify-between">
@@ -397,7 +327,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
               {/* Navigation Links Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {mobileNavLinks.map((link, idx) => {
+                {navLinks.map((link, idx) => {
                   const Icon = link.icon;
                   const isActive = location.pathname === link.path;
                   return (
@@ -410,6 +340,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       <NavLink
                         to={link.path}
                         onClick={() => {
+                          beginRouteTransition();
                           soundEngine.playClick("soft");
                           setMobileMenuOpen(false);
                         }}
@@ -432,11 +363,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                             </div>
                           )}
                           <span>{link.label}</span>
-                          {link.badge && (
+                          {link.badge ? (
                             <span className="text-[9px] uppercase font-mono-accent px-1.5 py-0.5 rounded bg-[#6B4A87]/50 text-[#E8A9C2]">
                               {link.badge}
                             </span>
-                          )}
+                          ) : null}
                         </div>
                         <ChevronRight className="w-4 h-4 text-[#B9A6D1] group-hover:text-[#E8A9C2] group-hover:translate-x-0.5 transition-all" />
                       </NavLink>
@@ -474,7 +405,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </button>
                 </div>
 
-                {/* Primary Action Button in Drawer */}
                 <button
                   onClick={() => {
                     soundEngine.playClick("hero");

@@ -6,98 +6,124 @@ import {
   ExternalLink,
   CheckCircle2,
   School,
+  Mail,
 } from "lucide-react";
+import { KIDUART_TEASER_JOURNEY } from "../../data/kiduartTeaserJourney";
 import { SiteSettings } from "../../types";
 import { soundEngine } from "../../utils/audioEngine";
 import { ScrollReveal } from "../ScrollReveal";
-import { LottieAccent } from "../motion/LottieAccent";
+import { CampusGraphIllustration } from "./CampusGraphIllustration";
 
 interface KiduartTeaserProps {
   settings: SiteSettings;
 }
 
-const JOURNEY = [
-  {
-    title: "Admissions",
-    desc: "Enquiry to registered student in one pipeline.",
-  },
-  { title: "Student records", desc: "One profile the whole campus reads." },
-  { title: "Attendance", desc: "Mark fast  parents informed the same day." },
-  { title: "Fees & finance", desc: "Structure, collections, dues, receipts." },
-  { title: "Parents", desc: "Targeted notices with delivery visibility." },
-  { title: "Exams", desc: "Schedules, marks, grades, report cards." },
-];
-
 export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
   const [step, setStep] = useState(0);
-  const active = JOURNEY[step];
+  const journey = KIDUART_TEASER_JOURNEY;
+  const active = journey[step];
+  const thumbLeftPct = ((step + 1) / journey.length) * 100;
 
   return (
     <section
       id="kiduart-teaser"
-      className="relative py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#E7E1F0] text-[#241428] overflow-hidden"
+      className="trevyk-viewport-section relative overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
     >
       <div className="relative max-w-7xl mx-auto">
-        <ScrollReveal
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10"
-          reducedMotion={settings.reducedMotion}
-        >
-          <div className="lg:col-span-8">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-white border border-[#6B4A87]/30 text-[#6B4A87] font-mono-accent text-xs mb-4">
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span>FLAGSHIP PRODUCT · KIDUART</span>
-            </div>
-            <h2 className="font-heading font-bold text-3xl sm:text-5xl text-[#241428] leading-tight">
+        <ScrollReveal className="mb-10" reducedMotion={settings.reducedMotion}>
+          <div className="mb-4 inline-flex items-center space-x-2 rounded-full border border-[#B9A6D1]/40 bg-[#1E1024] px-3.5 py-1.5 font-mono-accent text-xs text-[#E8A9C2]">
+            <GraduationCap className="w-3.5 h-3.5" />
+            <span>FLAGSHIP PRODUCT · KIDUART</span>
+          </div>
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+            <h2 className="max-w-3xl font-heading text-3xl font-bold leading-tight text-[#F8F6FB] sm:text-5xl">
               Kiduart the school operating system we ship.
             </h2>
-            <p className="mt-4 text-[#5C4A6E] text-base sm:text-lg max-w-3xl leading-relaxed">
-              Scrub the campus year each step lights the campus graph.
-            </p>
-            <div className="mt-5 inline-flex items-center gap-2 text-xs font-mono-accent text-[#6B4A87]">
-              <School className="w-3.5 h-3.5" />
-              <span>Live product desk · kiduart.com</span>
+            <div className="flex shrink-0 flex-wrap items-center gap-3 lg:justify-end lg:pt-1">
+              <a
+                href="https://kiduart.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => soundEngine.playClick("soft")}
+                className="inline-flex items-center gap-2 rounded-full bg-[#6B4A87] px-5 py-2.5 font-heading text-xs font-semibold text-white sm:text-sm"
+              >
+                Book a free demo <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <Link
+                to="/process"
+                onClick={() => soundEngine.playClick("soft")}
+                className="inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/40 bg-[#2A1830] px-5 py-2.5 font-mono-accent text-xs font-semibold text-[#E8A9C2] sm:text-sm"
+              >
+                How we implement <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </div>
           </div>
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end gap-3">
-            <Link
-              to="/kiduart"
-              onClick={() => soundEngine.playClick("soft")}
-              className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-[#6B4A87] text-white font-heading text-xs sm:text-sm font-semibold group"
-            >
-              <span>Explore Kiduart</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-lg">
+            Scrub the campus year each step lights the campus graph.
+          </p>
+          <div className="mt-5 inline-flex items-center gap-2 font-mono-accent text-xs text-[#B9A6D1]">
+            <School className="w-3.5 h-3.5" />
+            <span>Live product desk · kiduart.com</span>
           </div>
         </ScrollReveal>
+        {/*  */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:items-start">
+
           <ScrollReveal
-            className="lg:col-span-5"
+            className="lg:col-span-5 lg:self-start"
             reducedMotion={settings.reducedMotion}
           >
-            <div className="h-full rounded-2xl bg-white/90 border border-[#6B4A87]/20 p-5 sm:p-6">
-              <div className="flex items-center justify-between text-[10px] font-mono-accent text-[#6B4A87] mb-3">
+            <CampusGraphIllustration
+              step={step}
+              reducedMotion={settings.reducedMotion}
+              className="w-full"
+            />
+          </ScrollReveal>
+
+          <ScrollReveal
+            className="lg:col-span-7 lg:self-start"
+            reducedMotion={settings.reducedMotion}
+          >
+            <div className="rounded-2xl border border-[#B9A6D1]/40 bg-[#1E1024]/95 p-5 sm:p-6">
+              <div className="mb-3 flex items-center justify-between font-mono-accent text-[10px] text-[#E8A9C2]">
                 <span>SCHOOL-YEAR SCRUBBER</span>
                 <span>
-                  {String(step + 1).padStart(2, "0")} / {JOURNEY.length}
+                  {String(step + 1).padStart(2, "0")} / {journey.length}
                 </span>
               </div>
-              <input
-                type="range"
-                min={0}
-                max={JOURNEY.length - 1}
-                value={step}
-                aria-label="Scrub school-year journey"
-                onChange={(e) => {
-                  setStep(Number(e.target.value));
-                  soundEngine.playHover();
-                }}
-                className="w-full h-2 appearance-none rounded-full cursor-pointer bg-[#E7E1F0] border border-[#6B4A87]/25
-                  [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4
-                  [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#6B4A87]"
-              />
+              <div className="relative w-full py-1.5">
+                <div
+                  className="relative h-2 overflow-hidden rounded-full border border-[#B9A6D1]/30 bg-[#2A1830]"
+                  aria-hidden
+                >
+                  <div
+                    className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#6B4A87] via-[#8B6AA8] to-[#B9A6D1] transition-[width] duration-200 ease-out"
+                    style={{ width: `${thumbLeftPct}%` }}
+                  />
+                </div>
+                <div
+                  className="pointer-events-none absolute top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#F8F6FB] bg-[#E8A9C2] shadow-[0_0_12px_rgba(232,169,194,0.55)] transition-[left] duration-200"
+                  style={{ left: `${thumbLeftPct}%` }}
+                  aria-hidden
+                />
+                <input
+                  type="range"
+                  min={0}
+                  max={journey.length - 1}
+                  step={1}
+                  value={step}
+                  aria-label="Scrub school-year journey"
+                  aria-valuetext={`Step ${step + 1} of ${journey.length}: ${active.title}`}
+                  onChange={(e) => {
+                    setStep(Number(e.target.value));
+                    soundEngine.playHover();
+                  }}
+                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                />
+              </div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {JOURNEY.map((j, i) => (
+                {journey.map((j, i) => (
                   <button
                     key={j.title}
                     type="button"
@@ -108,58 +134,47 @@ export const KiduartTeaser: React.FC<KiduartTeaserProps> = ({ settings }) => {
                     className={`px-2.5 py-1 rounded-full text-[10px] font-mono-accent border ${
                       i === step
                         ? "bg-[#6B4A87] text-white border-[#6B4A87]"
-                        : "bg-white text-[#6B4A87] border-[#6B4A87]/25"
+                        : "border-[#B9A6D1]/30 bg-[#2A1830] text-[#E7E1F0]"
                     }`}
                   >
                     {j.title}
                   </button>
                 ))}
               </div>
-              <h3 className="mt-5 font-heading font-bold text-lg text-[#241428]">
+              <h3 className="mt-5 font-heading text-lg font-bold text-[#F8F6FB]">
                 {active.title}
               </h3>
-              <p className="mt-2 text-sm text-[#5C4A6E]">{active.desc}</p>
-              <ul className="mt-4 space-y-2 text-xs text-[#5C4A6E]">
-                {[
-                  "Full journey on kiduart.com",
-                  "Demo desk: +91 92175 34128",
-                ].map((line) => (
+              <p className="mt-2 text-sm leading-relaxed text-[#E7E1F0]">
+                {active.desc}
+              </p>
+              <ul className="mt-4 space-y-2.5 text-xs leading-relaxed text-[#B9A6D1]">
+                {active.bullets.map((line) => (
                   <li key={line} className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#6B4A87] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#6B4A87]" />
                     <span>{line}</span>
                   </li>
                 ))}
               </ul>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal
-            className="lg:col-span-7 flex flex-col gap-4"
-            reducedMotion={settings.reducedMotion}
-          >
-            <LottieAccent
-              preset="nodes-pulse"
-              step={step}
-              reducedMotion={settings.reducedMotion}
-              className="w-full max-w-md mx-auto"
-              caption="Campus graph"
-            />
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://kiduart.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6B4A87] text-white text-xs font-heading font-semibold"
-              >
-                Book a free demo <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-              <Link
-                to="/process"
-                onClick={() => soundEngine.playClick("soft")}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#6B4A87]/25 text-[#6B4A87] text-xs font-mono-accent font-semibold"
-              >
-                How we implement →
-              </Link>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="https://kiduart.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => soundEngine.playClick("soft")}
+                  className="inline-flex items-center gap-2 rounded-full bg-[#6B4A87] px-4 py-2 font-heading text-xs font-semibold text-white"
+                >
+                  Visit kiduart.com
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+                <Link
+                  to="/contact"
+                  onClick={() => soundEngine.playClick("soft")}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/40 bg-[#2A1830] px-4 py-2 font-mono-accent text-xs font-semibold text-[#E8A9C2]"
+                >
+                  Contact
+                  <Mail className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>

@@ -1,9 +1,20 @@
 {
-  "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/who-we-are",
+      "permanent": true
+    }
+  ],
+  "installCommand": "npm ci",
+  "buildCommand": "NODE_OPTIONS=--max-old-space-size=8192 npm run build:site",
   "outputDirectory": "dist",
   "trailingSlash": false,
   "cleanUrls": true,
   "functions": {
+    "api/*.js": {
+      "maxDuration": 10
+    },
     "api/**/*.js": {
       "maxDuration": 10
     }

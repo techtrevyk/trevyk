@@ -77,21 +77,6 @@ const ARCHITECTURE_LAYERS: ArchitectureLayer[] = [
       "Trevyk’s flagship Kiduart school ERP (https://kiduart.com)  admissions through fees, attendance, exams, parent communication and more, matching the live product journey on kiduart.com.",
     color: "#5A3875",
   },
-  {
-    id: "storage",
-    name: "Resilient Multi-Region Data Store",
-    cubeIndex: 4,
-    role: "Zero-data-loss ACID database tier and document lake",
-    tech: [
-      "PostgreSQL Cluster",
-      "Redis In-Memory Tier",
-      "Encrypted S3 Blobs",
-      "Point-In-Time Backup",
-    ],
-    description:
-      "Persistent storage with encryption and backups  including exportable school records as published in Kiduart’s founding charter.",
-    color: "#3D224E",
-  },
 ];
 
 export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
@@ -133,10 +118,10 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
               </div>
               <div>
                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-[#F8F6FB]">
-                  The "Y" Architecture Blueprint
+                  The &quot;T&quot; Architecture Blueprint
                 </h3>
                 <p className="text-xs sm:text-sm text-[#B9A6D1] mt-0.5">
-                  How Trevyk’s 5 modular cubes translate to production
+                  How Trevyk&apos;s 4 modular cubes translate to production
                   infrastructure
                 </p>
               </div>
@@ -153,10 +138,10 @@ export const ArchitectureModal: React.FC<ArchitectureModalProps> = ({
 
           {/* Body Content */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8">
-            {/* Left Column: 5 Layer Selector */}
+            {/* Left Column: layer selector */}
             <div className="md:col-span-5 flex flex-col space-y-2">
               <span className="text-[11px] font-mono-accent uppercase tracking-widest text-[#B9A6D1] px-1 mb-1">
-                Modular Layers (1 to 5)
+                Modular Layers (1 to 4)
               </span>
 
               {ARCHITECTURE_LAYERS.map((layer, idx) => {
