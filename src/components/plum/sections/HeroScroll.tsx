@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { hero } from "../../../content/home";
+import { HeroPosterPicture } from "../../media/HeroPosterPicture";
 import { media, mediaZoom } from "../../../config/media";
 import { clamp } from "../../../lib/motion";
 import { ScrollScrubVideo } from "../media/ScrollScrubVideo";
@@ -36,20 +37,17 @@ export function HeroScroll() {
   }, []);
 
   const z = mediaZoom.heroOffice;
-  const posterSrcSet = `${media.heroOfficePoster640} 640w, ${media.heroOfficePoster} 1920w`;
-
   return (
     <div className="relative z-0 h-[100svh] min-h-[32rem] overflow-hidden bg-[#0f0810]">
         {reducedMotion ? (
-          <img
-            src={media.heroOfficePoster}
-            srcSet={posterSrcSet}
+          <HeroPosterPicture
+            className="absolute inset-0 z-0 size-full"
             sizes="100vw"
-            alt=""
-            decoding="async"
-            loading="eager"
-            className="absolute inset-0 z-0 size-full object-cover"
-            style={{ objectPosition: z.objectPosition }}
+            posterJpg={media.heroOfficePoster}
+            posterJpg640={media.heroOfficePoster640}
+            posterWebp={media.heroOfficePosterWebp}
+            posterWebp640={media.heroOfficePoster640Webp}
+            objectPosition={z.objectPosition}
             onLoad={onHeroPosterReady}
           />
         ) : (
@@ -62,11 +60,11 @@ export function HeroScroll() {
             zoomOrigin={z.origin}
             objectPosition={z.objectPosition}
             staticLcpPoster={media.heroOfficePoster}
-            staticLcpSrcSet={posterSrcSet}
             staticLcpSizes="100vw"
             className="absolute inset-0 z-0 size-full"
             label="Hero office background"
             onPosterReady={onHeroPosterReady}
+            deferVideoLoad
           />
         )}
 

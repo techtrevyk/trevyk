@@ -117,17 +117,24 @@ export const GrowthOffer: React.FC = () => {
               >
                 <article className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-[#B9A6D1]/30 bg-gradient-to-b from-[#1E1024]/95 via-[#1A0D20]/98 to-[#160A1C] p-3 shadow-[0_18px_44px_rgba(0,0,0,0.38)] transition-all duration-300 group-hover:border-[#E8A9C2]/40 group-hover:shadow-[0_22px_52px_rgba(107,74,135,0.28)] sm:p-3.5">
                   <div className="growth-card-photo relative aspect-[4/3] overflow-hidden rounded-[1.2rem] ring-1 ring-[#85627e]/45">
-                    <img
-                      src={`/images/growth-card-${card.imageSlug}-plum.jpg`}
-                      srcSet={`/images/growth-card-${card.imageSlug}-plum-640.jpg 640w, /images/growth-card-${card.imageSlug}-plum.jpg 1200w`}
-                      sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, 22vw"
-                      alt={card.imageLabel}
-                      width={1200}
-                      height={900}
-                      loading="lazy"
-                      decoding="async"
-                      className="growth-card-photo__img h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcSet={`/images/growth-card-${card.imageSlug}-plum-640.webp 640w, /images/growth-card-${card.imageSlug}-plum.webp 1200w`}
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, 22vw"
+                      />
+                      <img
+                        src={`/images/growth-card-${card.imageSlug}-plum.jpg`}
+                        srcSet={`/images/growth-card-${card.imageSlug}-plum-640.jpg 640w, /images/growth-card-${card.imageSlug}-plum.jpg 1200w`}
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 45vw, (max-width: 1280px) 30vw, 22vw"
+                        alt={card.imageLabel}
+                        width={1200}
+                        height={900}
+                        loading="lazy"
+                        decoding="async"
+                        className="growth-card-photo__img h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </picture>
                     <div
                       className="growth-card-photo__edge pointer-events-none absolute inset-0"
                       aria-hidden

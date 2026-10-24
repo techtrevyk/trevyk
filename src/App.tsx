@@ -21,6 +21,7 @@ import { soundEngine } from './utils/audioEngine';
 import { isOurProductsPath, isWhoWeArePath } from './config/site';
 import { initSmoothScroll } from './utils/initSmoothScroll';
 import { prefetchCommonRoutesIdle } from './utils/routePrefetch';
+import { scheduleDeferredMediaLoad } from './utils/deferMediaLoad';
 
 const SolarFooterStage = lazy(() =>
   import('./components/plum/sections/SolarFooterStage').then((m) => ({
@@ -83,10 +84,22 @@ function MainAppContent() {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatInitialPrompt, setChatInitialPrompt] = useState<string | undefined>(undefined);
   const [chatWidgetReady, setChatWidgetReady] = useState(false);
+  const [homeSolarStageReady, setHomeSolarStageReady] = useState(false);
   const [selectedCubeIndex, setSelectedCubeIndex] = useState<number | null>(null);
   const [hoveredCube, setHoveredCube] = useState<number | null>(null);
 
   const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setHomeSolarStageReady(false);
+      return;
+    }
+    return scheduleDeferredMediaLoad(() => setHomeSolarStageReady(true), {
+      scrollMinY: 480,
+      idleTimeoutMs: 14000,
+    });
+  }, [pathname]);
 
   const openChatWithPrompt = (prompt?: string) => {
     setChatWidgetReady(true);
@@ -147,7 +160,7 @@ function MainAppContent() {
     };
 
     if (typeof requestIdleCallback !== 'undefined') {
-      const idleId = requestIdleCallback(start, { timeout: 2500 });
+      const idleId = requestIdleCallback(start, { timeout: 5500 });
       return () => {
         cancelled = true;
         cancelIdleCallback(idleId);
@@ -170,7 +183,7 @@ function MainAppContent() {
       setChatWidgetReady(true);
       return;
     }
-    const timeoutId = window.setTimeout(() => setChatWidgetReady(true), 4500);
+    const timeoutId = window.setTimeout(() => setChatWidgetReady(true), 12000);
     return () => window.clearTimeout(timeoutId);
   }, [chatOpen]);
 
@@ -243,9 +256,13 @@ function MainAppContent() {
       {/* 7. Plum footer — “Next project” band hidden on contact & who-we-are */}
       {pathname === "/" ? (
         <div className="relative z-[35]">
-          <Suspense fallback={null}>
-            <SolarFooterStage />
-          </Suspense>
+          {homeSolarStageReady ? (
+            <Suspense fallback={null}>
+              <SolarFooterStage />
+            </Suspense>
+          ) : (
+            <SiteFooter showSolarVideo={false} hideNextProjectCta={hideFooterNextProject} />
+          )}
         </div>
       ) : (
         <div className="relative z-[35]">

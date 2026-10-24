@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "tsx server.ts",
-    "build:site": "node scripts/bundle-api.mjs && vite build && tsx scripts/prerender-html.ts",
+    "build:site": "node scripts/bundle-api.mjs && node scripts/update-sitemap-lastmod.mjs && vite build && tsx scripts/prerender-html.ts",
     "build": "npm run build:site && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "preview": "vite preview",

@@ -29,18 +29,10 @@ export function ensureHeroVideoPreload(src: string): void {
   if (started || typeof document === "undefined") return;
   started = true;
 
-  // Warm HTTP cache (Range-friendly on most CDNs).
-  try {
-    fetch(src, { priority: "low" } as RequestInit).catch(() => {});
-  } catch {
-    /* ignore */
-  }
-
   const video = document.createElement("video");
   video.muted = true;
   video.playsInline = true;
-  video.preload = "metadata";
-  video.src = src;
+  video.preload = "none";
 
   const onBuffer = () => {
     const duration = video.duration;
@@ -50,15 +42,23 @@ export function ensureHeroVideoPreload(src: string): void {
     emit(Math.min(92, (end / duration) * 100));
   };
 
-  video.addEventListener("loadstart", () => emit(4));
-  video.addEventListener("loadedmetadata", () => emit(18));
-  video.addEventListener("progress", onBuffer);
-  video.addEventListener("loadeddata", () => emit(52));
-  video.addEventListener("canplay", () => emit(76));
-  video.addEventListener("canplaythrough", () => emit(100), { once: true });
-  video.addEventListener("error", () => emit(100), { once: true });
+  const attach = () => {
+    video.src = src;
+    video.addEventListener("loadstart", () => emit(4));
+    video.addEventListener("loadedmetadata", () => emit(18));
+    video.addEventListener("progress", onBuffer);
+    video.addEventListener("loadeddata", () => emit(52));
+    video.addEventListener("canplay", () => emit(76));
+    video.addEventListener("canplaythrough", () => emit(100), { once: true });
+    video.addEventListener("error", () => emit(100), { once: true });
+    video.load();
+  };
 
-  video.load();
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(attach, { timeout: 10000 });
+  } else {
+    window.setTimeout(attach, 8000);
+  }
 }
 
 let reactHeroPosterReady = false;

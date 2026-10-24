@@ -60,34 +60,12 @@
     <link
       rel="preload"
       as="image"
-      href="/images/hero-office-poster-640.jpg"
-      imagesrcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
+      href="/images/hero-office-poster-640.webp"
+      type="image/webp"
+      imagesrcset="/images/hero-office-poster-640.webp 640w, /images/hero-office-poster.webp 1920w"
       imagesizes="100vw"
-      media="(max-width: 768px)"
       fetchpriority="high"
     />
-    <link
-      rel="preload"
-      as="image"
-      href="/images/hero-office-poster.jpg"
-      media="(min-width: 769px)"
-      fetchpriority="high"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Non-blocking Google Fonts (swap after load) -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      />
-    </noscript>
 
     <!--
       Critical first-paint CSS (no external dependency):
@@ -162,17 +140,24 @@
     class="bg-[#2A1830] text-[#F8F6FB] antialiased selection:bg-[#E8A9C2] selection:text-[#241428] overflow-x-hidden"
   >
     <div id="trevyk-lcp-shell">
-      <img
-        id="trevyk-lcp-hero"
-        src="/images/hero-office-poster-640.jpg"
-        srcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
-        sizes="100vw"
-        alt=""
-        width="640"
-        height="360"
-        decoding="sync"
-        fetchpriority="high"
-      />
+      <picture>
+        <source
+          type="image/webp"
+          srcset="/images/hero-office-poster-640.webp 640w, /images/hero-office-poster.webp 1920w"
+          sizes="100vw"
+        />
+        <img
+          id="trevyk-lcp-hero"
+          src="/images/hero-office-poster-640.jpg"
+          srcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
+          sizes="100vw"
+          alt=""
+          width="640"
+          height="360"
+          decoding="sync"
+          fetchpriority="high"
+        />
+      </picture>
     </div>
     <div id="root">
       <!-- trevyk-static-start -->
@@ -220,7 +205,22 @@
           gtag("config", id, { anonymize_ip: true, send_page_view: false });
         };
         document.head.appendChild(s);
+
+        var fonts = document.createElement("link");
+        fonts.rel = "stylesheet";
+        fonts.href =
+          "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap";
+        document.head.appendChild(fonts);
       });
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(function () {
+          var mono = document.createElement("link");
+          mono.rel = "stylesheet";
+          mono.href =
+            "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap";
+          document.head.appendChild(mono);
+        }, { timeout: 12000 });
+      }
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
