@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 soundEngine.playClick("hero");
                 if (mobileMenuOpen) setMobileMenuOpen(false);
               }}
-              className="group flex shrink-0 items-center interactive-target rounded-xl p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2]"
+              className="group flex shrink-0 items-center interactive-target rounded-xl p-1 outline-none focus:outline-none focus-visible:outline-none"
               data-cursor-label="TREVYK"
               aria-label="Trevyk Technologies Home"
             >
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       prefetchRoute(link.path);
                       soundEngine.playHover();
                     }}
-                    className={`group relative flex shrink-0 items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium transition-colors xl:gap-1.5 xl:px-2.5 xl:text-[13px] ${
+                    className={`group relative flex shrink-0 items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium outline-none transition-colors focus:outline-none focus-visible:outline-none xl:gap-1.5 xl:px-2.5 xl:text-[13px] ${
                       isActive
                         ? "text-[#F8F6FB]"
                         : "text-[#E7E1F0]/78 hover:text-[#F8F6FB]"
@@ -214,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? "Mute Audio Sound FX"
                   : "Enable Interactive Sound FX"
               }
-              className={`p-2 rounded-full border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] ${
+              className={`rounded-full border p-2 transition-all outline-none focus:outline-none focus-visible:outline-none ${
                 settings.soundEnabled
                   ? "bg-[#E8A9C2]/20 border-[#E8A9C2] text-[#E8A9C2] shadow-[0_0_10px_rgba(232,169,194,0.3)]"
                   : "bg-[#1E1024]/80 border-[#6B4A87]/40 text-[#B9A6D1] hover:text-[#E8A9C2]"
@@ -284,7 +284,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   ? "Close Navigation Menu"
                   : "Open Navigation Menu"
               }
-              className="p-2.5 rounded-xl bg-[#1E1024]/90 border border-[#6B4A87]/50 text-[#F8F6FB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] active:scale-95 transition-transform"
+              className="rounded-xl border border-[#6B4A87]/50 bg-[#1E1024]/90 p-2.5 text-[#F8F6FB] outline-none transition-transform focus:outline-none focus-visible:outline-none active:scale-95"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5 text-[#E8A9C2]" />
@@ -351,7 +351,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           soundEngine.playClick("soft");
                           setMobileMenuOpen(false);
                         }}
-                        className={`flex items-center justify-between p-3 rounded-xl border text-sm font-medium transition-all group ${
+                        className={`group flex items-center justify-between rounded-xl border p-3 text-sm font-medium outline-none transition-all focus:outline-none focus-visible:outline-none ${
                           isActive
                             ? "bg-[#3D1D45] border-[#E8A9C2] text-[#F8F6FB] shadow-[0_0_15px_rgba(232,169,194,0.25)]"
                             : "bg-[#1E1024]/60 hover:bg-[#2A1830] border-[#6B4A87]/30 text-[#B9A6D1]"

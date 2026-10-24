@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
             <div>
               <Link
                 to="/"
-                className="inline-flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9C2] rounded-xl"
+                className="group inline-flex items-center rounded-xl outline-none focus:outline-none focus-visible:outline-none"
                 aria-label="Trevyk Technologies Home"
               >
                 <TrevykLogo size="md" showTagline={false} theme="dark" />

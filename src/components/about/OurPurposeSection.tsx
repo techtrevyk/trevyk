@@ -7,7 +7,9 @@ import { soundEngine } from "../../utils/audioEngine";
 const PURPOSE_LOGO = "/trevyk-icon.png";
 
 const HUB = { x: 50, y: 50 };
-const HUB_R = 12.8;
+/** Matches hub outer ring in viewBox (see PurposeHubLogo size vs diagram min-height). */
+const HUB_OUTER_R = 13.9;
+const HUB_LINE_TRIM = 0.22;
 
 const PURPOSE_PILLARS = [
   {
@@ -15,7 +17,7 @@ const PURPOSE_PILLARS = [
     description:
       "Provide schools with technology that simplifies operations and supports better learning environments.",
     icon: GraduationCap,
-    anchor: { x: 26, y: 26 },
+    anchor: { x: 27, y: 27 },
     side: "left" as const,
   },
   {
@@ -23,7 +25,7 @@ const PURPOSE_PILLARS = [
     description:
       "Build custom digital solutions that help businesses work smarter, reach further, and grow sustainably.",
     icon: Building2,
-    anchor: { x: 74, y: 26 },
+    anchor: { x: 73, y: 27 },
     side: "right" as const,
   },
   {
@@ -31,7 +33,7 @@ const PURPOSE_PILLARS = [
     description:
       "Focus on clean, maintainable and scalable solutions that solve real problems.",
     icon: Code2,
-    anchor: { x: 26, y: 74 },
+    anchor: { x: 27, y: 73 },
     side: "left" as const,
   },
   {
@@ -39,32 +41,33 @@ const PURPOSE_PILLARS = [
     description:
       "Build long-term relationships and products that create meaningful value for people and communities.",
     icon: Users,
-    anchor: { x: 74, y: 74 },
+    anchor: { x: 73, y: 73 },
     side: "right" as const,
   },
 ] as const;
 
 function hubRingPoint(target: { x: number; y: number }) {
   const angle = Math.atan2(target.y - HUB.y, target.x - HUB.x);
+  const r = HUB_OUTER_R - HUB_LINE_TRIM;
   return {
-    x: HUB.x + Math.cos(angle) * HUB_R,
-    y: HUB.y + Math.sin(angle) * HUB_R,
+    x: HUB.x + Math.cos(angle) * r,
+    y: HUB.y + Math.sin(angle) * r,
   };
 }
 
-/** Orthogonal “circuit” trace — hub to card (architecture-style elbows). */
+/** Card → hub: orthogonal elbows; stops on the outer ring (never inside). */
 function elbowPath(
   anchor: { x: number; y: number },
   side: "left" | "right",
 ): string {
-  const start = hubRingPoint(anchor);
-  const busX = side === "left" ? 46 : 54;
+  const end = hubRingPoint(anchor);
+  const busX = side === "left" ? 45.5 : 54.5;
   const cardX = side === "left" ? anchor.x + 5.5 : anchor.x - 5.5;
   return [
-    `M ${start.x} ${start.y}`,
-    `L ${busX} ${start.y}`,
+    `M ${cardX} ${anchor.y}`,
     `L ${busX} ${anchor.y}`,
-    `L ${cardX} ${anchor.y}`,
+    `L ${busX} ${end.y}`,
+    `L ${end.x} ${end.y}`,
   ].join(" ");
 }
 
@@ -89,7 +92,7 @@ function PurposeCard({
       onMouseLeave={() => onActivate(false)}
       onFocus={() => onActivate(true)}
       onBlur={() => onActivate(false)}
-      className={`group relative w-[15.5rem] max-w-[calc(50vw-2rem)] shrink-0 sm:w-[16.75rem] lg:w-[17.25rem] ${className}`}
+      className={`group relative w-[17.25rem] max-w-[calc(50vw-1.75rem)] shrink-0 sm:w-[18.5rem] lg:w-[19.75rem] ${className}`}
     >
       <div
         className={`pointer-events-none absolute -inset-1 rounded-[1.15rem] transition-opacity duration-300 ${
@@ -146,14 +149,19 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
           <stop offset="100%" stopColor="rgba(107,74,135,0)" />
         </radialGradient>
         <filter id="purpose-line-glow" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="0.45" result="blur" />
+          <feGaussianBlur stdDeviation="0.35" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+        <mask id="purpose-lines-outside-hub">
+          <rect width="100" height="100" fill="white" />
+          <circle cx={HUB.x} cy={HUB.y} r={HUB_OUTER_R - 0.12} fill="black" />
+        </mask>
       </defs>
       <circle cx={HUB.x} cy={HUB.y} r={24} fill="url(#purpose-hub-glow)" />
+      <g mask="url(#purpose-lines-outside-hub)">
       {PURPOSE_PILLARS.map((pillar, index) => {
         const d = elbowPath(pillar.anchor, pillar.side);
         const isActive = activeIndex === index;
@@ -166,8 +174,8 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
                 fill="none"
                 stroke="rgba(232,169,194,0.55)"
                 strokeWidth={1.1}
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                strokeLinecap="butt"
+                strokeLinejoin="miter"
                 filter="url(#purpose-line-glow)"
               />
             ) : null}
@@ -176,8 +184,8 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
               fill="none"
               stroke={isActive ? "rgba(248,220,232,0.95)" : "rgba(185,166,209,0.38)"}
               strokeWidth={isActive ? 0.55 : 0.38}
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
               opacity={dimmed ? 0.28 : isActive ? 1 : 0.72}
             />
             <circle
@@ -190,6 +198,7 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
           </g>
         );
       })}
+      </g>
     </svg>
   );
 }
@@ -204,7 +213,7 @@ function PurposeHubLogo({ active }: { active: boolean }) {
             : "border-[#B9A6D1]/42 shadow-[0_0_48px_rgba(107,74,135,0.28)]"
         }`}
       />
-      <div className="relative flex h-[82%] w-[82%] items-center justify-center rounded-full bg-[#1A0D20]/92">
+      <div className="relative z-[1] flex h-[82%] w-[82%] items-center justify-center rounded-full bg-[#1A0D20]">
         <img
           src={PURPOSE_LOGO}
           alt=""
@@ -224,14 +233,14 @@ function PurposeHubGraphic() {
 
   return (
     <div className="relative mx-auto w-full max-w-4xl" aria-hidden>
-      <div className="relative min-h-[24rem] w-full sm:min-h-[28rem] lg:min-h-[32rem]">
+      <div className="relative min-h-[22rem] w-full sm:min-h-[26rem] lg:min-h-[29rem]">
         <PurposeCircuitArt activeIndex={activeIndex} />
 
         <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
           <PurposeHubLogo active={activeIndex !== null} />
         </div>
 
-        <div className="absolute left-0 top-0 z-[1] sm:left-[2%]">
+        <div className="absolute left-0 top-0 z-[1]">
           <PurposeCard
             title={tl.title}
             description={tl.description}
@@ -240,7 +249,7 @@ function PurposeHubGraphic() {
             onActivate={(on) => setActiveIndex(on ? 0 : null)}
           />
         </div>
-        <div className="absolute right-0 top-0 z-[1] sm:right-[2%]">
+        <div className="absolute right-0 top-0 z-[1]">
           <PurposeCard
             title={tr.title}
             description={tr.description}
@@ -249,7 +258,7 @@ function PurposeHubGraphic() {
             onActivate={(on) => setActiveIndex(on ? 1 : null)}
           />
         </div>
-        <div className="absolute bottom-0 left-0 z-[1] sm:left-[2%]">
+        <div className="absolute bottom-0 left-0 z-[1]">
           <PurposeCard
             title={bl.title}
             description={bl.description}
@@ -258,7 +267,7 @@ function PurposeHubGraphic() {
             onActivate={(on) => setActiveIndex(on ? 2 : null)}
           />
         </div>
-        <div className="absolute bottom-0 right-0 z-[1] sm:right-[2%]">
+        <div className="absolute bottom-0 right-0 z-[1]">
           <PurposeCard
             title={br.title}
             description={br.description}
@@ -290,7 +299,7 @@ export function OurPurposeSection() {
       />
 
       <div className="flex w-full flex-col gap-12 lg:gap-14">
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-5xl">
           <div className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-[#B9A6D1]/40 bg-[#1E1024]/90 px-4 py-1.5 font-mono-accent text-[11px] uppercase tracking-[0.2em] text-[#E8A9C2] shadow-[0_0_24px_rgba(107,74,135,0.15)] sm:text-xs">
             <Target className="h-4 w-4" aria-hidden />
             <span>02 / Our purpose</span>
@@ -310,7 +319,7 @@ export function OurPurposeSection() {
             </span>
           </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px] sm:leading-relaxed">
+          <p className="mt-6 max-w-5xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px] sm:leading-relaxed">
             We exist to help schools and growing businesses turn their ideas
             into practical, reliable digital solutions. Whether it&apos;s a
             school managing its day-to-day operations or a business building

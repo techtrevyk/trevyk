@@ -73,7 +73,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`group relative inline-flex items-center justify-center rounded-full font-heading font-medium tracking-wide text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 transition-[colors,transform] active:scale-[0.96] overflow-hidden will-change-transform ${variantStyles[variant]} ${className}`}
+      className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full px-6 py-3 font-heading text-sm font-medium tracking-wide outline-none transition-[colors,transform] will-change-transform focus:outline-none focus-visible:outline-none active:scale-[0.96] sm:px-8 sm:py-3.5 sm:text-base ${variantStyles[variant]} ${className}`}
     >
       {variant === "primary" && (
         <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />

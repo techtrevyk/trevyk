@@ -27,7 +27,7 @@ These are lightweight JSON animations authored for brand fit (not stock SaaS kit
 | File | Notes | License |
 |------|--------|---------|
 | `images/growth-card-*-plum.jpg` (+ `-640` variants) | Home “For startups…” service cards — purple grade matched to `#6B4A87` CTA | Generated for Trevyk — free to use with the site |
-| `images/growth-card-ai-agents-plum*` / `growth-card-rag-knowledge-plum*` | Derived from work hero art with purple grade | Same as above |
+| `images/growth-card-ai-agents-plum*` / `growth-card-rag-knowledge-plum*` | Same 3D plum desk set as other growth cards (AI agent + knowledge motifs) | Generated for Trevyk — free to use with the site |
 
 Legacy dark-purple cards (`growth-card-*.jpg` without `-plum`) remain on disk for rollback.
 

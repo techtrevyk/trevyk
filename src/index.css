@@ -51,6 +51,41 @@
   .font-mono-accent {
     font-family: "JetBrains Mono", monospace;
   }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /*
+   * Kill stray focus rings (mouse click / router nav) — especially header links.
+   * Form fields keep intentional border styling via component classes.
+   */
+  :where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus,
+  :where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    outline: none !important;
+    outline-color: transparent !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    --tw-ring-offset-shadow: 0 0 #0000 !important;
+  }
+
 }
 
 /* Custom noise grain background */
