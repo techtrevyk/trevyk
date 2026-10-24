@@ -71,6 +71,7 @@ function removeLcpShellNodes(): void {
     window.__trevykRemoveLcpShell();
     return;
   }
+  document.getElementById("trevyk-static-home")?.remove();
   document.getElementById("trevyk-lcp-shell")?.remove();
   if (typeof document !== "undefined") {
     document.body.style.backgroundImage = "";
@@ -93,7 +94,7 @@ function tryHandoffHtmlLcpShell(): void {
         }
       });
     });
-  }, 900);
+  }, 1200);
 }
 
 if (typeof window !== "undefined") {

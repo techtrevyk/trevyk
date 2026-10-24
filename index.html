@@ -89,19 +89,128 @@
           background-image: url("/images/hero-office-poster.webp");
         }
       }
-      #trevyk-lcp-shell {
+      html.trevyk-no-static-home #trevyk-static-home {
+        display: none !important;
+      }
+      .trevyk-static-home {
         position: fixed;
         inset: 0;
         z-index: 39;
         overflow: hidden;
         background: #0f0810;
-        pointer-events: none;
+        color: #f8f6fb;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       }
-      #trevyk-lcp-shell img {
+      .trevyk-static-home__media {
+        position: absolute;
+        inset: 0;
+      }
+      .trevyk-static-home__media img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: 50% 42%;
+      }
+      .trevyk-static-home__gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(26, 15, 24, 0.92) 0%,
+            rgba(26, 15, 24, 0.78) 38%,
+            rgba(26, 15, 24, 0.35) 58%,
+            transparent 78%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(15, 8, 16, 0.55) 0%,
+            transparent 38%,
+            rgba(15, 8, 16, 0.72) 100%
+          );
+        pointer-events: none;
+      }
+      .trevyk-static-home__bar {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        height: 4rem;
+        padding: 0 1rem;
+      }
+      .trevyk-static-home__logo img {
+        height: 36px;
+        width: auto;
+        max-width: 128px;
+      }
+      .trevyk-static-home__content {
+        position: relative;
+        z-index: 2;
+        max-width: 36rem;
+        padding: 4.5rem 1.25rem 2rem;
+      }
+      .trevyk-static-home__eyebrow {
+        margin: 0;
+        font-size: 10px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #b397ae;
+      }
+      .trevyk-static-home__title {
+        margin: 1.25rem 0 0;
+        font-size: clamp(2rem, 5.5vw, 3.75rem);
+        line-height: 1.08;
+        font-weight: 600;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+      }
+      .trevyk-static-home__subtitle {
+        margin: 1rem 0 0;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #e8a9c2;
+      }
+      .trevyk-static-home__lead {
+        margin: 1.5rem 0 0;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+      .trevyk-static-home__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin-top: 2rem;
+      }
+      .trevyk-static-home__btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.625rem 1.25rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .trevyk-static-home__btn--primary {
+        background: #e8a9c2;
+        color: #1e1024;
+      }
+      .trevyk-static-home__btn--secondary {
+        border: 1px solid rgba(248, 246, 251, 0.4);
+        color: #f8f6fb;
+      }
+      .trevyk-static-home__link {
+        font-size: 0.875rem;
+        color: #b397ae;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      #root {
+        opacity: 0;
+        pointer-events: none;
+      }
+      html.trevyk-app-ready #root {
+        opacity: 1;
+        pointer-events: auto;
       }
       .trevyk-seo-shell {
         position: absolute !important;
@@ -117,7 +226,7 @@
     </style>
     <noscript>
       <style>
-        #trevyk-lcp-shell {
+        #trevyk-static-home {
           display: none !important;
         }
         .trevyk-seo-shell {
@@ -139,26 +248,63 @@
   <body
     class="bg-[#2A1830] text-[#F8F6FB] antialiased selection:bg-[#E8A9C2] selection:text-[#241428] overflow-x-hidden"
   >
-    <div id="trevyk-lcp-shell">
-      <picture>
-        <source
-          type="image/webp"
-          srcset="/images/hero-office-poster-640.webp 640w, /images/hero-office-poster.webp 1920w"
-          sizes="100vw"
-        />
-        <img
-          id="trevyk-lcp-hero"
-          src="/images/hero-office-poster-640.jpg"
-          srcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
-          sizes="100vw"
-          alt=""
-          width="640"
-          height="360"
-          decoding="sync"
-          fetchpriority="high"
-        />
-      </picture>
+    <script>
+      (function () {
+        var p = location.pathname.replace(/\/$/, "") || "/";
+        if (p !== "/") {
+          document.documentElement.classList.add("trevyk-no-static-home", "trevyk-app-ready");
+        }
+      })();
+    </script>
+    <!-- trevyk-static-home-start -->
+    <div id="trevyk-static-home" class="trevyk-static-home">
+      <div class="trevyk-static-home__media" aria-hidden="true">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="/images/hero-office-poster-640.webp 640w, /images/hero-office-poster.webp 1920w"
+            sizes="100vw"
+          />
+          <img
+            id="trevyk-lcp-hero"
+            src="/images/hero-office-poster-640.jpg"
+            srcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
+            sizes="100vw"
+            alt=""
+            width="640"
+            height="360"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
+      </div>
+      <div class="trevyk-static-home__gradient" aria-hidden="true"></div>
+      <header class="trevyk-static-home__bar">
+        <a href="/" class="trevyk-static-home__logo">
+          <img
+            src="/trevyk-logo-on-dark.png"
+            alt="Trevyk Technologies"
+            width="128"
+            height="36"
+            decoding="async"
+            loading="eager"
+            fetchpriority="low"
+          />
+        </a>
+      </header>
+      <div class="trevyk-static-home__content">
+        <p class="trevyk-static-home__eyebrow">Turning vision into progress</p>
+        <h1 class="trevyk-static-home__title">Custom websites, software, and growth</h1>
+        <p class="trevyk-static-home__subtitle">Trevyk Technologies, Noida</p>
+        <p class="trevyk-static-home__lead">Product, websites, and growth systems for businesses that want to be found and then keep the software.</p>
+        <div class="trevyk-static-home__actions">
+          <a class="trevyk-static-home__btn trevyk-static-home__btn--primary" href="/contact">Get a starter plan</a>
+          <a class="trevyk-static-home__btn trevyk-static-home__btn--secondary" href="/our-products">Explore Kiduart</a>
+          <a class="trevyk-static-home__link" href="/what-we-do">View capabilities</a>
+        </div>
+      </div>
     </div>
+    <!-- trevyk-static-home-end -->
     <div id="root">
       <!-- trevyk-static-start -->
       <article class="trevyk-seo-shell">
@@ -188,13 +334,13 @@
     </div>
     <script>
       window.__trevykRemoveLcpShell = function () {
+        document.getElementById("trevyk-static-home")?.remove();
         document.getElementById("trevyk-lcp-shell")?.remove();
         document.getElementById("trevyk-boot")?.remove();
         document.body.style.backgroundImage = "";
         document.body.style.backgroundColor = "";
+        document.documentElement.classList.add("trevyk-app-ready");
       };
-      var p = location.pathname.replace(/\/$/, "") || "/";
-      if (p !== "/") window.__trevykRemoveLcpShell();
       function trevykLoadFonts() {
         if (document.getElementById("trevyk-fonts")) return;
         var fonts = document.createElement("link");
@@ -217,7 +363,10 @@
         };
         document.head.appendChild(s);
       }
-      window.addEventListener("load", trevykLoadFonts, { once: true });
+      ["scroll", "pointerdown"].forEach(function (ev) {
+        window.addEventListener(ev, trevykLoadFonts, { once: true, passive: true });
+      });
+      setTimeout(trevykLoadFonts, 8000);
       ["scroll", "pointerdown", "keydown"].forEach(function (ev) {
         window.addEventListener(ev, trevykLoadGa, { once: true, passive: true });
       });

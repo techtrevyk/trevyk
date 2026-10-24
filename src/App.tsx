@@ -3,7 +3,6 @@ import { BrowserRouter, useLocation } from 'react-router-dom';
 import type Lenis from 'lenis';
 
 import { SiteSettings } from './types';
-import { LazyAnimatePresence } from './components/LazyAnimatePresence';
 import { Cursor } from './components/Cursor';
 import { Navbar } from './components/Navbar';
 import { SiteFooter } from './components/plum/layout/SiteFooter';
@@ -11,7 +10,6 @@ import { BrandGradientBar } from './components/BrandGradientBar';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 import { SEOManager } from './components/SEOManager';
 import { Analytics } from './components/Analytics';
-import { PageTransition } from './components/PageTransition';
 import { AppRoutes } from './components/AppRoutes';
 import { RouteLoader } from './components/RouteLoader';
 import { useRouteTransitionOverlay } from './hooks/useRouteTransitionOverlay';
@@ -26,6 +24,11 @@ import { scheduleDeferredMediaLoad } from './utils/deferMediaLoad';
 const SolarFooterStage = lazy(() =>
   import('./components/plum/sections/SolarFooterStage').then((m) => ({
     default: m.SolarFooterStage,
+  })),
+);
+const NonHomeRouteShell = lazy(() =>
+  import('./components/NonHomeRouteShell').then((m) => ({
+    default: m.NonHomeRouteShell,
   })),
 );
 const ArchitectureModal = lazy(() =>
@@ -248,7 +251,7 @@ function MainAppContent() {
         aria-busy={overlayVisible}
       >
         {pathname === "/" ? (
-          <PageTransition pathname={pathname} reducedMotion={settings.reducedMotion}>
+          <div className="relative">
             <Suspense fallback={null}>
               <AppRoutes
                 location={location}
@@ -258,25 +261,19 @@ function MainAppContent() {
                 onCubeHover={setHoveredCube}
               />
             </Suspense>
-          </PageTransition>
+          </div>
         ) : (
-          <LazyAnimatePresence>
-            <PageTransition
-              key={pathname}
+          <Suspense fallback={null}>
+            <NonHomeRouteShell
               pathname={pathname}
               reducedMotion={settings.reducedMotion}
-            >
-              <Suspense fallback={null}>
-                <AppRoutes
-                  location={location}
-                  settings={settings}
-                  onOpenArchitectureModal={handleOpenArchitectureModal}
-                  hoveredCube={hoveredCube}
-                  onCubeHover={setHoveredCube}
-                />
-              </Suspense>
-            </PageTransition>
-          </LazyAnimatePresence>
+              location={location}
+              settings={settings}
+              onOpenArchitectureModal={handleOpenArchitectureModal}
+              hoveredCube={hoveredCube}
+              onCubeHover={setHoveredCube}
+            />
+          </Suspense>
         )}
       </main>
 
