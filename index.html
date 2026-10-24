@@ -56,14 +56,9 @@
       window.gtag = window.gtag || gtag;
     </script>
 
-    <!-- Display fonts early on home — prevents hero title line-break flicker (FOUT). -->
+    <!-- Fonts: preconnect only in head (stylesheet is non-blocking — see trevykLoadFonts). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      id="trevyk-fonts"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-    />
 
     <!-- LCP: hero still only (navbar logo must not compete for bandwidth or LCP). -->
     <link
@@ -302,21 +297,6 @@
           />
         </picture>
       </div>
-      <script>
-        (function () {
-          function mark() {
-            window.__trevykStaticHeroReady = true;
-            window.dispatchEvent(new Event("trevyk-static-hero-ready"));
-          }
-          var img = document.getElementById("trevyk-lcp-hero");
-          if (!img) return;
-          if (img.complete && img.naturalWidth > 0) mark();
-          else {
-            img.addEventListener("load", mark, { once: true });
-            img.addEventListener("error", mark, { once: true });
-          }
-        })();
-      </script>
       <div class="trevyk-static-home__gradient" aria-hidden="true"></div>
       <div class="trevyk-static-home__stage">
         <div class="trevyk-static-home__container">
@@ -390,7 +370,16 @@
         fonts.rel = "stylesheet";
         fonts.href =
           "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap";
+        fonts.media = "print";
+        fonts.onload = function () {
+          this.media = "all";
+        };
         document.head.appendChild(fonts);
+      }
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(trevykLoadFonts, { timeout: 4000 });
+      } else {
+        setTimeout(trevykLoadFonts, 150);
       }
       function trevykLoadGa() {
         if (window.__trevykGaLoaded) return;

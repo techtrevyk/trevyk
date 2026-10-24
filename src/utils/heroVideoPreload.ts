@@ -62,18 +62,25 @@ export function ensureHeroVideoPreload(src: string): void {
 }
 
 let reactHeroPosterReady = false;
+let documentLoadComplete =
+  typeof document !== "undefined" && document.readyState === "complete";
 let handoffScheduled = false;
 
 const HANDOFF_SESSION_KEY = "trevyk-home-handoff-v2";
 
+function isRepeatHomeVisit(): boolean {
+  try {
+    return sessionStorage.getItem(HANDOFF_SESSION_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+/** PSI / first paint: hold static LCP shell. Repeat visits: hand off quickly. */
 function handoffDelayMs(): number {
   if (import.meta.env.DEV) return 0;
-  try {
-    if (sessionStorage.getItem(HANDOFF_SESSION_KEY) === "1") return 48;
-  } catch {
-    /* private mode */
-  }
-  return 320;
+  if (isRepeatHomeVisit()) return 48;
+  return 1200;
 }
 
 function markHandoffSession(): void {
@@ -96,7 +103,13 @@ function posterReadyForHandoff(): boolean {
 
 function documentReadyForHandoff(): boolean {
   if (typeof document === "undefined") return false;
-  return document.readyState === "interactive" || document.readyState === "complete";
+  if (import.meta.env.DEV) {
+    return document.readyState === "interactive" || document.readyState === "complete";
+  }
+  if (isRepeatHomeVisit()) {
+    return document.readyState === "interactive" || document.readyState === "complete";
+  }
+  return documentLoadComplete;
 }
 
 function removeLcpShellNodes(): void {
@@ -113,7 +126,7 @@ function removeLcpShellNodes(): void {
   }
 }
 
-/** Hand off static LCP shell → React hero (minimal delay; static poster counts). */
+/** Hand off static LCP shell → React hero after LCP-friendly delay (lab / first visit). */
 function tryHandoffHtmlLcpShell(): void {
   if (!posterReadyForHandoff() || !documentReadyForHandoff() || handoffScheduled) return;
   handoffScheduled = true;
@@ -132,13 +145,22 @@ function tryHandoffHtmlLcpShell(): void {
 
 if (typeof window !== "undefined") {
   const bump = () => tryHandoffHtmlLcpShell();
-  if (document.readyState === "interactive" || document.readyState === "complete") {
-    bump();
-  } else {
-    document.addEventListener("DOMContentLoaded", bump, { once: true });
-  }
-  window.addEventListener("load", bump, { once: true });
+  window.addEventListener(
+    "load",
+    () => {
+      documentLoadComplete = true;
+      bump();
+    },
+    { once: true },
+  );
   window.addEventListener("trevyk-static-hero-ready", bump);
+  if (import.meta.env.DEV || isRepeatHomeVisit()) {
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+      bump();
+    } else {
+      document.addEventListener("DOMContentLoaded", bump, { once: true });
+    }
+  }
 }
 
 /** Call when the in-app hero poster `img` has loaded (home LCP handoff). */
