@@ -12,12 +12,20 @@ import { markReactHeroPosterReady } from "../../../utils/heroVideoPreload";
 export function HeroScroll() {
   const scrollHintRef = useRef<HTMLDivElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [heroPosterReady, setHeroPosterReady] = useState(false);
+  const [heroCopyVisible, setHeroCopyVisible] = useState(false);
 
   const onHeroPosterReady = () => {
-    setHeroPosterReady(true);
     markReactHeroPosterReady();
   };
+
+  useEffect(() => {
+    const show = () => setHeroCopyVisible(true);
+    window.addEventListener("trevyk-lcp-handoff", show);
+    if (!document.getElementById("trevyk-lcp-shell")) {
+      show();
+    }
+    return () => window.removeEventListener("trevyk-lcp-handoff", show);
+  }, []);
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -81,11 +89,11 @@ export function HeroScroll() {
 
         <div
           className={`pointer-events-none absolute inset-0 z-20 flex items-center pt-[4.5rem] pb-14 transition-opacity duration-300 md:pt-24 md:pb-16 ${
-            heroPosterReady ? "opacity-100" : "opacity-0"
+            heroCopyVisible ? "visible opacity-100" : "invisible opacity-0"
           }`}
-          aria-hidden={!heroPosterReady}
+          aria-hidden={!heroCopyVisible}
         >
-          <PageContainer className={`w-full ${heroPosterReady ? "pointer-events-auto" : "pointer-events-none"}`}>
+          <PageContainer className={`w-full ${heroCopyVisible ? "pointer-events-auto" : "pointer-events-none"}`}>
             <div className="max-w-xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-plum-lavender md:text-[11px]">
                 {hero.eyebrow}

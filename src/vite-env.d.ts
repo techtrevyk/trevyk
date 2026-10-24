@@ -10,4 +10,5 @@ interface ImportMeta {
 
 interface Window {
   __trevykRemoveLcpShell?: () => void;
+  __trevykGaLoaded?: boolean;
 }

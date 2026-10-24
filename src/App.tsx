@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, Suspense, lazy } from 'react';
 import { BrowserRouter, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
 import type Lenis from 'lenis';
 
 import { SiteSettings } from './types';
+import { LazyAnimatePresence } from './components/LazyAnimatePresence';
 import { Cursor } from './components/Cursor';
 import { Navbar } from './components/Navbar';
 import { SiteFooter } from './components/plum/layout/SiteFooter';
@@ -85,6 +85,7 @@ function MainAppContent() {
   const [chatInitialPrompt, setChatInitialPrompt] = useState<string | undefined>(undefined);
   const [chatWidgetReady, setChatWidgetReady] = useState(false);
   const [homeSolarStageReady, setHomeSolarStageReady] = useState(false);
+  const [homeChromeReady, setHomeChromeReady] = useState(false);
   const [selectedCubeIndex, setSelectedCubeIndex] = useState<number | null>(null);
   const [hoveredCube, setHoveredCube] = useState<number | null>(null);
 
@@ -93,12 +94,22 @@ function MainAppContent() {
   useEffect(() => {
     if (pathname !== "/") {
       setHomeSolarStageReady(false);
+      setHomeChromeReady(true);
       return;
     }
-    return scheduleDeferredMediaLoad(() => setHomeSolarStageReady(true), {
+    setHomeChromeReady(false);
+    const cancelChrome = scheduleDeferredMediaLoad(() => setHomeChromeReady(true), {
+      scrollMinY: 64,
+      idleTimeoutMs: 5000,
+    });
+    const cancelSolar = scheduleDeferredMediaLoad(() => setHomeSolarStageReady(true), {
       scrollMinY: 480,
       idleTimeoutMs: 14000,
     });
+    return () => {
+      cancelChrome();
+      cancelSolar();
+    };
   }, [pathname]);
 
   const openChatWithPrompt = (prompt?: string) => {
@@ -213,11 +224,13 @@ function MainAppContent() {
       <SEOManager />
       <Analytics />
 
-      {!overlayVisible && (
+      {!overlayVisible && (pathname !== "/" || homeChromeReady) && (
         <BrandGradientBar height={5} pinnedTop={true} shimmer={true} />
       )}
 
-      {!overlayVisible && <Cursor reducedMotion={settings.reducedMotion} />}
+      {!overlayVisible && (pathname !== "/" || homeChromeReady) && (
+        <Cursor reducedMotion={settings.reducedMotion} />
+      )}
 
       {overlayVisible ? (
         <RouteLoader visible reducedMotion={settings.reducedMotion} />
@@ -234,12 +247,8 @@ function MainAppContent() {
         className={`relative z-10 min-h-screen${overlayVisible ? " pointer-events-none" : ""}`}
         aria-busy={overlayVisible}
       >
-        <AnimatePresence mode="sync">
-          <PageTransition
-            key={pathname}
-            pathname={pathname}
-            reducedMotion={settings.reducedMotion}
-          >
+        {pathname === "/" ? (
+          <PageTransition pathname={pathname} reducedMotion={settings.reducedMotion}>
             <Suspense fallback={null}>
               <AppRoutes
                 location={location}
@@ -250,7 +259,25 @@ function MainAppContent() {
               />
             </Suspense>
           </PageTransition>
-        </AnimatePresence>
+        ) : (
+          <LazyAnimatePresence>
+            <PageTransition
+              key={pathname}
+              pathname={pathname}
+              reducedMotion={settings.reducedMotion}
+            >
+              <Suspense fallback={null}>
+                <AppRoutes
+                  location={location}
+                  settings={settings}
+                  onOpenArchitectureModal={handleOpenArchitectureModal}
+                  hoveredCube={hoveredCube}
+                  onCubeHover={setHoveredCube}
+                />
+              </Suspense>
+            </PageTransition>
+          </LazyAnimatePresence>
+        )}
       </main>
 
       {/* 7. Plum footer — “Next project” band hidden on contact & who-we-are */}
@@ -288,7 +315,7 @@ function MainAppContent() {
         </Suspense>
       ) : null}
 
-      <WhatsAppFloatingButton />
+      {(pathname !== "/" || homeChromeReady) && <WhatsAppFloatingButton />}
 
       {chatWidgetReady ? (
         <Suspense fallback={null}>

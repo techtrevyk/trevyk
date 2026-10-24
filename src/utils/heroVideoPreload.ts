@@ -85,8 +85,15 @@ function tryHandoffHtmlLcpShell(): void {
   if (!reactHeroPosterReady || !documentLoadComplete || handoffScheduled) return;
   handoffScheduled = true;
   window.setTimeout(() => {
-    requestAnimationFrame(() => removeLcpShellNodes());
-  }, 300);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        removeLcpShellNodes();
+        if (typeof window !== "undefined") {
+          window.dispatchEvent(new Event("trevyk-lcp-handoff"));
+        }
+      });
+    });
+  }, 900);
 }
 
 if (typeof window !== "undefined") {
