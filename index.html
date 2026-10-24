@@ -56,6 +56,15 @@
       window.gtag = window.gtag || gtag;
     </script>
 
+    <!-- Display fonts early on home — prevents hero title line-break flicker (FOUT). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      id="trevyk-fonts"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+
     <!-- LCP: hero still only (navbar logo must not compete for bandwidth or LCP). -->
     <link
       rel="preload"
@@ -129,80 +138,95 @@
           );
         pointer-events: none;
       }
-      .trevyk-static-home__bar {
+      /* Match HeroScroll + PageContainer (max-w-7xl, px-5/md:px-8, centered). */
+      .trevyk-static-home__stage {
         position: relative;
         z-index: 2;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
-        height: 4rem;
-        padding: 0 1rem;
+        min-height: 100svh;
+        min-height: 100dvh;
+        padding: 4.5rem 0 3.5rem;
+        pointer-events: none;
       }
-      .trevyk-static-home__logo img {
-        height: 36px;
-        width: auto;
-        max-width: 128px;
+      @media (min-width: 768px) {
+        .trevyk-static-home__stage {
+          padding: 6rem 0 4rem;
+        }
+      }
+      .trevyk-static-home__container {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+      @media (min-width: 768px) {
+        .trevyk-static-home__container {
+          padding: 0 2rem;
+        }
       }
       .trevyk-static-home__content {
-        position: relative;
-        z-index: 2;
         max-width: 36rem;
-        padding: 4.5rem 1.25rem 2rem;
+        pointer-events: none;
       }
-      .trevyk-static-home__eyebrow {
-        margin: 0;
-        font-size: 10px;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-        color: #b397ae;
+      @keyframes trevyk-skeleton-shimmer {
+        0% {
+          background-position: 100% 0;
+        }
+        100% {
+          background-position: -100% 0;
+        }
       }
-      .trevyk-static-home__title {
-        margin: 1.25rem 0 0;
-        font-size: clamp(2rem, 5.5vw, 3.75rem);
-        line-height: 1.08;
-        font-weight: 600;
-        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+      .trevyk-skeleton-bar {
+        border-radius: 0.5rem;
+        background: linear-gradient(
+          105deg,
+          rgba(107, 74, 135, 0.22) 0%,
+          rgba(185, 166, 209, 0.2) 45%,
+          rgba(107, 74, 135, 0.22) 90%
+        );
+        background-size: 220% 100%;
+        animation: trevyk-skeleton-shimmer 2.1s ease-in-out infinite;
       }
-      .trevyk-static-home__subtitle {
-        margin: 1rem 0 0;
-        font-size: 1.125rem;
-        font-weight: 500;
-        color: #e8a9c2;
+      .trevyk-skeleton-bar--pill {
+        border-radius: 9999px;
       }
-      .trevyk-static-home__lead {
-        margin: 1.5rem 0 0;
-        font-size: 0.875rem;
-        font-weight: 600;
-        line-height: 1.6;
+      .trevyk-skeleton-title {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
       }
-      .trevyk-static-home__actions {
+      .trevyk-skeleton-title .trevyk-skeleton-bar:nth-child(1) {
+        height: 2.25rem;
+        width: 92%;
+      }
+      .trevyk-skeleton-title .trevyk-skeleton-bar:nth-child(2) {
+        height: 2.25rem;
+        width: 72%;
+      }
+      .trevyk-skeleton-title .trevyk-skeleton-bar:nth-child(3) {
+        height: 2.25rem;
+        width: 38%;
+      }
+      @media (min-width: 768px) {
+        .trevyk-skeleton-title .trevyk-skeleton-bar {
+          height: 2.75rem;
+        }
+      }
+      .trevyk-skeleton-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+        margin-top: 1.5rem;
+      }
+      .trevyk-skeleton-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
-        align-items: center;
         margin-top: 2rem;
-      }
-      .trevyk-static-home__btn {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.625rem 1.25rem;
-        border-radius: 9999px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-      }
-      .trevyk-static-home__btn--primary {
-        background: #e8a9c2;
-        color: #1e1024;
-      }
-      .trevyk-static-home__btn--secondary {
-        border: 1px solid rgba(248, 246, 251, 0.4);
-        color: #f8f6fb;
-      }
-      .trevyk-static-home__link {
-        font-size: 0.875rem;
-        color: #b397ae;
-        text-decoration: underline;
-        text-underline-offset: 3px;
       }
       #root {
         opacity: 0;
@@ -278,29 +302,47 @@
           />
         </picture>
       </div>
+      <script>
+        (function () {
+          function mark() {
+            window.__trevykStaticHeroReady = true;
+            window.dispatchEvent(new Event("trevyk-static-hero-ready"));
+          }
+          var img = document.getElementById("trevyk-lcp-hero");
+          if (!img) return;
+          if (img.complete && img.naturalWidth > 0) mark();
+          else {
+            img.addEventListener("load", mark, { once: true });
+            img.addEventListener("error", mark, { once: true });
+          }
+        })();
+      </script>
       <div class="trevyk-static-home__gradient" aria-hidden="true"></div>
-      <header class="trevyk-static-home__bar">
-        <a href="/" class="trevyk-static-home__logo">
-          <img
-            src="/trevyk-logo-on-dark.png"
-            alt="Trevyk Technologies"
-            width="128"
-            height="36"
-            decoding="async"
-            loading="eager"
-            fetchpriority="low"
-          />
-        </a>
-      </header>
-      <div class="trevyk-static-home__content">
-        <p class="trevyk-static-home__eyebrow">Turning vision into progress</p>
-        <h1 class="trevyk-static-home__title">Custom websites, software, and growth</h1>
-        <p class="trevyk-static-home__subtitle">Trevyk Technologies, Noida</p>
-        <p class="trevyk-static-home__lead">Product, websites, and growth systems for businesses that want to be found and then keep the software.</p>
-        <div class="trevyk-static-home__actions">
-          <a class="trevyk-static-home__btn trevyk-static-home__btn--primary" href="/contact">Get a starter plan</a>
-          <a class="trevyk-static-home__btn trevyk-static-home__btn--secondary" href="/our-products">Explore Kiduart</a>
-          <a class="trevyk-static-home__link" href="/what-we-do">View capabilities</a>
+      <div class="trevyk-static-home__stage">
+        <div class="trevyk-static-home__container">
+          <div class="trevyk-static-home__content" aria-busy="true" aria-label="Loading hero content">
+            <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 0.75rem; width: 11rem"></div>
+            <div class="trevyk-skeleton-title" aria-hidden="true">
+              <div class="trevyk-skeleton-bar"></div>
+              <div class="trevyk-skeleton-bar"></div>
+              <div class="trevyk-skeleton-bar"></div>
+            </div>
+            <div class="trevyk-skeleton-bar" style="height: 1.25rem; width: 13rem; margin-top: 1rem"></div>
+            <div class="trevyk-skeleton-stack" aria-hidden="true">
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 88%"></div>
+            </div>
+            <div class="trevyk-skeleton-stack" aria-hidden="true">
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 94%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 76%"></div>
+            </div>
+            <div class="trevyk-skeleton-actions" aria-hidden="true">
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 9rem"></div>
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 8rem"></div>
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 7rem"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

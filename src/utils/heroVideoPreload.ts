@@ -62,8 +62,42 @@ export function ensureHeroVideoPreload(src: string): void {
 }
 
 let reactHeroPosterReady = false;
-let documentLoadComplete =
-  typeof document !== "undefined" && document.readyState === "complete";
+let handoffScheduled = false;
+
+const HANDOFF_SESSION_KEY = "trevyk-home-handoff-v2";
+
+function handoffDelayMs(): number {
+  if (import.meta.env.DEV) return 0;
+  try {
+    if (sessionStorage.getItem(HANDOFF_SESSION_KEY) === "1") return 48;
+  } catch {
+    /* private mode */
+  }
+  return 320;
+}
+
+function markHandoffSession(): void {
+  try {
+    sessionStorage.setItem(HANDOFF_SESSION_KEY, "1");
+  } catch {
+    /* ignore */
+  }
+}
+
+function staticHeroPosterReady(): boolean {
+  if (typeof window !== "undefined" && window.__trevykStaticHeroReady) return true;
+  const img = document.getElementById("trevyk-lcp-hero") as HTMLImageElement | null;
+  return Boolean(img?.complete && img.naturalWidth > 0);
+}
+
+function posterReadyForHandoff(): boolean {
+  return reactHeroPosterReady || staticHeroPosterReady();
+}
+
+function documentReadyForHandoff(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.readyState === "interactive" || document.readyState === "complete";
+}
 
 function removeLcpShellNodes(): void {
   document.getElementById("trevyk-boot")?.remove();
@@ -79,33 +113,32 @@ function removeLcpShellNodes(): void {
   }
 }
 
-let handoffScheduled = false;
-
-/** Keep the HTML hero through `window.load` + one frame so LCP locks on the still, not late React copy. */
+/** Hand off static LCP shell → React hero (minimal delay; static poster counts). */
 function tryHandoffHtmlLcpShell(): void {
-  if (!reactHeroPosterReady || !documentLoadComplete || handoffScheduled) return;
+  if (!posterReadyForHandoff() || !documentReadyForHandoff() || handoffScheduled) return;
   handoffScheduled = true;
+
+  const delay = handoffDelayMs();
   window.setTimeout(() => {
     requestAnimationFrame(() => {
+      window.dispatchEvent(new Event("trevyk-lcp-handoff"));
+      markHandoffSession();
       requestAnimationFrame(() => {
         removeLcpShellNodes();
-        if (typeof window !== "undefined") {
-          window.dispatchEvent(new Event("trevyk-lcp-handoff"));
-        }
       });
     });
-  }, 1200);
+  }, delay);
 }
 
 if (typeof window !== "undefined") {
-  window.addEventListener(
-    "load",
-    () => {
-      documentLoadComplete = true;
-      tryHandoffHtmlLcpShell();
-    },
-    { once: true },
-  );
+  const bump = () => tryHandoffHtmlLcpShell();
+  if (document.readyState === "interactive" || document.readyState === "complete") {
+    bump();
+  } else {
+    document.addEventListener("DOMContentLoaded", bump, { once: true });
+  }
+  window.addEventListener("load", bump, { once: true });
+  window.addEventListener("trevyk-static-hero-ready", bump);
 }
 
 /** Call when the in-app hero poster `img` has loaded (home LCP handoff). */

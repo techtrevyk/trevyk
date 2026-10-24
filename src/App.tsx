@@ -12,6 +12,7 @@ import { SEOManager } from './components/SEOManager';
 import { Analytics } from './components/Analytics';
 import { AppRoutes } from './components/AppRoutes';
 import { RouteLoader } from './components/RouteLoader';
+import { PageSectionSkeleton } from './components/ui/PageSectionSkeleton';
 import { useRouteTransitionOverlay } from './hooks/useRouteTransitionOverlay';
 import { trackChatOpen } from './utils/analytics';
 import { setRouteOverlayPathname } from './utils/routeTransitionOverlay';
@@ -252,7 +253,7 @@ function MainAppContent() {
       >
         {pathname === "/" ? (
           <div className="relative">
-            <Suspense fallback={null}>
+            <Suspense fallback={<PageSectionSkeleton />}>
               <AppRoutes
                 location={location}
                 settings={settings}
@@ -263,7 +264,7 @@ function MainAppContent() {
             </Suspense>
           </div>
         ) : (
-          <Suspense fallback={null}>
+          <Suspense fallback={<PageSectionSkeleton />}>
             <NonHomeRouteShell
               pathname={pathname}
               reducedMotion={settings.reducedMotion}

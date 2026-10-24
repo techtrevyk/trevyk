@@ -52,28 +52,31 @@ const block = `<!-- trevyk-static-home-start -->
         </picture>
       </div>
       <div class="trevyk-static-home__gradient" aria-hidden="true"></div>
-      <header class="trevyk-static-home__bar">
-        <a href="/" class="trevyk-static-home__logo">
-          <img
-            src="/trevyk-logo-on-dark.png"
-            alt="Trevyk Technologies"
-            width="128"
-            height="36"
-            decoding="async"
-            loading="eager"
-            fetchpriority="low"
-          />
-        </a>
-      </header>
-      <div class="trevyk-static-home__content">
-        <p class="trevyk-static-home__eyebrow">${esc(data.eyebrow)}</p>
-        <h1 class="trevyk-static-home__title">${esc(data.title)}</h1>
-        <p class="trevyk-static-home__subtitle">${esc(data.subtitle)}</p>
-        <p class="trevyk-static-home__lead">${esc(data.lead)}</p>
-        <div class="trevyk-static-home__actions">
-          <a class="trevyk-static-home__btn trevyk-static-home__btn--primary" href="${esc(data.primaryCta.href)}">${esc(data.primaryCta.label)}</a>
-          <a class="trevyk-static-home__btn trevyk-static-home__btn--secondary" href="${esc(data.secondaryCta.href)}">${esc(data.secondaryCta.label)}</a>
-          <a class="trevyk-static-home__link" href="${esc(data.tertiaryCta.href)}">${esc(data.tertiaryCta.label)}</a>
+      <div class="trevyk-static-home__stage">
+        <div class="trevyk-static-home__container">
+          <div class="trevyk-static-home__content" aria-busy="true" aria-label="Loading hero content">
+            <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 0.75rem; width: 11rem"></div>
+            <div class="trevyk-skeleton-title" aria-hidden="true">
+              <div class="trevyk-skeleton-bar"></div>
+              <div class="trevyk-skeleton-bar"></div>
+              <div class="trevyk-skeleton-bar"></div>
+            </div>
+            <div class="trevyk-skeleton-bar" style="height: 1.25rem; width: 13rem; margin-top: 1rem"></div>
+            <div class="trevyk-skeleton-stack" aria-hidden="true">
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 88%"></div>
+            </div>
+            <div class="trevyk-skeleton-stack" aria-hidden="true">
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 94%"></div>
+              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 76%"></div>
+            </div>
+            <div class="trevyk-skeleton-actions" aria-hidden="true">
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 9rem"></div>
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 8rem"></div>
+              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 7rem"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
