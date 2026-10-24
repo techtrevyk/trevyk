@@ -6,10 +6,17 @@ import { ScrollScrubVideo } from "../media/ScrollScrubVideo";
 import { HeroTitleRoll } from "./HeroTitleRoll";
 import { PageContainer } from "../ui/PageContainer";
 import { PlumLink } from "../ui/PlumLink";
+import { markReactHeroPosterReady } from "../../../utils/heroVideoPreload";
 
 export function HeroScroll() {
   const scrollHintRef = useRef<HTMLDivElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [heroPosterReady, setHeroPosterReady] = useState(false);
+
+  const onHeroPosterReady = () => {
+    setHeroPosterReady(true);
+    markReactHeroPosterReady();
+  };
 
   useEffect(() => {
     setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -43,6 +50,7 @@ export function HeroScroll() {
             loading="eager"
             className="absolute inset-0 z-0 size-full object-cover"
             style={{ objectPosition: z.objectPosition }}
+            onLoad={onHeroPosterReady}
           />
         ) : (
           <ScrollScrubVideo
@@ -58,6 +66,7 @@ export function HeroScroll() {
             staticLcpSizes="100vw"
             className="absolute inset-0 z-0 size-full"
             label="Hero office background"
+            onPosterReady={onHeroPosterReady}
           />
         )}
 
@@ -72,8 +81,13 @@ export function HeroScroll() {
           aria-hidden
         />
 
-        <div className="pointer-events-none absolute inset-0 z-20 flex items-center pt-[4.5rem] pb-14 md:pt-24 md:pb-16">
-          <PageContainer className="pointer-events-auto w-full">
+        <div
+          className={`pointer-events-none absolute inset-0 z-20 flex items-center pt-[4.5rem] pb-14 transition-opacity duration-300 md:pt-24 md:pb-16 ${
+            heroPosterReady ? "opacity-100" : "opacity-0"
+          }`}
+          aria-hidden={!heroPosterReady}
+        >
+          <PageContainer className={`w-full ${heroPosterReady ? "pointer-events-auto" : "pointer-events-none"}`}>
             <div className="max-w-xl">
               <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-plum-lavender md:text-[11px]">
                 {hero.eyebrow}

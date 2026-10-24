@@ -15,6 +15,8 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
   reducedMotion = false,
   children,
 }) => {
+  const isHome = pathname === "/" || pathname === "";
+
   if (reducedMotion) {
     return (
       <motion.div
@@ -33,7 +35,7 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
     <motion.div
       key={pathname}
       className="relative"
-      initial={{ opacity: 0, y: 12 }}
+      initial={isHome ? false : { opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{

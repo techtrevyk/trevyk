@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { lerp } from "../../../lib/motion";
+import { markReactHeroPosterReady } from "../../../utils/heroVideoPreload";
 
 type ScrollScrubVideoProps = {
   src: string;
@@ -19,6 +20,7 @@ type ScrollScrubVideoProps = {
   staticLcpSrcSet?: string;
   staticLcpSizes?: string;
   label?: string;
+  onPosterReady?: () => void;
 };
 
 export function ScrollScrubVideo({
@@ -37,6 +39,7 @@ export function ScrollScrubVideo({
   staticLcpSrcSet,
   staticLcpSizes = "100vw",
   label = "Section animation",
+  onPosterReady,
 }: ScrollScrubVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
@@ -94,12 +97,16 @@ export function ScrollScrubVideo({
               srcSet={staticLcpSrcSet}
               sizes={staticLcpSizes}
               alt=""
-              decoding="async"
+              decoding="sync"
               loading="eager"
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
                 videoVisible ? "opacity-0" : "opacity-100"
               }`}
               style={{ objectPosition }}
+              onLoad={() => {
+                markReactHeroPosterReady();
+                onPosterReady?.();
+              }}
               // @ts-expect-error fetchPriority on img
               fetchPriority="high"
             />

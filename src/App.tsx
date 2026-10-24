@@ -17,7 +17,6 @@ import { RouteLoader } from './components/RouteLoader';
 import { useRouteTransitionOverlay } from './hooks/useRouteTransitionOverlay';
 import { trackChatOpen } from './utils/analytics';
 import { setRouteOverlayPathname } from './utils/routeTransitionOverlay';
-import { dismissTrevykBoot } from './utils/heroVideoPreload';
 import { soundEngine } from './utils/audioEngine';
 import { isOurProductsPath, isWhoWeArePath } from './config/site';
 import { initSmoothScroll } from './utils/initSmoothScroll';
@@ -73,10 +72,6 @@ function MainAppContent() {
   useLayoutEffect(() => {
     setRouteOverlayPathname(pathname);
   }, [pathname]);
-
-  useLayoutEffect(() => {
-    if (!overlayVisible) dismissTrevykBoot();
-  }, [overlayVisible]);
 
   const [settings, setSettings] = useState<SiteSettings>({
     reducedMotion: false,
@@ -211,7 +206,9 @@ function MainAppContent() {
 
       {!overlayVisible && <Cursor reducedMotion={settings.reducedMotion} />}
 
-      <RouteLoader visible={overlayVisible} reducedMotion={settings.reducedMotion} />
+      {overlayVisible ? (
+        <RouteLoader visible reducedMotion={settings.reducedMotion} />
+      ) : null}
 
       <Navbar
         settings={settings}

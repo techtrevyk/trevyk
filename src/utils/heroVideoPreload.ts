@@ -31,7 +31,7 @@ export function ensureHeroVideoPreload(src: string): void {
 
   // Warm HTTP cache (Range-friendly on most CDNs).
   try {
-    fetch(src, { priority: "high" } as RequestInit).catch(() => {});
+    fetch(src, { priority: "low" } as RequestInit).catch(() => {});
   } catch {
     /* ignore */
   }
@@ -39,8 +39,7 @@ export function ensureHeroVideoPreload(src: string): void {
   const video = document.createElement("video");
   video.muted = true;
   video.playsInline = true;
-  video.preload = "auto";
-  video.setAttribute("fetchpriority", "high");
+  video.preload = "metadata";
   video.src = src;
 
   const onBuffer = () => {
@@ -62,8 +61,54 @@ export function ensureHeroVideoPreload(src: string): void {
   video.load();
 }
 
-export function dismissTrevykBoot(): void {
+let reactHeroPosterReady = false;
+let documentLoadComplete =
+  typeof document !== "undefined" && document.readyState === "complete";
+
+function removeLcpShellNodes(): void {
   document.getElementById("trevyk-boot")?.remove();
+  if (typeof window !== "undefined" && typeof window.__trevykRemoveLcpShell === "function") {
+    window.__trevykRemoveLcpShell();
+    return;
+  }
+  document.getElementById("trevyk-lcp-shell")?.remove();
+  if (typeof document !== "undefined") {
+    document.body.style.backgroundImage = "";
+    document.body.style.backgroundColor = "";
+  }
+}
+
+let handoffScheduled = false;
+
+/** Keep the HTML hero through `window.load` + one frame so LCP locks on the still, not late React copy. */
+function tryHandoffHtmlLcpShell(): void {
+  if (!reactHeroPosterReady || !documentLoadComplete || handoffScheduled) return;
+  handoffScheduled = true;
+  window.setTimeout(() => {
+    requestAnimationFrame(() => removeLcpShellNodes());
+  }, 300);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener(
+    "load",
+    () => {
+      documentLoadComplete = true;
+      tryHandoffHtmlLcpShell();
+    },
+    { once: true },
+  );
+}
+
+/** Call when the in-app hero poster `img` has loaded (home LCP handoff). */
+export function markReactHeroPosterReady(): void {
+  reactHeroPosterReady = true;
+  tryHandoffHtmlLcpShell();
+}
+
+/** Immediate teardown (route changes, non-home, legacy boot). */
+export function dismissTrevykBoot(): void {
+  removeLcpShellNodes();
 }
 
 const HOME_VIDEO_WARM_KEY = "trevyk-home-video-warm-v2";
