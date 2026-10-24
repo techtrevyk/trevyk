@@ -346,6 +346,39 @@
   justify-content: center;
 }
 
+/* Home scroll bands: center block in the viewport (content shorter than one screen). */
+.home-mid-atmosphere .trevyk-viewport-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes entry-loader-video-zoom {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  72% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.14);
+  }
+}
+
+.entry-loader-video {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.entry-loader-video--active {
+  animation-name: entry-loader-video-zoom;
+  animation-timing-function: cubic-bezier(0.28, 0.85, 0.35, 1);
+  animation-fill-mode: forwards;
+}
+
 .skeleton-shimmer {
   background: linear-gradient(
     105deg,

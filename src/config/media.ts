@@ -3,15 +3,26 @@ export const media = {
   /** Hero — office background (home) */
   heroOffice: "/videos/hero-office-loop.mp4",
   heroOfficeReverse: "/videos/hero-office-reverse.mp4",
+  /** LCP still — extracted from hero video; video loads after first paint. */
+  heroOfficePoster: "/images/hero-office-poster.jpg",
+  heroOfficePoster640: "/images/hero-office-poster-640.jpg",
   /** How we work — full-section rotating earth background */
   processGlobe: "/videos/process-globe-bg.mp4",
   footerSolar: "/videos/solar.mp4",
+  /** Route-change loader (short logo loop). */
+  entryLogoAnimation:
+    "/images/kiduart/Trevyk_Technologies_logo_animation_1080p_20261020233711.mp4",
 } as const;
 
-/** Route-change overlay — flat dark plum (no logo video). */
+/** Route-change logo loader — fast playback, short minimum visible time. */
 export const entryLoader = {
-  background: "#1a0f18",
+  background: "#2A1830",
+  playbackRate: 8,
   minVisibleMs: 280,
+  videoViewportRatio: 2 / 3,
+  zoomScaleStart: 1,
+  zoomScaleEnd: 1.14,
+  zoomDurationMs: 420,
 } as const;
 
 /**

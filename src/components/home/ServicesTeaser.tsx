@@ -55,7 +55,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
       className="trevyk-viewport-section relative overflow-hidden px-4 py-14 sm:px-6 sm:py-20 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:items-center">
           <ScrollReveal
             className="lg:col-span-5 flex flex-col items-start"
             reducedMotion={settings.reducedMotion}

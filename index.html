@@ -56,7 +56,7 @@
       function gtag(){dataLayer.push(arguments);}
       window.gtag = window.gtag || gtag;
       gtag('js', new Date());
-      gtag('config', 'G-CH828R29RV', { anonymize_ip: true });
+      gtag('config', 'G-CH828R29RV', { anonymize_ip: true, send_page_view: false });
     </script>
 
     <!-- LCP: discover logo from the document ASAP -->
@@ -68,18 +68,20 @@
     />
     <link
       rel="preload"
-      href="/videos/hero-office-loop.mp4"
-      as="fetch"
-      type="video/mp4"
+      as="image"
+      href="/images/hero-office-poster-640.jpg"
+      imagesrcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
+      imagesizes="100vw"
+      media="(max-width: 768px)"
+      fetchpriority="high"
     />
-    <script>
-      (function () {
-        var src = "/videos/hero-office-loop.mp4";
-        try {
-          fetch(src, { priority: "high" });
-        } catch (e) {}
-      })();
-    </script>
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-office-poster.jpg"
+      media="(min-width: 769px)"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Non-blocking Google Fonts (swap after load) -->
@@ -110,7 +112,7 @@
       #trevyk-boot {
         position: fixed;
         inset: 0;
-        z-index: 2147483646;
+        z-index: 40;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -157,7 +159,9 @@
   <body
     class="bg-[#2A1830] text-[#F8F6FB] antialiased selection:bg-[#E8A9C2] selection:text-[#241428] overflow-x-hidden"
   >
-    <div id="trevyk-boot" aria-busy="true" aria-live="polite" aria-label="Loading Trevyk Technologies"></div>
+    <div id="trevyk-boot" aria-busy="true" aria-live="polite" aria-label="Loading Trevyk Technologies">
+      <img src="/trevyk-logo-on-dark.png" width="200" height="200" alt="" decoding="async" />
+    </div>
     <div id="root">
       <!-- trevyk-static-start -->
       <article class="trevyk-seo-shell">
