@@ -9,6 +9,8 @@ import {
   Megaphone,
   Share2,
   Clapperboard,
+  Bot,
+  BookOpen,
   type LucideIcon,
 } from "lucide-react";
 type GrowthCard = {
@@ -83,6 +85,28 @@ const CARDS: GrowthCard[] = [
     href: "/work/video-scripts",
     icon: Clapperboard,
   },
+  {
+    imageSlug: "ai-agents",
+    imageLabel: "AI agent workflow with tools and human review checkpoints",
+    kicker: "AI agents",
+    title: "One workflow, not a chat toy",
+    caption:
+      "Scoped agents with approved tools, human gates, and audit logs for real ops work.",
+    bullets: ["Single workflow in v1", "Human checkpoints on risk"],
+    href: "/work/ai-agents",
+    icon: Bot,
+  },
+  {
+    imageSlug: "rag-knowledge",
+    imageLabel: "Knowledge assistant citing internal documents and sources",
+    kicker: "Knowledge",
+    title: "Answers that cite your docs",
+    caption:
+      "RAG over your corpus with permissions, citations, and refusals when context is thin.",
+    bullets: ["Source-linked replies", "Refresh when docs change"],
+    href: "/work/rag-knowledge-assistants",
+    icon: BookOpen,
+  },
 ];
 
 export const GrowthOffer: React.FC = () => {
@@ -101,8 +125,9 @@ export const GrowthOffer: React.FC = () => {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-lg">
             Trevyk builds custom websites, web applications, and custom software,
-            then the growth work around them: SEO, campaigns, social media,
-            video, and scripts. Starter plans are scoped for early budgets.
+            then the growth work around them: SEO, campaigns, social, video,
+            scripts, and AI—agents and knowledge assistants when you are ready.
+            Starter plans are scoped for early budgets.
           </p>
         </div>
 
