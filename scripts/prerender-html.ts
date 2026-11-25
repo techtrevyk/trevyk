@@ -46,6 +46,9 @@ const NAV: { href: string; label: string }[] = [
   { href: "/work/rag-knowledge-assistants", label: "RAG assistants" },
   { href: "/work/generative-ai-llm-apps", label: "Generative AI & LLMs" },
   { href: "/work/ml-data-systems", label: "ML & data systems" },
+  { href: "/work/website-development-noida", label: "Website development Noida" },
+  { href: "/work/ai-agent-vs-chatbot", label: "AI agent vs chatbot" },
+  { href: "/work/rag-vs-fine-tuning", label: "RAG vs fine-tuning" },
   { href: "/work/ai-for-schools", label: "AI for schools" },
   { href: "/technology", label: "Technology" },
   { href: "/process", label: "Process" },
@@ -81,7 +84,7 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
       "Discovery to deployment: Discover the workflow and roles; Prototype a narrow path with an eval set; Harden permissions, logging, and production credentials; Operate with monitoring, cost alerts, and controlled prompt changes.",
       "Security, evaluation, and monitoring: least-privilege tool access, audit logs, human approval on irreversible actions, evaluation sets for grounding and safe refusals, and monitoring for latency, token spend, and retrieval misses.",
       "Questions buyers ask: What AI services does Trevyk offer? Custom agents, RAG, GenAI/LLM apps, ML systems, and workflow automation—school ERP product needs belong primarily on kiduart.com. Do you sell separate AEO or GEO packages? No—we improve crawlable structure and clear answers as part of honest SEO. How is cost determined? Integrations, corpus size, languages, traffic, evaluation depth, and write-action risk; we quote from scope.",
-      "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
+      "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, comparison pages /work/ai-agent-vs-chatbot and /work/rag-vs-fine-tuning, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
     ],
   },
   "/technology": {
@@ -104,8 +107,8 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "Who we are — Turning Vision Into Progress",
     paragraphs: [
       "Trevyk Technologies is a Noida practice for Kiduart, custom websites, web applications, software, AI systems (agents, RAG, GenAI, ML), SEO, campaigns, social pages, and video.",
-      "Our purpose, how we think and work, what defines us, and the commitments we publish — honest claims, no invented client counts or borrowed geography. Client stories appear only with written consent.",
-      "Turning Vision Into Progress is the standard we use on every engagement: clear problem, measurable delivery, systems that fit real workflows. Contact: contact@trevyk.com · Noida, India.",
+      "Our purpose, how we think and work, what defines us, practice facts you can verify (Noida base, Kiduart product, contact path), and the commitments we publish — honest claims, no invented client counts or borrowed geography. Client stories appear only with written consent.",
+      "Turning Vision Into Progress is the standard we use on every engagement: clear problem, measurable delivery, systems that fit real workflows. Contact: contact@trevyk.com · WhatsApp +91 88106 64797 · Noida, India.",
     ],
   },
   "/our-products": {

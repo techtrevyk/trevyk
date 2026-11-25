@@ -578,6 +578,105 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
   },
+  "website-development-noida": {
+    slug: "website-development-noida",
+    hero: {
+      badge: "Noida & NCR",
+      titleBefore: "Websites built in ",
+      titleHighlight: "Noida",
+      titleAfter: " for local search.",
+      description:
+        "Custom website development for Noida and Delhi NCR businesses—SEO-ready pages, starter plans, and a clear path to enquire.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "All website work", href: "/work/custom-websites" },
+      backdropImage: "/images/work/website-development-noida-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "Local search needs a ",
+      headingHighlight: "local page.",
+      headingAfter: "",
+      body: "City + service queries fail when the site never names Noida or the offer. We write for the search, ship a mobile-readable starter, and connect SEO or AI work when you outgrow a brochure.",
+      approach: APPROACH_DEFAULT,
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "Local intent pages", description: "Headings that match Noida / NCR searches.", icon: "search" },
+        { title: "Starter scope", description: "Milestones before the first screen.", icon: "list" },
+        { title: "Enquiry path", description: "Form + WhatsApp without five competing CTAs.", icon: "monitor" },
+        { title: "SEO foundations", description: "Titles, internal links, crawlable HTML.", icon: "layers" },
+        { title: "Honest handoff", description: "You can edit without calling for every line.", icon: "fileText" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
+  "ai-agent-vs-chatbot": {
+    slug: "ai-agent-vs-chatbot",
+    hero: {
+      badge: "Compare",
+      titleBefore: "Agent or ",
+      titleHighlight: "chatbot?",
+      titleAfter: "",
+      description:
+        "Pick the pattern that matches the job: answers from docs, or workflows with tools and human gates.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "AI agents guide", href: "/work/ai-agents" },
+      backdropImage: "/images/work/ai-agent-vs-chatbot-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "Buzzwords hide ",
+      headingHighlight: "the workflow.",
+      headingAfter: "",
+      body: "We define chatbots as talk-and-retrieve, and agents as tool-calling systems with escalation. Then we scope the smaller honest v1.",
+      approach: APPROACH_DEFAULT,
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "Decision brief", description: "Which pattern fits your ops.", icon: "fileText" },
+        { title: "Risk notes", description: "What stays human-approved.", icon: "users" },
+        { title: "Build path", description: "Link to the right implementation guide.", icon: "layers" },
+        { title: "Eval mindset", description: "How we measure success later.", icon: "search" },
+        { title: "No vapour demos", description: "Integrations named before theatre.", icon: "circleCheck" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
+  "rag-vs-fine-tuning": {
+    slug: "rag-vs-fine-tuning",
+    hero: {
+      badge: "Compare",
+      titleBefore: "RAG or ",
+      titleHighlight: "fine-tune?",
+      titleAfter: "",
+      description:
+        "Most private knowledge problems need retrieval first. Fine-tuning is a later, explicit decision with evals.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "RAG guide", href: "/work/rag-knowledge-assistants" },
+      backdropImage: "/images/work/rag-vs-fine-tuning-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "Fresh documents beat ",
+      headingHighlight: "stale weights.",
+      headingAfter: "",
+      body: "We default to RAG for company knowledge, keep permissions with the corpus, and only discuss fine-tuning when metrics demand it.",
+      approach: APPROACH_DEFAULT,
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "Recommendation", description: "RAG-first or tune—with reasons.", icon: "fileText" },
+        { title: "Freshness plan", description: "How docs stay current.", icon: "database" },
+        { title: "Permission model", description: "Roles and corpus boundaries.", icon: "users" },
+        { title: "Eval checklist", description: "Citations and refusals.", icon: "list" },
+        { title: "Next guide", description: "Link into the build path.", icon: "layers" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
   "ai-for-schools": {
     slug: "ai-for-schools",
     hero: {

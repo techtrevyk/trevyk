@@ -57,7 +57,7 @@ export function LetsBuildTogetherSection() {
         <div className="lg:col-span-5 xl:col-span-5">
           <div className="inline-flex w-fit max-w-full self-start items-center gap-2 rounded-full border border-[#B9A6D1]/40 bg-[#1E1024]/90 px-4 py-1.5 font-mono-accent text-[11px] uppercase tracking-[0.2em] text-[#E8A9C2] sm:text-xs">
             <Target className="h-4 w-4" aria-hidden />
-            <span>06 / Let&apos;s build together</span>
+            <span>07 / Let&apos;s build together</span>
           </div>
 
           <p className="mt-5 font-mono-accent text-[11px] uppercase tracking-[0.22em] text-[#E8A9C2] sm:text-xs">

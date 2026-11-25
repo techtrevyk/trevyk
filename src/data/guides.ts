@@ -37,11 +37,11 @@ export const GUIDES: Guide[] = [
     image: "/images/growth-website.jpg",
     alt: "Painting of a founder reviewing a website on a laptop",
     caption: "The first page has to explain the offer before it tries to impress.",
-    related: ["web-applications", "seo"],
+    related: ["website-development-noida", "web-applications", "seo"],
     paragraphs: [
       "A startup website is not a brochure with a contact number at the bottom. It is the page a stranger lands on after searching for the service you sell. If that page talks about “solutions” and never names the work, the visit ends.",
       "Trevyk builds custom websites for shops, clinics, coaching centres, schools, and software startups. The structure is simple on purpose: what you do, who it is for, how a project starts, and a form that asks for the business type and budget. Starter plans exist so an early-stage company does not have to wait for a large retainer before it can be found.",
-      "We write the headings around real searches: custom website development, web design for small business, and local service queries in your city. The same words appear in the title, the first paragraph, and the internal links, so a crawler and a human read the same page.",
+      "We write the headings around real searches: custom website development, web design for small business, and local service queries in your city. The same words appear in the title, the first paragraph, and the internal links, so a crawler and a human read the same page. For Noida and Delhi NCR buyers, see the dedicated local guide.",
     ],
     points: [
       "Responsive pages that stay readable on a phone",
@@ -235,7 +235,12 @@ export const GUIDES: Guide[] = [
     image: "/images/ai-agents-workflow.jpg",
     alt: "Painterly diagram of an AI agent workflow with tool steps and an approval checkpoint",
     caption: "Intake → tools → human gate → action. Chat alone is not an agent.",
-    related: ["rag-knowledge-assistants", "web-applications", "seo"],
+    related: [
+      "ai-agent-vs-chatbot",
+      "rag-knowledge-assistants",
+      "web-applications",
+      "seo",
+    ],
     paragraphs: [
       "Businesses hire partners for AI agents when staff repeat the same lookups, ticket replies, booking steps, or document handoffs. The buyer is usually an operations lead, founder, or IT owner who wants hours back—not a research paper.",
       "Trevyk builds custom agents that combine a language model with approved tools (APIs, search, forms, messaging). We start with one workflow: intake, retrieval or classification, proposed action, human review where risk is high, then an audit log. Multi-agent orchestration comes only after the first path is stable.",
@@ -324,7 +329,7 @@ export const GUIDES: Guide[] = [
     image: "/images/ai-rag-knowledge.jpg",
     alt: "Painterly illustration of documents being retrieved into a grounded answer with citation marks",
     caption: "Retrieve first. Generate second. Cite the passage you used.",
-    related: ["ai-agents", "seo", "web-applications"],
+    related: ["rag-vs-fine-tuning", "ai-agents", "seo", "web-applications"],
     paragraphs: [
       "RAG is the pattern teams ask for when answers must come from their own PDFs, policies, product manuals, or ticket history—not from a model’s training memory alone.",
       "Trevyk designs ingestion, chunking, embeddings, retrieval filters, and answer prompts so the model must show which passage it used. Role-aware access matters: different roles should not see the same corpus.",
@@ -608,6 +613,220 @@ export const GUIDES: Guide[] = [
         question: "What do you need from us to start?",
         answer:
           "A decision to improve, historical examples with outcomes, and access to the systems that produce features—plus a person who owns the labels.",
+      },
+    ],
+  },
+  {
+    slug: "website-development-noida",
+    title: "Website development company in Noida — custom sites that get found",
+    description:
+      "Custom website development in Noida and Delhi NCR: SEO-ready pages, starter plans, and a clear enquiry path for local businesses and startups.",
+    keywords:
+      "website development company Noida, custom website development Noida, web design Noida, affordable website Delhi NCR, SEO website Noida",
+    kicker: "Noida",
+    image: "/images/growth-website.jpg",
+    alt: "Painting of a founder reviewing a website on a laptop",
+    caption: "Local search needs a local page—not a vague national slogan.",
+    related: ["custom-websites", "seo", "ai-agents", "web-applications"],
+    paragraphs: [
+      "If you searched “website development company Noida” or “custom website Delhi NCR,” you need a partner who will name the city, the offer, and the next step—not a template with a logo swap.",
+      "Trevyk Technologies is based in Noida. We build custom websites for shops, clinics, coaching centres, schools, and startups across Noida, Greater Noida, Ghaziabad, and the wider NCR. Starter plans are scoped so an early budget still gets crawlable pages, mobile layout, and one clear enquiry form.",
+      "The same practice builds web apps, SEO, campaigns, and AI systems (agents, RAG, GenAI) when a brochure site is not enough. This page is for local website intent; deeper service guides live under /work.",
+    ],
+    points: [
+      "Noida / NCR-focused copy and contact path",
+      "On-page SEO for local commercial queries",
+      "Starter plan option before a large retainer",
+      "Handover you can edit without calling for every sentence",
+    ],
+    sections: [
+      {
+        heading: "Who this Noida page is for",
+        paragraphs: [
+          "Local service businesses that need to appear for city + service searches and convert the visit into a call or form.",
+          "Startups that want a first credible site before a full product build.",
+          "Schools and institutions that need a public site beside Kiduart operations (product demos stay on kiduart.com).",
+        ],
+      },
+      {
+        heading: "What we ship on a starter website",
+        paragraphs: [
+          "A small set of pages with real headings: what you do, who it is for, proof or process, and contact. Keywords appear in the title, first paragraph, and internal links—the same story a crawler and a human read.",
+          "Mobile-readable layout, enquiry form, WhatsApp path, and basic analytics so you can see whether local searches become conversations.",
+          "We do not invent client counts or star ratings. If you need SEO depth after launch, the SEO guide explains the next pages to write.",
+        ],
+      },
+      {
+        heading: "Noida vs “pan-India agency” noise",
+        paragraphs: [
+          "Large directory lists for Noida web companies are crowded. We compete on clear scope, honest claims, and software you keep—not on inflated project counters.",
+          "If your need is AI agents or RAG, start at the AI hub. If your need is a local site that ranks for the service you sell, start here and contact us with the business type and budget band.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you only work with Noida clients?",
+        answer:
+          "No. We are based in Noida and serve clients remotely across India and beyond. This page targets people searching with Noida / NCR intent.",
+      },
+      {
+        question: "How fast can a starter site launch?",
+        answer:
+          "Depends on content readiness and scope. We write milestones before build so you see what is in the first release versus what waits.",
+      },
+      {
+        question: "Can you also do SEO after the site launches?",
+        answer:
+          "Yes. We map keywords to pages and expand topical depth. See the SEO guide—we do not sell ranking guarantees on a calendar.",
+      },
+      {
+        question: "Where do I enquire?",
+        answer:
+          "Use the contact form or WhatsApp. Name the business, city, and budget band. We reply within one business day: contact@trevyk.com.",
+      },
+    ],
+  },
+  {
+    slug: "ai-agent-vs-chatbot",
+    title: "AI agent vs chatbot — which one do you actually need?",
+    description:
+      "Honest comparison: when a chatbot is enough, when you need a tool-calling AI agent, and how Trevyk scopes each without vapour demos.",
+    keywords:
+      "AI agent vs chatbot, custom AI agent development, chatbot vs agent India, LLM workflow automation",
+    kicker: "Compare",
+    image: "/images/ai-agents-workflow.jpg",
+    alt: "Painterly diagram of an AI agent workflow with tool steps and an approval checkpoint",
+    caption: "Chat answers. Agents act—with tools and gates.",
+    related: [
+      "ai-agents",
+      "generative-ai-llm-apps",
+      "rag-knowledge-assistants",
+      "seo",
+    ],
+    paragraphs: [
+      "Buyers often say “we need an AI agent” when they mean a FAQ chatbot—or the reverse. The difference is tools and authority: a chatbot talks; an agent can call APIs, draft then wait for approval, and log what it did.",
+      "Trevyk ships both patterns when they fit. We start with the workflow, not the buzzword. If the job is answering from a small FAQ, a grounded assistant may be enough. If the job is triage tickets, look up CRM state, and propose a write with a human gate, you need an agent.",
+      "This page is a decision aid. Detailed build notes live on the AI agents and GenAI guides.",
+    ],
+    points: [
+      "Clear definitions without marketing fog",
+      "Decision checklist for ops and founders",
+      "When to add RAG under either pattern",
+      "Links to the right Trevyk build guide",
+    ],
+    sections: [
+      {
+        heading: "Chatbot (assistant) — talk and retrieve",
+        paragraphs: [
+          "Best for: FAQs, handbook Q&A, draft replies that a human still sends, and internal copilots over approved documents.",
+          "Usually combines an LLM with optional RAG. It should refuse when context is thin. It should not silently change money, identity, or exam records.",
+          "See: RAG knowledge assistants and Generative AI / LLM apps.",
+        ],
+      },
+      {
+        heading: "AI agent — decide, call tools, escalate",
+        paragraphs: [
+          "Best for: multi-step workflows with tools (CRM, helpdesk, calendars, forms) and explicit human checkpoints on irreversible actions.",
+          "Needs tool schemas, least privilege, eval sets, traces, and a kill switch. Multi-agent setups wait until one path is stable.",
+          "See: Custom AI agent development.",
+        ],
+      },
+      {
+        heading: "Quick chooser",
+        paragraphs: [
+          "Choose a chatbot/assistant if success = correct answers from your docs with citations.",
+          "Choose an agent if success = a completed workflow step (create ticket, schedule, draft + approve) with an audit log.",
+          "Choose neither (use forms + humans) if the risk of a wrong automatic action is higher than the hours you save—until policy and evals are ready.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is every LLM product an agent?",
+        answer:
+          "No. Many products are chat UIs over a model or RAG index. Agents add tool calling and multi-step control.",
+      },
+      {
+        question: "Can we start with a chatbot and upgrade?",
+        answer:
+          "Yes. Many projects begin with grounded Q&A, then add one tool-backed workflow once the corpus and evals are solid.",
+      },
+      {
+        question: "Do you sell agent demos without integrations?",
+        answer:
+          "We prototype narrowly, but production value comes from your tools and permissions. Slide-deck-only agents are out of scope.",
+      },
+    ],
+  },
+  {
+    slug: "rag-vs-fine-tuning",
+    title: "RAG vs fine-tuning — which fits your private knowledge?",
+    description:
+      "When retrieval-augmented generation beats fine-tuning for business documents, and when fine-tuning is worth the cost and risk.",
+    keywords:
+      "RAG vs fine-tuning, private knowledge assistant, when to fine-tune LLM, enterprise RAG India",
+    kicker: "Compare",
+    image: "/images/ai-rag-knowledge.jpg",
+    alt: "Painterly illustration of documents being retrieved into a grounded answer with citation marks",
+    caption: "Most SMB knowledge problems need retrieval first.",
+    related: [
+      "rag-knowledge-assistants",
+      "generative-ai-llm-apps",
+      "ai-agents",
+      "ml-data-systems",
+    ],
+    paragraphs: [
+      "Private PDFs and policies change weekly. Fine-tuning bakes yesterday’s text into weights; RAG retrieves today’s passages and asks the model to answer with citations.",
+      "Trevyk defaults to RAG for company knowledge assistants. Fine-tuning is a separate, explicit decision after prompting and retrieval are tried—and only when you have a clear metric that RAG cannot hit.",
+      "Use this page to brief stakeholders. Build depth is on the RAG and GenAI guides.",
+    ],
+    points: [
+      "BLUF recommendation for most SMB corpora",
+      "Cost, freshness, and permission trade-offs",
+      "When fine-tuning still makes sense",
+      "How agents use RAG as a tool",
+    ],
+    sections: [
+      {
+        heading: "Choose RAG when…",
+        paragraphs: [
+          "Answers must cite a specific policy, manual, or ticket, and documents update often.",
+          "Different roles must see different corpora (ACLs travel with retrieval).",
+          "You need refusals when nothing relevant is found—instead of confident invention.",
+        ],
+      },
+      {
+        heading: "Consider fine-tuning when…",
+        paragraphs: [
+          "You need a stable style or format the base model mishandles even with good prompts and examples.",
+          "You have a large, carefully labelled dataset and a team that can evaluate regressions after every train.",
+          "You accept that private facts still usually need retrieval—fine-tuning is not a substitute for permissions and freshness.",
+        ],
+      },
+      {
+        heading: "Trevyk default path",
+        paragraphs: [
+          "Inventory sources → chunk + embed → role filters → cited answers → golden question eval → refresh pipeline.",
+          "Only then discuss fine-tuning or heavier training. Agents may call the RAG tool as one step in a wider workflow.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Will RAG train on our private data?",
+        answer:
+          "We design for retrieval and API-based generation. Training or fine-tuning on private corpora is a separate decision—not the default.",
+      },
+      {
+        question: "Can we combine RAG and fine-tuning?",
+        answer:
+          "Sometimes. Many teams fine-tune for format and still retrieve for facts. We only combine when evals justify the cost.",
+      },
+      {
+        question: "Where should I start?",
+        answer:
+          "Start with the RAG guide if answers must come from your documents. Start with GenAI apps if you need a product UI around generation. Contact us with corpus size and the decisions the system must never take alone.",
       },
     ],
   },

@@ -9,6 +9,7 @@ import { whoWeAreHeroBackdrop } from "../config/media";
 import { OurPurposeSection } from "../components/about/OurPurposeSection";
 import { HowWeThinkWorkSection } from "../components/about/HowWeThinkWorkSection";
 import { WhatDefinesTrevykSection } from "../components/about/WhatDefinesTrevykSection";
+import { EeAtPracticeSection } from "../components/about/EeAtPracticeSection";
 import { OurCommitmentsSection } from "../components/about/OurCommitmentsSection";
 import { LetsBuildTogetherSection } from "../components/about/LetsBuildTogetherSection";
 
@@ -142,6 +143,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <HowWeThinkWorkSection />
 
       <WhatDefinesTrevykSection />
+
+      <EeAtPracticeSection />
 
       <OurCommitmentsSection />
 

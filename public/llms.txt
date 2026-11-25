@@ -10,8 +10,11 @@ Trevyk is the services and technology company. Kiduart is the school ERP product
 - RAG / private knowledge assistants (embeddings, vector search, citations) — https://www.trevyk.in/work/rag-knowledge-assistants
 - Generative AI & LLM apps (APIs, LangChain-style orchestration) — https://www.trevyk.in/work/generative-ai-llm-apps
 - ML & data systems (problem framing, classification/regression workflows) — https://www.trevyk.in/work/ml-data-systems
+- Website development (Noida / NCR) — https://www.trevyk.in/work/website-development-noida
 - Custom websites — https://www.trevyk.in/work/custom-websites
 - Web applications & custom software — https://www.trevyk.in/work/web-applications
+- AI agent vs chatbot (decision guide) — https://www.trevyk.in/work/ai-agent-vs-chatbot
+- RAG vs fine-tuning (decision guide) — https://www.trevyk.in/work/rag-vs-fine-tuning
 - SEO / AEO-ready content structure — https://www.trevyk.in/work/seo
 - Digital marketing, social, video — see What we do
 - Kiduart School ERP overview — https://www.trevyk.in/our-products · demos https://kiduart.com

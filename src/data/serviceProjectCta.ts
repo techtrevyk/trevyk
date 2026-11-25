@@ -128,6 +128,36 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "Or explore AI services", href: "/ai" },
   },
+  "website-development-noida": {
+    kicker: "Ready to get started?",
+    headlineBefore: "Need a ",
+    headlineHighlight: "Noida website",
+    headlineAfter: "?",
+    description:
+      "Tell us the business type, city, and budget band. We'll propose a starter page set and whether SEO or AI work should wait for phase two.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "All website work", href: "/work/custom-websites" },
+  },
+  "ai-agent-vs-chatbot": {
+    kicker: "Ready to decide?",
+    headlineBefore: "Still unsure ",
+    headlineHighlight: "agent vs chatbot",
+    headlineAfter: "?",
+    description:
+      "Describe one repeatable task. We'll say whether answers, tools, or a human process fit—and point you to the right build guide.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "AI agents guide", href: "/work/ai-agents" },
+  },
+  "rag-vs-fine-tuning": {
+    kicker: "Ready to decide?",
+    headlineBefore: "Choosing ",
+    headlineHighlight: "RAG or fine-tune",
+    headlineAfter: "?",
+    description:
+      "Share corpus size, how often docs change, and who may see what. We'll recommend a default path before any training spend.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "RAG guide", href: "/work/rag-knowledge-assistants" },
+  },
 };
 
 function fallbackFromGuide(slug: string): ServiceProjectCtaContent | null {

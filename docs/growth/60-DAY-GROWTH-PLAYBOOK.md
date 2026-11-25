@@ -27,7 +27,7 @@ Organic will not “jump overnight.” Day-60 targets assume deploy + content + 
 2. **0 external backlinks** — primary authority blocker.
 3. Brand / scrape queries only (~58 impressions / 3 months). No commercial SERP presence.
 4. Thin crawlable hubs (home/tech/about/products ~80–120 words in SEO shell).
-5. Indexing OK: 20 indexed; 3 redirects; 1 discovered-not-indexed; sitemap Success (18 URLs → expand as pages ship).
+5. Indexing OK: 20 indexed (pre–Phase 2); sitemap Success. Phase 2 ships **23** sitemap URLs after next deploy.
 6. Fake global testimonials removed (2026-11-25). GA late-load fixed (≤1.5s).
 
 ---
@@ -87,7 +87,7 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - [ ] **You:** LinkedIn website → `https://www.trevyk.in` (not trevyk.com)
 - [ ] **You:** Google Business Profile claim (Noida)
 
-### Phase 1 — AI-search readiness + money pages (IN PROGRESS)
+### Phase 1 — AI-search readiness + money pages (DONE — deploy live)
 
 - [x] Expand `llms.txt` + add `llms-full.txt`; reference in `robots.txt`
 - [x] New guides: `/work/generative-ai-llm-apps` + `/work/ml-data-systems`
@@ -95,18 +95,20 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - [x] Expand thin prerender PAGE_COPY (home, AI, technology, who-we-are, our-products, process, contact, what-we-do)
 - [x] Update AI hub + what-we-do + footer + home hero for GenAI/ML demand
 - [x] Sitemap (20 URLs) + prerender NAV for new guides
-- [ ] **You:** Deploy Phase 1 to Vercel
+- [x] **You:** Deploy Phase 1 to Vercel
 - [ ] **You:** GA4 Admin → Events → mark `generate_lead` as Key event
-- [ ] **You (after deploy):** GSC → Sitemaps refresh + URL Inspection on `/`, `/ai`, new guides
+- [x] GSC → Sitemaps resubmit (`https://www.trevyk.in/sitemap.xml` Success; re-submit after Phase 2 deploy for 23 URLs)
+- [ ] **You (after Phase 2 deploy):** URL Inspection on `/`, `/ai`, Noida + comparison guides
 - [x] GSC Generative AI features: **21 impressions / 3m** (home + legacy `/about`, `/kiduart`). Prefer www canonicals after deploy.
 
-### Phase 2 — Topical depth & architecture (Days 8–21)
+### Phase 2 — Topical depth & architecture (Days 8–21) — READY TO DEPLOY
 
-- [ ] Local landing: `/work/website-development-noida` (or city section on custom-websites)
-- [ ] Comparison / use-case pages (agent vs chatbot; RAG vs fine-tune) — honest
-- [ ] Internal link map: home → AI hub → 5 AI guides → contact
-- [ ] Author/E-E-A-T block on who-we-are (real person, real location)
-- [ ] CWV pass (LCP hero already worked; re-check after content weight)
+- [x] Local landing: `/work/website-development-noida`
+- [x] Comparison pages: `/work/ai-agent-vs-chatbot` + `/work/rag-vs-fine-tuning`
+- [x] Internal link map: GrowthOffer → Noida; AI hub → compare guides; related links; footer; llms; sitemap 23 URLs
+- [x] E-E-A-T practice block on who-we-are (Noida, Kiduart, contact — no invented founder name)
+- [ ] **You:** Deploy Phase 2 to Vercel
+- [ ] CWV pass after deploy (LCP hero already worked; re-check after content weight)
 
 ### Phase 3 — Authority & distribution (Days 14–45)
 
@@ -179,12 +181,14 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - Phase 1 content: llms.txt / llms-full.txt, SEO AEO/GEO/SXO guide depth, new guides generative-ai-llm-apps + ml-data-systems, expanded prerender copy, sitemap 20 URLs, home/AI hub positioning for agents/RAG/GenAI/ML.
 - GSC Generative AI features: 21 impressions / 3m. Top AI-surface URLs include `/`, legacy `/about` & `/kiduart` (redirects), `/technology`, `/work/ai-for-schools`. Prefer www + current paths after deploy.
 - GA4 Events hub: only default key events listed (`purchase`, `qualify_lead`, `close_convert_lead`) with no stream data. `generate_lead` will appear under Recent events after first real contact submit — then star it as Key event.
+- Phase 1 deployed by user. GSC sitemap re-submitted (Success, 20 discovered until Phase 2 deploy).
+- Phase 2 coded: Noida landing, agent-vs-chatbot, RAG-vs-fine-tune; workPages + CTAs; sitemap 23 URLs; footer/llms/GrowthOffer/AI hub links; E-E-A-T practice section on who-we-are.
 
 ---
 
 ## Next actions (agent — do these in order)
 
-1. User deploys Phase 1.
-2. After deploy: GSC sitemap + URL Inspection; GA Realtime; submit one test lead to surface `generate_lead`.
-3. Phase 2: Noida local intent page + E-E-A-T who-we-are block.
-4. Phase 3 backlinks with user (LinkedIn URL + GBP).
+1. **You:** Deploy Phase 2 to Vercel.
+2. After deploy: GSC sitemap refresh (expect 23 URLs) + URL Inspection on `/work/website-development-noida`, `/work/ai-agent-vs-chatbot`, `/work/rag-vs-fine-tuning`, `/who-we-are`.
+3. Phase 3 backlinks with user (LinkedIn URL → www.trevyk.in + GBP claim).
+4. GA4: mark `generate_lead` as Key event after first real submit.

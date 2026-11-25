@@ -28,11 +28,11 @@ const CARDS: GrowthCard[] = [
   {
     imageSlug: "websites",
     imageLabel: "Laptop and phone mockups for a custom website",
-    kicker: "Websites",
-    title: "Modern sites that convert",
-    caption: "A site written for the search, not a template with a logo swap.",
-    bullets: ["Responsive & fast", "SEO-ready structure"],
-    href: "/work/custom-websites",
+    kicker: "Noida sites",
+    title: "Websites built to get found",
+    caption: "Noida / NCR website development with SEO-ready pages—not a logo on a template.",
+    bullets: ["Local intent pages", "Starter-plan scopes"],
+    href: "/work/website-development-noida",
     icon: Globe,
   },
   {

@@ -15,26 +15,26 @@ const BUILD_CARDS = [
   {
     title: "AI Chatbots & Assistants",
     description:
-      "Intelligent chatbots trained on your data to handle customer queries, internal support and everyday tasks.",
+      "Start with agent vs chatbot clarity, then build grounded assistants or tool-calling agents for the real workflow.",
     bullets: [
-      "Trained on your own data",
-      "Web and internal tools integration",
+      "Honest chatbot vs agent chooser",
+      "Trained / grounded on your data",
       "Role-based access and security",
     ],
     icon: MessageSquare,
-    href: "/work/ai-agents",
+    href: "/work/ai-agent-vs-chatbot",
   },
   {
     title: "RAG & Knowledge Systems",
     description:
-      "Private knowledge bases that let teams search documents and get cited answers from approved sources.",
+      "Private knowledge bases with citations—and a clear RAG vs fine-tuning default before you train weights.",
     bullets: [
       "Document search and Q&A",
-      "Internal knowledge base",
       "Citations and source tracking",
+      "When not to fine-tune first",
     ],
     icon: FileStack,
-    href: "/work/rag-knowledge-assistants",
+    href: "/work/rag-vs-fine-tuning",
   },
   {
     title: "Workflow Automation",
