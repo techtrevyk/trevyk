@@ -57,13 +57,13 @@ const SERVICE_CARDS = [
     href: "/work/seo",
   },
   {
-    title: "AI & Automation",
+    title: "AI Agents, RAG & GenAI",
     description:
-      "Smarter workflows with AI-powered solutions to save time and increase efficiency.",
+      "Agents, knowledge assistants, LLM apps, and ML systems scoped for real workflows—with human gates where risk is high.",
     icon: Bot,
     image: "/images/what-we-do/services/service-ai-automation-v2.jpg",
     imagePosition: "88% center",
-    href: "/work/ai-agents",
+    href: "/ai",
   },
 ] as const;
 

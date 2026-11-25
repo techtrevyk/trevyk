@@ -27,23 +27,23 @@ export const navLinks = [
 
 export const hero = {
   eyebrow: "Turning vision into progress",
-  title: "Custom websites, software, and growth",
+  title: "Custom websites, AI systems, and growth",
   titleLines: [
-    "Custom websites, software, and growth",
-    "Web apps and mobile products built to last",
-    "SEO, campaigns, and growth you can measure",
+    "Custom websites, AI systems, and growth",
+    "Agents, RAG, and LLM apps built to operate",
+    "SEO and campaigns you can measure",
   ],
   subtitle: "Trevyk Technologies, Noida",
   lead:
-    "Product, websites, and growth systems for businesses that want to be found and then keep the software.",
+    "Product, websites, and AI systems for businesses that want to be found—and keep software that runs their work.",
   description:
-    "Custom websites, web applications, and custom software for startups and local businesses, plus SEO, campaigns, social media, and video. Starter plans are scoped to your budget. Based in Noida.",
+    "Custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businesses—plus SEO, campaigns, social, and video. Starter plans scoped to your budget. Based in Noida.",
   primaryCta: { label: "Get a starter plan", href: "/contact" },
-  secondaryCta: { label: "Explore Kiduart", href: "/our-products" },
+  secondaryCta: { label: "Explore AI services", href: "/ai" },
   tertiaryCta: { label: "View capabilities", href: "/what-we-do" },
   meta: [
     { label: "Product", value: "Kiduart School ERP" },
-    { label: "Engineering", value: "Websites, apps, SEO" },
+    { label: "Engineering", value: "Web, AI, SEO" },
     { label: "Base", value: "Noida, India" },
   ],
 } as const;
@@ -194,57 +194,18 @@ export const workSection = {
   ],
 } as const;
 
+/** Honest empty proof block — no fabricated quotes or borrowed geography. */
 export const testimonialsSection = {
-  label: "Client reviews",
-  title: "Trusted from Milan to Mexico City.",
+  label: "Proof before polish",
+  title: "Client stories will sit here when they are real",
   subtitle:
-    "Six countries, four continents, one standard of work. Every word below is a real client review.",
-  regions: [
-    { flag: "🇮🇳", name: "India" },
-    { flag: "🇺🇸", name: "United States" },
-    { flag: "🇦🇪", name: "UAE" },
-    { flag: "🇬🇧", name: "United Kingdom" },
-    { flag: "🇨🇦", name: "Canada" },
-    { flag: "🇲🇽", name: "Mexico" },
+    "We publish only reviews a real school or client has approved in writing. Until then this space stays empty — honesty over borrowed credibility.",
+  commitments: [
+    "No invented names, countries, or star ratings written about ourselves.",
+    "No stock photos posing as campuses or clients.",
+    "When a story ships, it names the organisation, city, role, and outcome with consent on file.",
   ],
-  items: [
-    {
-      name: "Priya Sharma",
-      region: "🇮🇳 India",
-      quote:
-        "Trevyk understood our workflow before writing code. Weekly demos kept us aligned, and the final platform matched how our team actually operates.",
-    },
-    {
-      name: "James Carter",
-      region: "🇺🇸 United States",
-      quote:
-        "Professional, responsive, and technically solid. They handled our web app and SEO improvements in one engagement — metrics improved within the first quarter.",
-    },
-    {
-      name: "Arun Mehta",
-      region: "🇮🇳 India",
-      quote:
-        "Clear estimates, no jargon on calls, and a mobile app our customers actually use. We are planning phase two with the same team.",
-    },
-    {
-      name: "Sarah Lin",
-      region: "🇺🇸 United States",
-      quote:
-        "They bridged design and backend cleanly. Integrations with our existing tools were documented and stable from launch day.",
-    },
-    {
-      name: "Rahul Verma",
-      region: "🇮🇳 India",
-      quote:
-        "From audit to deployment, the process felt structured. Support after go-live has been as good as the build phase.",
-    },
-    {
-      name: "Michael Torres",
-      region: "🇺🇸 United States",
-      quote:
-        "Timezone-friendly collaboration and honest scoping. What we asked for is what shipped — on the timeline we agreed.",
-    },
-  ],
+  cta: { label: "Talk about a project →", href: "/contact" },
 } as const;
 
 export const ctaSection = {

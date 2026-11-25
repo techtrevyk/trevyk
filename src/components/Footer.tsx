@@ -36,6 +36,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
     { label: "AI solutions", path: "/ai" },
     { label: "Custom AI agents", path: "/work/ai-agents" },
     { label: "RAG assistants", path: "/work/rag-knowledge-assistants" },
+    { label: "Generative AI & LLMs", path: "/work/generative-ai-llm-apps" },
+    { label: "ML & data systems", path: "/work/ml-data-systems" },
     { label: "AI for schools", path: "/work/ai-for-schools" },
     { label: "Custom websites", path: "/work/custom-websites" },
     { label: "Web applications", path: "/work/web-applications" },

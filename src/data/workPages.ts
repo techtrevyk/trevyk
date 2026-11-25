@@ -496,6 +496,88 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
   },
+  "generative-ai-llm-apps": {
+    slug: "generative-ai-llm-apps",
+    hero: {
+      badge: "Generative AI",
+      titleBefore: "LLM apps you can ",
+      titleHighlight: "operate.",
+      titleAfter: "",
+      description:
+        "Generative AI on real APIs—orchestration, embeddings when needed, evals and cost control. Built for workflows, not vapour demos.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "AI solutions hub", href: "/ai" },
+      backdropImage: "/images/work/generative-ai-llm-apps-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "A chat widget is ",
+      headingHighlight: "not a product.",
+      headingAfter: "",
+      body: "Teams want GenAI that drafts, extracts or summarises inside their tools—with budgets and audit trails. We scope the workflow, pick models for cost and privacy, then harden evaluation before scale.",
+      approach: [
+        {
+          title: "Define the job",
+          description: "One user, one outcome, measurable acceptance tests.",
+          icon: "search",
+        },
+        {
+          title: "Orchestrate clearly",
+          description: "LangChain-style graphs or lean custom steps you can debug.",
+          icon: "layers",
+        },
+        {
+          title: "Ground when needed",
+          description: "Embeddings and retrieval when answers must cite your files.",
+          icon: "database",
+        },
+      ],
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "LLM app or service", description: "API or UI wired to your workflow.", icon: "bot" },
+        { title: "Provider integration", description: "Secrets and quotas handled properly.", icon: "code" },
+        { title: "Eval set", description: "Quality, refusals and cost samples.", icon: "list" },
+        { title: "Observability notes", description: "Traces and token alerts.", icon: "settings" },
+        { title: "Runbook", description: "How to change prompts safely.", icon: "fileText" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
+  "ml-data-systems": {
+    slug: "ml-data-systems",
+    hero: {
+      badge: "ML & data",
+      titleBefore: "Models that serve ",
+      titleHighlight: "a decision.",
+      titleAfter: "",
+      description:
+        "Problem framing, features from your operations data, and practical classification or regression-style systems—not black-box hype.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "AI solutions hub", href: "/ai" },
+      backdropImage: "/images/work/ml-data-systems-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "Frame the decision ",
+      headingHighlight: "before the model.",
+      headingAfter: "",
+      body: "Scoring leads, flagging risk or classifying documents needs labels you trust and features you can refresh. We start with baselines, measure lift, and only add complexity that earns its keep.",
+      approach: APPROACH_DEFAULT,
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "Problem brief", description: "Metrics and error costs agreed up front.", icon: "fileText" },
+        { title: "Feature pipeline", description: "Refreshable inputs from your systems.", icon: "database" },
+        { title: "Model service", description: "Batch or API scoring you can run.", icon: "settings" },
+        { title: "Evaluation report", description: "Holdout results in plain language.", icon: "search" },
+        { title: "Override path", description: "Humans stay in control when stakes are high.", icon: "users" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
   "ai-for-schools": {
     slug: "ai-for-schools",
     hero: {

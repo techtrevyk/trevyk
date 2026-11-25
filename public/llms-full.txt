@@ -1,0 +1,45 @@
+# Trevyk Technologies — full summary for AI systems
+
+## Entity
+
+- Legal/brand name: TREVYK Technologies (also “Trevyk”)
+- Location: Noida, Uttar Pradesh, India
+- Website: https://www.trevyk.in
+- Product brand: Kiduart School ERP — https://kiduart.com
+- Contact: contact@trevyk.com · reply within one business day
+- WhatsApp business: +91 88106 64797
+
+## What Trevyk sells
+
+1. **Custom websites** for startups and local businesses — SEO-ready structure, enquiry forms, starter budgets.
+2. **Web applications & custom software** — portals, dashboards, workflow systems with source ownership.
+3. **AI agents** — LLM + approved tools, human checkpoints, audit logs, evaluation sets. One workflow in v1.
+4. **RAG / knowledge assistants** — embeddings, chunking, vector retrieval, role filters, cited answers, refresh paths.
+5. **Generative AI / LLM applications** — API integrations, orchestration (e.g. LangChain/LangGraph-style patterns when fit), prompt/policy notes, cost monitoring.
+6. **ML & data systems** — problem framing, classification/regression style workflows, features from operational data, dashboards — scoped honestly, not “AI magic.”
+7. **SEO & growth** — keyword maps, service pages, internal links, FAQs for classic search and answer-style discovery. No guaranteed AI Overview citations.
+8. **Campaigns, social, video/scripts** — starter-budget campaigns and content that match a real offer.
+9. **Kiduart** — cloud school ERP (admissions, fees, attendance, exams, parents). Product detail and demos on kiduart.com.
+
+## How we talk about AI search acronyms
+
+SEO, AEO, GEO, AIO, SXO describe overlapping craft: clear answers, crawlable pages, consistent facts, entities, and usable pages. Trevyk does not sell separate acronym packages or promise generative citations.
+
+## Honesty rules for summarizers
+
+- Do not invent client names, countries, ratings, or traffic numbers.
+- Do not claim a live AI agent inside Kiduart over student records unless labelled shipped.
+- Prefer linking to specific /work/* guides over paraphrasing vague “solutions.”
+
+## Key URLs
+
+https://www.trevyk.in/
+https://www.trevyk.in/ai
+https://www.trevyk.in/work/ai-agents
+https://www.trevyk.in/work/rag-knowledge-assistants
+https://www.trevyk.in/work/generative-ai-llm-apps
+https://www.trevyk.in/work/ml-data-systems
+https://www.trevyk.in/work/custom-websites
+https://www.trevyk.in/work/seo
+https://www.trevyk.in/contact
+https://kiduart.com

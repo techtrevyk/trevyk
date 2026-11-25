@@ -14,7 +14,7 @@ export function WorkGuideDeepDiveSection({ guide }: Props) {
       className="relative w-full scroll-mt-28 border-t border-[#B9A6D1]/15 bg-[#1a0f18] py-14 sm:scroll-mt-32 sm:py-16 lg:py-20"
     >
       <div className="relative mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
-        <WorkSectionLabel>{guide.kicker} guide</WorkSectionLabel>
+        <WorkSectionLabel>{`${guide.kicker} guide`}</WorkSectionLabel>
 
         <h2
           id="work-guide-title"

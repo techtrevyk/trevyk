@@ -108,6 +108,26 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "Explore Kiduart ERP", href: "/our-products" },
   },
+  "generative-ai-llm-apps": {
+    kicker: "Ready to get started?",
+    headlineBefore: "Have a ",
+    headlineHighlight: "GenAI app",
+    headlineAfter: " in mind?",
+    description:
+      "Describe the user, the documents or APIs involved, and the decision a human must keep. We'll propose model, orchestration, and an evaluation plan.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "Or explore AI services", href: "/ai" },
+  },
+  "ml-data-systems": {
+    kicker: "Ready to get started?",
+    headlineBefore: "Have an ",
+    headlineHighlight: "ML decision",
+    headlineAfter: " to improve?",
+    description:
+      "Tell us the outcome you want to predict or classify and where the historical labels live. We'll say whether a model, a rule, or an LLM fit better.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "Or explore AI services", href: "/ai" },
+  },
 };
 
 function fallbackFromGuide(slug: string): ServiceProjectCtaContent | null {

@@ -44,6 +44,8 @@ const NAV: { href: string; label: string }[] = [
   { href: "/work/video-scripts", label: "Video and scripts" },
   { href: "/work/ai-agents", label: "AI agents" },
   { href: "/work/rag-knowledge-assistants", label: "RAG assistants" },
+  { href: "/work/generative-ai-llm-apps", label: "Generative AI & LLMs" },
+  { href: "/work/ml-data-systems", label: "ML & data systems" },
   { href: "/work/ai-for-schools", label: "AI for schools" },
   { href: "/technology", label: "Technology" },
   { href: "/process", label: "Process" },
@@ -55,64 +57,70 @@ const NAV: { href: string; label: string }[] = [
 
 const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/": {
-    h1: "Custom websites, software, and growth from Trevyk Technologies",
+    h1: "Custom websites, software, AI, and growth from Trevyk Technologies",
     paragraphs: [
-      "Product, websites, and growth systems for businesses that want to be found and then keep the software.",
-      "Trevyk Technologies in Noida builds custom websites, web applications, and custom software for startups, shops, clinics, schools, and service businesses. The same practice runs SEO, digital marketing, social media, video, and scripts. Starter plans are scoped for an early budget.",
-      "Kiduart is the school ERP. A new website, web app, or campaign starts at the contact page. Email contact@trevyk.com.",
+      "Product, websites, AI systems, and growth work for businesses that want to be found and then keep the software.",
+      "Trevyk Technologies in Noida builds custom websites, web applications, and custom software for startups, shops, clinics, schools, and service businesses. The same practice scopes AI agents, RAG knowledge assistants, generative AI / LLM apps, and practical ML workflows—plus SEO, digital marketing, social media, video, and scripts. Starter plans fit an early budget.",
+      "Demand in 2026 clusters around agents, retrieval, and LLM apps as much as brochure sites. We lead with honest scope: one workflow, evals, and human gates—not invented client counts.",
+      "Kiduart is the school ERP on kiduart.com. A new website, web app, AI project, or campaign starts at the contact page. Email contact@trevyk.com.",
     ],
   },
   "/what-we-do": {
-    h1: "Custom websites, software, and growth services",
+    h1: "Custom websites, software, AI, and growth services",
     paragraphs: [
-      "Websites, web applications, custom software, SEO, digital marketing, social media, video, and scripts for startups and local businesses. Starter plans are priced with early budgets in mind. Kiduart School ERP stays the product lane.",
-      "Each offer below is something Trevyk can scope and deliver. Guides go deeper on the services we want searchers to find. AI agents and RAG are covered on the AI solutions hub.",
+      "Websites, web applications, custom software, AI agents, RAG, generative AI apps, ML data systems, SEO, digital marketing, social media, video, and scripts for startups and local businesses. Starter plans are priced with early budgets in mind. Kiduart School ERP stays the product lane.",
+      "Each offer below is something Trevyk can scope and deliver. Guides go deeper on the services searchers and answer engines should find: custom websites, web apps, SEO (including AEO/GEO-ready structure), AI agents, RAG, GenAI/LLM apps, and ML systems.",
+      "Internal links move from this catalogue to /work guides, then to /contact, so a buyer who searched “AI agent development India” or “website development Noida” can reach a form without hunting the menu.",
     ],
   },
   "/ai": {
     h1: "AI that owns a workflow—not a slide deck",
     paragraphs: [
-      "Trevyk builds practical AI for Indian SMBs, startups, and organisations: custom agents, RAG assistants, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
-      "Problems we solve: repeat support and ops work, answers trapped in documents, and integrations that need a human gate—not unsupervised autonomy over money or student records.",
+      "Trevyk builds practical AI for Indian SMBs, startups, and organisations: custom agents, RAG assistants, generative AI / LLM applications, ML scoring systems, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
+      "Problems we solve: repeat support and ops work, answers trapped in documents, LLM apps that must stay on budget, and integrations that need a human gate—not unsupervised autonomy over money or student records.",
       "Discovery to deployment: Discover the workflow and roles; Prototype a narrow path with an eval set; Harden permissions, logging, and production credentials; Operate with monitoring, cost alerts, and controlled prompt changes.",
       "Security, evaluation, and monitoring: least-privilege tool access, audit logs, human approval on irreversible actions, evaluation sets for grounding and safe refusals, and monitoring for latency, token spend, and retrieval misses.",
-      "Questions buyers ask: What AI services does Trevyk offer? Custom agents, RAG assistants, and workflow automation—school ERP product needs belong primarily on kiduart.com. Do you sell separate AEO or GEO packages? No—we improve crawlable structure and clear answers as part of honest SEO. How is cost determined? Integrations, corpus size, languages, traffic, evaluation depth, and write-action risk; we quote from scope.",
-      "Start with /work/ai-agents, /work/rag-knowledge-assistants, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
+      "Questions buyers ask: What AI services does Trevyk offer? Custom agents, RAG, GenAI/LLM apps, ML systems, and workflow automation—school ERP product needs belong primarily on kiduart.com. Do you sell separate AEO or GEO packages? No—we improve crawlable structure and clear answers as part of honest SEO. How is cost determined? Integrations, corpus size, languages, traffic, evaluation depth, and write-action risk; we quote from scope.",
+      "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
     ],
   },
   "/technology": {
     h1: "How we design systems that stay maintainable",
     paragraphs: [
-      "A practical map of Trevyk’s engineering approach: the tools we reach for, the modular architecture behind products like Kiduart, and the security controls we actually ship.",
-      "Websites, web apps, and school systems are documented at handoff so the next change does not depend on one person remembering the structure.",
+      "A practical map of Trevyk’s engineering approach: the tools we reach for on websites and web apps, the modular architecture behind products like Kiduart, and how AI services (agents, RAG, LLM APIs, embeddings) plug in without becoming an unmaintainable tangle.",
+      "Websites, web apps, school systems, and AI pipelines are documented at handoff so the next change does not depend on one person remembering the structure. Security controls we actually ship—least privilege, secrets outside prompts, audit logs—sit beside performance hygiene for search experience.",
+      "Stack choices follow the problem: React and TypeScript for product UI, Node or Python for APIs and ML/LLM services, Postgres and object storage for systems of record, vector stores only when retrieval is required. We prefer boring reliability over fashion.",
     ],
   },
   "/process": {
     h1: "Delivery that stays clear from day one",
     paragraphs: [
-      "The same practical path whether you adopt Kiduart or commission a website, a web app, SEO, or a campaign: listen, plan, build in slices, launch carefully, then support.",
-      "Scope is written before the first screen. You can see what is in the first release and what waits.",
+      "The same practical path whether you adopt Kiduart or commission a website, a web app, an AI agent, a RAG assistant, SEO, or a campaign: listen, plan, build in slices, launch carefully, then support.",
+      "Scope is written before the first screen or the first prompt. You can see what is in the first release, what waits, and which decisions stay human-approved. AI projects include an evaluation set before production credentials.",
+      "Five stages: discovery and scope; solution agreement; incremental build with demos; controlled release; operate and evolve. That rhythm is how we keep starter budgets honest.",
     ],
   },
   "/who-we-are": {
     h1: "Who we are — Turning Vision Into Progress",
     paragraphs: [
-      "Trevyk Technologies is a Noida practice for Kiduart, custom websites, web applications, software, SEO, campaigns, social pages, and video.",
-      "Our purpose, how we think and work, what defines us, and the commitments we publish — honest claims, no invented client counts.",
+      "Trevyk Technologies is a Noida practice for Kiduart, custom websites, web applications, software, AI systems (agents, RAG, GenAI, ML), SEO, campaigns, social pages, and video.",
+      "Our purpose, how we think and work, what defines us, and the commitments we publish — honest claims, no invented client counts or borrowed geography. Client stories appear only with written consent.",
+      "Turning Vision Into Progress is the standard we use on every engagement: clear problem, measurable delivery, systems that fit real workflows. Contact: contact@trevyk.com · Noida, India.",
     ],
   },
   "/our-products": {
     h1: "School ERP built for the Indian school year",
     paragraphs: [
-      "Kiduart is Trevyk’s cloud school management platform: admissions, fees, attendance, exams, and parent updates. A school that also needs a public website or campaign can ask for that separately.",
-      "Demos are booked on kiduart.com. This page is the product overview on trevyk.in.",
+      "Kiduart is Trevyk’s cloud school management platform: admissions, fees, attendance, exams, and parent updates for Indian schools. A school that also needs a public website, campaign, or custom AI beside operations can ask Trevyk for that separately.",
+      "Demos are booked on kiduart.com. This page is the product overview on trevyk.in—modules, ownership, and how the product relates to custom engineering.",
+      "Custom AI over live student marks or fees inside Kiduart is only described as live when that surface has shipped. Until then, school AI services are scoped on /work/ai-for-schools without overclaiming.",
     ],
   },
   "/contact": {
     h1: "Tell us what you need. We reply in one business day",
     paragraphs: [
-      "Kiduart demos for schools, or a starter plan for a website, web app, SEO, social page, or video. Name the business and we reply within one business day.",
-      "Email contact@trevyk.com. Noida, India.",
+      "Kiduart demos for schools, or a starter plan for a website, web app, AI agent, RAG assistant, GenAI/LLM app, ML system, SEO, social page, or video. Name the business, the city, and the budget band—we reply within one business day.",
+      "Email contact@trevyk.com. WhatsApp +91 88106 64797. Noida, India. Prefer the form on this page so the request lands with context.",
     ],
   },
   "/sitemap": {

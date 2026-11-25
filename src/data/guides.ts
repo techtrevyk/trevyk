@@ -77,36 +77,81 @@ export const GUIDES: Guide[] = [
     slug: "seo",
     title: "SEO for businesses that need enquiries, not vanity traffic",
     description:
-      "Keyword maps, service pages, and internal links so search can send people who already want a website, an app, or a campaign.",
-    keywords: "SEO services for small business, keyword research, on-page SEO Noida",
+      "Keyword maps, service pages, FAQs, and internal links so classic search and AI-answer surfaces can send people who already want a website, an app, an agent, or a campaign.",
+    keywords:
+      "SEO services for small business, AEO GEO AIO SXO Noida, keyword research, on-page SEO India, answer engine optimization",
     kicker: "Search",
     image: "/images/growth-content.jpg",
     alt: "Painting of a notebook, camera, and phone for content work",
     caption: "Search works when the page says the same thing the customer typed.",
-    related: ["custom-websites", "digital-marketing", "ai-agents"],
+    related: [
+      "custom-websites",
+      "digital-marketing",
+      "ai-agents",
+      "generative-ai-llm-apps",
+    ],
     paragraphs: [
-      "SEO starts with the words a buyer types when they are ready to talk, not with a list of synonyms stuffed into a footer. For Trevyk those words include custom website, web application, custom software, SEO, social media management, and video for small business.",
-      "We map one primary keyword to one page, then connect the pages. A homepage introduces the practice. A service page holds the offer. A guide page like this one goes deeper so Google has something specific to crawl. Internal links use the phrase a person would search, not “click here”.",
-      "We do not promise first-page rankings on a calendar. We do publish crawlable pages, a sitemap, and a plan for the next page to write. That is how a young company becomes findable without inventing traffic numbers.",
-      "You will also hear AEO, GEO, AIO, and similar labels. In practice they describe overlapping work: clear answers, crawlable pages, accurate facts, and brand consistency so traditional search and generative answers can both use your site. We treat that as an extension of honest SEO and content structure—not a separate product that guarantees AI citations.",
+      "SEO starts with the words a buyer types when they are ready to talk, not with a list of synonyms stuffed into a footer. For Trevyk those words include custom website development Noida, web application, custom software, AI agents, RAG assistants, SEO, social media management, and video for small business.",
+      "We map one primary keyword to one page, then connect the pages into topic clusters. A homepage introduces the practice. A service page holds the offer. A guide page like this one goes deeper so Google—and answer engines—have something specific to crawl. Internal links use the phrase a person would search, not “click here”.",
+      "We do not promise first-page rankings on a calendar. We do publish crawlable pages, a sitemap, llms.txt for AI crawlers, and a plan for the next page to write. That is how a young company becomes findable without inventing traffic numbers.",
     ],
     points: [
-      "Keyword map by service and city",
-      "Titles and headings that match the search",
-      "Internal links between related offers",
-      "Search Console set up so you can see real queries",
-      "Clear answers and facts that travel outside the page",
+      "Search intent + keyword clusters by service and city",
+      "Titles, H1s, and BLUF openings that match the query",
+      "FAQ sections with structured answers (AEO)",
+      "Internal links and topical depth across AI + web offers",
+      "Search Console and Analytics so you see real queries—not vanity",
+    ],
+    sections: [
+      {
+        heading: "SEO — classic discovery",
+        paragraphs: [
+          "Crawlability, indexable HTML, canonicals, sitemap, and on-page alignment still decide whether you appear for money keywords. Thin pages lose to agencies with years of links; depth and clarity are how a new domain starts.",
+          "We prioritise commercial intent (hire / build / automate) over informational fluff, then measure impressions and clicks in Search Console—not imaginary ranks.",
+        ],
+      },
+      {
+        heading: "AEO — answer engine readiness",
+        paragraphs: [
+          "Answer engines reward direct responses: a clear first paragraph (BLUF), FAQ blocks humans can read, and the same facts in schema where appropriate.",
+          "Every service guide should answer “what is it, who is it for, what do we deliver, what we will not claim.” That is AEO without selling a fake product name.",
+        ],
+      },
+      {
+        heading: "GEO & AIO — generative and overview surfaces",
+        paragraphs: [
+          "Generative engines and AI Overviews pull from consistent entities, original scoped insights, and pages other sites mention. Fabricated testimonials hurt trust; honest process copy and real NAP help.",
+          "We keep Organization/WebPage JSON-LD, llms.txt, and one story across LinkedIn, the site, and Kiduart. We do not promise citations or Share-of-Model scores.",
+        ],
+      },
+      {
+        heading: "SXO — search experience",
+        paragraphs: [
+          "Search experience means the click was worth it: fast first paint, readable mobile layout, obvious next step to contact, and navigation that does not hide the offer.",
+          "If someone arrives from an AI summary or a classic blue link, the page must confirm the same facts within seconds—or the session dies and rankings follow.",
+        ],
+      },
     ],
     faqs: [
       {
-        question: "Do you sell separate AEO or GEO packages?",
+        question: "Do you sell separate AEO, GEO, or AIO packages?",
         answer:
-          "No. We improve crawlable structure, useful answers, and consistent service descriptions. Those practices support both classic SEO and AI-answer surfaces. We do not sell acronym packages or promise citations.",
+          "No. We improve crawlable structure, useful answers, entities, and page experience. Those practices support classic SEO and AI-answer surfaces. We do not sell acronym packages or promise citations.",
+      },
+      {
+        question: "What is SXO here?",
+        answer:
+          "Search experience optimization: clarity, mobile usability, speed hygiene, and a navigation flow that turns a search visit into an enquiry—not a bounce.",
       },
       {
         question: "What do you measure after SEO work?",
         answer:
-          "Search Console coverage, queries, and whether the right pages are indexed and reachable. We do not invent ranking timelines.",
+          "Search Console coverage, queries, impressions, clicks, and whether the right pages are indexed. In Analytics we watch landing pages and generate_lead events. We do not invent ranking timelines.",
+      },
+      {
+        question: "Will this get us into Google AI Overviews?",
+        answer:
+          "Nobody can guarantee Overview citations. Clear answers, consistent facts, and authoritative mentions improve the odds; we will not sell guarantees.",
       },
     ],
   },
@@ -413,6 +458,156 @@ export const GUIDES: Guide[] = [
         question: "Can parents chat with school AI about a child’s marks?",
         answer:
           "Only if the school authorizes identity, role checks, and data scope. We design for authenticated, permissioned access—not anonymous public chat over student records.",
+      },
+    ],
+  },
+  {
+    slug: "generative-ai-llm-apps",
+    title: "Generative AI and LLM application development",
+    description:
+      "Production GenAI apps on LLM APIs: orchestration, embeddings, tool calling, evals, and cost control for Indian SMBs—not slide-deck demos.",
+    keywords:
+      "generative AI development India, LLM application development, LangChain LangGraph developers, OpenAI Gemini API integration, embedding vector search",
+    kicker: "Generative AI",
+    image: "/images/ai-hub-systems.jpg",
+    alt: "Painterly diagram of connected AI systems and workflow nodes",
+    caption: "API → orchestration → eval → monitor. A chat widget is not a product.",
+    related: ["ai-agents", "rag-knowledge-assistants", "ml-data-systems", "seo"],
+    paragraphs: [
+      "Buyers asking for generative AI usually need a working application: draft replies, summarise tickets, extract fields, or power an internal assistant—wired to their tools and budgets.",
+      "Trevyk builds LLM applications on provider APIs (for example Gemini, OpenAI, or others you require). We choose models for latency, privacy, and cost—not brand slogans. Orchestration may use LangChain/LangGraph-style patterns or lean custom code when that is clearer to operate.",
+      "Embeddings and vector search sit beside RAG projects when your corpus must ground answers. Agents are a separate guide when the system must call tools and take actions. We quote from scope: integrations, traffic, evaluation depth, and write-action risk.",
+    ],
+    points: [
+      "LLM API integration with secrets kept off the client",
+      "Orchestration you can debug (graphs or explicit steps)",
+      "Embeddings / vector search when retrieval is required",
+      "Eval sets, tracing, and token-cost alerts",
+    ],
+    sections: [
+      {
+        heading: "What we build with generative AI",
+        paragraphs: [
+          "Customer or staff copilots that draft, classify, or summarise inside a defined UI.",
+          "Document pipelines that extract structured fields and open a human review queue.",
+          "Internal tools that combine LLM steps with deterministic code for invoices, tickets, or CRM updates—writes stay permissioned.",
+          "Not in default scope: unsupervised legal advice, medical diagnosis, or anonymous access to student records.",
+        ],
+      },
+      {
+        heading: "LLM APIs, orchestration, and LangChain-style stacks",
+        paragraphs: [
+          "We start with the workflow and acceptance tests, then pick the stack. LangChain, LangGraph, or similar libraries help when tool routing and memory are complex; a thin TypeScript or Python service is better when the path is short.",
+          "Prompt and policy notes live in the repo. Temperature, tool lists, and iteration limits are versioned so a change can be rolled back.",
+          "Multi-agent theatre waits until a single path is reliable. Fan-out and parallel tools are earned, not marketed first.",
+        ],
+      },
+      {
+        heading: "Embeddings, vectors, and grounding",
+        paragraphs: [
+          "When answers must come from your files, we design chunking, embeddings, and retrieval filters—see the RAG guide for depth.",
+          "Vector stores are infrastructure: refresh, ACLs, and evaluation matter more than which logo is on the database.",
+          "If retrieval misses, the app should refuse or escalate. Hallucinated policy is a product failure.",
+        ],
+      },
+      {
+        heading: "Delivery and what you own",
+        paragraphs: [
+          "Discovery → prototype on a narrow corpus or sandbox → harden evals and logging → operate with cost and quality monitors.",
+          "You keep custom source, runbooks, and the evaluation set. Model provider accounts can be yours or jointly managed—stated in the scope.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you only use one model vendor?",
+        answer:
+          "No. The public site assistant uses Gemini today. Client projects pick providers based on cost, data residency, latency, and quality for the task.",
+      },
+      {
+        question: "Is LangChain required?",
+        answer:
+          "No. We use LangChain/LangGraph-style orchestration when it reduces risk; otherwise we ship a smaller custom pipeline that your team can run.",
+      },
+      {
+        question: "How is this different from an AI agent?",
+        answer:
+          "Generative AI apps focus on generation and retrieval inside a product UI. Agents add tool calling and multi-step actions—covered on the AI agents guide when that is the real need.",
+      },
+      {
+        question: "Can you fine-tune a model on our data?",
+        answer:
+          "Fine-tuning is a separate, explicit decision after retrieval and prompting are tried. Most SMB projects get further with RAG and good evals first.",
+      },
+    ],
+  },
+  {
+    slug: "ml-data-systems",
+    title: "ML and data systems for operational decisions",
+    description:
+      "Problem framing, features from your operations data, and practical classification or regression-style models—shipped as systems your team can run, not black-box hype.",
+    keywords:
+      "machine learning development India, classification regression models, ML workflow SMB, feature engineering business data, predictive analytics Noida",
+    kicker: "ML & data",
+    image: "/images/ai-rag-knowledge.jpg",
+    alt: "Painterly illustration of documents and data flowing into a decision system",
+    caption: "Frame the decision first. Then choose the model family.",
+    related: [
+      "generative-ai-llm-apps",
+      "rag-knowledge-assistants",
+      "web-applications",
+      "ai-agents",
+    ],
+    paragraphs: [
+      "Not every “AI” project needs a large language model. Many businesses need forecasts, lead scoring, churn flags, or document classification from tabular and operational data they already collect.",
+      "Trevyk scopes ML and data systems the same way we scope software: name the decision, the labels you trust, the features you can refresh, and how a wrong prediction is handled. Tree-based models, linear baselines, and simple neural nets are tools—not a brand pitch.",
+      "Deep learning and generative AI appear only when the problem warrants them. We will say when a dashboard and a rule beat a model—and when an LLM assistant is the wrong fit.",
+    ],
+    points: [
+      "Problem framing and success metrics before model choice",
+      "Feature pipelines you can retrain or refresh",
+      "Classification / regression / ranking as the decision requires",
+      "Monitoring for drift, not a one-off notebook handoff",
+    ],
+    sections: [
+      {
+        heading: "Problem framing and labels",
+        paragraphs: [
+          "We write the business question in one sentence, define positive/negative cases, and agree what “good enough” means (precision, recall, dollar cost of errors).",
+          "If labels are noisy or missing, we fix the data process before training. Models cannot invent ground truth.",
+        ],
+      },
+      {
+        heading: "Features, training, and model families",
+        paragraphs: [
+          "Features come from systems you operate: CRM, ERP exports, web events, support tickets. Leakage checks stay in the plan.",
+          "We often start with strong baselines (logistic regression, gradient-boosted trees) before deep learning. Complexity is earned by lift on a holdout set.",
+          "Generative and embedding models connect here when unstructured text must become features—or when the product is an LLM app (see the GenAI guide).",
+        ],
+      },
+      {
+        heading: "Deployment and ownership",
+        paragraphs: [
+          "A useful ML system includes a scoring API or batch job, logging, a retraining or refresh path, and a human override when stakes are high.",
+          "You own the data contracts and, for custom work, the source. We document assumptions so the next engineer is not guessing.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do we need deep learning?",
+        answer:
+          "Only if simpler models fail the agreed metrics. Many SMB problems are solved with clear features and tree-based or linear models.",
+      },
+      {
+        question: "How does this relate to RAG or agents?",
+        answer:
+          "RAG and agents use LLMs for language workflows. ML systems here target scored decisions on structured (and sometimes text) data. Projects can combine both when the scope says so.",
+      },
+      {
+        question: "What do you need from us to start?",
+        answer:
+          "A decision to improve, historical examples with outcomes, and access to the systems that produce features—plus a person who owns the labels.",
       },
     ],
   },

@@ -4,6 +4,7 @@ declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: GtagFn;
+    __trevykGaLoaded?: boolean;
   }
 }
 
@@ -23,12 +24,6 @@ export function getGaMeasurementId() {
 /** Inject GA4 once (safe to call repeatedly). */
 export function initAnalytics() {
   if (!GA_ID || typeof document === "undefined") return;
-  if (
-    document.getElementById("ga4-gtag") ||
-    document.querySelector('script[src*="googletagmanager.com/gtag/js"]')
-  ) {
-    return;
-  }
 
   window.dataLayer = window.dataLayer || [];
   window.gtag =
@@ -37,6 +32,16 @@ export function initAnalytics() {
       window.dataLayer?.push(args);
     };
 
+  const alreadyInjected =
+    Boolean(window.__trevykGaLoaded) ||
+    Boolean(document.getElementById("ga4-gtag")) ||
+    Boolean(
+      document.querySelector('script[src*="googletagmanager.com/gtag/js"]'),
+    );
+
+  if (alreadyInjected) return;
+
+  window.__trevykGaLoaded = true;
   window.gtag("js", new Date());
   window.gtag("config", GA_ID, {
     send_page_view: false,
@@ -54,7 +59,9 @@ export function trackPageView(pathname: string) {
   if (!isAnalyticsEnabled()) return;
   initAnalytics();
   if (!window.gtag) return;
-  const pagePath = pathname?.startsWith("/") ? pathname : `/${pathname || ""}`.replace(/^\/\//, "/");
+  const pagePath = pathname?.startsWith("/")
+    ? pathname
+    : `/${pathname || ""}`.replace(/^\/\//, "/");
   window.gtag("event", "page_view", {
     page_path: pagePath || "/",
     page_location: window.location.href,

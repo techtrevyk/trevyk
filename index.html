@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Custom Website, Software & Growth | Trevyk Technologies</title>
+    <title>Custom Website, AI Agents, Software & Growth | Trevyk</title>
     <meta
       name="description"
-      content="Trevyk builds custom websites, web applications, and custom software for startups and local businesses, plus SEO, digital marketing, social media, video, and scripts. Starter plans. Noida, India."
+      content="Trevyk (Noida) builds custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businesses—plus SEO and campaigns. Starter plans. Reply in one business day."
     />
     <meta
       name="keywords"
-      content="custom website development, web application development, custom software Noida, affordable website, SEO services, digital marketing, social media management, business growth"
+      content="custom website development Noida, AI agent development India, RAG knowledge assistants, generative AI apps, custom software, SEO services, Trevyk Technologies"
     />
     <meta name="author" content="Trevyk Technologies" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -20,11 +20,11 @@
     <meta property="og:site_name" content="TREVYK Technologies" />
     <meta
       property="og:title"
-      content="Custom Website, Software & Growth | Trevyk Technologies"
+      content="Custom Website, AI Agents, Software & Growth | Trevyk"
     />
     <meta
       property="og:description"
-      content="Custom websites, web applications, custom software, SEO, digital marketing, social media, and video for growing businesses. Noida, India."
+      content="Custom websites, AI agents, RAG, GenAI apps, software, SEO, and campaigns for growing businesses. Noida, India."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.trevyk.in/" />
@@ -35,11 +35,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Custom Website, Software & Growth | Trevyk Technologies"
+      content="Custom Website, AI Agents, Software & Growth | Trevyk"
     />
     <meta
       name="twitter:description"
-      content="Trevyk builds custom websites, web applications, and custom software for startups and local businesses, plus SEO, digital marketing, social media, video, and scripts. Starter plans. Noida, India."
+      content="Trevyk builds custom websites, AI agents, RAG assistants, GenAI apps, and software—plus SEO and campaigns. Starter plans. Noida, India."
     />
     <meta name="twitter:image" content="https://www.trevyk.in/trevyk-logo-on-dark.png" />
 
@@ -330,16 +330,22 @@
     <div id="root">
       <!-- trevyk-static-start -->
       <article class="trevyk-seo-shell">
-        <h1>Custom websites, software, and growth from Trevyk Technologies</h1>
+        <h1>Custom websites, AI systems, and growth from Trevyk Technologies</h1>
         <p>
-          Custom websites, web applications, and custom software for startups
-          and local businesses, plus SEO, digital marketing, social media, and
-          video. Starter plans are scoped to your budget. Based in Noida.
+          Custom websites, web applications, AI agents, RAG assistants,
+          GenAI/LLM apps, and software for startups and local businesses, plus
+          SEO, digital marketing, social media, and video. Starter plans are
+          scoped to your budget. Based in Noida.
         </p>
         <nav aria-label="Site">
           <a href="/what-we-do">What we do</a>
+          <a href="/ai">AI solutions</a>
           <a href="/work/custom-websites">Custom websites</a>
           <a href="/work/web-applications">Web applications</a>
+          <a href="/work/ai-agents">AI agents</a>
+          <a href="/work/rag-knowledge-assistants">RAG assistants</a>
+          <a href="/work/generative-ai-llm-apps">Generative AI &amp; LLMs</a>
+          <a href="/work/ml-data-systems">ML &amp; data systems</a>
           <a href="/work/seo">SEO</a>
           <a href="/work/digital-marketing">Digital marketing</a>
           <a href="/work/social-media">Social media</a>
@@ -385,23 +391,33 @@
         if (window.__trevykGaLoaded) return;
         window.__trevykGaLoaded = true;
         var id = "G-CH828R29RV";
+        window.dataLayer = window.dataLayer || [];
+        window.gtag =
+          window.gtag ||
+          function () {
+            dataLayer.push(arguments);
+          };
+        gtag("js", new Date());
+        gtag("config", id, { anonymize_ip: true, send_page_view: false });
         var s = document.createElement("script");
+        s.id = "ga4-gtag";
         s.async = true;
         s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
-        s.onload = function () {
-          gtag("js", new Date());
-          gtag("config", id, { anonymize_ip: true, send_page_view: false });
-        };
         document.head.appendChild(s);
       }
       ["scroll", "pointerdown"].forEach(function (ev) {
         window.addEventListener(ev, trevykLoadFonts, { once: true, passive: true });
       });
       setTimeout(trevykLoadFonts, 8000);
+      // Load GA soon after first paint so short visits still count (SPA also inits via React).
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(trevykLoadGa, { timeout: 1500 });
+      } else {
+        setTimeout(trevykLoadGa, 800);
+      }
       ["scroll", "pointerdown", "keydown"].forEach(function (ev) {
         window.addEventListener(ev, trevykLoadGa, { once: true, passive: true });
       });
-      setTimeout(trevykLoadGa, 20000);
       if ("requestIdleCallback" in window) {
         requestIdleCallback(function () {
           if (document.getElementById("trevyk-fonts-mono")) return;

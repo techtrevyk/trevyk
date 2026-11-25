@@ -4,3 +4,6 @@ Allow: /
 Sitemap: https://www.trevyk.in/sitemap.xml
 
 # Canonical host is https://www.trevyk.in (apex trevyk.in should 301 here).
+# AI / LLM crawler summary (llmstxt.org style):
+# https://www.trevyk.in/llms.txt
+# https://www.trevyk.in/llms-full.txt

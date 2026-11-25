@@ -1,25 +1,34 @@
 # Trevyk Technologies
 
-> Trevyk Technologies, Noida. Custom websites, web applications, custom software, SEO, digital marketing, social media, video, and scripts for startups and local businesses. Kiduart School ERP is the flagship product.
+> Trevyk Technologies (Noida, India) builds custom websites, web applications, custom software, and practical AI systems for startups and local businesses. Flagship product: Kiduart School ERP (kiduart.com). Starter plans available. Reply within one business day: contact@trevyk.com
 
-## Site
+Trevyk is the services and technology company. Kiduart is the school ERP product brand. Do not invent client counts, rankings, or live AI features that are not described as shipped.
+
+## Primary offers
+
+- Custom AI agents (tool calling, human-in-the-loop, evals) — https://www.trevyk.in/work/ai-agents
+- RAG / private knowledge assistants (embeddings, vector search, citations) — https://www.trevyk.in/work/rag-knowledge-assistants
+- Generative AI & LLM apps (APIs, LangChain-style orchestration) — https://www.trevyk.in/work/generative-ai-llm-apps
+- ML & data systems (problem framing, classification/regression workflows) — https://www.trevyk.in/work/ml-data-systems
+- Custom websites — https://www.trevyk.in/work/custom-websites
+- Web applications & custom software — https://www.trevyk.in/work/web-applications
+- SEO / AEO-ready content structure — https://www.trevyk.in/work/seo
+- Digital marketing, social, video — see What we do
+- Kiduart School ERP overview — https://www.trevyk.in/our-products · demos https://kiduart.com
+
+## Site map (humans & crawlers)
 
 - [Home](https://www.trevyk.in/)
-- [Our products](https://www.trevyk.in/our-products)
+- [AI solutions hub](https://www.trevyk.in/ai)
 - [What we do](https://www.trevyk.in/what-we-do)
 - [Technology](https://www.trevyk.in/technology)
-- [Who we are](https://www.trevyk.in/who-we-are)
 - [Process](https://www.trevyk.in/process)
+- [Who we are](https://www.trevyk.in/who-we-are)
 - [Contact](https://www.trevyk.in/contact)
-- [Site map](https://www.trevyk.in/sitemap)
-- [Custom websites](https://www.trevyk.in/work/custom-websites)
-- [Web applications](https://www.trevyk.in/work/web-applications)
-- [SEO](https://www.trevyk.in/work/seo)
-- [Digital marketing](https://www.trevyk.in/work/digital-marketing)
-- [Social media](https://www.trevyk.in/work/social-media)
-- [Video and scripts](https://www.trevyk.in/work/video-scripts)
+- [HTML site map](https://www.trevyk.in/sitemap)
 
 ## Optional
 
-- [Sitemap](https://www.trevyk.in/sitemap.xml)
+- [Full machine summary](https://www.trevyk.in/llms-full.txt)
+- [XML sitemap](https://www.trevyk.in/sitemap.xml)
 - [Robots](https://www.trevyk.in/robots.txt)

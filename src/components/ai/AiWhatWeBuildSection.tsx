@@ -49,28 +49,28 @@ const BUILD_CARDS = [
     href: "/work/ai-agents",
   },
   {
-    title: "AI Integrations",
+    title: "Generative AI & LLM Apps",
     description:
-      "Connect AI capabilities to CRMs, ERPs, support tools and custom APIs—built around how you already work.",
+      "Production GenAI on LLM APIs—orchestration, embeddings when needed, evals and cost control.",
     bullets: [
-      "API development and integration",
-      "Connect with third-party tools",
-      "Customised for your workflow",
+      "LangChain-style or lean custom pipelines",
+      "Provider APIs with secrets handled properly",
+      "Eval sets and token monitoring",
     ],
     icon: Plug,
-    href: "/contact",
+    href: "/work/generative-ai-llm-apps",
   },
   {
-    title: "Data Analysis & Insights",
+    title: "ML & Data Systems",
     description:
-      "Turn operational data into dashboards, summaries and forecasts your team can act on.",
+      "Problem framing, features from your operations data, and practical scoring models you can run.",
     bullets: [
-      "Data processing and analysis",
-      "Custom dashboards and reports",
-      "Predictive insights",
+      "Classification and regression-style workflows",
+      "Feature pipelines and holdout evaluation",
+      "Human override when stakes are high",
     ],
     icon: BarChart3,
-    href: "/contact",
+    href: "/work/ml-data-systems",
   },
   {
     title: "AI Security & Governance",

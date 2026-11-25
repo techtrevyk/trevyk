@@ -11,36 +11,36 @@ export interface RouteSeo {
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
-    title: "Custom Website, Software & Growth | Trevyk Technologies",
+    title: "Custom Website, AI Agents, Software & Growth | Trevyk",
     description:
-      "Trevyk builds custom websites, web applications, and custom software for startups and local businesses in Noida, plus SEO, digital marketing, social media, video, and scripts. Starter plans. Reply in one business day.",
+      "Trevyk (Noida) builds custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businesses—plus SEO and campaigns. Starter plans. Reply in one business day.",
     crumb: "Home",
     keywords:
-      "custom website development, web application development, custom software Noida, affordable website design, SEO services, digital marketing for startups, social media management, business growth, Trevyk Technologies",
+      "custom website development Noida, AI agent development India, RAG knowledge assistants, generative AI apps, custom software Noida, SEO services, Trevyk Technologies",
   },
   "/what-we-do": {
-    title: "Website, Software, SEO & Marketing Services | Trevyk",
+    title: "Website, AI, Software, SEO & Marketing | Trevyk",
     description:
-      "Custom websites, web apps, custom software, SEO, campaigns, social media management, and video for growing businesses. Starter plans. Noida, India.",
+      "Custom websites, web apps, AI agents, RAG, GenAI/LLM apps, ML systems, SEO, campaigns, social media, and video. Starter plans. Noida, India.",
     crumb: "What we do",
     keywords:
-      "website development services, web application development, custom software, SEO company Noida, digital marketing, social media management, video scripts",
+      "website development services, AI agent development, RAG development India, custom software, SEO company Noida, digital marketing",
   },
   "/ai": {
-    title: "AI Agents, RAG & Automation | Trevyk Technologies",
+    title: "AI Agents, RAG, GenAI & ML | Trevyk Technologies",
     description:
-      "Custom AI agents, RAG knowledge assistants, and practical automation for Indian SMBs and schools. Honest scope: what is live on this site versus what we build to order.",
+      "Custom AI agents, RAG knowledge assistants, generative AI / LLM apps, and ML data systems for Indian SMBs. Honest scope: what is live versus built to order.",
     crumb: "AI",
     keywords:
-      "custom AI agent development India, RAG knowledge assistants, AI automation Noida, AI for schools, Trevyk AI",
+      "custom AI agent development India, RAG knowledge assistants, LangChain developers, generative AI Noida, ML systems, Trevyk AI",
   },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
     description:
-      "How Trevyk designs websites, web apps, and school systems that stay maintainable: modular architecture, documented handoff, and security practices we actually ship.",
+      "How Trevyk designs websites, web apps, AI services, and school systems that stay maintainable: modular architecture, LLM/RAG integration patterns, documented handoff, and security we ship.",
     crumb: "Technology",
     keywords:
-      "software architecture, modular systems, engineering stack, Trevyk",
+      "software architecture, AI engineering stack, RAG architecture, modular systems, Trevyk",
   },
   "/our-products": {
     title: "Kiduart School ERP | TREVYK Technologies",
