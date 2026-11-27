@@ -203,19 +203,23 @@ export const CtaContactSection: React.FC<CtaContactSectionProps> = ({
                 </a>
 
                 <a
-                  href="tel:+919876543210"
+                  href="https://wa.me/918810664797"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 hover:border-[#E8A9C2]/50 hover:bg-[#2A1830] transition-all group interactive-target"
-                  data-cursor-label="CALL"
+                  data-cursor-label="WHATSAPP"
                 >
                   <Phone className="w-4 h-4 text-[#B9A6D1] group-hover:scale-110 transition-transform" />
                   <div className="text-xs sm:text-sm font-mono-accent text-[#F8F6FB]">
-                    +91 (080) 4920-8800 (HQ)
+                    +91 88106 64797 (WhatsApp)
                   </div>
                 </a>
 
                 <div className="flex items-center space-x-3 p-3 rounded-xl bg-[#2A1830]/60 border border-[#6B4A87]/30 text-xs sm:text-sm font-mono-accent text-[#B9A6D1]/80">
                   <MapPin className="w-4 h-4 text-[#6B4A87] shrink-0" />
-                  <span className="truncate">Tech Corridor 4, Indiranagar, Bengaluru, India</span>
+                  <span className="truncate">
+                    HQ: Noida, India · Clients served remotely worldwide
+                  </span>
                 </div>
               </div>
             </div>

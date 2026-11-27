@@ -144,13 +144,17 @@ export function applyRouteSeo(pathname: string) {
     logo: fallbackImage,
     image: image,
     description:
-      "Trevyk Technologies builds custom websites, web applications, and custom software, and supports SEO, digital marketing, social media, and video for growing businesses. Based in Noida, India.",
+      "Trevyk Technologies builds custom websites, web applications, AI systems, and growth work for startups and growing companies. Headquarters in Noida, India; clients served remotely across India and worldwide.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",
       addressRegion: "Uttar Pradesh",
       addressCountry: "IN",
     },
+    areaServed: [
+      { "@type": "Country", name: "India" },
+      { "@type": "Place", name: "Worldwide" },
+    ],
     sameAs: [
       KIDUART_URL,
       "https://www.linkedin.com/company/trevyk-technologies",

@@ -71,9 +71,9 @@ const PROOF_ITEMS = [
   },
   {
     icon: MapPin,
-    label: "Noida, India",
-    detail: "Headquarters & delivery base",
-    href: "/who-we-are",
+    label: "HQ Noida · remote",
+    detail: "Clients across India & worldwide",
+    href: "/work/remote-software-ai-team",
   },
   {
     icon: Clock,

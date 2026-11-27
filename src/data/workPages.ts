@@ -578,6 +578,39 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
   },
+  "remote-software-ai-team": {
+    slug: "remote-software-ai-team",
+    hero: {
+      badge: "Remote worldwide",
+      titleBefore: "Hire a remote ",
+      titleHighlight: "software & AI",
+      titleAfter: " team.",
+      description:
+        "Websites, web apps, agents, RAG, and GenAI—delivered remotely. HQ in Noida; clients across India and worldwide.",
+      primaryCta: { label: "Discuss a project", href: "/contact" },
+      secondaryCta: { label: "AI solutions hub", href: "/ai" },
+      backdropImage: "/images/work/remote-software-ai-team-hero.jpg",
+    },
+    problemApproach: {
+      label: "The problem & our approach",
+      headingBefore: "Capability first, ",
+      headingHighlight: "not geography theatre.",
+      headingAfter: "",
+      body: "Buyers need scoped delivery and clear communication—not a list of cities we do not operate from. We state HQ honestly, then ship remotely with milestones and evals.",
+      approach: APPROACH_DEFAULT,
+    },
+    whatYouGet: {
+      label: "What you get",
+      items: [
+        { title: "Remote kickoff", description: "Video discovery and written scope.", icon: "users" },
+        { title: "Timezone clarity", description: "IST primary; overlap by arrangement.", icon: "settings" },
+        { title: "Honest HQ", description: "Noida entity—no fake foreign offices.", icon: "circleCheck" },
+        { title: "AI or web path", description: "Link into the right build guide.", icon: "layers" },
+        { title: "Source ownership", description: "Custom work you can keep.", icon: "fileText" },
+      ],
+    },
+    howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
+  },
   "website-development-noida": {
     slug: "website-development-noida",
     hero: {
@@ -586,9 +619,9 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "Noida",
       titleAfter: " for local search.",
       description:
-        "Custom website development for Noida and Delhi NCR businesses—SEO-ready pages, starter plans, and a clear path to enquire.",
+        "Custom website development for Noida and Delhi NCR businesses—SEO-ready pages, starter plans, and a clear path to enquire. We also work remotely nationwide and abroad.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "All website work", href: "/work/custom-websites" },
+      secondaryCta: { label: "Remote team guide", href: "/work/remote-software-ai-team" },
       backdropImage: "/images/work/website-development-noida-hero.jpg",
     },
     problemApproach: {

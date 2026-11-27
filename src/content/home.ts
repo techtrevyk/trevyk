@@ -5,7 +5,7 @@ export const site = {
   tagline: "Software house — Remote-first, worldwide",
   email: "info@trevyktechnologies.com",
   phone: "+91 90256 98946",
-  location: "India & United States · Remote worldwide",
+  location: "HQ Noida, India · Remote delivery worldwide",
   copyrightYear: 2026,
 } as const;
 
@@ -33,18 +33,18 @@ export const hero = {
     "Agents, RAG, and LLM apps built to operate",
     "SEO and campaigns you can measure",
   ],
-  subtitle: "Trevyk Technologies, Noida",
+  subtitle: "Trevyk Technologies",
   lead:
     "Product, websites, and AI systems for businesses that want to be found—and keep software that runs their work.",
   description:
-    "Custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businesses—plus SEO, campaigns, social, and video. Starter plans scoped to your budget. Based in Noida.",
+    "Custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and growing companies—plus SEO, campaigns, social, and video. HQ in Noida, India; we deliver remotely across India and worldwide.",
   primaryCta: { label: "Get a starter plan", href: "/contact" },
   secondaryCta: { label: "Explore AI services", href: "/ai" },
   tertiaryCta: { label: "View capabilities", href: "/what-we-do" },
   meta: [
     { label: "Product", value: "Kiduart School ERP" },
     { label: "Engineering", value: "Web, AI, SEO" },
-    { label: "Base", value: "Noida, India" },
+    { label: "Reach", value: "Remote worldwide" },
   ],
 } as const;
 

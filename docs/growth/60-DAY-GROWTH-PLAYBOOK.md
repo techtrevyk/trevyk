@@ -206,12 +206,31 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - Phase 3 agent close-out: schema `sameAs` LinkedIn; publish kits (Dev.to, Kiduart boundary post, directory NAP); playbook marked Phase 3 complete except GBP/optional ongoing.
 - Phase 3 deploy verified live (Organization sameAs includes LinkedIn).
 - Phase 4 started: WhatsApp → `generate_lead`; case-study slot; sitemap lastmod 2026-11-27; GSC sitemap Success with **23** pages; content calendar + conversion QA docs. GA4 Recent events show traffic (`page_view`, `click`, `chat_open`) but not yet `generate_lead` — needs post-deploy QA click/submit.
+- Re-audit GSC/GA: 28d **25 impr / 3 clicks**; countries India-heavy + tiny US/Sudan. Global positioning pass: hero/SEO/footer/E-E-A-T; fake Bengaluru NAP removed; new `/work/remote-software-ai-team`; schema `areaServed` Worldwide.
+
+---
+
+## Audit snapshot (2026-11-27)
+
+| Source | Finding |
+|--------|---------|
+| GSC 28d | **25 impressions · 3 clicks · CTR 12% · avg pos 10.5** (up from ~0–5 impr baseline) |
+| GSC countries | India 21 impr / 3 clicks; US 3 impr / 0; Sudan 1 impr / 0 |
+| GSC Links | External still **0** in report (kiduart/LinkedIn lag) |
+| GA4 | Events fire (`page_view`, `click`, `chat_open`); volume still very low; India-heavy is expected until global pages + links mature |
+| Hard limits | Domain age ~3 months; almost no referring domains; commercial queries not ranking yet — **content alone cannot create global traffic overnight** |
+
+### Positioning fix (this session)
+
+- HQ Noida kept for NAP/local SEO; hero/meta/SEO copy reframed as **remote worldwide**.
+- Removed misleading Bengaluru HQ / fake phone in unused CTA component.
+- New money page: `/work/remote-software-ai-team` (sitemap 24 URLs after deploy).
 
 ---
 
 ## Next actions (agent — do these in order)
 
-1. **You:** Deploy Phase 4 (WhatsApp lead tracking + case-study slot + sitemap lastmod).
-2. **You:** GA4 Realtime QA — WhatsApp click + one test contact; then mark `generate_lead` as Key event.
-3. Follow `CONTENT-CALENDAR-Q1.md` (next: LinkedIn Post B).
-4. Ongoing: directories / Dev.to when free; GBP only with stable address.
+1. **You:** Deploy this global-positioning + remote page build.
+2. **You:** GA4 Realtime QA — WhatsApp + test contact; mark `generate_lead` Key event.
+3. LinkedIn Post B + optional remote-team post (calendar).
+4. Ongoing: directories / Dev.to; GBP only with stable address; weekly link acquisition (still the #1 ranking limiter).

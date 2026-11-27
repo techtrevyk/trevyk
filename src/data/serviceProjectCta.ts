@@ -128,6 +128,16 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "Or explore AI services", href: "/ai" },
   },
+  "remote-software-ai-team": {
+    kicker: "Ready to get started?",
+    headlineBefore: "Need a ",
+    headlineHighlight: "remote team",
+    headlineAfter: "?",
+    description:
+      "Tell us your city or timezone, the problem, and budget band. We'll say whether a website, web app, or AI path fits—and how we collaborate remotely.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "AI solutions hub", href: "/ai" },
+  },
   "website-development-noida": {
     kicker: "Ready to get started?",
     headlineBefore: "Need a ",

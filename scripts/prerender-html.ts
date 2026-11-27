@@ -46,6 +46,7 @@ const NAV: { href: string; label: string }[] = [
   { href: "/work/rag-knowledge-assistants", label: "RAG assistants" },
   { href: "/work/generative-ai-llm-apps", label: "Generative AI & LLMs" },
   { href: "/work/ml-data-systems", label: "ML & data systems" },
+  { href: "/work/remote-software-ai-team", label: "Remote software & AI team" },
   { href: "/work/website-development-noida", label: "Website development Noida" },
   { href: "/work/ai-agent-vs-chatbot", label: "AI agent vs chatbot" },
   { href: "/work/rag-vs-fine-tuning", label: "RAG vs fine-tuning" },
@@ -63,9 +64,9 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "Custom websites, software, AI, and growth from Trevyk Technologies",
     paragraphs: [
       "Product, websites, AI systems, and growth work for businesses that want to be found and then keep the software.",
-      "Trevyk Technologies in Noida builds custom websites, web applications, and custom software for startups, shops, clinics, schools, and service businesses. The same practice scopes AI agents, RAG knowledge assistants, generative AI / LLM apps, and practical ML workflows—plus SEO, digital marketing, social media, video, and scripts. Starter plans fit an early budget.",
-      "Demand in 2026 clusters around agents, retrieval, and LLM apps as much as brochure sites. We lead with honest scope: one workflow, evals, and human gates—not invented client counts.",
-      "Kiduart is the school ERP on kiduart.com. A new website, web app, AI project, or campaign starts at the contact page. Email contact@trevyk.com.",
+      "Trevyk Technologies (HQ Noida, India) builds custom websites, web applications, and custom software for startups and growing companies across India and remotely worldwide. The same practice scopes AI agents, RAG knowledge assistants, generative AI / LLM apps, and practical ML workflows—plus SEO, digital marketing, social media, video, and scripts. Starter plans fit an early budget.",
+      "Demand in 2026 clusters around agents, retrieval, and LLM apps as much as brochure sites. We lead with honest scope: one workflow, evals, and human gates—not invented client counts or fake foreign offices.",
+      "Kiduart is the school ERP on kiduart.com. Hire a remote team via /work/remote-software-ai-team. A new website, web app, AI project, or campaign starts at the contact page. Email contact@trevyk.com.",
     ],
   },
   "/what-we-do": {
@@ -79,12 +80,12 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/ai": {
     h1: "AI that owns a workflow—not a slide deck",
     paragraphs: [
-      "Trevyk builds practical AI for Indian SMBs, startups, and organisations: custom agents, RAG assistants, generative AI / LLM applications, ML scoring systems, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
+      "Trevyk builds practical AI for startups, SMBs, and organisations worldwide: custom agents, RAG assistants, generative AI / LLM applications, ML scoring systems, and automation beside systems you already run. Kiduart remains the school ERP product brand on kiduart.com.",
       "Problems we solve: repeat support and ops work, answers trapped in documents, LLM apps that must stay on budget, and integrations that need a human gate—not unsupervised autonomy over money or student records.",
       "Discovery to deployment: Discover the workflow and roles; Prototype a narrow path with an eval set; Harden permissions, logging, and production credentials; Operate with monitoring, cost alerts, and controlled prompt changes.",
       "Security, evaluation, and monitoring: least-privilege tool access, audit logs, human approval on irreversible actions, evaluation sets for grounding and safe refusals, and monitoring for latency, token spend, and retrieval misses.",
       "Questions buyers ask: What AI services does Trevyk offer? Custom agents, RAG, GenAI/LLM apps, ML systems, and workflow automation—school ERP product needs belong primarily on kiduart.com. Do you sell separate AEO or GEO packages? No—we improve crawlable structure and clear answers as part of honest SEO. How is cost determined? Integrations, corpus size, languages, traffic, evaluation depth, and write-action risk; we quote from scope.",
-      "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, comparison pages /work/ai-agent-vs-chatbot and /work/rag-vs-fine-tuning, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
+      "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, /work/remote-software-ai-team, comparison pages /work/ai-agent-vs-chatbot and /work/rag-vs-fine-tuning, or the school bridge page /work/ai-for-schools. SEO and AI-answer notes live on /work/seo—not as separate acronym products.",
     ],
   },
   "/technology": {
@@ -106,9 +107,9 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/who-we-are": {
     h1: "Who we are — Turning Vision Into Progress",
     paragraphs: [
-      "Trevyk Technologies is a Noida practice for Kiduart, custom websites, web applications, software, AI systems (agents, RAG, GenAI, ML), SEO, campaigns, social pages, and video.",
-      "Our purpose, how we think and work, what defines us, practice facts you can verify (Noida base, Kiduart product, contact path), and the commitments we publish — honest claims, no invented client counts or borrowed geography. Client stories appear only with written consent.",
-      "Turning Vision Into Progress is the standard we use on every engagement: clear problem, measurable delivery, systems that fit real workflows. Contact: contact@trevyk.com · WhatsApp +91 88106 64797 · Noida, India.",
+      "Trevyk Technologies is headquartered in Noida, India, and serves clients across India and remotely worldwide—Kiduart, custom websites, web applications, software, AI systems (agents, RAG, GenAI, ML), SEO, campaigns, social pages, and video.",
+      "Our purpose, how we think and work, what defines us, practice facts you can verify (HQ Noida, remote reach, Kiduart product, contact path), and the commitments we publish — honest claims, no invented client counts or borrowed geography. Client stories appear only with written consent.",
+      "Turning Vision Into Progress is the standard we use on every engagement: clear problem, measurable delivery, systems that fit real workflows. Contact: contact@trevyk.com · WhatsApp +91 88106 64797 · HQ Noida · remote worldwide.",
     ],
   },
   "/our-products": {
@@ -123,7 +124,7 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "Tell us what you need. We reply in one business day",
     paragraphs: [
       "Kiduart demos for schools, or a starter plan for a website, web app, AI agent, RAG assistant, GenAI/LLM app, ML system, SEO, social page, or video. Name the business, the city, and the budget band—we reply within one business day.",
-      "Email contact@trevyk.com. WhatsApp +91 88106 64797. Noida, India. Prefer the form on this page so the request lands with context.",
+      "Email contact@trevyk.com. WhatsApp +91 88106 64797. HQ Noida; remote-friendly worldwide. Prefer the form on this page so city, timezone, and scope land with the request.",
     ],
   },
   "/sitemap": {
@@ -396,6 +397,10 @@ function render(template: string, route: string): string {
           sameAs: [
             KIDUART_URL,
             "https://www.linkedin.com/company/trevyk-technologies",
+          ],
+          areaServed: [
+            { "@type": "Country", name: "India" },
+            { "@type": "Place", name: "Worldwide" },
           ],
         }),
         jsonScript("ld-website", {

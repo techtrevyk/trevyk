@@ -41,6 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
     { label: "AI agent vs chatbot", path: "/work/ai-agent-vs-chatbot" },
     { label: "RAG vs fine-tuning", path: "/work/rag-vs-fine-tuning" },
     { label: "AI for schools", path: "/work/ai-for-schools" },
+    { label: "Remote software & AI team", path: "/work/remote-software-ai-team" },
     { label: "Website development Noida", path: "/work/website-development-noida" },
     { label: "Custom websites", path: "/work/custom-websites" },
     { label: "Web applications", path: "/work/web-applications" },
@@ -105,9 +106,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 {SITE_TAGLINE}
               </p>
               <p className="mt-2.5 text-sm text-[#E7E1F0] leading-relaxed max-w-sm">
-                We build custom websites, web applications, and custom software,
-                then help the business get found with SEO, campaigns, social
-                media, and video. Starter plans. Clear scope. Based in Noida.
+                We build custom websites, web applications, AI systems, and
+                custom software, then help the business get found with SEO,
+                campaigns, social media, and video. HQ in Noida; we work with
+                clients across India and remotely worldwide.
               </p>
               <p className="mt-3 text-xs text-[#B9A6D1] leading-relaxed max-w-sm">
                 Flagship product:{" "}
@@ -235,7 +237,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
           <div className="flex items-center space-x-4 text-center sm:text-left">
             <span>
               © {new Date().getFullYear()} Trevyk Technologies. All rights
-              reserved. Noida, India.
+              reserved. HQ Noida · Remote worldwide.
             </span>
           </div>
 

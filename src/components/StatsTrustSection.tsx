@@ -109,7 +109,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       accent: "#E8A9C2",
     },
     {
-      label: "Noida, India base",
+      label: "Remote worldwide delivery",
       category: "institutions",
       icon: Globe2,
       accent: "#B9A6D1",

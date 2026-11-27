@@ -7,7 +7,8 @@
 |------|----------------|-----------------------------|-------------------|
 | 1 | Done | Post A — agent vs chatbot ✅ | Phase 2 guides live |
 | 2 | ~Dec 1–7 | **Post B** — RAG vs fine-tuning | Light FAQ refresh on `/work/rag-knowledge-assistants` if needed |
-| 3 | ~Dec 8–14 | **Post C** — Noida websites | Confirm `/work/website-development-noida` indexed in GSC |
+| 2b | same week | Optional: remote team post → `/work/remote-software-ai-team` | Push global positioning (HQ Noida ≠ Noida-only) |
+| 3 | ~Dec 8–14 | **Post C** — Noida websites *or* remote hire | Confirm `/work/website-development-noida` + remote page indexed |
 | 4 | ~Dec 15–21 | **Post D** — who-we-are / trust | Publish Dev.to draft (`docs/growth/publish/DEVTO-…`) |
 | 5 | ~Dec 22–28 | Kiduart↔Trevyk boundary post | Optional: internal link pass home → AI hub |
 | 6 | ~Dec 29–Jan 4 | Re-share Post A with one new sentence | Guide refresh: `/work/ai-agents` BLUF + FAQ |

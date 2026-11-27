@@ -1,16 +1,17 @@
 # Trevyk Technologies
 
-> Trevyk Technologies (Noida, India) builds custom websites, web applications, custom software, and practical AI systems for startups and local businesses. Flagship product: Kiduart School ERP (kiduart.com). Starter plans available. Reply within one business day: contact@trevyk.com
+> Trevyk Technologies (HQ Noida, India) builds custom websites, web applications, custom software, and practical AI systems for startups and growing companies across India and remotely worldwide. Flagship product: Kiduart School ERP (kiduart.com). Starter plans available. Reply within one business day: contact@trevyk.com
 
-Trevyk is the services and technology company. Kiduart is the school ERP product brand. Do not invent client counts, rankings, or live AI features that are not described as shipped.
+Trevyk is the services and technology company. Kiduart is the school ERP product brand. Do not invent client counts, rankings, foreign offices, or live AI features that are not described as shipped. Noida is headquarters—not a claim that clients must be local.
 
 ## Primary offers
 
+- Hire a remote software & AI team — https://www.trevyk.in/work/remote-software-ai-team
 - Custom AI agents (tool calling, human-in-the-loop, evals) — https://www.trevyk.in/work/ai-agents
 - RAG / private knowledge assistants (embeddings, vector search, citations) — https://www.trevyk.in/work/rag-knowledge-assistants
 - Generative AI & LLM apps (APIs, LangChain-style orchestration) — https://www.trevyk.in/work/generative-ai-llm-apps
 - ML & data systems (problem framing, classification/regression workflows) — https://www.trevyk.in/work/ml-data-systems
-- Website development (Noida / NCR) — https://www.trevyk.in/work/website-development-noida
+- Website development (Noida / NCR local intent) — https://www.trevyk.in/work/website-development-noida
 - Custom websites — https://www.trevyk.in/work/custom-websites
 - Web applications & custom software — https://www.trevyk.in/work/web-applications
 - AI agent vs chatbot (decision guide) — https://www.trevyk.in/work/ai-agent-vs-chatbot

@@ -358,9 +358,9 @@ const DIRECT_CHANNELS = [
   },
   {
     icon: MapPin,
-    title: "Our location",
+    title: "HQ & reach",
     href: "https://maps.google.com/?q=Noida,+Uttar+Pradesh",
-    lines: ["Noida, Uttar Pradesh"],
+    lines: ["HQ: Noida, Uttar Pradesh", "Clients: India + remote worldwide"],
     external: true,
   },
 ] as const;

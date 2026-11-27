@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({
             >
               Custom websites, software, and growth
               <span className="block text-lg sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
-                Trevyk Technologies, Noida
+                Trevyk Technologies
               </span>
             </motion.h1>
 
@@ -134,10 +134,9 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.24, ease }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              Custom websites, web applications, and custom software for
-              startups and local businesses, plus SEO, campaigns, social media,
-              and video. Starter plans are scoped to your budget. Based in
-              Noida.
+              Custom websites, web apps, AI systems, and growth work for startups
+              and growing companies—across India and remotely worldwide. HQ in
+              Noida; delivery is not limited to one city.
             </motion.p>
 
             <motion.div
@@ -201,10 +200,10 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
               <div>
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
-                  Base
+                  Reach
                 </div>
                 <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
-                  Noida, India
+                  Remote worldwide
                 </div>
               </div>
             </motion.div>

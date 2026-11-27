@@ -11,12 +11,12 @@ import { soundEngine } from "../../utils/audioEngine";
 
 const PRACTICE_FACTS = [
   {
-    title: "Based in Noida",
+    title: "HQ in Noida — reach worldwide",
     description:
-      "Trevyk Technologies operates from Noida, Uttar Pradesh, and serves clients across Delhi NCR and remotely across India. Local website intent is covered on our Noida development guide.",
+      "Our practice is headquartered in Noida, India. We work with clients across North and South India and remotely worldwide—timezone-aware delivery, not “only Noida projects.” Local website searches still have a dedicated Noida guide.",
     icon: MapPin,
-    href: "/work/website-development-noida",
-    cta: "Noida website guide",
+    href: "/work/remote-software-ai-team",
+    cta: "Remote team guide",
   },
   {
     title: "Product we ship: Kiduart",

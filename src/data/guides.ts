@@ -228,9 +228,9 @@ export const GUIDES: Guide[] = [
     slug: "ai-agents",
     title: "Custom AI agent development for business workflows",
     description:
-      "Scoped AI agents that call your tools, follow role rules, and escalate to humans—built for SMBs and product teams in India, not vapour demos.",
+      "Scoped AI agents that call your tools, follow role rules, and escalate to humans—for startups and product teams worldwide, not vapour demos.",
     keywords:
-      "custom AI agent development India, business AI agents, LLM workflow automation, Gemini agents, human-in-the-loop AI",
+      "custom AI agent development, business AI agents, LLM workflow automation, Gemini agents, human-in-the-loop AI, hire AI agent developers",
     kicker: "AI agents",
     image: "/images/ai-agents-workflow.jpg",
     alt: "Painterly diagram of an AI agent workflow with tool steps and an approval checkpoint",
@@ -238,7 +238,7 @@ export const GUIDES: Guide[] = [
     related: [
       "ai-agent-vs-chatbot",
       "rag-knowledge-assistants",
-      "web-applications",
+      "remote-software-ai-team",
       "seo",
     ],
     paragraphs: [
@@ -324,7 +324,7 @@ export const GUIDES: Guide[] = [
     description:
       "Retrieval-augmented generation over your documents and systems so answers cite your sources instead of inventing them.",
     keywords:
-      "RAG development India, private knowledge assistant, enterprise document AI, LLM retrieval, grounded answers",
+      "RAG development, private knowledge assistant, enterprise document AI, LLM retrieval, grounded answers, remote RAG team",
     kicker: "RAG",
     image: "/images/ai-rag-knowledge.jpg",
     alt: "Painterly illustration of documents being retrieved into a grounded answer with citation marks",
@@ -470,9 +470,9 @@ export const GUIDES: Guide[] = [
     slug: "generative-ai-llm-apps",
     title: "Generative AI and LLM application development",
     description:
-      "Production GenAI apps on LLM APIs: orchestration, embeddings, tool calling, evals, and cost control for Indian SMBs—not slide-deck demos.",
+      "Production GenAI apps on LLM APIs: orchestration, embeddings, tool calling, evals, and cost control for product teams worldwide—not slide-deck demos.",
     keywords:
-      "generative AI development India, LLM application development, LangChain LangGraph developers, OpenAI Gemini API integration, embedding vector search",
+      "generative AI development, LLM application development, LangChain LangGraph developers, OpenAI Gemini API integration, embedding vector search, remote GenAI team",
     kicker: "Generative AI",
     image: "/images/ai-hub-systems.jpg",
     alt: "Painterly diagram of connected AI systems and workflow nodes",
@@ -827,6 +827,82 @@ export const GUIDES: Guide[] = [
         question: "Where should I start?",
         answer:
           "Start with the RAG guide if answers must come from your documents. Start with GenAI apps if you need a product UI around generation. Contact us with corpus size and the decisions the system must never take alone.",
+      },
+    ],
+  },
+  {
+    slug: "remote-software-ai-team",
+    title: "Hire a remote software & AI team — websites, agents, RAG, GenAI",
+    description:
+      "Work with Trevyk remotely from anywhere: custom websites, web apps, AI agents, RAG, and GenAI/LLM apps. HQ in Noida, India; delivery across India and worldwide.",
+    keywords:
+      "hire remote software developers, remote AI development team, outsource AI agent development, remote RAG developers, custom software remote team, offshore GenAI development",
+    kicker: "Remote",
+    image: "/images/ai-agents-workflow.jpg",
+    alt: "Painterly diagram of connected AI and software workflows spanning regions",
+    caption: "Timezone-aware delivery. HQ in Noida—not a single-city lock-in.",
+    related: [
+      "ai-agents",
+      "rag-knowledge-assistants",
+      "generative-ai-llm-apps",
+      "custom-websites",
+    ],
+    paragraphs: [
+      "If you searched for a remote software or AI team, you need clear scope, English-ready communication, and a partner who will not pretend to have offices they do not have. Trevyk’s headquarters is in Noida, India. Delivery is remote: North India, South India, and clients abroad on overlapping hours.",
+      "We build custom websites, web applications, AI agents, RAG knowledge assistants, GenAI/LLM apps, and practical ML workflows—plus SEO and growth when the product needs to be found. Starter plans exist so early budgets still get a real first release.",
+      "Local Noida website searches still have a dedicated page. This page is for founders and ops leads who want to hire capability, not geography theatre.",
+    ],
+    points: [
+      "Remote-friendly discovery, demos, and handoff",
+      "One workflow or one site in v1—honest scope",
+      "Source ownership on custom engineering",
+      "Reply within one business day (working days)",
+    ],
+    sections: [
+      {
+        heading: "Who this is for",
+        paragraphs: [
+          "Startups and SMBs that need a website, web app, or AI system without hiring a full in-house team yet.",
+          "Product and ops leads outside NCR who still want a named engineering practice—not a marketplace bid war.",
+          "International teams that want IST-overlapping hours, clear English scopes, and no invented “global office” claims.",
+        ],
+      },
+      {
+        heading: "How remote delivery works",
+        paragraphs: [
+          "Kickoff on video. Scope written before build. Incremental demos. Production credentials only after an evaluation set on AI work.",
+          "We keep HQ facts honest: Noida address entity for trust and local SEO; service area is India + remote worldwide.",
+          "WhatsApp and email remain the fast paths: contact@trevyk.com · +91 88106 64797.",
+        ],
+      },
+      {
+        heading: "What we will not claim",
+        paragraphs: [
+          "We do not invent client countries, office cities, or headcount. If a city page exists (Noida websites), it is for search intent—not a claim that we only work there.",
+          "Kiduart school ERP remains an India school product brand on kiduart.com; custom AI and websites for other markets sit on trevyk.in.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you only take Noida clients?",
+        answer:
+          "No. Noida is our headquarters. We work remotely with clients across India and internationally when timezone and scope fit.",
+      },
+      {
+        question: "What time zone do you work in?",
+        answer:
+          "Primary hours are India Standard Time (IST), with overlap windows for Europe and parts of the US by arrangement. We write milestones so async progress is clear.",
+      },
+      {
+        question: "Can you build AI agents or RAG for a non-India company?",
+        answer:
+          "Yes, when the corpus, tools, and compliance expectations are clear. We scope permissions, evals, and human gates the same way regardless of country.",
+      },
+      {
+        question: "Where do I start?",
+        answer:
+          "Use the contact form with your city/timezone, the problem, and budget band. Or open the AI agents / RAG / GenAI guides if you already know the pattern.",
       },
     ],
   },
