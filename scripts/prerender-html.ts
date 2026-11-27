@@ -387,6 +387,16 @@ function render(template: string, route: string): string {
           logo: absoluteUrl("/trevyk-logo.png"),
           email: "contact@trevyk.com",
           description: getRouteSeo("/").description,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Noida",
+            addressRegion: "Uttar Pradesh",
+            addressCountry: "IN",
+          },
+          sameAs: [
+            KIDUART_URL,
+            "https://www.linkedin.com/company/trevyk-technologies",
+          ],
         }),
         jsonScript("ld-website", {
           "@context": "https://schema.org",

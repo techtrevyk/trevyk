@@ -151,7 +151,10 @@ export function applyRouteSeo(pathname: string) {
       addressRegion: "Uttar Pradesh",
       addressCountry: "IN",
     },
-    sameAs: [KIDUART_URL],
+    sameAs: [
+      KIDUART_URL,
+      "https://www.linkedin.com/company/trevyk-technologies",
+    ],
     contactPoint: [
       {
         "@type": "ContactPoint",

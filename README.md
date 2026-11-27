@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Trevyk Technologies (trevyk.in)
 
-# Run and deploy your AI Studio app
+Public marketing site for **Trevyk Technologies** — custom websites, web applications, practical AI (agents, RAG, GenAI/LLM apps, ML), SEO, and growth services from Noida, India. Flagship product: [Kiduart School ERP](https://kiduart.com).
 
-This contains everything you need to run your app locally.
+- **Live site:** https://www.trevyk.in  
+- **Contact:** contact@trevyk.com · WhatsApp +91 88106 64797  
+- **LinkedIn:** https://www.linkedin.com/company/trevyk-technologies  
+- **Growth playbook:** [docs/growth/60-DAY-GROWTH-PLAYBOOK.md](docs/growth/60-DAY-GROWTH-PLAYBOOK.md)
 
-View your app in AI Studio: https://ai.studio/apps/998de58f-c819-4880-800b-a40ee65c715b
+## Run locally
 
-## Run Locally
+**Prerequisites:** Node.js
 
-**Prerequisites:**  Node.js
+1. `npm install`
+2. Copy env as needed (see `.env.example` if present). For Gemini-backed chat features, set `GEMINI_API_KEY` in `.env.local`.
+3. `npm run dev`
 
+## Build
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run build
+```
+
+Prerender shells for crawlable SEO run as part of the production build.

@@ -250,7 +250,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
               <Github className="w-4 h-4" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/trevyk-technologies"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Trevyk LinkedIn"

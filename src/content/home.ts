@@ -258,7 +258,7 @@ export const footer = {
     ],
   },
   social: [
-    { label: "LinkedIn", href: "https://www.linkedin.com" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/trevyk-technologies" },
     { label: "Email", href: "mailto:info@trevyktechnologies.com" },
   ],
 } as const;
