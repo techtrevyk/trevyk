@@ -194,17 +194,33 @@ export const workSection = {
   ],
 } as const;
 
-/** Honest empty proof block — no fabricated quotes or borrowed geography. */
+/**
+ * Honest empty proof / case-study slot.
+ * Fill `stories` only when written consent is on file — never invent quotes.
+ */
+export type ClientStorySlot = {
+  organization: string;
+  city: string;
+  personRole: string;
+  shipped: string;
+  outcome: string;
+  consentOnFile: true;
+};
+
 export const testimonialsSection = {
   label: "Proof before polish",
   title: "Client stories will sit here when they are real",
   subtitle:
     "We publish only reviews a real school or client has approved in writing. Until then this space stays empty — honesty over borrowed credibility.",
+  /** Case-study slots — keep empty until consent; max a few live stories. */
+  stories: [] as ClientStorySlot[],
   commitments: [
     "No invented names, countries, or star ratings written about ourselves.",
     "No stock photos posing as campuses or clients.",
     "When a story ships, it names the organisation, city, role, and outcome with consent on file.",
   ],
+  slotTemplate:
+    "School or company · City · Person and role · What we shipped · Measured outcome · Written consent on file.",
   cta: { label: "Talk about a project →", href: "/contact" },
 } as const;
 

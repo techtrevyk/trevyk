@@ -91,6 +91,15 @@ export function trackDemoSubmit() {
   });
 }
 
+/** WhatsApp CTA as a lead intent (floating button / contact card). */
+export function trackWhatsAppLead(url: string, placement: string) {
+  trackEvent("generate_lead", {
+    method: "whatsapp",
+    lane: placement,
+  });
+  trackOutbound(url, placement);
+}
+
 export function trackChatOpen(roleId?: string) {
   trackEvent("chat_open", {
     role_id: roleId || "default",

@@ -125,12 +125,16 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - [ ] **Ongoing (not blocking Phase 4):** submit 1–2 free directories from NAP pack; publish Dev.to draft when ready
 - [ ] Optional later: Google Ads experiment (budget capped); Clutch after real reviews
 
-### Phase 4 — Conversion & compounding (Days 30–60)
+### Phase 4 — Conversion & compounding (Days 30–60) — IN PROGRESS
 
-- [ ] Contact form + WhatsApp event QA in GA4 Realtime
-- [ ] Case study slot (only with written consent) — replace empty proof when ready
-- [ ] Refresh sitemap lastmod via build; re-submit in GSC
-- [ ] Quarterly content calendar (1 AI guide refresh / week)
+- [x] Code: `generate_lead` on contact form + WhatsApp CTAs (`trackWhatsAppLead`) — **deploy required**
+- [x] Case-study slot wired (`testimonialsSection.stories` + `#case-study-slot`); empty until written consent
+- [x] Sitemap `lastmod` → 2026-11-27; GSC resubmit Success (**23** discovered pages)
+- [x] Content calendar: `docs/growth/CONTENT-CALENDAR-Q1.md`
+- [x] Conversion QA doc: `docs/growth/PHASE-4-CONVERSION-QA.md`
+- [ ] **You:** Deploy Phase 4 code (WhatsApp lead + case-study slot + sitemap lastmod)
+- [ ] **You:** After deploy — Realtime QA (WhatsApp click + one test contact); mark `generate_lead` as Key event
+- [ ] Fill first case study only with written consent
 
 ---
 
@@ -200,12 +204,14 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - GBP deferred by owner (no permanent address) — correct call; do not fake a storefront.
 - GSC Links still **0 external** (expected lag); internal links 195. CWV: not enough mobile data yet.
 - Phase 3 agent close-out: schema `sameAs` LinkedIn; publish kits (Dev.to, Kiduart boundary post, directory NAP); playbook marked Phase 3 complete except GBP/optional ongoing.
+- Phase 3 deploy verified live (Organization sameAs includes LinkedIn).
+- Phase 4 started: WhatsApp → `generate_lead`; case-study slot; sitemap lastmod 2026-11-27; GSC sitemap Success with **23** pages; content calendar + conversion QA docs. GA4 Recent events show traffic (`page_view`, `click`, `chat_open`) but not yet `generate_lead` — needs post-deploy QA click/submit.
 
 ---
 
 ## Next actions (agent — do these in order)
 
-1. **You:** Deploy remaining local site fixes (LinkedIn footer/home URL + README + Organization sameAs) to Vercel.
-2. Start **Phase 4**: contact/`generate_lead` GA4 QA, case-study slot rules, content calendar.
-3. **Ongoing (not blocking):** weekly LinkedIn Post B → C → D; optional Justdial/Sulekha from NAP pack; Dev.to publish when ready.
-4. GBP only when a stable verifiable address exists.
+1. **You:** Deploy Phase 4 (WhatsApp lead tracking + case-study slot + sitemap lastmod).
+2. **You:** GA4 Realtime QA — WhatsApp click + one test contact; then mark `generate_lead` as Key event.
+3. Follow `CONTENT-CALENDAR-Q1.md` (next: LinkedIn Post B).
+4. Ongoing: directories / Dev.to when free; GBP only with stable address.

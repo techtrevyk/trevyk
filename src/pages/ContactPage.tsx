@@ -18,7 +18,7 @@ import { SiteSettings } from "../types";
 import { contactHeroBackdrop } from "../config/media";
 import { whatsappContact } from "../content/home";
 import { soundEngine } from "../utils/audioEngine";
-import { trackContactSubmit } from "../utils/analytics";
+import { trackContactSubmit, trackWhatsAppLead } from "../utils/analytics";
 import { buildWhatsAppChatUrl } from "../utils/whatsappChat";
 
 interface ContactPageProps {
@@ -417,6 +417,7 @@ function DirectChannelItem({
   align?: "start" | "end";
 }) {
   const isEnd = align === "end";
+  const isWhatsApp = href.includes("wa.me") || href.includes("whatsapp");
 
   return (
     <li
@@ -427,6 +428,9 @@ function DirectChannelItem({
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
         className="group block w-fit max-w-full"
+        onClick={() => {
+          if (isWhatsApp) trackWhatsAppLead(href, "contact_whatsapp_card");
+        }}
       >
         <div
           className={`flex items-center gap-2.5 ${isEnd ? "justify-end" : ""}`}

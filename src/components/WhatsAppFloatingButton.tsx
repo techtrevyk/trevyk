@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { soundEngine } from "../utils/audioEngine";
-import { trackOutbound } from "../utils/analytics";
+import { trackWhatsAppLead } from "../utils/analytics";
 import { buildWhatsAppChatUrl } from "../utils/whatsappChat";
 import { whatsappContact } from "../content/home";
 
@@ -33,7 +33,7 @@ export function WhatsAppFloatingButton() {
         rel="noopener noreferrer"
         onClick={() => {
           soundEngine.playClick("soft");
-          trackOutbound(href, "whatsapp_floating");
+          trackWhatsAppLead(href, "whatsapp_floating");
         }}
         aria-label={`Chat on WhatsApp — ${whatsappContact.displayNumber}`}
         className="group relative flex items-center gap-3 rounded-full border border-[#25D366]/45 bg-gradient-to-r from-[#128C7E] to-[#25D366] px-4 py-3.5 text-left shadow-[0_0_24px_rgba(37,211,102,0.35)] transition-all hover:scale-105 hover:border-[#25D366] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] active:scale-95 interactive-target sm:px-5"
