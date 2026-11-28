@@ -109,9 +109,9 @@ export function WhatDefinesTrevykSection() {
       </h2>
 
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-        We bring together product thinking, engineering discipline, and
-        long-term partnership — so schools and businesses get software that grows
-        with them, not just software that ships.
+        We bring product thinking, engineering discipline, and a growth mindset—
+        so schools and businesses get found, convert enquiries, and run on
+        systems that keep up, not just software that ships once.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-4 lg:gap-5">

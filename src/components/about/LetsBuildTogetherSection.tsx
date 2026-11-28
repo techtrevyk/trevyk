@@ -14,19 +14,19 @@ const AUDIENCE_ITEMS = [
   {
     title: "For Schools",
     description:
-      "Discuss how KIDUART can support your institution's needs.",
+      "Kiduart for operations—and Trevyk when you need growth beside it.",
     icon: School,
   },
   {
     title: "For Businesses",
     description:
-      "Explore custom websites, web applications, and software solutions.",
+      "Clinics, realty, services, startups—enquiries, systems, and AI that fit.",
     icon: Building2,
   },
   {
     title: "For Growth",
     description:
-      "Talk about digital presence and long-term growth opportunities.",
+      "Stuck on leads or ops? We map a clear next step, not a buzzword deck.",
     icon: BarChart3,
   },
 ] as const;
@@ -68,16 +68,15 @@ export function LetsBuildTogetherSection() {
             id="lets-build-heading"
             className="mt-3 font-heading text-[clamp(1.85rem,4.5vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-[#F8F6FB]"
           >
-            Your goals.{" "}
+            Your business.{" "}
             <span className="bg-gradient-to-r from-[#E8A9C2] via-[#F0B8CE] to-[#B9A6D1] bg-clip-text text-transparent">
-              Our expertise.
+              Our job is growth.
             </span>
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-            Whether you&apos;re a school looking for a smarter way to manage
-            operations, a business planning a custom solution, or an
-            organization exploring digital growth, we&apos;d love to understand
+            Whether you need more serious enquiries, cleaner day-to-day systems,
+            or practical AI beside the work you already do, we&apos;d love to understand
             your goals and see how we can help.
           </p>
 

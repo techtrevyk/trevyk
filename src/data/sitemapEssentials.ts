@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Brain,
+  Briefcase,
   Cpu,
   GitMerge,
   Home,
@@ -35,6 +36,12 @@ export const SITEMAP_ESSENTIALS: SitemapEssentialPage[] = [
     label: "AI solutions",
     description: "Agents, RAG, and practical automation—honest about what is live.",
     icon: Brain,
+  },
+  {
+    path: "/portfolio",
+    label: "Our work",
+    description: "Three verified projects with clear live / in-build / client status.",
+    icon: Briefcase,
   },
   {
     path: "/technology",

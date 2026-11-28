@@ -67,10 +67,14 @@ export const WHAT_WE_DO_PATH = "/what-we-do" as const;
 /** Products overview (legacy `/kiduart` redirects here). */
 export const OUR_PRODUCTS_PATH = "/our-products" as const;
 
+/** Approved work showcase (audit P0 — three projects only). */
+export const PORTFOLIO_PATH = "/portfolio" as const;
+
 export const SITE_ROUTES = [
   "/",
   WHAT_WE_DO_PATH,
   "/ai",
+  PORTFOLIO_PATH,
   "/technology",
   OUR_PRODUCTS_PATH,
   "/process",

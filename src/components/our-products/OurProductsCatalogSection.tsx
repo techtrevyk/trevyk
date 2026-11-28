@@ -428,6 +428,15 @@ export function OurProductsCatalogSection() {
             organisations — designed to solve real-world problems and add
             long-term value.
           </p>
+          <p className="mt-3">
+            <Link
+              to="/portfolio"
+              onClick={() => soundEngine.playClick("soft")}
+              className="font-heading text-sm font-semibold text-[#E8A9C2] underline-offset-4 transition hover:text-[#F8F6FB] hover:underline"
+            >
+              See our work portfolio →
+            </Link>
+          </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 lg:grid-cols-3 lg:gap-6">

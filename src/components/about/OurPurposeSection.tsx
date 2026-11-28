@@ -320,12 +320,11 @@ export function OurPurposeSection() {
           </h2>
 
           <p className="mt-6 max-w-5xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px] sm:leading-relaxed">
-            We exist to help schools and growing businesses turn their ideas
-            into practical, reliable digital solutions. Whether it&apos;s a
-            school managing its day-to-day operations or a business building
-            something new, our focus is the same — thoughtful engineering,
-            honest communication, and technology that actually creates real
-            value.
+            We exist so a real business—school, clinic, realtor, shop, or
+            startup—can grow with technology that fits how they already work.
+            Getting found, answering enquiries, running the day, and using AI
+            without theatre. Thoughtful engineering. Honest talk. Tools that
+            create value you can see.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">

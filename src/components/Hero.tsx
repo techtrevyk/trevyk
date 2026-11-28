@@ -112,9 +112,9 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.7, delay: copyDelay + 0.08, ease }}
               className="font-heading font-bold text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F6FB] tracking-tight leading-[1.05] break-words max-w-full"
             >
-              Custom websites, software, and growth
+              Technology built around your business
               <span className="block text-lg sm:text-2xl lg:text-3xl font-semibold mt-2 text-[#B9A6D1] tracking-normal">
-                Trevyk Technologies
+                so you can grow with confidence.
               </span>
             </motion.h1>
 
@@ -124,8 +124,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.16, ease }}
               className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
-              Product, websites, and growth systems for businesses that
-              want to be found and then keep the software.
+              Software, websites, AI, and digital growth—tailored to how you
+              operate, not a one-size stack.
             </motion.p>
 
             <motion.p
@@ -134,9 +134,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.24, ease }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              Custom websites, web apps, AI systems, and growth work for startups
-              and growing companies—across India and remotely worldwide. HQ in
-              Noida; delivery is not limited to one city.
+              From the first page people land on, to the systems behind enquiries
+              and day-to-day work—including practical AI when it helps.
             </motion.p>
 
             <motion.div
@@ -155,24 +154,24 @@ export const Hero: React.FC<HeroProps> = ({
                 cursorLabel="ENGAGE"
                 reducedMotion={settings.reducedMotion}
               >
-                <span>Get a starter plan</span>
+                <span>Discuss your project</span>
                 <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
               </MagneticButton>
 
               <Link
-                to="/our-products"
+                to="/portfolio"
                 onClick={() => soundEngine.playClick("soft")}
                 className="inline-flex items-center space-x-2 px-5 py-3 rounded-full text-xs sm:text-sm font-heading font-semibold text-[#F8F6FB] bg-[#1E1024] border border-[#B9A6D1]/50 hover:border-[#E8A9C2]/75 transition-all interactive-target"
               >
-                <span>Explore Kiduart</span>
+                <span>Explore our work</span>
               </Link>
 
               <Link
-                to="/what-we-do"
+                to="/our-products"
                 onClick={() => soundEngine.playClick("soft")}
                 className="inline-flex items-center text-xs font-mono-accent text-[#B9A6D1] hover:text-[#E8A9C2] transition-colors px-2 py-2"
               >
-                View capabilities →
+                Kiduart product →
               </Link>
             </motion.div>
 
@@ -184,26 +183,26 @@ export const Hero: React.FC<HeroProps> = ({
             >
               <div>
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
-                  Product
+                  Focus
                 </div>
                 <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
-                  Kiduart School ERP
+                  Your business
                 </div>
               </div>
               <div>
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
-                  Engineering
+                  Build
                 </div>
                 <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
-                  Websites, apps, SEO
+                  Software · AI · growth
                 </div>
               </div>
               <div>
                 <div className="font-mono-accent text-[10px] uppercase tracking-wider text-[#E8A9C2] mb-1">
-                  Reach
+                  Delivery
                 </div>
                 <div className="text-xs sm:text-sm text-[#F8F6FB] font-medium">
-                  Remote worldwide
+                  Remote-ready
                 </div>
               </div>
             </motion.div>

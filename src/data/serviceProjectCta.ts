@@ -12,8 +12,8 @@ export type ServiceProjectCtaContent = {
 };
 
 const DEFAULT_SECONDARY = {
-  label: "Or explore other services",
-  href: "/what-we-do#our-services",
+  label: "See our work",
+  href: "/portfolio",
 } as const;
 
 /** Per `/work/:slug` — add new guides here when pages ship. */

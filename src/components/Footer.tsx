@@ -56,6 +56,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
 
   const navCompany = [
     { label: "Who we are", path: "/who-we-are" },
+    { label: "Our work", path: "/portfolio" },
     { label: "5-Stage Engineering Process", path: "/process" },
     { label: "IT Services Overview", path: "/what-we-do" },
     { label: "System Architecture", path: "/technology" },
@@ -106,10 +107,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 {SITE_TAGLINE}
               </p>
               <p className="mt-2.5 text-sm text-[#E7E1F0] leading-relaxed max-w-sm">
-                We build custom websites, web applications, AI systems, and
-                custom software, then help the business get found with SEO,
-                campaigns, social media, and video. HQ in Noida; we work with
-                clients across India and remotely worldwide.
+                Technology built around your business—software, websites, AI,
+                and digital growth. HQ in Noida; clients across India and
+                remotely worldwide.
               </p>
               <p className="mt-3 text-xs text-[#B9A6D1] leading-relaxed max-w-sm">
                 Flagship product:{" "}

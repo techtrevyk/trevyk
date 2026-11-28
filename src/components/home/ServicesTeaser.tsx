@@ -69,9 +69,9 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               Websites, software, and the work that brings customers in.
             </h2>
             <p className="mt-4 text-[#B9A6D1] text-sm sm:text-base leading-relaxed">
-              Custom website development, web applications, SEO, campaigns,
-              social media, and video. Plus Kiduart for schools. Starter plans
-              for businesses that are still early.
+              Custom websites, web apps, SEO, campaigns, social, and video—plus
+              practical AI when it fits. Starter scopes for early budgets;
+              Kiduart if you need a school ERP product.
             </p>
 
             <ul className="mt-6 space-y-2.5 w-full">

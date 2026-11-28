@@ -3,6 +3,7 @@ const PREFETCH: Record<string, () => Promise<unknown>> = {
   "/": () => import("../pages/HomePage"),
   "/what-we-do": () => import("../pages/ServicesPage"),
   "/ai": () => import("../pages/AiPage"),
+  "/portfolio": () => import("../pages/PortfolioPage"),
   "/technology": () => import("../pages/TechnologyPage"),
   "/our-products": () => import("../pages/KiduartPage"),
   "/process": () => import("../pages/ProcessPage"),

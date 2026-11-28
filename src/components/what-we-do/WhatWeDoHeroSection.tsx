@@ -16,48 +16,48 @@ import { soundEngine } from "../../utils/audioEngine";
 /** Spread around the laptop — top / mid / bottom on each side (xl+). */
 const FLOATING_OFFERS = [
   {
-    title: "Web Development",
-    description: "Modern, responsive business websites",
+    title: "Get found",
+    description: "Sites and SEO that match how buyers search",
     icon: Globe,
     className: "left-[2%] top-[6%] xl:left-[4%] xl:top-[5%]",
   },
   {
-    title: "Custom Software",
-    description: "Tailored software solutions",
+    title: "Convert enquiries",
+    description: "Clear offers, forms, and follow-up paths",
     icon: Code2,
     className: "left-0 top-[40%] -translate-x-[4%] xl:left-[1%] xl:translate-x-0",
   },
   {
-    title: "Web Applications",
-    description: "Scalable web applications for real business needs",
+    title: "Run the day",
+    description: "Apps and software for real workflows",
     icon: LayoutGrid,
     className: "left-[3%] top-[72%] xl:left-[5%] xl:top-[70%]",
   },
   {
-    title: "UI/UX & Design",
-    description: "User-friendly and modern designs",
+    title: "Campaigns & content",
+    description: "Ads, social, and scripts sized to budget",
     icon: PenLine,
     className: "right-0 top-[6%] translate-x-[6%] xl:top-[5%] xl:translate-x-[10%]",
   },
   {
-    title: "AI & Automation",
-    description: "Smarter workflows with AI",
+    title: "AI that works",
+    description: "Agents, RAG, GenAI—when the job needs them",
     icon: Bot,
     className: "right-0 top-[40%] translate-x-[8%] xl:translate-x-[12%]",
   },
   {
-    title: "Digital Growth",
-    description: "SEO, digital marketing & online presence",
+    title: "Growth together",
+    description: "One plan across presence, leads, and systems",
     icon: BarChart3,
     className: "right-0 top-[72%] translate-x-[5%] xl:top-[70%] xl:translate-x-[10%]",
   },
 ] as const;
 
 const HIGHLIGHTS = [
-  { icon: Box, line1: "Built for", line2: "your needs" },
-  { icon: Users, line1: "For schools,", line2: "businesses & more" },
-  { icon: Settings2, line1: "Practical and", line2: "scalable" },
-  { icon: BarChart3, line1: "Focused on", line2: "real results" },
+  { icon: Box, line1: "Built around", line2: "your business" },
+  { icon: Users, line1: "Built for", line2: "real businesses" },
+  { icon: Settings2, line1: "Modern tech", line2: "with clear scope" },
+  { icon: BarChart3, line1: "Aimed at", line2: "growth & clarity" },
 ] as const;
 
 function FloatingOfferCard({
@@ -133,16 +133,16 @@ export function WhatWeDoHeroSection() {
               id="what-we-do-hero-heading"
               className="mt-5 font-heading text-[clamp(1.85rem,4.8vw,3.15rem)] font-bold leading-[1.08] tracking-tight text-[#F8F6FB]"
             >
-              Custom websites, software, and{" "}
+              End-to-end help so your{" "}
               <span className="bg-gradient-to-r from-[#F8F6FB] via-[#D4C4DC] to-[#E8A9C2] bg-clip-text text-transparent">
-                digital growth.
+                business can grow.
               </span>
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-              We help schools, businesses, and organisations build, operate, and
-              grow with reliable digital solutions — from custom software and web
-              applications to SEO and digital marketing.
+              We start with your business—not a shopping list of services. Then
+              we stitch presence, enquiries, day-to-day software, and modern AI
+              into one workable plan you can afford to start.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -11,28 +11,36 @@ export interface RouteSeo {
 
 export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
-    title: "Custom Website, AI Agents, Software & Growth | Trevyk",
+    title: "Technology Built Around Your Business | Trevyk",
     description:
-      "Trevyk builds custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and growing companies worldwide—plus SEO and campaigns. HQ in Noida, India; remote delivery. Reply in one business day.",
+      "Trevyk builds software, websites, AI, and digital growth around how your business works—so you can operate and grow with clarity. Remote-ready. HQ Noida.",
     crumb: "Home",
     keywords:
-      "custom website development, AI agent development, RAG knowledge assistants, generative AI apps, remote software team, custom software, SEO services, Trevyk Technologies",
+      "custom software development, AI agents RAG GenAI, digital growth, business websites SEO, remote software team, Trevyk Technologies",
   },
   "/what-we-do": {
-    title: "Website, AI, Software, SEO & Marketing | Trevyk",
+    title: "End-to-End Business Growth Solutions | Trevyk",
     description:
-      "Custom websites, web apps, AI agents, RAG, GenAI/LLM apps, ML systems, SEO, campaigns, social media, and video. HQ in Noida; clients across India and remotely worldwide.",
+      "From being found online to converting enquiries and running day-to-day work—websites, SEO, campaigns, software, and AI. Built around your business, not a generic service menu.",
     crumb: "What we do",
     keywords:
-      "website development services, AI agent development, RAG development, custom software, remote software team, digital marketing",
+      "business growth solutions, digital growth for SMBs, AI agents for business, SEO and websites, custom software for growth",
   },
   "/ai": {
-    title: "AI Agents, RAG, GenAI & ML | Trevyk Technologies",
+    title: "AI That Helps Your Business Move Faster | Trevyk",
     description:
-      "Custom AI agents, RAG knowledge assistants, generative AI / LLM apps, and ML data systems for startups and product teams worldwide. Honest scope: what is live versus built to order.",
+      "Agents, RAG knowledge assistants, GenAI/LLM apps, and ML—used to cut repeat work, answer from your docs, and support growth. Honest scope; no vapour demos.",
     crumb: "AI",
     keywords:
-      "custom AI agent development, RAG knowledge assistants, LangChain developers, generative AI apps, ML systems, remote AI team, Trevyk AI",
+      "AI for business growth, custom AI agents, RAG assistants, generative AI apps, business automation AI, Trevyk AI",
+  },
+  "/portfolio": {
+    title: "Our Work — Kiduart, Sports Academy, AGL Creatives | Trevyk",
+    description:
+      "Three verified projects: Kiduart school ERP (live), Sports Academy management software (under development), and AGL Creatives (client site). Clear status—no padded case studies.",
+    crumb: "Our work",
+    keywords:
+      "Trevyk portfolio, Kiduart school ERP, sports academy software, AGL Creatives website, custom software portfolio",
   },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
@@ -59,22 +67,22 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/who-we-are": {
     title: "Who We Are | Trevyk Technologies",
     description:
-      "Who Trevyk is: HQ in Noida, clients across India and remotely worldwide—Kiduart, custom websites, software, AI, SEO, and campaigns. Honest claims, no invented client counts.",
+      "We exist to help real businesses grow with modern technology—presence, enquiries, software, and AI. HQ in Noida; clients across India and worldwide. Honest claims only.",
     crumb: "Who we are",
     keywords:
-      "Who we are Trevyk, remote software company, Turning Vision Into Progress, Kiduart",
+      "Who we are Trevyk, business growth partner, Turning Vision Into Progress, Kiduart",
   },
   "/contact": {
-    title: "Contact Trevyk Technologies",
+    title: "Contact Trevyk — Let's Grow Your Business",
     description:
-      "Contact Trevyk for Kiduart demos or custom engineering—anywhere you work. HQ Noida; remote-friendly. We reply within one business day.",
+      "Tell us your business, city or timezone, and where growth is stuck. Website, SEO, software, or AI—we reply within one business day.",
     crumb: "Contact",
-    keywords: "contact Trevyk, Kiduart demo, custom software enquiry, hire remote AI team",
+    keywords: "contact Trevyk, business growth enquiry, AI for business, Kiduart demo",
   },
   "/sitemap": {
     title: "Site map | Trevyk Technologies",
     description:
-      "Every public Trevyk page: services, AI solutions, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, AI, campaigns, social media, and video.",
+      "Every public Trevyk page: portfolio, services, AI solutions, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, AI, campaigns, social media, and video.",
     crumb: "Site map",
     keywords: "Trevyk sitemap, website services, SEO, custom software, AI agents",
   },
@@ -134,6 +142,7 @@ const ROUTE_SOCIAL_IMAGES: Record<string, string> = {
   "/process": "/images/studio-process.jpg",
   "/who-we-are": "/images/studio-about.jpg",
   "/our-products": "/images/studio-kiduart.jpg",
+  "/portfolio": "/images/work/portfolio-hero.jpg",
 };
 
 export function getSocialImagePath(pathname: string): string {

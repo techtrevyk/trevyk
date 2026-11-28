@@ -119,16 +119,15 @@ export const GrowthOffer: React.FC = () => {
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
           <p className="font-mono-accent text-[11px] uppercase tracking-[0.28em] text-[#E8A9C2]">
-            For startups and growing businesses
+            Built around your business
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold leading-tight text-[#F8F6FB] sm:text-5xl">
-            Websites, software, and marketing that help a business get found
+            What we build with you
           </h2>
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-lg">
-            Trevyk builds custom websites, web applications, and custom software,
-            then the growth work around them: SEO, campaigns, social, video,
-            scripts, and AI—agents and knowledge assistants when you are ready.
-            Starter plans are scoped for early budgets.
+            Presence that brings the right visitors. Paths that turn interest
+            into conversations. Software for daily work. Practical AI when it
+            saves real hours. You choose the mix—we keep the plan clear.
           </p>
         </div>
 

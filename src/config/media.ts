@@ -68,6 +68,17 @@ export const ourProductsHeroBackdrop = {
   ],
 } as const;
 
+/** Portfolio — hero (`/images/work/portfolio-hero.jpg`) overlays. */
+export const portfolioHeroBackdrop = {
+  image: "/images/work/portfolio-hero.jpg",
+  washOpacity: 0.34,
+  washRgb: "26, 16, 36",
+  vignetteLayers: [
+    "linear-gradient(90deg, rgba(26,16,36,0.96) 0%, rgba(26,16,36,0.88) 36%, rgba(26,16,36,0.42) 52%, rgba(26,16,36,0.06) 72%)",
+    "linear-gradient(180deg, rgba(15,8,16,0.62) 0%, transparent 40%, rgba(15,8,16,0.55) 100%)",
+  ],
+} as const;
+
 /** Technology — modular architecture diagram (`/images/modulararchitechture.png`). */
 export const technologyModularArchitecture = {
   image: "/images/modulararchitechture.png",

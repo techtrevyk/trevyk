@@ -22,16 +22,16 @@ const COMPANY_INTRO_IMAGE = "/companyIntro.png";
 
 const INTRO_OFFERINGS = [
   {
-    title: "Custom software & web applications",
-    desc: "Business-specific digital solutions",
+    title: "Grow how you get found",
+    desc: "Presence, SEO, and campaigns that bring enquiries",
   },
   {
-    title: "Product engineering",
-    desc: "Our own product, KIDUART School ERP",
+    title: "Run the business better",
+    desc: "Websites, apps, and software—including Kiduart for schools",
   },
   {
-    title: "Digital growth solutions",
-    desc: "Web presence, SEO and digital marketing",
+    title: "Use modern AI where it helps",
+    desc: "Agents, RAG, GenAI—scoped to real workflows",
   },
 ] as const;
 
@@ -77,7 +77,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 id="who-we-are-heading"
                 className="font-heading font-bold text-2xl sm:text-4xl lg:text-[2.65rem] text-[#F8F6FB] leading-[1.15] tracking-tight max-w-xl"
               >
-                We build digital products that move businesses forward.
+                We help businesses grow with technology that earns its keep.
               </h1>
 
               <div
@@ -89,10 +89,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Introduction
               </p>
               <p className="text-sm sm:text-base text-[#E7E1F0] leading-relaxed max-w-lg">
-                TREVYK Technologies designs and develops custom websites, web
-                applications, and software products. We combine thoughtful
-                product engineering with practical digital solutions to help
-                businesses build, operate, and grow.
+                TREVYK Technologies partners with clinics, schools, real estate,
+                service firms, and startups. We do not lead with a service menu.
+                We lead with your growth problem—then use websites, software,
+                SEO, campaigns, and practical AI to move it forward.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">

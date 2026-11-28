@@ -51,6 +51,9 @@ const GuidePage = lazyWithReady(() =>
 const AiPage = lazyWithReady(() =>
   import("../pages/AiPage").then((m) => ({ default: m.AiPage })),
 );
+const PortfolioPage = lazyWithReady(() =>
+  import("../pages/PortfolioPage").then((m) => ({ default: m.PortfolioPage })),
+);
 const SitemapPage = lazyWithReady(() =>
   import("../pages/SitemapPage").then((m) => ({ default: m.SitemapPage })),
 );
@@ -124,6 +127,7 @@ export function AppRoutes({
       />
       <Route path="/contact" element={<ContactPage settings={settings} />} />
       <Route path="/ai" element={<AiPage />} />
+      <Route path="/portfolio" element={<PortfolioPage />} />
       <Route path="/sitemap" element={<SitemapPage />} />
       <Route path="/work/:slug" element={<GuidePage />} />
       <Route path="*" element={<NotFoundPage />} />

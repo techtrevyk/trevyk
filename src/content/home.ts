@@ -19,7 +19,7 @@ export const whatsappContact = {
 } as const;
 
 export const navLinks = [
-  { label: "Work", href: "/what-we-do" },
+  { label: "Work", href: "/portfolio" },
   { label: "Services", href: "/what-we-do" },
   { label: "About", href: "/process" },
   { label: "Contact", href: "/contact" },
@@ -27,24 +27,24 @@ export const navLinks = [
 
 export const hero = {
   eyebrow: "Turning vision into progress",
-  title: "Custom websites, AI systems, and growth",
+  title: "Technology built around your business",
   titleLines: [
-    "Custom websites, AI systems, and growth",
-    "Agents, RAG, and LLM apps built to operate",
-    "SEO and campaigns you can measure",
+    "Technology built around your business",
+    "Software, AI, and digital growth that fit how you work",
+    "Clear next step—not a crowded pitch",
   ],
   subtitle: "Trevyk Technologies",
   lead:
-    "Product, websites, and AI systems for businesses that want to be found—and keep software that runs their work.",
+    "Software, websites, AI, and digital growth—tailored to how you operate.",
   description:
-    "Custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and growing companies—plus SEO, campaigns, social, and video. HQ in Noida, India; we deliver remotely across India and worldwide.",
-  primaryCta: { label: "Get a starter plan", href: "/contact" },
-  secondaryCta: { label: "Explore AI services", href: "/ai" },
-  tertiaryCta: { label: "View capabilities", href: "/what-we-do" },
+    "From the first page people land on, to systems behind enquiries and day-to-day work—including practical AI when it helps.",
+  primaryCta: { label: "Discuss your project", href: "/contact" },
+  secondaryCta: { label: "Explore our work", href: "/portfolio" },
+  tertiaryCta: { label: "Kiduart product", href: "/our-products" },
   meta: [
-    { label: "Product", value: "Kiduart School ERP" },
-    { label: "Engineering", value: "Web, AI, SEO" },
-    { label: "Reach", value: "Remote worldwide" },
+    { label: "Focus", value: "Your business" },
+    { label: "Build", value: "Software · AI · growth" },
+    { label: "Delivery", value: "Remote-ready" },
   ],
 } as const;
 
@@ -239,7 +239,7 @@ export const footer = {
       "We build custom websites, web applications, and AI-powered software that help businesses grow. From strategy to launch and beyond, we turn your ideas into reliable digital products.",
     flagshipLink: { label: "Kiduart School ERP", href: "/our-products" },
     flagshipTail: "for Indian schools.",
-    workCta: { label: "Our Work", href: "/what-we-do" },
+    workCta: { label: "Our Work", href: "/portfolio" },
     kiduartCta: { label: "kiduart.com", href: "https://kiduart.com" },
   },
   offerings: {

@@ -137,15 +137,16 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               id="contact-hero-heading"
               className="mt-5 font-heading text-[clamp(1.85rem,4.2vw,2.85rem)] font-bold leading-[1.1] tracking-tight text-[#F8F6FB]"
             >
-              Let&apos;s build what&apos;s next{" "}
+              Tell us where growth is stuck.{" "}
               <span className="bg-gradient-to-r from-[#F8F6FB] via-[#D4C4DC] to-[#E8A9C2] bg-clip-text text-transparent">
-                together.
+                We&apos;ll map the next step.
               </span>
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-              Share your ideas, requirements, or questions. Our team will get back
-              to you within one business day with the right next steps.
+              Business type, city or timezone, and what you want more of—
+              enquiries, clarity, or systems that keep up. We reply within one
+              business day. No vapour decks.
             </p>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">

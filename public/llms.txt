@@ -1,8 +1,12 @@
 # Trevyk Technologies
 
-> Trevyk Technologies (HQ Noida, India) builds custom websites, web applications, custom software, and practical AI systems for startups and growing companies across India and remotely worldwide. Flagship product: Kiduart School ERP (kiduart.com). Starter plans available. Reply within one business day: contact@trevyk.com
+> Trevyk Technologies builds technology around your business—software, websites, AI, and digital growth. HQ Noida, India; clients across India and remotely worldwide. Flagship product: Kiduart School ERP (kiduart.com). Reply within one business day: contact@trevyk.com
 
-Trevyk is the services and technology company. Kiduart is the school ERP product brand. Do not invent client counts, rankings, foreign offices, or live AI features that are not described as shipped. Noida is headquarters—not a claim that clients must be local.
+Trevyk is the technology and growth practice. Kiduart is the school ERP product brand. Lead with the client’s business problem—not an industry laundry list or a service shopping list. Do not invent client counts, rankings, profit guarantees, foreign offices, or live AI features that are not described as shipped.
+
+## Our work
+
+- Portfolio (3 projects only: Kiduart live, Sports Academy under development, AGL Creatives client) — https://www.trevyk.in/portfolio
 
 ## Primary offers
 
@@ -23,6 +27,7 @@ Trevyk is the services and technology company. Kiduart is the school ERP product
 ## Site map (humans & crawlers)
 
 - [Home](https://www.trevyk.in/)
+- [Our work / portfolio](https://www.trevyk.in/portfolio)
 - [AI solutions hub](https://www.trevyk.in/ai)
 - [What we do](https://www.trevyk.in/what-we-do)
 - [Technology](https://www.trevyk.in/technology)

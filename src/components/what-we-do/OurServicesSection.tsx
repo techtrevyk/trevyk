@@ -104,8 +104,8 @@ export function OurServicesSection() {
           </h2>
 
           <p className="mt-4 text-base leading-relaxed text-[#C4B4D8] sm:text-[17px]">
-            From custom software to scalable web applications, we help schools,
-            businesses and organisations turn ideas into real-world solutions.
+            From custom software to scalable web applications, we help businesses
+            and organisations turn ideas into real-world solutions.
           </p>
         </div>
 

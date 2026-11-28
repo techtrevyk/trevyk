@@ -226,11 +226,26 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - Removed misleading Bengaluru HQ / fake phone in unused CTA component.
 - New money page: `/work/remote-software-ai-team` (sitemap 24 URLs after deploy).
 
+### Narrative fix (owner brief — business growth first)
+
+- Site story shifted from “we sell websites/services” → **we help your business grow** (enquiries, presence, systems, practical AI).
+- Honest framing only: no profit / ranking guarantees.
+- Human-writer pass on home, what-we-do, AI, who-we-are, contact, footer, prerender, llms, key guides.
+
+---
+
+### 2026-11-28
+
+- Owner audit DOCX ingested → `docs/growth/CONTENT-PHASE-PLAN-AUDIT.md` (phased A–E).
+- Phase A: home hero/GrowthOffer cleaned—**no industry dump**; audit-aligned CTAs; minimal impact copy.
+- Phase B: `/portfolio` live with 3 projects (Kiduart / Sports Academy under development / AGL Creatives); nav + home CTA wired.
+
 ---
 
 ## Next actions (agent — do these in order)
 
-1. **You:** Deploy this global-positioning + remote page build.
-2. **You:** GA4 Realtime QA — WhatsApp + test contact; mark `generate_lead` Key event.
-3. LinkedIn Post B + optional remote-team post (calendar).
-4. Ongoing: directories / Dev.to; GBP only with stable address; weekly link acquisition (still the #1 ranking limiter).
+1. **You:** Deploy Phase A + B (home + `/portfolio`).
+2. **You:** Optional — swap Sports Academy preview image for approved screens; reconfirm AGL Creatives permission.
+3. **You:** GA4 Realtime QA; mark `generate_lead` Key event.
+4. Phase C: defensive-tone sweep + AI scope labels (next coding pass).
+5. Phase D later: industry landing pages (not on home).

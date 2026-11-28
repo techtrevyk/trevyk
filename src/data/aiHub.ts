@@ -3,7 +3,7 @@ export const AI_HUB_FAQS = [
   {
     question: "What AI services does Trevyk offer?",
     answer:
-      "Custom AI agents, RAG / private knowledge assistants, generative AI and LLM applications, practical ML and data systems, and workflow automation beside your tools. School ERP product needs belong primarily on kiduart.com.",
+      "AI that supports business growth and operations: custom agents, RAG / private knowledge assistants, GenAI and LLM apps, light ML, and automation beside your tools. We start from your workflow and enquiry problems—not a buzzword menu. School ERP product needs belong primarily on kiduart.com.",
   },
   {
     question: "Do you build LangChain or LangGraph-style agents?",

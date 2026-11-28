@@ -144,7 +144,7 @@ export function applyRouteSeo(pathname: string) {
     logo: fallbackImage,
     image: image,
     description:
-      "Trevyk Technologies builds custom websites, web applications, AI systems, and growth work for startups and growing companies. Headquarters in Noida, India; clients served remotely across India and worldwide.",
+      "Trevyk Technologies helps businesses grow with modern technology—enquiries, online presence, software, and practical AI. Headquarters in Noida, India; clients across India and remotely worldwide.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",
@@ -205,6 +205,39 @@ export function applyRouteSeo(pathname: string) {
       url: absoluteUrl("/what-we-do"),
     })),
   });
+
+  if (path === "/portfolio") {
+    upsertJsonLd("ld-portfolio", {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Trevyk portfolio",
+      url: absoluteUrl("/portfolio"),
+      description: getRouteSeo("/portfolio").description,
+      hasPart: [
+        {
+          "@type": "SoftwareApplication",
+          name: "Kiduart School ERP",
+          applicationCategory: "BusinessApplication",
+          url: KIDUART_URL,
+          creativeWorkStatus: "Published",
+        },
+        {
+          "@type": "SoftwareApplication",
+          name: "Sports Academy Management Software",
+          applicationCategory: "BusinessApplication",
+          url: absoluteUrl("/portfolio#sports-academy"),
+          creativeWorkStatus: "Incomplete",
+        },
+        {
+          "@type": "WebSite",
+          name: "AGL Creatives",
+          url: "https://www.aglcreatives.in/",
+        },
+      ],
+    });
+  } else {
+    document.getElementById("ld-portfolio")?.remove();
+  }
 
   if (path === "/our-products") {
     upsertJsonLd("ld-software", {

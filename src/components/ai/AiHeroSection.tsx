@@ -64,30 +64,29 @@ export function AiHeroSection() {
                 className="h-2 w-2 shrink-0 rounded-full bg-[#E8A9C2] shadow-[0_0_10px_rgba(232,169,194,0.85)]"
                 aria-hidden
               />
-              AI solutions
+              AI for business growth
             </div>
 
             <h1
               id="ai-hero-heading"
               className="mt-5 font-heading text-[clamp(1.65rem,3.2vw,2.65rem)] font-bold leading-[1.12] tracking-tight text-[#F8F6FB] xl:text-[2.75rem]"
             >
-              Intelligent solutions for{" "}
+              Latest AI—used to{" "}
               <span className="bg-gradient-to-r from-[#C4A8E8] via-[#E8A9C2] to-[#F8F6FB] bg-clip-text text-transparent">
-                real business problems.
+                grow how you work.
               </span>
             </h1>
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#E7E1F0] sm:text-base lg:text-[15px] xl:text-[16px]">
-              We build custom AI solutions — from intelligent agents and RAG
-              assistants to workflow automation and AI integrations — that help
-              businesses work smarter, move faster and achieve measurable
-              results.
+              Agents, RAG over your own docs, GenAI apps, and light automation—so
+              staff stop drowning in repeat questions and slow handoffs. The
+              point is not a demo. It is hours back and clearer answers for
+              customers and teams.
             </p>
 
             <p className="mt-3 text-sm leading-relaxed text-[#C4B4D8] lg:text-[13px] xl:text-sm">
-              For teams drowning in repeat questions, manual handoffs, or
-              documents nobody can search—without handing the keys to your data
-              to a black box.
+              We keep humans in the loop on money, identity, and anything you
+              cannot undo. Scope first. Tools second.
             </p>
 
             <ul className="mt-6 space-y-3.5 border-t border-[#B9A6D1]/22 pt-5">

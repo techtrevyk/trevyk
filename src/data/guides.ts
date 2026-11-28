@@ -29,19 +29,20 @@ export interface Guide {
 export const GUIDES: Guide[] = [
   {
     slug: "custom-websites",
-    title: "Custom website development for startups and local businesses",
+    title: "Custom websites that bring enquiries—not just a brochure",
     description:
-      "How Trevyk scopes an affordable custom website: pages, keywords, enquiry forms, and a starter plan sized to an early budget.",
-    keywords: "custom website development, affordable website design Noida, startup website",
+      "How Trevyk scopes a website around your business growth: clear offer, search-ready pages, enquiry path, and a starter plan you can afford.",
+    keywords:
+      "custom website development, website that gets enquiries, small business website growth, startup website SEO",
     kicker: "Websites",
     image: "/images/growth-website.jpg",
     alt: "Painting of a founder reviewing a website on a laptop",
     caption: "The first page has to explain the offer before it tries to impress.",
-    related: ["website-development-noida", "web-applications", "seo"],
+    related: ["website-development-noida", "seo", "remote-software-ai-team"],
     paragraphs: [
-      "A startup website is not a brochure with a contact number at the bottom. It is the page a stranger lands on after searching for the service you sell. If that page talks about “solutions” and never names the work, the visit ends.",
-      "Trevyk builds custom websites for shops, clinics, coaching centres, schools, and software startups. The structure is simple on purpose: what you do, who it is for, how a project starts, and a form that asks for the business type and budget. Starter plans exist so an early-stage company does not have to wait for a large retainer before it can be found.",
-      "We write the headings around real searches: custom website development, web design for small business, and local service queries in your city. The same words appear in the title, the first paragraph, and the internal links, so a crawler and a human read the same page. For Noida and Delhi NCR buyers, see the dedicated local guide.",
+      "Your website is not a digital visiting card. It is where a stranger decides whether to call, message, or leave. If the page never names what you sell, the visit dies—whether you run a clinic, a coaching centre, a realty desk, or a startup.",
+      "We build custom sites around growth: what you do, who it is for, proof or process, and one clear enquiry path. Keywords sit in the title and first paragraph the same way a human would say them. Starter plans exist so you can be found before you can afford a giant retainer.",
+      "When local Noida / NCR search is the job, use the dedicated local guide. When you need the wider growth stack—SEO, campaigns, software, AI—start from what-we-do or contact.",
     ],
     points: [
       "Responsive pages that stay readable on a phone",
@@ -832,11 +833,11 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "remote-software-ai-team",
-    title: "Hire a remote software & AI team — websites, agents, RAG, GenAI",
+    title: "Remote growth partner — software, SEO, and AI for your business",
     description:
-      "Work with Trevyk remotely from anywhere: custom websites, web apps, AI agents, RAG, and GenAI/LLM apps. HQ in Noida, India; delivery across India and worldwide.",
+      "Work with Trevyk from anywhere: grow enquiries, run clearer systems, and use AI agents, RAG, and GenAI when they fit. HQ Noida; India and worldwide remote delivery.",
     keywords:
-      "hire remote software developers, remote AI development team, outsource AI agent development, remote RAG developers, custom software remote team, offshore GenAI development",
+      "hire remote software developers, remote AI development team, business growth technology partner, outsource AI agent development, remote RAG developers",
     kicker: "Remote",
     image: "/images/ai-agents-workflow.jpg",
     alt: "Painterly diagram of connected AI and software workflows spanning regions",
@@ -848,9 +849,9 @@ export const GUIDES: Guide[] = [
       "custom-websites",
     ],
     paragraphs: [
-      "If you searched for a remote software or AI team, you need clear scope, English-ready communication, and a partner who will not pretend to have offices they do not have. Trevyk’s headquarters is in Noida, India. Delivery is remote: North India, South India, and clients abroad on overlapping hours.",
-      "We build custom websites, web applications, AI agents, RAG knowledge assistants, GenAI/LLM apps, and practical ML workflows—plus SEO and growth when the product needs to be found. Starter plans exist so early budgets still get a real first release.",
-      "Local Noida website searches still have a dedicated page. This page is for founders and ops leads who want to hire capability, not geography theatre.",
+      "You do not need a partner who only sells “a website.” You need someone who understands growth: how people find you, enquire, and stay—then picks modern tools that fit. Trevyk’s HQ is in Noida. We work across North and South India and remotely worldwide on overlapping hours.",
+      "That can mean a site and SEO path, a small web app, campaigns, or practical AI—agents, RAG, GenAI—when repeat work or buried knowledge is the bottleneck. Starter plans keep the first release real.",
+      "Noida local website search still has its own page. This page is for founders and ops leads who want a growth partner, not geography theatre.",
     ],
     points: [
       "Remote-friendly discovery, demos, and handoff",
