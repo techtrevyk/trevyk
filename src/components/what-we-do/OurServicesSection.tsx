@@ -3,18 +3,21 @@ import {
   BarChart3,
   Bot,
   Code2,
+  Handshake,
   LayoutGrid,
   Palette,
   Settings2,
+  Smartphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { soundEngine } from "../../utils/audioEngine";
 
+/** Buyer-need catalogue — Phase C: mobile + partnerships prominence. */
 const SERVICE_CARDS = [
   {
     title: "Web Development",
     description:
-      "Modern, responsive and high-performance websites built for your business.",
+      "Sites that explain your offer clearly and turn visits into conversations.",
     icon: Code2,
     image: "/images/what-we-do/services/service-web-development-v2.jpg",
     imagePosition: "right center",
@@ -23,7 +26,7 @@ const SERVICE_CARDS = [
   {
     title: "Web Applications",
     description:
-      "Scalable and secure web applications tailored to your unique workflows.",
+      "Portals and workflow apps your team can run day to day—with source you keep.",
     icon: LayoutGrid,
     image: "/images/what-we-do/services/service-web-applications-v2.jpg",
     imagePosition: "85% center",
@@ -32,38 +35,56 @@ const SERVICE_CARDS = [
   {
     title: "Custom Software Development",
     description:
-      "End-to-end software solutions designed around your specific needs.",
+      "Software shaped around your process when off-the-shelf tools fall short.",
     icon: Settings2,
     image: "/images/what-we-do/services/service-custom-software-v2.jpg",
     imagePosition: "90% center",
     href: "/work/web-applications",
   },
   {
+    title: "Mobile Apps",
+    description:
+      "Cross-platform iOS and Android experiences when customers need you on the home screen.",
+    icon: Smartphone,
+    image: "/images/what-we-do/services/service-web-applications-v2.jpg",
+    imagePosition: "70% center",
+    href: "/contact",
+  },
+  {
     title: "UI/UX Design",
     description:
-      "User-friendly and modern designs that create meaningful experiences.",
+      "Interfaces shaped for the people who use them—clear, modern, and easy to ship.",
     icon: Palette,
     image: "/images/what-we-do/services/service-ui-ux-v2.jpg",
     imagePosition: "88% center",
     href: "/contact",
   },
   {
-    title: "SEO & Digital Marketing",
+    title: "SEO & Digital Growth",
     description:
-      "Improve your online presence and reach the right audience with data-driven strategies.",
+      "Relevant traffic and enquiries—pages, campaigns, and content sized to your budget.",
     icon: BarChart3,
     image: "/images/what-we-do/services/service-seo-marketing-v2.jpg",
     imagePosition: "85% center",
     href: "/work/seo",
   },
   {
-    title: "AI Agents, RAG & GenAI",
+    title: "AI & Automation",
     description:
-      "Agents, knowledge assistants, LLM apps, and ML systems scoped for real workflows—with human gates where risk is high.",
+      "Agents, RAG, and GenAI apps for real workflows—with humans in the loop where risk is high.",
     icon: Bot,
     image: "/images/what-we-do/services/service-ai-automation-v2.jpg",
     imagePosition: "88% center",
     href: "/ai",
+  },
+  {
+    title: "Partnerships",
+    description:
+      "White-label development and technical partnership for agencies that need a reliable build partner.",
+    icon: Handshake,
+    image: "/images/what-we-do/services/service-custom-software-v2.jpg",
+    imagePosition: "80% center",
+    href: "/contact",
   },
 ] as const;
 
@@ -109,7 +130,7 @@ export function OurServicesSection() {
           </p>
         </div>
 
-        <ul className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6">
+        <ul className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 xl:gap-5">
           {SERVICE_CARDS.map(
             ({ title, description, icon: Icon, image, imagePosition, href }) => (
               <li key={title}>
@@ -132,7 +153,11 @@ export function OurServicesSection() {
 
                   <div className="relative z-10 flex flex-1 flex-col p-5 sm:p-6">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#E8A9C2]/35 bg-[#1E1024]/75 text-[#E8A9C2] backdrop-blur-sm">
-                      <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.65} aria-hidden />
+                      <Icon
+                        className="h-[1.15rem] w-[1.15rem]"
+                        strokeWidth={1.65}
+                        aria-hidden
+                      />
                     </div>
 
                     <h3 className="mt-4 font-heading text-lg font-semibold leading-snug text-[#F8F6FB] sm:text-xl">

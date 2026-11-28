@@ -52,6 +52,11 @@ const NAV: { href: string; label: string }[] = [
   { href: "/work/rag-vs-fine-tuning", label: "RAG vs fine-tuning" },
   { href: "/work/ai-for-schools", label: "AI for schools" },
   { href: "/portfolio", label: "Our work" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/work/interior-architecture", label: "Interior & architecture" },
+  { href: "/work/beauty-wellness", label: "Beauty & wellness" },
+  { href: "/work/manufacturing-industrial", label: "Manufacturing & industrial" },
+  { href: "/work/marketing-agencies", label: "Marketing agencies" },
   { href: "/technology", label: "Technology" },
   { href: "/process", label: "Process" },
   { href: "/who-we-are", label: "Who we are" },
@@ -72,16 +77,16 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/what-we-do": {
     h1: "End-to-end ways we help your business grow",
     paragraphs: [
-      "Presence and SEO so buyers find you. Paths that turn visits into conversations. Software for how the team works. Campaigns and content when you need reach. AI agents, RAG, and GenAI when repeat work or buried knowledge is the bottleneck. Kiduart remains the school ERP product lane.",
+      "Presence and SEO so buyers find you. Paths that turn visits into conversations. Software and mobile apps for how the team works. Campaigns when you need reach. AI agents, RAG, and GenAI when repeat work or buried knowledge is the bottleneck. Partnerships for agencies. Kiduart remains the school ERP product lane.",
       "Each guide below is a deep cut you can hand to a founder or ops lead. The story is the same: your business first, tools second.",
-      "From this catalogue, move into /work guides, then /contact—so a search for AI agents or local websites still lands on a form with context.",
+      "From this catalogue, see /portfolio, then /contact—so a search for AI agents or local websites still lands on a form with context.",
     ],
   },
   "/ai": {
-    h1: "AI that helps your business move—not a slide deck",
+    h1: "AI that helps your business move faster",
     paragraphs: [
-      "Trevyk uses practical AI for growth and operations: custom agents, RAG over your documents, GenAI/LLM apps, and light ML beside tools you already run. Worldwide clients; HQ in Noida. Kiduart stays on kiduart.com.",
-      "Problems we solve: repeat support and ops work, answers trapped in files, apps that must stay on budget, and actions that need a human gate—never unsupervised writes to money or student records.",
+      "Trevyk uses practical AI for growth and operations: custom agents, RAG over your documents, GenAI/LLM apps, and light ML beside tools you already run. Ready-to-scope offers are labelled separately from feasibility-led ML and educational compare guides. HQ in Noida; remote-first worldwide. Kiduart stays on kiduart.com.",
+      "Problems we solve: repeat support and ops work, answers trapped in files, apps that must stay on budget, and actions that need a human gate on money, identity, or student records.",
       "Path: discover the workflow; prototype with an eval set; harden permissions and logging; operate with cost and quality checks.",
       "Start with /work/ai-agents, /work/rag-knowledge-assistants, /work/generative-ai-llm-apps, /work/ml-data-systems, /work/remote-software-ai-team, or /work/ai-for-schools. SEO notes live on /work/seo.",
     ],
@@ -115,7 +120,14 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     paragraphs: [
       "Trevyk publishes only three portfolio projects with clear status: Kiduart school ERP (live product), Sports Academy Management Software (under development), and AGL Creatives (client website).",
       "Kiduart: admissions, fees, manual attendance, exams, parent communication—demos on kiduart.com. Sports Academy: batch, membership, and coach workflows shipping in stages—not production adoption. AGL Creatives: packaging and print brand site at aglcreatives.in.",
-      "No invented testimonials, client counts, or ROI. Discuss a project at /contact — contact@trevyk.com",
+      "Transparent status on every card. Discuss a project at /contact — contact@trevyk.com",
+    ],
+  },
+  "/solutions": {
+    h1: "Industry solutions — interior, beauty, manufacturing, agencies",
+    paragraphs: [
+      "Trevyk publishes four industry paths so buyers get a sharper brief without dumping sectors on the homepage: interior & architecture, beauty & wellness, manufacturing & industrial, and marketing & technology agencies.",
+      "Each path links to a dedicated /work guide covering websites, software, growth, or white-label partnership. Discuss any sector at /contact — contact@trevyk.com",
     ],
   },
   "/our-products": {
@@ -292,6 +304,7 @@ function render(template: string, route: string): string {
     "/ai": "/images/ai-hub-systems.jpg",
     "/our-products": "/images/studio-kiduart.jpg",
     "/portfolio": "/images/work/portfolio-hero.jpg",
+    "/solutions": "/images/work/portfolio-hero.jpg",
   };
   const image = absoluteUrl(
     guide?.image || routeImages[route] || "/trevyk-logo-on-dark.png",

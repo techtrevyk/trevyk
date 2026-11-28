@@ -112,7 +112,7 @@ const PROCESS_STAGES: ProcessStage[] = [
     detailLead:
       "We stay available after launch — fixes from daily use, prioritised improvements, and optional next modules once the baseline is stable.",
     detailFollowUp:
-      "You get business-day response for product and project questions, without invented MTTR or uptime theatre.",
+      "You get business-day response for product and project questions, with clear support expectations in writing.",
     outcome: "Named support channel and a backlog shaped by real operator feedback.",
     bullets: [
       { icon: Headphones, text: "Business-day support channel" },

@@ -10,6 +10,7 @@ import {
   Settings2,
   Users,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { whatWeDoHeroBackdrop } from "../../config/media";
 import { soundEngine } from "../../utils/audioEngine";
 
@@ -140,9 +141,9 @@ export function WhatWeDoHeroSection() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-              We start with your business—not a shopping list of services. Then
-              we stitch presence, enquiries, day-to-day software, and modern AI
-              into one workable plan you can afford to start.
+              We start with your business goals, then shape presence, enquiries,
+              day-to-day software, and practical AI into one workable plan you
+              can afford to start.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -154,14 +155,14 @@ export function WhatWeDoHeroSection() {
                 Explore our services
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
               </a>
-              <a
-                href="#our-services"
+              <Link
+                to="/portfolio"
                 onClick={() => soundEngine.playClick("soft")}
                 className="inline-flex items-center gap-2 rounded-full border border-[#B9A6D1]/45 bg-[#1E1024]/40 px-6 py-3 font-heading text-sm font-semibold text-[#F8F6FB] backdrop-blur-sm transition hover:border-[#E8A9C2]/55 hover:bg-[#2A1830]/50"
               >
                 View our work
                 <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
+              </Link>
             </div>
 
             <ul className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">

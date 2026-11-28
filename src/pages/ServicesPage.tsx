@@ -2,6 +2,7 @@ import React from "react";
 import { SiteSettings } from "../types";
 import { WhatWeDoHeroSection } from "../components/what-we-do/WhatWeDoHeroSection";
 import { OurServicesSection } from "../components/what-we-do/OurServicesSection";
+import { WhoWeWorkWithSection } from "../components/what-we-do/WhoWeWorkWithSection";
 import { HowWeCanHelpSection } from "../components/what-we-do/HowWeCanHelpSection";
 
 /**
@@ -19,6 +20,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = () => {
     <div id="services-page" className="relative w-full min-h-screen overflow-hidden pb-28">
       <WhatWeDoHeroSection />
       <OurServicesSection />
+      <WhoWeWorkWithSection />
       <HowWeCanHelpSection />
     </div>
   );

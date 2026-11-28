@@ -51,7 +51,7 @@ const CARDS: GrowthCard[] = [
     imageLabel: "Search results and ranking for SEO",
     kicker: "Search",
     title: "SEO for real enquiries",
-    caption: "SEO written for the enquiry, not vanity traffic.",
+    caption: "SEO aimed at relevant traffic and real enquiries.",
     bullets: ["Intent-led pages", "Technical foundations"],
     href: "/work/seo",
     icon: Search,
@@ -90,7 +90,7 @@ const CARDS: GrowthCard[] = [
     imageSlug: "ai-agents",
     imageLabel: "AI agent workflow with tools and human review checkpoints",
     kicker: "AI agents",
-    title: "One workflow, not a chat toy",
+    title: "Agents for real workflows",
     caption:
       "Scoped agents with approved tools, human gates, and audit logs for real ops work.",
     bullets: ["Single workflow in v1", "Human checkpoints on risk"],

@@ -36,7 +36,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       title: "Clear scope & reply time",
       tagline: "We reply within one business day.",
       description:
-        "Engagements start with written scope. No invented 15-minute SRE theatre  you get a human reply and a plan you can evaluate.",
+        "Engagements start with written scope. You get a human reply within one business day and a plan you can evaluate.",
       icon: CreditCard,
       color: "#E8A9C2",
       badge: "Honest cadence",
@@ -48,10 +48,10 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       prefix: "",
       suffix: "%",
       unitLabel: "Source you own on custom work",
-      title: "No vendor lock-in theatre",
+      title: "Source you keep",
       tagline: "Custom builds include source handoff.",
       description:
-        "For custom IT work, you keep the code and docs we deliver. For Kiduart, schools get export paths and support via kiduart.com  not marketing lock-in slogans.",
+        "For custom IT work, you keep the code and docs we deliver. For Kiduart, schools get export paths and support via kiduart.com.",
       icon: Unlock,
       color: "#B9A6D1",
       badge: "Portable work",
@@ -66,7 +66,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       title: "RBAC, export, audit",
       tagline: "Privacy practices you can verify.",
       description:
-        "We talk about role-based access, data export, and audit trails  the same class of controls Kiduart publishes  not borrowed SOC 2 / ISO badges.",
+        "We ship role-based access, data export, and audit trails—the same class of controls Kiduart publishes and you can verify.",
       icon: ShieldCheck,
       color: "#6B4A87",
       badge: "Real controls",
@@ -81,7 +81,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       title: "Flagship product: Kiduart",
       tagline: "Live product at kiduart.com.",
       description:
-        "Kiduart is Trevyk’s school ERP. Explore the journey here, then book demos on the product site  no invented school-count metrics.",
+        "Kiduart is Trevyk’s school ERP. Explore the journey here, then book demos on the product site with transparent product status.",
       icon: Users,
       color: "#E8A9C2",
       badge: "kiduart.com",
@@ -184,7 +184,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       accent: "#B9A6D1",
     },
     {
-      label: "No invented SLA badges",
+      label: "Transparent support terms",
       category: "compliance",
       icon: ShieldCheck,
       accent: "#E8A9C2",
@@ -229,9 +229,8 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
           </h2>
 
           <p className="mt-5 text-sm sm:text-base text-[#B9A6D1]/80 leading-relaxed max-w-2xl mx-auto font-sans">
-            No hidden fee theatre, no borrowed certifications, no fake uptime
-            percentages the same honesty standard as Kiduart&apos;s
-            founding-school charter.
+            Clear fees, verifiable controls, and support terms you can check—the
+            same honesty standard as Kiduart&apos;s founding-school charter.
           </p>
         </div>
 

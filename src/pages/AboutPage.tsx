@@ -89,10 +89,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Introduction
               </p>
               <p className="text-sm sm:text-base text-[#E7E1F0] leading-relaxed max-w-lg">
-                TREVYK Technologies partners with clinics, schools, real estate,
-                service firms, and startups. We do not lead with a service menu.
-                We lead with your growth problem—then use websites, software,
-                SEO, campaigns, and practical AI to move it forward.
+                TREVYK Technologies partners with businesses that want clearer
+                growth paths. We lead with your problem—then use websites,
+                software, SEO, campaigns, and practical AI to move it forward.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -105,11 +104,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  to="/our-products"
+                  to="/portfolio"
                   onClick={() => soundEngine.playClick("soft")}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-[#E8A9C2]/55 text-[#E8A9C2] font-heading text-xs sm:text-sm font-semibold hover:bg-[#E8A9C2]/10"
                 >
-                  Explore KIDUART
+                  Explore our work
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>

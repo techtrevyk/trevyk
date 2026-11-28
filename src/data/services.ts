@@ -104,7 +104,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: "AI & Workflow Automation",
     tagline: "Practical automation  only where data and process are ready.",
     description:
-      "We add AI and automation where they save real staff time: custom agents, document handling, assisted support, and RAG over your knowledge. The AI solutions hub and guides go deeper. We do not sell vapour “AI ERP” claims. Kiduart’s next intelligence layer is labelled separately when it ships.",
+      "We add AI and automation where they save real staff time: custom agents, document handling, assisted support, and RAG over your knowledge. The AI solutions hub and guides go deeper. Kiduart’s next intelligence layer is labelled separately when it ships.",
     category: "ai-ml",
     badge: "Automation",
     tech: ["Gemini API", "Python", "RAG patterns", "Workflow tools"],
@@ -337,7 +337,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Title, heading, and internal-link structure",
       "Service-page copy that is crawlable",
       "Google Search Console setup guidance",
-      "Monthly content priorities, not vanity traffic",
+      "Monthly content priorities aimed at relevant traffic and enquiries"
     ],
     fitsFor:
       "Businesses that have a site but are invisible for the words customers use when they are ready to buy.",

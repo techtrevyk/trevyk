@@ -127,7 +127,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
       title: "Handoff, monitoring & honest support",
       tagline: "Clear ownership after launch  reply within one business day.",
       description:
-        "Engagement continues with documentation, basic monitoring where scoped, and a human support path. No invented 15-minute SRE or 99.99% warranty badges.",
+        "Engagement continues with documentation, basic monitoring where scoped, and a human support path with clear written expectations.",
       deliverables: [
         "Runbooks & source handoff (custom work)",
         "Monitoring alerts when included in scope",

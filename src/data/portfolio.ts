@@ -24,7 +24,7 @@ export type PortfolioProject = {
 export const PORTFOLIO_INTRO = {
   eyebrow: "Our work",
   title: "Three projects. Clear status.",
-  lead: "Only work we can stand behind—live product, work in progress, and a shipped client site. No invented case studies.",
+  lead: "Only work we can stand behind—live product, work in progress, and a shipped client site. Transparent status on every card.",
 } as const;
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [

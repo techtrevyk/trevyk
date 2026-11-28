@@ -109,7 +109,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         { icon: "settings", label: "Editable handoff", detail: "Your team can update key content." },
       ],
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/custom-websites-hero.jpg",
       objectPosition: "72% center",
     },
@@ -174,7 +174,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         { icon: "circleCheck", label: "Launch checklist", detail: "A runbook for go-live week." },
       ],
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/web-applications-hero.jpg",
       objectPosition: "70% center",
     },
@@ -245,9 +245,9 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "honest pages.",
       titleAfter: "",
       description:
-        "We map keywords to service pages, internal links and crawlable structure so people who already want your offer can find you—without vanity metrics.",
+        "We map keywords to service pages, internal links and crawlable structure so people who already want your offer can find you—focused on relevant traffic and enquiries.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/seo-hero.jpg",
       objectPosition: "68% center",
     },
@@ -279,7 +279,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         },
         {
           title: "Search Console setup",
-          description: "So you can see queries and coverage—not invented rankings.",
+          description: "So you can see queries, coverage, and real Search Console data.",
           icon: "settings",
         },
         {
@@ -325,7 +325,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       description:
         "Ads, landing pages and forms that name the same offer—so budget goes toward conversations, not confused clicks.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/digital-marketing-hero.jpg",
     },
     problemApproach: {
@@ -343,7 +343,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         { title: "Landing page", description: "Matches the ad copy and CTA.", icon: "fileText" },
         { title: "Budget guidance", description: "Ranges that fit early-stage businesses.", icon: "list" },
         { title: "Weekly readout", description: "What to keep, pause or change.", icon: "search" },
-        { title: "Honest metrics", description: "Enquiries and clarity—not vanity impressions.", icon: "circleCheck" },
+        { title: "Honest metrics", description: "Enquiries and clarity you can measure.", icon: "circleCheck" },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -358,7 +358,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       description:
         "Calendars, captions and profile work so you look present between client jobs—with a path back to your website or contact form.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/social-media-hero.jpg",
     },
     problemApproach: {
@@ -391,7 +391,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       description:
         "Scripts and shot lists for reels and explainers—written before cameras so a small team can publish this month.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/video-scripts-hero.jpg",
     },
     problemApproach: {
@@ -446,7 +446,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         },
         {
           title: "Evaluate honestly",
-          description: "Eval sets and traces—not vanity chat volume.",
+          description: "Eval sets and traces tied to real task success.",
           icon: "bot",
         },
       ],
@@ -504,7 +504,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "operate.",
       titleAfter: "",
       description:
-        "Generative AI on real APIs—orchestration, embeddings when needed, evals and cost control. Built for workflows, not vapour demos.",
+        "Generative AI on real APIs—orchestration, embeddings when needed, evals and cost control. Practical AI solutions for workflows you can operate.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "AI solutions hub", href: "/ai" },
       backdropImage: "/images/work/generative-ai-llm-apps-hero.jpg",
@@ -596,7 +596,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "Growth first, ",
       headingHighlight: "tools second.",
       headingAfter: "",
-      body: "You need clearer enquiries and systems that keep up—not a list of cities we do not operate from. We state HQ honestly, then ship remotely with milestones and evals.",
+      body: "You need clearer enquiries and systems that keep up. We state HQ in Noida honestly, then deliver with remote-first milestones, evals, and timezone clarity.",
       approach: APPROACH_DEFAULT,
     },
     whatYouGet: {
@@ -604,7 +604,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       items: [
         { title: "Remote kickoff", description: "Video discovery and written scope.", icon: "users" },
         { title: "Timezone clarity", description: "IST primary; overlap by arrangement.", icon: "settings" },
-        { title: "Honest HQ", description: "Noida entity—no fake foreign offices.", icon: "circleCheck" },
+        { title: "Verified HQ", description: "Noida-based practice with remote-first delivery.", icon: "circleCheck" },
         { title: "AI or web path", description: "Link into the right build guide.", icon: "layers" },
         { title: "Source ownership", description: "Custom work you can keep.", icon: "fileText" },
       ],
@@ -672,7 +672,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         { title: "Risk notes", description: "What stays human-approved.", icon: "users" },
         { title: "Build path", description: "Link to the right implementation guide.", icon: "layers" },
         { title: "Eval mindset", description: "How we measure success later.", icon: "search" },
-        { title: "No vapour demos", description: "Integrations named before theatre.", icon: "circleCheck" },
+        { title: "Named integrations", description: "Tools and gates agreed before build.", icon: "circleCheck" },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -788,7 +788,7 @@ function buildFallback(slug: string): WorkPageContent | null {
       titleAfter: guide.title.split(" ").length > 6 ? " " + guide.title.split(" ").slice(6).join(" ") : "",
       description: guide.description,
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "View our work", href: "/what-we-do#our-services" },
+      secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: heroImageForSlug(slug, guide.image),
     },
     problemApproach: {

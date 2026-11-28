@@ -11,35 +11,46 @@ import {
 import { Link } from "react-router-dom";
 import { soundEngine } from "../../utils/audioEngine";
 
-const BUILD_CARDS = [
+type ScopeLabel = "Ready to scope" | "Feasibility-led" | "Educational" | "Included in delivery";
+
+const BUILD_CARDS: {
+  title: string;
+  description: string;
+  bullets: string[];
+  icon: typeof MessageSquare;
+  href: string;
+  scope: ScopeLabel;
+}[] = [
   {
     title: "AI Chatbots & Assistants",
     description:
-      "Start with agent vs chatbot clarity, then build grounded assistants or tool-calling agents for the real workflow.",
+      "Grounded assistants or tool-calling agents that cut repeat questions and handoffs.",
     bullets: [
-      "Honest chatbot vs agent chooser",
-      "Trained / grounded on your data",
-      "Role-based access and security",
+      "Clear chatbot vs agent chooser",
+      "Grounded on your approved data",
+      "Role-based access and escalation",
     ],
     icon: MessageSquare,
     href: "/work/ai-agent-vs-chatbot",
+    scope: "Ready to scope",
   },
   {
     title: "RAG & Knowledge Systems",
     description:
-      "Private knowledge bases with citations—and a clear RAG vs fine-tuning default before you train weights.",
+      "Private knowledge bases with citations—so staff get answers from your docs, not guesswork.",
     bullets: [
       "Document search and Q&A",
       "Citations and source tracking",
-      "When not to fine-tune first",
+      "RAG-first before fine-tuning",
     ],
     icon: FileStack,
-    href: "/work/rag-vs-fine-tuning",
+    href: "/work/rag-knowledge-assistants",
+    scope: "Ready to scope",
   },
   {
     title: "Workflow Automation",
     description:
-      "Automate repetitive processes with AI-assisted steps, notifications and human approval where it matters.",
+      "Automate repetitive processes with AI-assisted steps and human approval where it matters.",
     bullets: [
       "Process automation",
       "Approval flows and notifications",
@@ -47,6 +58,7 @@ const BUILD_CARDS = [
     ],
     icon: Workflow,
     href: "/work/ai-agents",
+    scope: "Ready to scope",
   },
   {
     title: "Generative AI & LLM Apps",
@@ -59,11 +71,12 @@ const BUILD_CARDS = [
     ],
     icon: Plug,
     href: "/work/generative-ai-llm-apps",
+    scope: "Ready to scope",
   },
   {
     title: "ML & Data Systems",
     description:
-      "Problem framing, features from your operations data, and practical scoring models you can run.",
+      "Problem framing, features from your operations data, and practical scoring you can run—scoped after we see the labels and refresh path.",
     bullets: [
       "Classification and regression-style workflows",
       "Feature pipelines and holdout evaluation",
@@ -71,20 +84,32 @@ const BUILD_CARDS = [
     ],
     icon: BarChart3,
     href: "/work/ml-data-systems",
+    scope: "Feasibility-led",
   },
   {
     title: "AI Security & Governance",
     description:
-      "Policies, access control and monitoring so AI stays safe, auditable and aligned with your compliance needs.",
+      "Access control, audit habits, and monitoring baked into every AI engagement as part of delivery.",
     bullets: [
-      "Data privacy and access control",
-      "Safe and ethical AI practices",
-      "Monitoring and compliance support",
+      "Least-privilege access patterns",
+      "Safe refusal and escalation paths",
+      "Monitoring notes for your ops team",
     ],
     icon: ShieldCheck,
     href: "/contact",
+    scope: "Included in delivery",
   },
-] as const;
+];
+
+function scopeTone(scope: ScopeLabel): string {
+  if (scope === "Ready to scope")
+    return "border-[#7dcea0]/40 bg-[#1a2e24]/85 text-[#a8e6c1]";
+  if (scope === "Feasibility-led")
+    return "border-[#E8A9C2]/40 bg-[#2A1830]/90 text-[#E8A9C2]";
+  if (scope === "Educational")
+    return "border-[#B9A6D1]/40 bg-[#1E1024]/90 text-[#D8CCE6]";
+  return "border-[#B9A6D1]/35 bg-[#1E1024]/80 text-[#C4B4D8]";
+}
 
 function WhatWeBuildKicker() {
   return (
@@ -150,18 +175,29 @@ export function AiWhatWeBuildSection() {
           </h2>
 
           <p className="mt-4 text-base leading-relaxed text-[#C4B4D8] sm:text-[17px]">
-            We build practical AI systems that help businesses automate work,
-            make better decisions and get more value from their data.
+            Practical systems that automate work, surface answers from your
+            docs, and support growth—each card shows delivery readiness.
           </p>
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6">
           {BUILD_CARDS.map(
-            ({ title, description, bullets, icon: Icon, href }) => (
+            ({ title, description, bullets, icon: Icon, href, scope }) => (
               <li key={title}>
                 <article className="group flex h-full flex-col rounded-2xl border border-[#B9A6D1]/28 bg-[#1E1024]/75 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.32)] backdrop-blur-sm sm:p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#E8A9C2]/32 bg-[#2A1830]/90 text-[#E8A9C2]">
-                    <Icon className="h-[1.2rem] w-[1.2rem]" strokeWidth={1.65} aria-hidden />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#E8A9C2]/32 bg-[#2A1830]/90 text-[#E8A9C2]">
+                      <Icon
+                        className="h-[1.2rem] w-[1.2rem]"
+                        strokeWidth={1.65}
+                        aria-hidden
+                      />
+                    </div>
+                    <span
+                      className={`inline-flex shrink-0 rounded-full border px-2.5 py-1 font-mono-accent text-[10px] uppercase tracking-[0.12em] ${scopeTone(scope)}`}
+                    >
+                      {scope}
+                    </span>
                   </div>
 
                   <h3 className="mt-4 font-heading text-lg font-semibold leading-snug text-[#F8F6FB]">
@@ -173,7 +209,10 @@ export function AiWhatWeBuildSection() {
 
                   <ul className="mt-4 space-y-2 border-t border-[#B9A6D1]/18 pt-4">
                     {bullets.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-[#C4B4D8]">
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm text-[#C4B4D8]"
+                      >
                         <Check
                           className="mt-0.5 h-4 w-4 shrink-0 text-[#E8A9C2]"
                           strokeWidth={2.25}
@@ -199,6 +238,12 @@ export function AiWhatWeBuildSection() {
             ),
           )}
         </ul>
+
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-[#B9A6D1]">
+          Compare guides (agent vs chatbot, RAG vs fine-tuning) are educational
+          decision aids. Delivery always starts from your workflow and an agreed
+          evaluation set.
+        </p>
       </div>
     </section>
   );

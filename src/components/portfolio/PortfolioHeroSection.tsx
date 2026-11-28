@@ -60,7 +60,7 @@ export function PortfolioHeroSection() {
 
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
             Three projects only—each with a clear status. Live product, product
-            in build, and a client website. No padded case studies.
+            in build, and a client website.
           </p>
 
           <ul className="mt-10 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">

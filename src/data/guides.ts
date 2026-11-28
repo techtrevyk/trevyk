@@ -76,7 +76,7 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "seo",
-    title: "SEO for businesses that need enquiries, not vanity traffic",
+    title: "SEO for businesses that need relevant traffic and enquiries",
     description:
       "Keyword maps, service pages, FAQs, and internal links so classic search and AI-answer surfaces can send people who already want a website, an app, an agent, or a campaign.",
     keywords:
@@ -94,14 +94,14 @@ export const GUIDES: Guide[] = [
     paragraphs: [
       "SEO starts with the words a buyer types when they are ready to talk, not with a list of synonyms stuffed into a footer. For Trevyk those words include custom website development Noida, web application, custom software, AI agents, RAG assistants, SEO, social media management, and video for small business.",
       "We map one primary keyword to one page, then connect the pages into topic clusters. A homepage introduces the practice. A service page holds the offer. A guide page like this one goes deeper so Google—and answer engines—have something specific to crawl. Internal links use the phrase a person would search, not “click here”.",
-      "We do not promise first-page rankings on a calendar. We do publish crawlable pages, a sitemap, llms.txt for AI crawlers, and a plan for the next page to write. That is how a young company becomes findable without inventing traffic numbers.",
+      "We publish crawlable pages, a sitemap, llms.txt for AI crawlers, and a plan for the next page to write—so a young company becomes findable through measurable milestones, not ranking guarantees on a calendar.",
     ],
     points: [
       "Search intent + keyword clusters by service and city",
       "Titles, H1s, and BLUF openings that match the query",
       "FAQ sections with structured answers (AEO)",
       "Internal links and topical depth across AI + web offers",
-      "Search Console and Analytics so you see real queries—not vanity",
+      "Search Console and Analytics so you see real queries and clicks"
     ],
     sections: [
       {
@@ -122,7 +122,7 @@ export const GUIDES: Guide[] = [
         heading: "GEO & AIO — generative and overview surfaces",
         paragraphs: [
           "Generative engines and AI Overviews pull from consistent entities, original scoped insights, and pages other sites mention. Fabricated testimonials hurt trust; honest process copy and real NAP help.",
-          "We keep Organization/WebPage JSON-LD, llms.txt, and one story across LinkedIn, the site, and Kiduart. We do not promise citations or Share-of-Model scores.",
+          "We keep Organization/WebPage JSON-LD, llms.txt, and one story across LinkedIn, the site, and Kiduart—strong foundations for discovery without citation guarantees.",
         ],
       },
       {
@@ -137,7 +137,7 @@ export const GUIDES: Guide[] = [
       {
         question: "Do you sell separate AEO, GEO, or AIO packages?",
         answer:
-          "No. We improve crawlable structure, useful answers, entities, and page experience. Those practices support classic SEO and AI-answer surfaces. We do not sell acronym packages or promise citations.",
+          "No. We improve crawlable structure, useful answers, entities, and page experience. Those practices support classic SEO and AI-answer surfaces as one craft—not separate acronym packages.",
       },
       {
         question: "What is SXO here?",
@@ -147,7 +147,7 @@ export const GUIDES: Guide[] = [
       {
         question: "What do you measure after SEO work?",
         answer:
-          "Search Console coverage, queries, impressions, clicks, and whether the right pages are indexed. In Analytics we watch landing pages and generate_lead events. We do not invent ranking timelines.",
+          "Search Console coverage, queries, impressions, clicks, and whether the right pages are indexed. In Analytics we watch landing pages and generate_lead events—real signals, transparent timelines.",
       },
       {
         question: "Will this get us into Google AI Overviews?",
@@ -193,7 +193,7 @@ export const GUIDES: Guide[] = [
     paragraphs: [
       "Most owners know they should post. The page still goes quiet because nobody owns the calendar. Social media management at Trevyk is that ownership: profile, bio, weekly posts, and a reply habit.",
       "We write in the voice of the business. A school, a clinic, and a software studio should not sound like the same agency template. Scripts and captions come from the offer on the website so the page and the feed agree.",
-      "This is not follower theatre. The measure is whether a stranger can tell what you sell and how to reach you. That same path is linked from the feed to the website, and from the website back to contact.",
+      "We aim for meaningful audience engagement: a stranger should tell what you sell and how to reach you. That same path is linked from the feed to the website, and from the website back to contact."
     ],
     points: [
       "Profile and bio written for the offer",
@@ -216,7 +216,7 @@ export const GUIDES: Guide[] = [
     paragraphs: [
       "Video is useful when it does one job: show the offer. A founder explaining who the work is for, a walkthrough of a school demo, or a reel that names the starter website plan. We write the script first, then the shot list a small team can film.",
       "Scripts can be English, Hindi, or both. Captions matter because most people watch without sound. The same lines can live on the website, so the video and the page do not contradict each other.",
-      "We do not pretend to be a film studio. We write, plan, and edit notes for reels and website embeds that a growing business can publish this month.",
+      "We write, plan, and edit notes for reels and website embeds that a growing business can publish this month—practical production for starter budgets.",
     ],
     points: [
       "Script before cameras",
@@ -229,7 +229,7 @@ export const GUIDES: Guide[] = [
     slug: "ai-agents",
     title: "Custom AI agent development for business workflows",
     description:
-      "Scoped AI agents that call your tools, follow role rules, and escalate to humans—for startups and product teams worldwide, not vapour demos.",
+      "Scoped AI agents that call your tools, follow role rules, and escalate to humans—practical AI solutions for startups and product teams worldwide.",
     keywords:
       "custom AI agent development, business AI agents, LLM workflow automation, Gemini agents, human-in-the-loop AI, hire AI agent developers",
     kicker: "AI agents",
@@ -245,10 +245,10 @@ export const GUIDES: Guide[] = [
     paragraphs: [
       "Businesses hire partners for AI agents when staff repeat the same lookups, ticket replies, booking steps, or document handoffs. The buyer is usually an operations lead, founder, or IT owner who wants hours back—not a research paper.",
       "Trevyk builds custom agents that combine a language model with approved tools (APIs, search, forms, messaging). We start with one workflow: intake, retrieval or classification, proposed action, human review where risk is high, then an audit log. Multi-agent orchestration comes only after the first path is stable.",
-      "Cost depends on integrations, languages, traffic, evaluation depth, and whether write actions are allowed. We quote from your scope. You keep the source for custom work. We do not invent school counts or claim an agent is live inside Kiduart ERP unless that product surface has shipped.",
+      "Cost depends on integrations, languages, traffic, evaluation depth, and whether write actions are allowed. We quote from your scope—a scope-based commercial assessment. You keep the source for custom work. Kiduart agent features are labelled live only when that surface has shipped.",
     ],
     points: [
-      "One primary workflow before multi-agent theatre",
+      "One primary workflow before purpose-driven multi-agent design",
       "Precise tool definitions and least-privilege access",
       "Human escalation and approval checkpoints",
       "Eval set, traces, and cost monitoring notes",
@@ -315,7 +315,7 @@ export const GUIDES: Guide[] = [
       {
         question: "How do you measure success?",
         answer:
-          "Against an agreed evaluation set: task completion, safe refusals, grounding where documents are required, escalation rate, latency, and token cost—not vanity chat volume.",
+          "Against an agreed evaluation set: task completion, safe refusals, grounding where documents are required, escalation rate, latency, and token cost."
       },
     ],
   },
@@ -654,7 +654,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           "A small set of pages with real headings: what you do, who it is for, proof or process, and contact. Keywords appear in the title, first paragraph, and internal links—the same story a crawler and a human read.",
           "Mobile-readable layout, enquiry form, WhatsApp path, and basic analytics so you can see whether local searches become conversations.",
-          "We do not invent client counts or star ratings. If you need SEO depth after launch, the SEO guide explains the next pages to write.",
+          "We follow transparent business practices on proof. If you need SEO depth after launch, the SEO guide explains the next pages to write.",
         ],
       },
       {
@@ -692,7 +692,7 @@ export const GUIDES: Guide[] = [
     slug: "ai-agent-vs-chatbot",
     title: "AI agent vs chatbot — which one do you actually need?",
     description:
-      "Honest comparison: when a chatbot is enough, when you need a tool-calling AI agent, and how Trevyk scopes each without vapour demos.",
+      "Honest comparison: when a chatbot is enough, when you need a tool-calling AI agent, and how Trevyk scopes each as a practical AI solution.",
     keywords:
       "AI agent vs chatbot, custom AI agent development, chatbot vs agent India, LLM workflow automation",
     kicker: "Compare",
@@ -851,7 +851,7 @@ export const GUIDES: Guide[] = [
     paragraphs: [
       "You do not need a partner who only sells “a website.” You need someone who understands growth: how people find you, enquire, and stay—then picks modern tools that fit. Trevyk’s HQ is in Noida. We work across North and South India and remotely worldwide on overlapping hours.",
       "That can mean a site and SEO path, a small web app, campaigns, or practical AI—agents, RAG, GenAI—when repeat work or buried knowledge is the bottleneck. Starter plans keep the first release real.",
-      "Noida local website search still has its own page. This page is for founders and ops leads who want a growth partner, not geography theatre.",
+      "Noida local website search still has its own page. This page is for founders and ops leads who want remote-first delivery with a named growth partner."
     ],
     points: [
       "Remote-friendly discovery, demos, and handoff",
@@ -865,7 +865,7 @@ export const GUIDES: Guide[] = [
         paragraphs: [
           "Startups and SMBs that need a website, web app, or AI system without hiring a full in-house team yet.",
           "Product and ops leads outside NCR who still want a named engineering practice—not a marketplace bid war.",
-          "International teams that want IST-overlapping hours, clear English scopes, and no invented “global office” claims.",
+          "International teams that want IST-overlapping hours, clear English scopes, and verified remote-first delivery.",
         ],
       },
       {
@@ -879,8 +879,8 @@ export const GUIDES: Guide[] = [
       {
         heading: "What we will not claim",
         paragraphs: [
-          "We do not invent client countries, office cities, or headcount. If a city page exists (Noida websites), it is for search intent—not a claim that we only work there.",
-          "Kiduart school ERP remains an India school product brand on kiduart.com; custom AI and websites for other markets sit on trevyk.in.",
+            "We state verified facts about HQ and delivery. A city page (Noida websites) serves local search intent while remote-first work continues worldwide.",
+            "Kiduart school ERP remains an India school product brand on kiduart.com; custom AI and websites for other markets sit on trevyk.in.",
         ],
       },
     ],
@@ -904,6 +904,215 @@ export const GUIDES: Guide[] = [
         question: "Where do I start?",
         answer:
           "Use the contact form with your city/timezone, the problem, and budget band. Or open the AI agents / RAG / GenAI guides if you already know the pattern.",
+      },
+    ],
+  },
+  {
+    slug: "interior-architecture",
+    title: "Technology for interior & architecture studios",
+    description:
+      "Portfolio websites, quotation flows, project tracking, and client portals for interior designers and architects who need a clearer path from enquiry to project.",
+    keywords:
+      "interior design website, architecture portfolio site, design studio client portal, quotation software interiors, architecture CRM",
+    kicker: "Interior & Architecture",
+    image: "/images/work/interior-architecture-hero.jpg",
+    alt: "Studio desk with plans and a laptop for an interior architecture practice",
+    caption: "Show the work, quote clearly, keep the client journey in one place.",
+    related: ["custom-websites", "web-applications", "beauty-wellness", "marketing-agencies"],
+    paragraphs: [
+      "Interior and architecture studios win on portfolio clarity and a calm next step. Visitors need to see the work, understand the process, and ask for a quote without hunting through PDFs.",
+      "Trevyk builds portfolio-led websites, quotation and enquiry paths, and—when the practice outgrows a brochure—project tracking or client portals that match how studios actually run jobs.",
+      "We start with the pages and flows that bring serious enquiries. Software and automation come next when the studio is ready for a scoped first release.",
+    ],
+    points: [
+      "Portfolio sites that highlight projects and process",
+      "Quotation and enquiry paths with clear next steps",
+      "Optional project / client portal for active jobs",
+      "SEO structure for studio and location searches",
+      "Source ownership on custom portal work",
+    ],
+    sections: [
+      {
+        heading: "What studios usually need first",
+        paragraphs: [
+          "A crawlable site with selected projects, services, and a single enquiry or quote form. Photos and captions that match how buyers search—interior design, architecture firm, renovation studio.",
+          "When quotations and revisions pile up in chat, a lightweight portal or workflow app keeps files, approvals, and status visible to the right people.",
+        ],
+      },
+      {
+        heading: "How we scope with you",
+        paragraphs: [
+          "Discovery names the offer, cities you serve, and whether you need a site only or site-plus-portal. We agree what ships in the first release and what waits.",
+          "See /solutions for other industry paths, or /portfolio for verified work examples.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you only build portfolio websites?",
+        answer:
+          "No. Many studios start there. When you need quotations, project status, or client file access, we scope a portal or workflow app as a separate, clear release.",
+      },
+      {
+        question: "Can this work for a small studio?",
+        answer:
+          "Yes. Starter website scopes exist for early budgets. Portals are quoted from the workflows you actually run.",
+      },
+    ],
+  },
+  {
+    slug: "beauty-wellness",
+    title: "Digital growth for beauty & wellness businesses",
+    description:
+      "Booking paths, client engagement, and a digital presence for salons, clinics, and wellness brands that need relevant traffic and appointments.",
+    keywords:
+      "beauty salon website booking, wellness clinic digital presence, spa CRM, beauty business website India, appointment booking website",
+    kicker: "Beauty & Wellness",
+    image: "/images/work/beauty-wellness-hero.jpg",
+    alt: "Calm wellness space suggesting booking and client care",
+    caption: "Appointments, follow-up, and a page that explains the offer.",
+    related: ["custom-websites", "digital-marketing", "seo", "interior-architecture"],
+    paragraphs: [
+      "Beauty and wellness businesses live on appointments and trust. The website and campaigns should name the services, make booking obvious, and keep follow-up simple.",
+      "Trevyk scopes digital presence, booking or enquiry paths, light CRM habits, and SEO or campaigns sized to starter budgets—so the right people find you and know how to book.",
+      "We do not force a heavy ERP when a clear site and booking flow will do. When you need more—memberships, reminders, staff views—we expand in measured releases.",
+    ],
+    points: [
+      "Service pages that match how clients search",
+      "Booking or enquiry paths you can staff",
+      "Follow-up and CRM-friendly contact capture",
+      "Local SEO foundations for your city",
+      "Optional campaigns when the landing page is ready",
+    ],
+    sections: [
+      {
+        heading: "Presence that converts to appointments",
+        paragraphs: [
+          "Name the services, show the experience, and put WhatsApp or a form where it cannot be missed. Mobile layout matters—most clients browse on a phone between errands.",
+          "If you already use a booking tool, we connect the story on the site to that tool instead of inventing a parallel system.",
+        ],
+      },
+      {
+        heading: "Growth without clutter",
+        paragraphs: [
+          "SEO and light campaigns work when the landing page matches the offer. We map keywords to services and locations, then measure enquiries—not empty impressions.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you build a full salon ERP?",
+        answer:
+          "We start with presence and booking paths. Heavier ops software is scoped only when the workflow and budget justify it—same honesty as our other industry pages.",
+      },
+      {
+        question: "Can you help with Instagram as well?",
+        answer:
+          "Yes as part of digital growth: calendars and captions that match the offer on the website. See the social media guide for the content rhythm.",
+      },
+    ],
+  },
+  {
+    slug: "manufacturing-industrial",
+    title: "Software & automation for manufacturing & industrial teams",
+    description:
+      "ERP-style modules, inventory, HRMS-adjacent workflows, and integrations for manufacturers who need systems that match the floor.",
+    keywords:
+      "manufacturing ERP modules, industrial inventory software, factory HRMS workflows, manufacturing automation India, custom industrial software",
+    kicker: "Manufacturing & Industrial",
+    image: "/images/work/manufacturing-industrial-hero.jpg",
+    alt: "Industrial operations desk with screens for inventory and workflows",
+    caption: "Modules that match the floor—inventory, people, and integrations.",
+    related: ["web-applications", "ai-agents", "remote-software-ai-team", "marketing-agencies"],
+    paragraphs: [
+      "Manufacturing teams need software that follows materials, people, and approvals—not a generic dashboard with unused modules.",
+      "Trevyk scopes ERP-style modules, inventory views, HRMS-adjacent workflows, and integrations to the tools you already run. First releases stay narrow: one bottleneck, clear ownership, measurable handoff.",
+      "AI and automation sit beside those systems when repeat lookups or document handoffs waste hours—with human gates on anything that moves money or safety-critical records.",
+    ],
+    points: [
+      "Scoped ERP-style modules for real bottlenecks",
+      "Inventory and stock visibility you can trust",
+      "HRMS-adjacent staff and attendance workflows",
+      "Integrations to existing machines and tools",
+      "Optional AI agents for repeat ops lookups",
+    ],
+    sections: [
+      {
+        heading: "Start with the bottleneck",
+        paragraphs: [
+          "We map the process on the floor or in the office first—receiving, production, dispatch, or HR. The first release attacks that path so staff feel the change.",
+          "Broader ERP rollouts come in stages. You keep source on custom work and a written plan for what waits.",
+        ],
+      },
+      {
+        heading: "Automation with guardrails",
+        paragraphs: [
+          "Agents and integrations help when the same lookup or status update happens daily. Writes that affect inventory counts or payroll stay human-approved until you say otherwise.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you sell a packaged manufacturing ERP?",
+        answer:
+          "We build and integrate modules around your process. If a packaged product fits better, we say so before build. Kiduart remains our school ERP product brand—not a factory ERP.",
+      },
+      {
+        question: "Can you work remotely with plant teams?",
+        answer:
+          "Yes. HQ is in Noida with remote-first delivery. Discovery can include video walkthroughs of the workflow and clear milestone demos.",
+      },
+    ],
+  },
+  {
+    slug: "marketing-agencies",
+    title: "White-label development for marketing & technology agencies",
+    description:
+      "White-label software and website delivery, outsourcing, and technical partnerships for agencies that need a reliable build partner behind the brand.",
+    keywords:
+      "white label development agency, agency outsourcing developers, technology partnership white label, marketing agency software partner India",
+    kicker: "Marketing & Agencies",
+    image: "/images/work/marketing-agencies-hero.jpg",
+    alt: "Agency workspace suggesting partnership and white-label delivery",
+    caption: "You keep the client relationship. We ship the build behind it.",
+    related: ["web-applications", "custom-websites", "remote-software-ai-team", "seo"],
+    paragraphs: [
+      "Agencies win relationships; they still need dependable engineering. Trevyk partners as a white-label or co-branded build team for websites, web apps, and scoped AI—so you can sell the outcome without hiring a full bench overnight.",
+      "We work from your brief or join discovery with your client under your process. Milestones, demos, and handoff stay clear so your account team stays in control of the story.",
+      "Partnership means transparent capacity and scope—not inflated headcount claims. See /portfolio for work we publish under Trevyk, and contact us for white-label terms.",
+    ],
+    points: [
+      "White-label websites and web applications",
+      "Scoped AI and automation behind your brand",
+      "Outsourcing capacity with written milestones",
+      "Handoff docs your team can maintain",
+      "Remote-first delivery with IST overlap",
+    ],
+    sections: [
+      {
+        heading: "How partnership usually runs",
+        paragraphs: [
+          "You own the client conversation. We join as engineering under NDA and a clear SOW. Demos can be client-facing with you leading, or internal until you are ready.",
+          "Pricing follows scope. We prefer repeatable partnership retainers or project SOWs over vague “team as a service” promises.",
+        ],
+      },
+      {
+        heading: "What we will not do",
+        paragraphs: [
+          "We will not invent delivery capacity or claim your client’s results as our public case study without permission. Portfolio listings stay on approved projects only.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can you stay invisible to the end client?",
+        answer:
+          "Yes when the SOW says white-label. Communication paths and branding are agreed up front.",
+      },
+      {
+        question: "Do you take agency referrals the other way?",
+        answer:
+          "Sometimes. If a direct enquiry fits an agency partner better, we discuss it honestly. Contact us to explore the partnership shape.",
       },
     ],
   },

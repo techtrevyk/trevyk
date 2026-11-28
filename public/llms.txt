@@ -7,6 +7,11 @@ Trevyk is the technology and growth practice. Kiduart is the school ERP product 
 ## Our work
 
 - Portfolio (3 projects only: Kiduart live, Sports Academy under development, AGL Creatives client) — https://www.trevyk.in/portfolio
+- Industry solutions hub — https://www.trevyk.in/solutions
+- Interior & architecture — https://www.trevyk.in/work/interior-architecture
+- Beauty & wellness — https://www.trevyk.in/work/beauty-wellness
+- Manufacturing & industrial — https://www.trevyk.in/work/manufacturing-industrial
+- Marketing agencies (white-label) — https://www.trevyk.in/work/marketing-agencies
 
 ## Primary offers
 
@@ -28,6 +33,7 @@ Trevyk is the technology and growth practice. Kiduart is the school ERP product 
 
 - [Home](https://www.trevyk.in/)
 - [Our work / portfolio](https://www.trevyk.in/portfolio)
+- [Industry solutions](https://www.trevyk.in/solutions)
 - [AI solutions hub](https://www.trevyk.in/ai)
 - [What we do](https://www.trevyk.in/what-we-do)
 - [Technology](https://www.trevyk.in/technology)

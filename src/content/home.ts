@@ -31,7 +31,7 @@ export const hero = {
   titleLines: [
     "Technology built around your business",
     "Software, AI, and digital growth that fit how you work",
-    "Clear next step—not a crowded pitch",
+    "A clear next step with measurable milestones",
   ],
   subtitle: "Trevyk Technologies",
   lead:
@@ -130,7 +130,7 @@ export const workSection = {
     {
       title: "Kiduart School ERP",
       description:
-        "Our announced flagship: admissions, fees, attendance, and parent apps for Indian schools — real product, not a concept deck.",
+        "Our announced flagship: admissions, fees, attendance, and parent apps for Indian schools — a live product you can demo.",
       stack: ["Next.js", "PostgreSQL", "School ops"],
       image: "/images/services/kiduart-school.jpg",
       imageAlt: "School campus and learning environment",
@@ -215,7 +215,7 @@ export const testimonialsSection = {
   /** Case-study slots — keep empty until consent; max a few live stories. */
   stories: [] as ClientStorySlot[],
   commitments: [
-    "No invented names, countries, or star ratings written about ourselves.",
+    "Reviews appear only with written consent—transparent business practices.",
     "No stock photos posing as campuses or clients.",
     "When a story ships, it names the organisation, city, role, and outcome with consent on file.",
   ],

@@ -34,7 +34,7 @@ export const SITEMAP_ESSENTIALS: SitemapEssentialPage[] = [
   {
     path: "/ai",
     label: "AI solutions",
-    description: "Agents, RAG, and practical automation—honest about what is live.",
+    description: "Agents, RAG, and automation—with ready vs educational scope labelled.",
     icon: Brain,
   },
   {
@@ -42,6 +42,12 @@ export const SITEMAP_ESSENTIALS: SitemapEssentialPage[] = [
     label: "Our work",
     description: "Three verified projects with clear live / in-build / client status.",
     icon: Briefcase,
+  },
+  {
+    path: "/solutions",
+    label: "Solutions",
+    description: "Industry paths: interior, beauty, manufacturing, and agencies.",
+    icon: LayoutGrid,
   },
   {
     path: "/technology",

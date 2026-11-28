@@ -26,7 +26,7 @@ const AUDIENCE_ITEMS = [
   {
     title: "For Growth",
     description:
-      "Stuck on leads or ops? We map a clear next step, not a buzzword deck.",
+      "Stuck on leads or ops? We map a clear, measurable next step.",
     icon: BarChart3,
   },
 ] as const;

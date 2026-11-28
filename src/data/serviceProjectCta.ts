@@ -168,6 +168,46 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "RAG guide", href: "/work/rag-knowledge-assistants" },
   },
+  "interior-architecture": {
+    kicker: "Interior & architecture",
+    headlineBefore: "Ready for a ",
+    headlineHighlight: "studio-ready",
+    headlineAfter: " site or portal?",
+    description:
+      "Tell us how you present projects and take quotations today. We'll map a portfolio site, quote path, or client portal that fits your studio.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "All industry solutions", href: "/solutions" },
+  },
+  "beauty-wellness": {
+    kicker: "Beauty & wellness",
+    headlineBefore: "Ready for more ",
+    headlineHighlight: "appointments",
+    headlineAfter: "?",
+    description:
+      "Share your services, city, and how clients book today. We'll shape presence, booking paths, and light growth work around that flow.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "All industry solutions", href: "/solutions" },
+  },
+  "manufacturing-industrial": {
+    kicker: "Manufacturing & industrial",
+    headlineBefore: "Ready to fix one ",
+    headlineHighlight: "ops bottleneck",
+    headlineAfter: "?",
+    description:
+      "Name the floor or office workflow that slows you down. We'll scope the first module, integration, or automation with clear milestones.",
+    primaryCta: { label: "Discuss your project", href: "/contact" },
+    secondaryCta: { label: "All industry solutions", href: "/solutions" },
+  },
+  "marketing-agencies": {
+    kicker: "Agency partnerships",
+    headlineBefore: "Need a ",
+    headlineHighlight: "white-label",
+    headlineAfter: " build partner?",
+    description:
+      "Tell us the client type, delivery model, and whether you need white-label or co-branded engineering. We'll reply with a clear partnership shape.",
+    primaryCta: { label: "Discuss partnership", href: "/contact" },
+    secondaryCta: { label: "See our work", href: "/portfolio" },
+  },
 };
 
 function fallbackFromGuide(slug: string): ServiceProjectCtaContent | null {

@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Info,
   Briefcase,
+  LayoutGrid,
 } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 import { TrevykLogo } from "./TrevykLogo";
@@ -96,6 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: "What we do", path: "/what-we-do", icon: Cpu },
     { label: "AI", path: "/ai", icon: MessageSquareCode },
     { label: "Our work", path: "/portfolio", icon: Briefcase },
+    { label: "Solutions", path: "/solutions", icon: LayoutGrid },
     {
       label: "Our Products",
       path: "/our-products",

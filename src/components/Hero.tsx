@@ -125,7 +125,7 @@ export const Hero: React.FC<HeroProps> = ({
               className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
               Software, websites, AI, and digital growth—tailored to how you
-              operate, not a one-size stack.
+              operate.
             </motion.p>
 
             <motion.p

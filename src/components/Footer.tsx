@@ -57,6 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
   const navCompany = [
     { label: "Who we are", path: "/who-we-are" },
     { label: "Our work", path: "/portfolio" },
+    { label: "Industry solutions", path: "/solutions" },
     { label: "5-Stage Engineering Process", path: "/process" },
     { label: "IT Services Overview", path: "/what-we-do" },
     { label: "System Architecture", path: "/technology" },

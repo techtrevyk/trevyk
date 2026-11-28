@@ -68,17 +68,17 @@ Home should **name the outcome** (grow / operate / automate), not list every ind
 - Sports Academy uses product-direction preview imagery + explicit “under development” note (swap when you approve real screens).  
 - Owner: confirm AGL naming/permission remains OK; swap Sports Academy screens when ready.
 
-### Phase C — Tone + catalogue (1–2 days)
+### Phase C — Tone + catalogue ✅ done (2026-11-28)
 
-- Soften defensive phrases site-wide (audit tone table).  
-- What-we-do / AI: buyer outcomes first; technical detail second.  
-- Clarify ready vs educational AI/ML scope.
+- Softened defensive phrases (vanity/vapour/theatre → positive factual) on core pages, guides, workPages, trust, AI hub.  
+- What-we-do catalogue: Mobile + Partnerships added; buyer-outcome blurbs; work CTA → `/portfolio`.  
+- AI hub: Ready / Feasibility-led / Educational / Included-in-delivery scope badges; FAQ updated.
 
-### Phase D — Industries P1/P2
+### Phase D — Industries P1/P2 ✅ done (2026-11-28)
 
-- Small “Who we work with” strip OR `/solutions` hub.  
-- Then 4 landings: Interior & Architecture, Beauty & Wellness, Manufacturing, Marketing agencies.  
-- Home never becomes an industry dump.
+- `/solutions` hub + “Who we work with” strip on What we do (not home).  
+- Four landings: `/work/interior-architecture`, `/work/beauty-wellness`, `/work/manufacturing-industrial`, `/work/marketing-agencies`.  
+- Wired: guides + CTAs + sitemap + prerender + nav/footer/llms.
 
 ### Phase E — Trust & conversion
 
@@ -92,10 +92,10 @@ Home should **name the outcome** (grow / operate / automate), not list every ind
 
 | Already shipped (keep) | Next |
 |------------------------|------|
-| Money guides, comparisons, remote page, Noida page | Portfolio (B) |
-| Growth narrative (tools = means) | Industry pages (D) |
-| llms.txt, schema, LinkedIn/Kiduart links | Defensive-tone sweep (C) |
-| GA events wired | Form QA + key event (E) |
+| Money guides + 4 industry landings + `/solutions` | Form QA + key event (E) |
+| Growth narrative + Phase A–D | GBP when address exists |
+| `/portfolio`, tone sweep, AI scope labels | — |
+| GA events wired | — |
 
 ---
 

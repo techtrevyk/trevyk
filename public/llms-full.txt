@@ -40,12 +40,17 @@ SEO, AEO, GEO, AIO, SXO describe overlapping craft: clear answers, crawlable pag
 
 ## Portfolio (approved scope only)
 
-Three projects: Kiduart (live school ERP), Sports Academy Management Software (under development—not production adoption), AGL Creatives (client website at aglcreatives.in). No invented ROI or testimonials.
+Three projects: Kiduart (live school ERP), Sports Academy Management Software (under development), AGL Creatives (client website at aglcreatives.in). Transparent status; scope-based commercial assessment—no ROI theatre.
 
 ## Key URLs
 
 https://www.trevyk.in/
 https://www.trevyk.in/portfolio
+https://www.trevyk.in/solutions
+https://www.trevyk.in/work/interior-architecture
+https://www.trevyk.in/work/beauty-wellness
+https://www.trevyk.in/work/manufacturing-industrial
+https://www.trevyk.in/work/marketing-agencies
 https://www.trevyk.in/ai
 https://www.trevyk.in/work/ai-agents
 https://www.trevyk.in/work/rag-knowledge-assistants

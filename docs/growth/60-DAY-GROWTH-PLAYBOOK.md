@@ -239,13 +239,14 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - Owner audit DOCX ingested → `docs/growth/CONTENT-PHASE-PLAN-AUDIT.md` (phased A–E).
 - Phase A: home hero/GrowthOffer cleaned—**no industry dump**; audit-aligned CTAs; minimal impact copy.
 - Phase B: `/portfolio` live with 3 projects (Kiduart / Sports Academy under development / AGL Creatives); nav + home CTA wired.
+- Phase C: defensive-tone sweep (audit replacement table); what-we-do catalogue + Mobile/Partnerships; AI ready/feasibility/educational scope labels.
+- Phase D: `/solutions` hub + 4 industry `/work/*` landings; Who-we-work-with strip on What we do only.
 
 ---
 
 ## Next actions (agent — do these in order)
 
-1. **You:** Deploy Phase A + B (home + `/portfolio`).
-2. **You:** Optional — swap Sports Academy preview image for approved screens; reconfirm AGL Creatives permission.
-3. **You:** GA4 Realtime QA; mark `generate_lead` Key event.
-4. Phase C: defensive-tone sweep + AI scope labels (next coding pass).
-5. Phase D later: industry landing pages (not on home).
+1. **You:** Deploy Phases A–D.
+2. **You:** Optional — Sports Academy screens; AGL permission reconfirm.
+3. **You:** GA4 Realtime QA; mark `generate_lead` Key event (Phase E).
+4. Phase E: contact conversion QA + GBP when address exists.

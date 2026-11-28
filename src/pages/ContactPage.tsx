@@ -146,7 +146,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             <p className="mt-5 max-w-md text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
               Business type, city or timezone, and what you want more of—
               enquiries, clarity, or systems that keep up. We reply within one
-              business day. No vapour decks.
+              business day—with a practical next-step plan.
             </p>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">

@@ -79,9 +79,8 @@ export function AiHeroSection() {
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#E7E1F0] sm:text-base lg:text-[15px] xl:text-[16px]">
               Agents, RAG over your own docs, GenAI apps, and light automation—so
-              staff stop drowning in repeat questions and slow handoffs. The
-              point is not a demo. It is hours back and clearer answers for
-              customers and teams.
+              staff get hours back and customers get clearer answers. Practical
+              AI solutions scoped to the workflow you already run.
             </p>
 
             <p className="mt-3 text-sm leading-relaxed text-[#C4B4D8] lg:text-[13px] xl:text-sm">

@@ -70,11 +70,15 @@ export const OUR_PRODUCTS_PATH = "/our-products" as const;
 /** Approved work showcase (audit P0 — three projects only). */
 export const PORTFOLIO_PATH = "/portfolio" as const;
 
+/** Industry solutions hub (detail pages live under /work/*). */
+export const SOLUTIONS_PATH = "/solutions" as const;
+
 export const SITE_ROUTES = [
   "/",
   WHAT_WE_DO_PATH,
   "/ai",
   PORTFOLIO_PATH,
+  SOLUTIONS_PATH,
   "/technology",
   OUR_PRODUCTS_PATH,
   "/process",

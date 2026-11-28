@@ -21,7 +21,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/what-we-do": {
     title: "End-to-End Business Growth Solutions | Trevyk",
     description:
-      "From being found online to converting enquiries and running day-to-day work—websites, SEO, campaigns, software, and AI. Built around your business, not a generic service menu.",
+      "From being found online to converting enquiries and running day-to-day work—websites, SEO, campaigns, software, mobile, partnerships, and AI. Built around your business goals.",
     crumb: "What we do",
     keywords:
       "business growth solutions, digital growth for SMBs, AI agents for business, SEO and websites, custom software for growth",
@@ -29,7 +29,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/ai": {
     title: "AI That Helps Your Business Move Faster | Trevyk",
     description:
-      "Agents, RAG knowledge assistants, GenAI/LLM apps, and ML—used to cut repeat work, answer from your docs, and support growth. Honest scope; no vapour demos.",
+      "Agents, RAG knowledge assistants, GenAI/LLM apps, and scoped ML—used to cut repeat work, answer from your docs, and support growth. Practical AI with clear delivery boundaries.",
     crumb: "AI",
     keywords:
       "AI for business growth, custom AI agents, RAG assistants, generative AI apps, business automation AI, Trevyk AI",
@@ -41,6 +41,14 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
     crumb: "Our work",
     keywords:
       "Trevyk portfolio, Kiduart school ERP, sports academy software, AGL Creatives website, custom software portfolio",
+  },
+  "/solutions": {
+    title: "Industry Solutions | Interior, Beauty, Manufacturing, Agencies | Trevyk",
+    description:
+      "Industry paths for interior & architecture, beauty & wellness, manufacturing, and marketing agencies—portfolio sites, booking, ops modules, and white-label partnerships.",
+    crumb: "Solutions",
+    keywords:
+      "industry software solutions, interior architecture website, beauty wellness booking, manufacturing ERP modules, white label agency development",
   },
   "/technology": {
     title: "Technology & Architecture | TREVYK Technologies",
@@ -143,6 +151,7 @@ const ROUTE_SOCIAL_IMAGES: Record<string, string> = {
   "/who-we-are": "/images/studio-about.jpg",
   "/our-products": "/images/studio-kiduart.jpg",
   "/portfolio": "/images/work/portfolio-hero.jpg",
+  "/solutions": "/images/work/portfolio-hero.jpg",
 };
 
 export function getSocialImagePath(pathname: string): string {
