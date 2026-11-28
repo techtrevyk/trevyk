@@ -65,8 +65,8 @@ export function EeAtPracticeSection() {
 
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
         Search and answer systems reward entities they can check. We publish
-        where we work, what we ship, and how to reach us—without inventing
-        founder bios, client counts, or borrowed geography.
+        where we work, what we ship, and how to reach us—with verified remote-first
+        delivery and transparent product status.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">

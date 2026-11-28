@@ -111,7 +111,7 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "Who we are — growth partners with modern tech",
     paragraphs: [
       "Trevyk Technologies helps real businesses grow. HQ in Noida, India; clients across India and remotely worldwide. Websites, software, SEO, campaigns, and practical AI—plus Kiduart for schools.",
-      "Purpose, how we work, what defines us, and facts you can check. Honest claims only. Client stories appear only with written consent.",
+      "Verified milestones: Kiduart live on kiduart.com; three portfolio projects with clear status; remote-first delivery; practical AI with ready vs educational labels. Client stories appear only with written consent.",
       "Turning Vision Into Progress means a clear problem, a measurable next release, and systems that fit real workflows. contact@trevyk.com · WhatsApp +91 88106 64797.",
     ],
   },

@@ -10,6 +10,7 @@ import { OurPurposeSection } from "../components/about/OurPurposeSection";
 import { HowWeThinkWorkSection } from "../components/about/HowWeThinkWorkSection";
 import { WhatDefinesTrevykSection } from "../components/about/WhatDefinesTrevykSection";
 import { EeAtPracticeSection } from "../components/about/EeAtPracticeSection";
+import { VerifiedMilestonesSection } from "../components/about/VerifiedMilestonesSection";
 import { OurCommitmentsSection } from "../components/about/OurCommitmentsSection";
 import { LetsBuildTogetherSection } from "../components/about/LetsBuildTogetherSection";
 
@@ -144,6 +145,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <WhatDefinesTrevykSection />
 
       <EeAtPracticeSection />
+
+      <VerifiedMilestonesSection />
 
       <OurCommitmentsSection />
 

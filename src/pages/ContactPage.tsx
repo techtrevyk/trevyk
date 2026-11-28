@@ -18,19 +18,32 @@ import { SiteSettings } from "../types";
 import { contactHeroBackdrop } from "../config/media";
 import { whatsappContact } from "../content/home";
 import { soundEngine } from "../utils/audioEngine";
-import { trackContactSubmit, trackWhatsAppLead } from "../utils/analytics";
+import {
+  trackContactSubmit,
+  trackEmailLead,
+  trackWhatsAppLead,
+} from "../utils/analytics";
 import { buildWhatsAppChatUrl } from "../utils/whatsappChat";
+import { Link } from "react-router-dom";
 
 interface ContactPageProps {
   settings: SiteSettings;
 }
 
-type ContactNeed = "custom-web" | "kiduart" | "growth" | "other";
+type ContactNeed =
+  | "custom-web"
+  | "kiduart"
+  | "ai"
+  | "growth"
+  | "partnership"
+  | "other";
 
 const NEED_SELECT_OPTIONS: { value: ContactNeed; label: string }[] = [
   { value: "custom-web", label: "Custom website / web app" },
   { value: "kiduart", label: "KIDUART School ERP" },
-  { value: "growth", label: "SEO & Digital Marketing" },
+  { value: "ai", label: "AI agents / RAG / GenAI" },
+  { value: "growth", label: "SEO & digital growth" },
+  { value: "partnership", label: "Agency / white-label partnership" },
   { value: "other", label: "Other (please specify)" },
 ];
 
@@ -57,10 +70,12 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     email: "",
     organization: "",
     phone: "",
+    location: "",
     scope: "",
   });
 
   const formType = needToApiType(need);
+  const leadLane = need === "kiduart" ? "kiduart" : need;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,6 +85,9 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
     const needLabel =
       NEED_SELECT_OPTIONS.find((o) => o.value === need)?.label ?? need;
+    const locationLine = formData.location.trim()
+      ? `Location / timezone: ${formData.location.trim()}\n`
+      : "";
 
     try {
       const res = await fetch("/api/contact", {
@@ -81,7 +99,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
           email: formData.email,
           organization: formData.organization,
           phone: formData.phone,
-          scope: `[${needLabel}]\n${formData.scope}`,
+          scope: `[${needLabel}]\n${locationLine}${formData.scope}`,
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -90,13 +108,13 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
           data.error || "Could not send your message. Please try again.",
         );
       }
-      trackContactSubmit(formType);
+      trackContactSubmit(leadLane);
       setSubmitted(true);
     } catch (err: unknown) {
       setSubmitError(
         err instanceof Error
           ? err.message
-          : "Could not send your message. Please email contact@trevyk.com.",
+          : "Could not send your message. Please email contact@trevyk.com or WhatsApp +91 88106 64797.",
       );
     } finally {
       setIsSubmitting(false);
@@ -215,19 +233,42 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   Message sent
                 </h3>
                 <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-[#B9A6D1]">
-                  Thank you{formData.name ? `, ${formData.name}` : ""}. We will reply
-                  within one business day.
+                  Thank you{formData.name ? `, ${formData.name}` : ""}. We reply
+                  within one business day with a practical next-step plan.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    soundEngine.playClick("soft");
-                    setSubmitted(false);
-                  }}
-                  className="mt-6 rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830] px-6 py-2.5 font-mono-accent text-xs text-[#E8A9C2] hover:border-[#E8A9C2]"
-                >
-                  Send another message
-                </button>
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href={buildWhatsAppChatUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppLead(
+                        buildWhatsAppChatUrl(),
+                        "contact_success_whatsapp",
+                      )
+                    }
+                    className="rounded-xl bg-gradient-to-r from-[#E8A9C2] to-[#d892ad] px-5 py-2.5 font-heading text-xs font-semibold text-[#1E1024]"
+                  >
+                    Prefer WhatsApp now
+                  </a>
+                  <Link
+                    to="/portfolio"
+                    onClick={() => soundEngine.playClick("soft")}
+                    className="rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830] px-5 py-2.5 font-heading text-xs font-semibold text-[#E8A9C2] hover:border-[#E8A9C2]"
+                  >
+                    Browse our work
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      soundEngine.playClick("soft");
+                      setSubmitted(false);
+                    }}
+                    className="rounded-xl border border-[#B9A6D1]/25 px-5 py-2.5 font-mono-accent text-xs text-[#B9A6D1] hover:text-[#E8A9C2]"
+                  >
+                    Send another
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -294,6 +335,14 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   }
                 />
 
+                <Field
+                  label="City or timezone"
+                  icon={MapPin}
+                  placeholder="e.g. Noida · IST, or London · GMT"
+                  value={formData.location}
+                  onChange={(v) => setFormData({ ...formData, location: v })}
+                />
+
                 <div>
                   <label className="mb-1.5 block font-mono-accent text-[11px] uppercase tracking-wide text-[#B9A6D1]">
                     Project details *
@@ -302,7 +351,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     required
                     rows={3}
                     maxLength={MESSAGE_MAX}
-                    placeholder="Describe the project, timeline, budget (if any) and any specific requirements…"
+                    placeholder="Where growth or ops is stuck, timeline, and budget band if known…"
                     value={formData.scope}
                     onChange={(e) =>
                       setFormData({ ...formData, scope: e.target.value })
@@ -322,6 +371,16 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   <Send className="h-4 w-4" aria-hidden />
                   {isSubmitting ? "Sending…" : "Send message"}
                 </button>
+                <p className="text-center text-[11px] leading-relaxed text-[#B9A6D1]/90">
+                  We use this only to reply about your enquiry. Prefer email?{" "}
+                  <a
+                    href="mailto:contact@trevyk.com"
+                    onClick={() => trackEmailLead("contact_form_mailto")}
+                    className="text-[#E8A9C2] underline-offset-2 hover:underline"
+                  >
+                    contact@trevyk.com
+                  </a>
+                </p>
                 {submitError ? (
                   <p className="text-center text-xs leading-relaxed text-red-300">
                     {submitError}
@@ -431,6 +490,8 @@ function DirectChannelItem({
         className="group block w-fit max-w-full"
         onClick={() => {
           if (isWhatsApp) trackWhatsAppLead(href, "contact_whatsapp_card");
+          else if (href.startsWith("mailto:"))
+            trackEmailLead(`contact_card_${title.toLowerCase().replace(/\s+/g, "_")}`);
         }}
       >
         <div

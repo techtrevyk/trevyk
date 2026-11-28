@@ -80,11 +80,12 @@ Home should **name the outcome** (grow / operate / automate), not list every ind
 - Four landings: `/work/interior-architecture`, `/work/beauty-wellness`, `/work/manufacturing-industrial`, `/work/marketing-agencies`.  
 - Wired: guides + CTAs + sitemap + prerender + nav/footer/llms.
 
-### Phase E — Trust & conversion
+### Phase E — Trust & conversion ✅ code shipped (2026-11-28)
 
-- Contact form Realtime QA; `generate_lead` key event.  
-- About: authentic milestones when ready (no invented team bios).  
-- GBP when address exists.
+- Contact form hardened (need options, city/timezone, success CTAs); NAP → contact@trevyk.com; `generate_lead` for form / WhatsApp / email; analytics init on events.  
+- About: `VerifiedMilestonesSection` (Kiduart, portfolio, remote-first, AI lane)—no invented bios.  
+- **You:** post-deploy Realtime QA + mark `generate_lead` Key event (`PHASE-4-CONVERSION-QA.md`).  
+- GBP still deferred until address exists.
 
 ---
 
@@ -92,10 +93,9 @@ Home should **name the outcome** (grow / operate / automate), not list every ind
 
 | Already shipped (keep) | Next |
 |------------------------|------|
-| Money guides + 4 industry landings + `/solutions` | Form QA + key event (E) |
-| Growth narrative + Phase A–D | GBP when address exists |
-| `/portfolio`, tone sweep, AI scope labels | — |
-| GA events wired | — |
+| Phases A–E site work | **You:** deploy + GA4 Realtime QA / Key event |
+| Contact NAP + milestones | GBP when address exists |
+| `/portfolio`, `/solutions`, tone, AI scope | Case-study only with consent |
 
 ---
 

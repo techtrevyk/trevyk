@@ -20,7 +20,7 @@ const AUDIENCE_ITEMS = [
   {
     title: "For Businesses",
     description:
-      "Clinics, realty, services, startups—enquiries, systems, and AI that fit.",
+      "Enquiries, systems, and AI shaped around how your business operates.",
     icon: Building2,
   },
   {

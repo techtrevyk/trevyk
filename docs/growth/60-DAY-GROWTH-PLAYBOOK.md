@@ -241,12 +241,13 @@ We do **not** sell “GEO packages” that promise AI Overview citations.
 - Phase B: `/portfolio` live with 3 projects (Kiduart / Sports Academy under development / AGL Creatives); nav + home CTA wired.
 - Phase C: defensive-tone sweep (audit replacement table); what-we-do catalogue + Mobile/Partnerships; AI ready/feasibility/educational scope labels.
 - Phase D: `/solutions` hub + 4 industry `/work/*` landings; Who-we-work-with strip on What we do only.
+- Phase E: contact conversion harden + NAP email align + verified milestones on Who we are; GBP still deferred.
 
 ---
 
 ## Next actions (agent — do these in order)
 
-1. **You:** Deploy Phases A–D.
-2. **You:** Optional — Sports Academy screens; AGL permission reconfirm.
-3. **You:** GA4 Realtime QA; mark `generate_lead` Key event (Phase E).
-4. Phase E: contact conversion QA + GBP when address exists.
+1. **You:** Deploy Phases A–E.
+2. **You:** GA4 Realtime QA (WhatsApp + test contact + optional mailto); mark `generate_lead` Key event — see `docs/growth/PHASE-4-CONVERSION-QA.md`.
+3. **You:** Optional — Sports Academy screens; AGL permission reconfirm.
+4. GBP only when a permanent address exists.

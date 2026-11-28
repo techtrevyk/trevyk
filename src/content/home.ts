@@ -3,8 +3,8 @@ export const site = {
   shortName: "TREVYK",
   footerWordmark: "Trevyk Technologies",
   tagline: "Software house — Remote-first, worldwide",
-  email: "info@trevyktechnologies.com",
-  phone: "+91 90256 98946",
+  email: "contact@trevyk.com",
+  phone: "+91 88106 64797",
   location: "HQ Noida, India · Remote delivery worldwide",
   copyrightYear: 2026,
 } as const;
@@ -275,6 +275,6 @@ export const footer = {
   },
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/trevyk-technologies" },
-    { label: "Email", href: "mailto:info@trevyktechnologies.com" },
+    { label: "Email", href: "mailto:contact@trevyk.com" },
   ],
 } as const;
