@@ -28,11 +28,11 @@ const INTRO_OFFERINGS = [
   },
   {
     title: "Run the business better",
-    desc: "Websites, apps, and software—including Kiduart for schools",
+    desc: "Websites, apps, and softwareincluding Kiduart for schools",
   },
   {
     title: "Use modern AI where it helps",
-    desc: "Agents, RAG, GenAI—scoped to real workflows",
+    desc: "Agents, RAG, GenAIscoped to real workflows",
   },
 ] as const;
 
@@ -42,7 +42,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 }) => {
   return (
     <div id="who-we-are-page" className="relative w-full overflow-hidden">
-      {/* 1 — Who we are */}
+      {/* 1  Who we are */}
       <section
         id="who-we-are"
         aria-labelledby="who-we-are-heading"
@@ -91,7 +91,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               </p>
               <p className="text-sm sm:text-base text-[#E7E1F0] leading-relaxed max-w-lg">
                 TREVYK Technologies partners with businesses that want clearer
-                growth paths. We lead with your problem—then use websites,
+                growth paths. We lead with your problemthen use websites,
                 software, SEO, campaigns, and practical AI to move it forward.
               </p>
 

@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({
   const [disassembled, setDisassembled] = useState(false);
   const [showEasterEggToast, setShowEasterEggToast] = useState(false);
   const [handoff] = useState(() =>
-    settings.reducedMotion ? false : consumeEntryHandoff()
+    settings.reducedMotion ? false : consumeEntryHandoff(),
   );
 
   const ease = [0.22, 1, 0.36, 1] as const;
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="absolute inset-0 bg-noise opacity-25" />
       </div>
 
-      {/* Entry veil — fades with handoff from preloader wipe */}
+      {/* Entry veil  fades with handoff from preloader wipe */}
       {handoff && (
         <motion.div
           aria-hidden
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.16, ease }}
               className="mt-6 text-lg sm:text-xl text-[#F8F6FB] font-heading font-semibold leading-snug max-w-xl"
             >
-              Software, websites, AI, and digital growth—tailored to how you
+              Software, websites, AI, and digital growthtailored to how you
               operate.
             </motion.p>
 
@@ -134,8 +134,8 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.65, delay: copyDelay + 0.24, ease }}
               className="mt-4 text-sm sm:text-base text-[#B9A6D1] max-w-xl leading-relaxed"
             >
-              From the first page people land on, to the systems behind enquiries
-              and day-to-day work—including practical AI when it helps.
+              From the first page people land on, to the systems behind
+              enquiries and day-to-day workincluding practical AI when it helps.
             </motion.p>
 
             <motion.div
@@ -239,7 +239,11 @@ export const Hero: React.FC<HeroProps> = ({
                   id="toggle-disassemble-btn"
                   type="button"
                   onClick={handleDisassembleToggle}
-                  aria-label={disassembled ? "Reassemble architecture core" : "Disassemble architecture core"}
+                  aria-label={
+                    disassembled
+                      ? "Reassemble architecture core"
+                      : "Disassemble architecture core"
+                  }
                   aria-pressed={disassembled}
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E1024]/85 border border-[#B9A6D1]/35 text-[10px] font-mono-accent text-[#B9A6D1] hover:text-[#F8F6FB] transition-colors"
                 >

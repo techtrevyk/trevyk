@@ -16,7 +16,7 @@ type DeliveryPipelineRailProps = {
 const VIEW_W = 100;
 const VIEW_H = 90;
 
-/** Column centers at 10%, 30%, … — use gap-0 on the 5-col grid */
+/** Column centers at 10%, 30%, …  use gap-0 on the 5-col grid */
 function stageX(index: number, count: number) {
   const pad = 10;
   const span = VIEW_W - pad * 2;
@@ -44,7 +44,7 @@ function buildWavePath(count: number) {
   return { d, points };
 }
 
-/** Glass cube + platform — matches Products & Services lane icon treatment */
+/** Glass cube + platform  matches Products & Services lane icon treatment */
 function PipelineGlassNode({
   active,
   icon: Icon,
@@ -137,13 +137,25 @@ export const DeliveryPipelineRail: React.FC<DeliveryPipelineRailProps> = ({
             aria-hidden
           >
             <defs>
-              <linearGradient id="delivery-pipe-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <linearGradient
+                id="delivery-pipe-grad"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
                 <stop offset="0%" stopColor="#6B4A87" stopOpacity="0.4" />
                 <stop offset="40%" stopColor="#E8A9C2" stopOpacity="0.9" />
                 <stop offset="60%" stopColor="#B9A6D1" stopOpacity="0.8" />
                 <stop offset="100%" stopColor="#6B4A87" stopOpacity="0.45" />
               </linearGradient>
-              <filter id="delivery-pipe-glow" x="-15%" y="-80%" width="130%" height="220%">
+              <filter
+                id="delivery-pipe-glow"
+                x="-15%"
+                y="-80%"
+                width="130%"
+                height="220%"
+              >
                 <feGaussianBlur stdDeviation="0.8" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
@@ -186,7 +198,7 @@ export const DeliveryPipelineRail: React.FC<DeliveryPipelineRailProps> = ({
           </svg>
         </div>
 
-        {/* One column per step — icon + connector + badge share the same center line */}
+        {/* One column per step  icon + connector + badge share the same center line */}
         <div
           className="absolute inset-x-0 top-0 grid grid-cols-5 gap-0"
           style={{ height: RAIL_H }}
@@ -216,7 +228,10 @@ export const DeliveryPipelineRail: React.FC<DeliveryPipelineRailProps> = ({
         {stages.map((stage, idx) => {
           const on = idx === activeIndex;
           return (
-            <div key={stage.num} className="flex flex-col items-center px-1 sm:px-1.5">
+            <div
+              key={stage.num}
+              className="flex flex-col items-center px-1 sm:px-1.5"
+            >
               <div
                 className="h-7 w-px border-l border-dashed border-[#B9A6D1]/50 sm:h-8"
                 aria-hidden

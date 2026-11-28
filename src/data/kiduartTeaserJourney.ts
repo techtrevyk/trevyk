@@ -20,7 +20,7 @@ export const KIDUART_TEASER_JOURNEY: KiduartTeaserModule[] = [
   },
   {
     title: "Student records",
-    desc: "Admission papers, guardians, class history and documents sit on one profile the whole campus reads — from desk to classroom.",
+    desc: "Admission papers, guardians, class history and documents sit on one profile the whole campus reads  from desk to classroom.",
     bullets: [
       "Single record from admission through alumni",
       "Guardians and emergency contacts linked",
@@ -53,7 +53,7 @@ export const KIDUART_TEASER_JOURNEY: KiduartTeaserModule[] = [
   },
   {
     title: "Parents",
-    desc: "Circulars, fee reminders and attendance notices go from one place to the right class or parent group — with a delivery trail.",
+    desc: "Circulars, fee reminders and attendance notices go from one place to the right class or parent group  with a delivery trail.",
     bullets: [
       "Targeted by class, section or custom group",
       "Templates for fees, events and alerts",
@@ -75,7 +75,7 @@ export const KIDUART_TEASER_JOURNEY: KiduartTeaserModule[] = [
   },
   {
     title: "Transport",
-    desc: "Routes, vehicles and drivers stay organised so transport is part of the school record — not a separate spreadsheet.",
+    desc: "Routes, vehicles and drivers stay organised so transport is part of the school record  not a separate spreadsheet.",
     bullets: [
       "Routes, stops and vehicle assignment",
       "Driver and helper records on file",

@@ -75,7 +75,7 @@ export function SolutionsHubSection() {
 
         <div className="mt-12 flex flex-col items-center gap-4 text-center">
           <p className="max-w-lg text-sm leading-relaxed text-[#B9A6D1]">
-            Different sector? We still start from your business problem—tell us
+            Different sector? We still start from your business problemtell us
             the workflow and we map the stack.
           </p>
           <Link

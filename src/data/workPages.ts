@@ -75,17 +75,20 @@ const DELIVER_STEPS_DEFAULT: WorkPageContent["howWeDeliver"]["steps"] = [
 const APPROACH_DEFAULT: WorkPageContent["problemApproach"]["approach"] = [
   {
     title: "Understand your goals",
-    description: "We clarify who you serve, what success looks like, and what must ship first.",
+    description:
+      "We clarify who you serve, what success looks like, and what must ship first.",
     icon: "search",
   },
   {
     title: "Plan the right structure",
-    description: "We map pages, flows and responsibilities before build starts.",
+    description:
+      "We map pages, flows and responsibilities before build starts.",
     icon: "layers",
   },
   {
     title: "Build for real results",
-    description: "We ship something your team can run—not a demo that falls apart in production.",
+    description:
+      "We ship something your team can runnot a demo that falls apart in production.",
     icon: "circleCheck",
   },
 ];
@@ -101,12 +104,28 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       description:
         "We design and develop modern, responsive websites that help businesses attract the right audience, communicate clearly and generate genuine enquiries.",
       supporting:
-        "Pages are structured around what you sell, who it is for, and one clear enquiry path—written for real searches, not filler paragraphs.",
+        "Pages are structured around what you sell, who it is for, and one clear enquiry pathwritten for real searches, not filler paragraphs.",
       highlights: [
-        { icon: "monitor", label: "Responsive by default", detail: "Readable on phones and desktops." },
-        { icon: "list", label: "Clear enquiry path", detail: "One primary form—not five competing CTAs." },
-        { icon: "search", label: "SEO in the copy", detail: "Titles and headings match how buyers search." },
-        { icon: "settings", label: "Editable handoff", detail: "Your team can update key content." },
+        {
+          icon: "monitor",
+          label: "Responsive by default",
+          detail: "Readable on phones and desktops.",
+        },
+        {
+          icon: "list",
+          label: "Clear enquiry path",
+          detail: "One primary formnot five competing CTAs.",
+        },
+        {
+          icon: "search",
+          label: "SEO in the copy",
+          detail: "Titles and headings match how buyers search.",
+        },
+        {
+          icon: "settings",
+          label: "Editable handoff",
+          detail: "Your team can update key content.",
+        },
       ],
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
@@ -118,7 +137,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "A website should do more than just ",
       headingHighlight: "look good.",
       headingAfter: "",
-      body: "Many businesses struggle with outdated designs, unclear messaging, and websites that fail to convert visitors into leads. We start by understanding how you serve customers, who you want to reach, and what action you need visitors to take—then build a site aligned with those goals.",
+      body: "Many businesses struggle with outdated designs, unclear messaging, and websites that fail to convert visitors into leads. We start by understanding how you serve customers, who you want to reach, and what action you need visitors to takethen build a site aligned with those goals.",
       approach: APPROACH_DEFAULT,
     },
     whatYouGet: {
@@ -126,27 +145,32 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       items: [
         {
           title: "Responsive design",
-          description: "Pages that stay readable on phones, tablets and desktops.",
+          description:
+            "Pages that stay readable on phones, tablets and desktops.",
           icon: "monitor",
         },
         {
           title: "Custom pages",
-          description: "Structure and copy shaped around your offer—not a generic template.",
+          description:
+            "Structure and copy shaped around your offernot a generic template.",
           icon: "fileText",
         },
         {
           title: "Enquiry forms",
-          description: "One clear path to contact you with the fields you actually need.",
+          description:
+            "One clear path to contact you with the fields you actually need.",
           icon: "list",
         },
         {
           title: "Basic SEO setup",
-          description: "Titles, headings and internal links written for real searches.",
+          description:
+            "Titles, headings and internal links written for real searches.",
           icon: "search",
         },
         {
           title: "Easy to manage",
-          description: "Handoff and guidance so your team can update key content.",
+          description:
+            "Handoff and guidance so your team can update key content.",
           icon: "settings",
         },
       ],
@@ -164,14 +188,30 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "your workflow.",
       titleAfter: "",
       description:
-        "When spreadsheets and shared passwords stop scaling, we scope portals, dashboards and tools your team owns—with a first release you can actually run.",
+        "When spreadsheets and shared passwords stop scaling, we scope portals, dashboards and tools your team ownswith a first release you can actually run.",
       supporting:
-        "From customer portals and staff dashboards to internal tools, we document what ships first, how roles see data, and how your team runs the system after go-live—without a locked vendor portal.",
+        "From customer portals and staff dashboards to internal tools, we document what ships first, how roles see data, and how your team runs the system after go-livewithout a locked vendor portal.",
       highlights: [
-        { icon: "users", label: "Role-based screens", detail: "Each role sees only the work it needs." },
-        { icon: "fileText", label: "Written scope", detail: "Agreed deliverables before development starts." },
-        { icon: "code", label: "Source ownership", detail: "Custom code and handoff—you keep the keys." },
-        { icon: "circleCheck", label: "Launch checklist", detail: "A runbook for go-live week." },
+        {
+          icon: "users",
+          label: "Role-based screens",
+          detail: "Each role sees only the work it needs.",
+        },
+        {
+          icon: "fileText",
+          label: "Written scope",
+          detail: "Agreed deliverables before development starts.",
+        },
+        {
+          icon: "code",
+          label: "Source ownership",
+          detail: "Custom code and handoffyou keep the keys.",
+        },
+        {
+          icon: "circleCheck",
+          label: "Launch checklist",
+          detail: "A runbook for go-live week.",
+        },
       ],
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
@@ -183,21 +223,24 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "Software should match ",
       headingHighlight: "how you work.",
       headingAfter: "",
-      body: "Teams often duct-tape bookings, approvals and customer data across chat and sheets. We map the workflow you repeat every week, define roles and permissions, and build a web app around that—before adding nice-to-have features.",
+      body: "Teams often duct-tape bookings, approvals and customer data across chat and sheets. We map the workflow you repeat every week, define roles and permissions, and build a web app around thatbefore adding nice-to-have features.",
       approach: [
         {
           title: "Understand the workflow",
-          description: "We walk through the steps, exceptions and who touches each record.",
+          description:
+            "We walk through the steps, exceptions and who touches each record.",
           icon: "search",
         },
         {
           title: "Scope the first release",
-          description: "We separate must-ship from later phases so launch stays realistic.",
+          description:
+            "We separate must-ship from later phases so launch stays realistic.",
           icon: "layers",
         },
         {
           title: "Build with ownership",
-          description: "You keep the source and documentation—not a locked vendor portal.",
+          description:
+            "You keep the source and documentationnot a locked vendor portal.",
           icon: "code",
         },
       ],
@@ -217,12 +260,14 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         },
         {
           title: "APIs & integrations",
-          description: "Connections to the tools you already use, where scope allows.",
+          description:
+            "Connections to the tools you already use, where scope allows.",
           icon: "layers",
         },
         {
           title: "Source ownership",
-          description: "Custom code and handoff—you are not renting your own product.",
+          description:
+            "Custom code and handoffyou are not renting your own product.",
           icon: "code",
         },
         {
@@ -245,7 +290,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "honest pages.",
       titleAfter: "",
       description:
-        "We map keywords to service pages, internal links and crawlable structure so people who already want your offer can find you—focused on relevant traffic and enquiries.",
+        "We map keywords to service pages, internal links and crawlable structure so people who already want your offer can find youfocused on relevant traffic and enquiries.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/seo-hero.jpg",
@@ -264,22 +309,26 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       items: [
         {
           title: "Keyword map",
-          description: "Services and locations mapped to pages you can maintain.",
+          description:
+            "Services and locations mapped to pages you can maintain.",
           icon: "search",
         },
         {
           title: "On-page structure",
-          description: "Titles, headings and copy aligned to the search—not filler.",
+          description:
+            "Titles, headings and copy aligned to the searchnot filler.",
           icon: "fileText",
         },
         {
           title: "Internal linking",
-          description: "Related offers linked with phrases people actually search.",
+          description:
+            "Related offers linked with phrases people actually search.",
           icon: "layers",
         },
         {
           title: "Search Console setup",
-          description: "So you can see queries, coverage, and real Search Console data.",
+          description:
+            "So you can see queries, coverage, and real Search Console data.",
           icon: "settings",
         },
         {
@@ -323,7 +372,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "clear offer.",
       titleAfter: "",
       description:
-        "Ads, landing pages and forms that name the same offer—so budget goes toward conversations, not confused clicks.",
+        "Ads, landing pages and forms that name the same offerso budget goes toward conversations, not confused clicks.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/digital-marketing-hero.jpg",
@@ -339,11 +388,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "One offer per campaign", description: "Single story from ad to form.", icon: "megaphone" },
-        { title: "Landing page", description: "Matches the ad copy and CTA.", icon: "fileText" },
-        { title: "Budget guidance", description: "Ranges that fit early-stage businesses.", icon: "list" },
-        { title: "Weekly readout", description: "What to keep, pause or change.", icon: "search" },
-        { title: "Honest metrics", description: "Enquiries and clarity you can measure.", icon: "circleCheck" },
+        {
+          title: "One offer per campaign",
+          description: "Single story from ad to form.",
+          icon: "megaphone",
+        },
+        {
+          title: "Landing page",
+          description: "Matches the ad copy and CTA.",
+          icon: "fileText",
+        },
+        {
+          title: "Budget guidance",
+          description: "Ranges that fit early-stage businesses.",
+          icon: "list",
+        },
+        {
+          title: "Weekly readout",
+          description: "What to keep, pause or change.",
+          icon: "search",
+        },
+        {
+          title: "Honest metrics",
+          description: "Enquiries and clarity you can measure.",
+          icon: "circleCheck",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -356,7 +425,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "your business.",
       titleAfter: "",
       description:
-        "Calendars, captions and profile work so you look present between client jobs—with a path back to your website or contact form.",
+        "Calendars, captions and profile work so you look present between client jobswith a path back to your website or contact form.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/social-media-hero.jpg",
@@ -372,11 +441,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Profile & bio", description: "Written for what you sell.", icon: "fileText" },
-        { title: "30-day calendar", description: "Planned posts your team can approve.", icon: "list" },
-        { title: "Captions", description: "English or Hindi—matched to your tone.", icon: "megaphone" },
-        { title: "Comment rules", description: "Simple guidance for DMs and replies.", icon: "users" },
-        { title: "Site links", description: "Paths from social back to enquiry.", icon: "layers" },
+        {
+          title: "Profile & bio",
+          description: "Written for what you sell.",
+          icon: "fileText",
+        },
+        {
+          title: "30-day calendar",
+          description: "Planned posts your team can approve.",
+          icon: "list",
+        },
+        {
+          title: "Captions",
+          description: "English or Hindimatched to your tone.",
+          icon: "megaphone",
+        },
+        {
+          title: "Comment rules",
+          description: "Simple guidance for DMs and replies.",
+          icon: "users",
+        },
+        {
+          title: "Site links",
+          description: "Paths from social back to enquiry.",
+          icon: "layers",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -389,7 +478,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "name the offer.",
       titleAfter: "",
       description:
-        "Scripts and shot lists for reels and explainers—written before cameras so a small team can publish this month.",
+        "Scripts and shot lists for reels and explainerswritten before cameras so a small team can publish this month.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
       backdropImage: "/images/work/video-scripts-hero.jpg",
@@ -405,11 +494,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Script", description: "Written for silent viewing with captions.", icon: "fileText" },
-        { title: "Shot list", description: "A small team can follow on shoot day.", icon: "list" },
-        { title: "Bilingual options", description: "English, Hindi or both where needed.", icon: "megaphone" },
-        { title: "Website embed plan", description: "Where the film lives on your site.", icon: "monitor" },
-        { title: "Edit notes", description: "Guidance for reels and explainers.", icon: "video" },
+        {
+          title: "Script",
+          description: "Written for silent viewing with captions.",
+          icon: "fileText",
+        },
+        {
+          title: "Shot list",
+          description: "A small team can follow on shoot day.",
+          icon: "list",
+        },
+        {
+          title: "Bilingual options",
+          description: "English, Hindi or both where needed.",
+          icon: "megaphone",
+        },
+        {
+          title: "Website embed plan",
+          description: "Where the film lives on your site.",
+          icon: "monitor",
+        },
+        {
+          title: "Edit notes",
+          description: "Guidance for reels and explainers.",
+          icon: "video",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -422,7 +531,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "one workflow.",
       titleAfter: "",
       description:
-        "Language models plus approved tools, human checkpoints and audit logs—built for ops teams, not slide-deck demos.",
+        "Language models plus approved tools, human checkpoints and audit logsbuilt for ops teams, not slide-deck demos.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "AI solutions hub", href: "/ai" },
       backdropImage: "/images/work/ai-agents-hero.jpg",
@@ -432,16 +541,17 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "Chat alone is ",
       headingHighlight: "not an agent.",
       headingAfter: "",
-      body: "Teams want hours back on repeat lookups and drafts—but need humans on money, identity and sensitive writes. We scope one workflow, define tools and escalation, then harden before expanding.",
+      body: "Teams want hours back on repeat lookups and draftsbut need humans on money, identity and sensitive writes. We scope one workflow, define tools and escalation, then harden before expanding.",
       approach: [
         {
           title: "Map the workflow",
-          description: "Intake, tools, approvals and logging—on paper first.",
+          description: "Intake, tools, approvals and loggingon paper first.",
           icon: "search",
         },
         {
           title: "Least privilege",
-          description: "Integrations and write actions only where you authorize.",
+          description:
+            "Integrations and write actions only where you authorize.",
           icon: "layers",
         },
         {
@@ -454,11 +564,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Scoped agent service", description: "One primary workflow in v1.", icon: "bot" },
-        { title: "Tool wrappers", description: "APIs your policy allows.", icon: "code" },
-        { title: "Human gates", description: "Review on high-risk actions.", icon: "users" },
-        { title: "Eval checklist", description: "Tasks, refusals and cost notes.", icon: "list" },
-        { title: "Runbook", description: "Operate and change prompts safely.", icon: "settings" },
+        {
+          title: "Scoped agent service",
+          description: "One primary workflow in v1.",
+          icon: "bot",
+        },
+        {
+          title: "Tool wrappers",
+          description: "APIs your policy allows.",
+          icon: "code",
+        },
+        {
+          title: "Human gates",
+          description: "Review on high-risk actions.",
+          icon: "users",
+        },
+        {
+          title: "Eval checklist",
+          description: "Tasks, refusals and cost notes.",
+          icon: "list",
+        },
+        {
+          title: "Runbook",
+          description: "Operate and change prompts safely.",
+          icon: "settings",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -471,7 +601,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "cite your sources.",
       titleAfter: "",
       description:
-        "Retrieval over your documents with permissions, citations and refusals when context is thin—not guesses dressed as confidence.",
+        "Retrieval over your documents with permissions, citations and refusals when context is thinnot guesses dressed as confidence.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "AI solutions hub", href: "/ai" },
       backdropImage: "/images/work/rag-knowledge-assistants-hero.jpg",
@@ -481,17 +611,37 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "Models invent when ",
       headingHighlight: "context is missing.",
       headingAfter: "",
-      body: "Private knowledge assistants need retrieval first, generation second. We design corpus access, chunking and cited answers—and refuse when nothing relevant is found.",
+      body: "Private knowledge assistants need retrieval first, generation second. We design corpus access, chunking and cited answersand refuse when nothing relevant is found.",
       approach: APPROACH_DEFAULT,
     },
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Corpus design", description: "Sources, metadata and permissions.", icon: "database" },
-        { title: "Retrieval pipeline", description: "Chunking, filters and optional rerank.", icon: "layers" },
-        { title: "Cited answers", description: "Passages staff can verify.", icon: "fileText" },
-        { title: "Refresh path", description: "When documents change.", icon: "settings" },
-        { title: "Eval report", description: "Golden questions and refusal checks.", icon: "search" },
+        {
+          title: "Corpus design",
+          description: "Sources, metadata and permissions.",
+          icon: "database",
+        },
+        {
+          title: "Retrieval pipeline",
+          description: "Chunking, filters and optional rerank.",
+          icon: "layers",
+        },
+        {
+          title: "Cited answers",
+          description: "Passages staff can verify.",
+          icon: "fileText",
+        },
+        {
+          title: "Refresh path",
+          description: "When documents change.",
+          icon: "settings",
+        },
+        {
+          title: "Eval report",
+          description: "Golden questions and refusal checks.",
+          icon: "search",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -504,7 +654,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "operate.",
       titleAfter: "",
       description:
-        "Generative AI on real APIs—orchestration, embeddings when needed, evals and cost control. Practical AI solutions for workflows you can operate.",
+        "Generative AI on real APIsorchestration, embeddings when needed, evals and cost control. Practical AI solutions for workflows you can operate.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "AI solutions hub", href: "/ai" },
       backdropImage: "/images/work/generative-ai-llm-apps-hero.jpg",
@@ -514,7 +664,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "A chat widget is ",
       headingHighlight: "not a product.",
       headingAfter: "",
-      body: "Teams want GenAI that drafts, extracts or summarises inside their tools—with budgets and audit trails. We scope the workflow, pick models for cost and privacy, then harden evaluation before scale.",
+      body: "Teams want GenAI that drafts, extracts or summarises inside their toolswith budgets and audit trails. We scope the workflow, pick models for cost and privacy, then harden evaluation before scale.",
       approach: [
         {
           title: "Define the job",
@@ -523,12 +673,14 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
         },
         {
           title: "Orchestrate clearly",
-          description: "LangChain-style graphs or lean custom steps you can debug.",
+          description:
+            "LangChain-style graphs or lean custom steps you can debug.",
           icon: "layers",
         },
         {
           title: "Ground when needed",
-          description: "Embeddings and retrieval when answers must cite your files.",
+          description:
+            "Embeddings and retrieval when answers must cite your files.",
           icon: "database",
         },
       ],
@@ -536,11 +688,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "LLM app or service", description: "API or UI wired to your workflow.", icon: "bot" },
-        { title: "Provider integration", description: "Secrets and quotas handled properly.", icon: "code" },
-        { title: "Eval set", description: "Quality, refusals and cost samples.", icon: "list" },
-        { title: "Observability notes", description: "Traces and token alerts.", icon: "settings" },
-        { title: "Runbook", description: "How to change prompts safely.", icon: "fileText" },
+        {
+          title: "LLM app or service",
+          description: "API or UI wired to your workflow.",
+          icon: "bot",
+        },
+        {
+          title: "Provider integration",
+          description: "Secrets and quotas handled properly.",
+          icon: "code",
+        },
+        {
+          title: "Eval set",
+          description: "Quality, refusals and cost samples.",
+          icon: "list",
+        },
+        {
+          title: "Observability notes",
+          description: "Traces and token alerts.",
+          icon: "settings",
+        },
+        {
+          title: "Runbook",
+          description: "How to change prompts safely.",
+          icon: "fileText",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -553,7 +725,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "a decision.",
       titleAfter: "",
       description:
-        "Problem framing, features from your operations data, and practical classification or regression-style systems—not black-box hype.",
+        "Problem framing, features from your operations data, and practical classification or regression-style systemsnot black-box hype.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "AI solutions hub", href: "/ai" },
       backdropImage: "/images/work/ml-data-systems-hero.jpg",
@@ -569,11 +741,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Problem brief", description: "Metrics and error costs agreed up front.", icon: "fileText" },
-        { title: "Feature pipeline", description: "Refreshable inputs from your systems.", icon: "database" },
-        { title: "Model service", description: "Batch or API scoring you can run.", icon: "settings" },
-        { title: "Evaluation report", description: "Holdout results in plain language.", icon: "search" },
-        { title: "Override path", description: "Humans stay in control when stakes are high.", icon: "users" },
+        {
+          title: "Problem brief",
+          description: "Metrics and error costs agreed up front.",
+          icon: "fileText",
+        },
+        {
+          title: "Feature pipeline",
+          description: "Refreshable inputs from your systems.",
+          icon: "database",
+        },
+        {
+          title: "Model service",
+          description: "Batch or API scoring you can run.",
+          icon: "settings",
+        },
+        {
+          title: "Evaluation report",
+          description: "Holdout results in plain language.",
+          icon: "search",
+        },
+        {
+          title: "Override path",
+          description: "Humans stay in control when stakes are high.",
+          icon: "users",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -586,7 +778,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "business growth",
       titleAfter: ".",
       description:
-        "Enquiries, systems, and practical AI—delivered remotely. HQ in Noida; clients across India and worldwide.",
+        "Enquiries, systems, and practical AIdelivered remotely. HQ in Noida; clients across India and worldwide.",
       primaryCta: { label: "Talk about growth", href: "/contact" },
       secondaryCta: { label: "AI for growth", href: "/ai" },
       backdropImage: "/images/work/remote-software-ai-team-hero.jpg",
@@ -602,11 +794,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Remote kickoff", description: "Video discovery and written scope.", icon: "users" },
-        { title: "Timezone clarity", description: "IST primary; overlap by arrangement.", icon: "settings" },
-        { title: "Verified HQ", description: "Noida-based practice with remote-first delivery.", icon: "circleCheck" },
-        { title: "AI or web path", description: "Link into the right build guide.", icon: "layers" },
-        { title: "Source ownership", description: "Custom work you can keep.", icon: "fileText" },
+        {
+          title: "Remote kickoff",
+          description: "Video discovery and written scope.",
+          icon: "users",
+        },
+        {
+          title: "Timezone clarity",
+          description: "IST primary; overlap by arrangement.",
+          icon: "settings",
+        },
+        {
+          title: "Verified HQ",
+          description: "Noida-based practice with remote-first delivery.",
+          icon: "circleCheck",
+        },
+        {
+          title: "AI or web path",
+          description: "Link into the right build guide.",
+          icon: "layers",
+        },
+        {
+          title: "Source ownership",
+          description: "Custom work you can keep.",
+          icon: "fileText",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -619,9 +831,12 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "Noida",
       titleAfter: " for local search.",
       description:
-        "Custom website development for Noida and Delhi NCR businesses—SEO-ready pages, starter plans, and a clear path to enquire. We also work remotely nationwide and abroad.",
+        "Custom website development for Noida and Delhi NCR businessesSEO-ready pages, starter plans, and a clear path to enquire. We also work remotely nationwide and abroad.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "Remote team guide", href: "/work/remote-software-ai-team" },
+      secondaryCta: {
+        label: "Remote team guide",
+        href: "/work/remote-software-ai-team",
+      },
       backdropImage: "/images/work/website-development-noida-hero.jpg",
     },
     problemApproach: {
@@ -635,11 +850,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Local intent pages", description: "Headings that match Noida / NCR searches.", icon: "search" },
-        { title: "Starter scope", description: "Milestones before the first screen.", icon: "list" },
-        { title: "Enquiry path", description: "Form + WhatsApp without five competing CTAs.", icon: "monitor" },
-        { title: "SEO foundations", description: "Titles, internal links, crawlable HTML.", icon: "layers" },
-        { title: "Honest handoff", description: "You can edit without calling for every line.", icon: "fileText" },
+        {
+          title: "Local intent pages",
+          description: "Headings that match Noida / NCR searches.",
+          icon: "search",
+        },
+        {
+          title: "Starter scope",
+          description: "Milestones before the first screen.",
+          icon: "list",
+        },
+        {
+          title: "Enquiry path",
+          description: "Form + WhatsApp without five competing CTAs.",
+          icon: "monitor",
+        },
+        {
+          title: "SEO foundations",
+          description: "Titles, internal links, crawlable HTML.",
+          icon: "layers",
+        },
+        {
+          title: "Honest handoff",
+          description: "You can edit without calling for every line.",
+          icon: "fileText",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -668,11 +903,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Decision brief", description: "Which pattern fits your ops.", icon: "fileText" },
-        { title: "Risk notes", description: "What stays human-approved.", icon: "users" },
-        { title: "Build path", description: "Link to the right implementation guide.", icon: "layers" },
-        { title: "Eval mindset", description: "How we measure success later.", icon: "search" },
-        { title: "Named integrations", description: "Tools and gates agreed before build.", icon: "circleCheck" },
+        {
+          title: "Decision brief",
+          description: "Which pattern fits your ops.",
+          icon: "fileText",
+        },
+        {
+          title: "Risk notes",
+          description: "What stays human-approved.",
+          icon: "users",
+        },
+        {
+          title: "Build path",
+          description: "Link to the right implementation guide.",
+          icon: "layers",
+        },
+        {
+          title: "Eval mindset",
+          description: "How we measure success later.",
+          icon: "search",
+        },
+        {
+          title: "Named integrations",
+          description: "Tools and gates agreed before build.",
+          icon: "circleCheck",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -687,7 +942,10 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       description:
         "Most private knowledge problems need retrieval first. Fine-tuning is a later, explicit decision with evals.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
-      secondaryCta: { label: "RAG guide", href: "/work/rag-knowledge-assistants" },
+      secondaryCta: {
+        label: "RAG guide",
+        href: "/work/rag-knowledge-assistants",
+      },
       backdropImage: "/images/work/rag-vs-fine-tuning-hero.jpg",
     },
     problemApproach: {
@@ -701,11 +959,31 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Recommendation", description: "RAG-first or tune—with reasons.", icon: "fileText" },
-        { title: "Freshness plan", description: "How docs stay current.", icon: "database" },
-        { title: "Permission model", description: "Roles and corpus boundaries.", icon: "users" },
-        { title: "Eval checklist", description: "Citations and refusals.", icon: "list" },
-        { title: "Next guide", description: "Link into the build path.", icon: "layers" },
+        {
+          title: "Recommendation",
+          description: "RAG-first or tunewith reasons.",
+          icon: "fileText",
+        },
+        {
+          title: "Freshness plan",
+          description: "How docs stay current.",
+          icon: "database",
+        },
+        {
+          title: "Permission model",
+          description: "Roles and corpus boundaries.",
+          icon: "users",
+        },
+        {
+          title: "Eval checklist",
+          description: "Citations and refusals.",
+          icon: "list",
+        },
+        {
+          title: "Next guide",
+          description: "Link into the build path.",
+          icon: "layers",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -718,7 +996,7 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       titleHighlight: "clear boundaries.",
       titleAfter: "",
       description:
-        "Custom assistants beside school operations—role-aware and human-supervised. Kiduart ERP product detail lives on kiduart.com.",
+        "Custom assistants beside school operationsrole-aware and human-supervised. Kiduart ERP product detail lives on kiduart.com.",
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "Explore Kiduart", href: "/our-products" },
       backdropImage: "/images/work/ai-for-schools-hero.jpg",
@@ -728,17 +1006,37 @@ const WORK_PAGES: Record<string, WorkPageContent> = {
       headingBefore: "Student data needs ",
       headingHighlight: "real controls.",
       headingAfter: "",
-      body: "Schools ask for AI help on enquiries, drafts and staff lookups—but not unsupervised writes to fees or exams. We separate Kiduart product work from custom scoped assistants.",
+      body: "Schools ask for AI help on enquiries, drafts and staff lookupsbut not unsupervised writes to fees or exams. We separate Kiduart product work from custom scoped assistants.",
       approach: APPROACH_DEFAULT,
     },
     whatYouGet: {
       label: "What you get",
       items: [
-        { title: "Role-aware access", description: "Staff see only what their job allows.", icon: "school" },
-        { title: "Use-case scope", description: "Handbooks, triage, drafts—not mystery chat.", icon: "fileText" },
-        { title: "Human approval", description: "On irreversible or sensitive actions.", icon: "users" },
-        { title: "Honest positioning", description: "Live vs scoped features labelled clearly.", icon: "circleCheck" },
-        { title: "Kiduart path", description: "Product demos via kiduart.com when ERP is the need.", icon: "layers" },
+        {
+          title: "Role-aware access",
+          description: "Staff see only what their job allows.",
+          icon: "school",
+        },
+        {
+          title: "Use-case scope",
+          description: "Handbooks, triage, draftsnot mystery chat.",
+          icon: "fileText",
+        },
+        {
+          title: "Human approval",
+          description: "On irreversible or sensitive actions.",
+          icon: "users",
+        },
+        {
+          title: "Honest positioning",
+          description: "Live vs scoped features labelled clearly.",
+          icon: "circleCheck",
+        },
+        {
+          title: "Kiduart path",
+          description: "Product demos via kiduart.com when ERP is the need.",
+          icon: "layers",
+        },
       ],
     },
     howWeDeliver: { label: "How we deliver", steps: DELIVER_STEPS_DEFAULT },
@@ -784,8 +1082,12 @@ function buildFallback(slug: string): WorkPageContent | null {
     hero: {
       badge,
       titleBefore: guide.title.split(" ").slice(0, 3).join(" ") + " ",
-      titleHighlight: guide.title.split(" ").slice(3, 6).join(" ") || "your goals",
-      titleAfter: guide.title.split(" ").length > 6 ? " " + guide.title.split(" ").slice(6).join(" ") : "",
+      titleHighlight:
+        guide.title.split(" ").slice(3, 6).join(" ") || "your goals",
+      titleAfter:
+        guide.title.split(" ").length > 6
+          ? " " + guide.title.split(" ").slice(6).join(" ")
+          : "",
       description: guide.description,
       primaryCta: { label: "Discuss a project", href: "/contact" },
       secondaryCta: { label: "View our work", href: "/portfolio" },
@@ -804,7 +1106,16 @@ function buildFallback(slug: string): WorkPageContent | null {
       items: guide.points.slice(0, 5).map((point, i) => ({
         title: point.split(" ").slice(0, 4).join(" "),
         description: point,
-        icon: (["monitor", "fileText", "list", "search", "settings"] as WorkIconKey[])[i] ?? "circleCheck",
+        icon:
+          (
+            [
+              "monitor",
+              "fileText",
+              "list",
+              "search",
+              "settings",
+            ] as WorkIconKey[]
+          )[i] ?? "circleCheck",
       })),
     },
     howWeDeliver: {

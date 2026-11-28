@@ -82,7 +82,7 @@ function ProcessConnector() {
   );
 }
 
-/** Midpoints between step columns — aligned to the same 4-col grid as the cards. */
+/** Midpoints between step columns  aligned to the same 4-col grid as the cards. */
 function ProcessConnectorDots() {
   const dotTop = "top-[4rem] sm:top-[4.7rem]";
 
@@ -176,7 +176,7 @@ export function HowWeThinkWorkSection() {
       </h2>
 
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-        We take a thoughtful and practical approach to every project —
+        We take a thoughtful and practical approach to every project
         understanding the real problem, making deliberate choices, building
         reliable solutions, and staying transparent throughout.
       </p>

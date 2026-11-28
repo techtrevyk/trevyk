@@ -148,7 +148,13 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
           <stop offset="45%" stopColor="rgba(107,74,135,0.14)" />
           <stop offset="100%" stopColor="rgba(107,74,135,0)" />
         </radialGradient>
-        <filter id="purpose-line-glow" x="-40%" y="-40%" width="180%" height="180%">
+        <filter
+          id="purpose-line-glow"
+          x="-40%"
+          y="-40%"
+          width="180%"
+          height="180%"
+        >
           <feGaussianBlur stdDeviation="0.35" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
@@ -162,42 +168,46 @@ function PurposeCircuitArt({ activeIndex }: { activeIndex: number | null }) {
       </defs>
       <circle cx={HUB.x} cy={HUB.y} r={24} fill="url(#purpose-hub-glow)" />
       <g mask="url(#purpose-lines-outside-hub)">
-      {PURPOSE_PILLARS.map((pillar, index) => {
-        const d = elbowPath(pillar.anchor, pillar.side);
-        const isActive = activeIndex === index;
-        const dimmed = activeIndex !== null && !isActive;
-        return (
-          <g key={pillar.title}>
-            {isActive ? (
+        {PURPOSE_PILLARS.map((pillar, index) => {
+          const d = elbowPath(pillar.anchor, pillar.side);
+          const isActive = activeIndex === index;
+          const dimmed = activeIndex !== null && !isActive;
+          return (
+            <g key={pillar.title}>
+              {isActive ? (
+                <path
+                  d={d}
+                  fill="none"
+                  stroke="rgba(232,169,194,0.55)"
+                  strokeWidth={1.1}
+                  strokeLinecap="butt"
+                  strokeLinejoin="miter"
+                  filter="url(#purpose-line-glow)"
+                />
+              ) : null}
               <path
                 d={d}
                 fill="none"
-                stroke="rgba(232,169,194,0.55)"
-                strokeWidth={1.1}
+                stroke={
+                  isActive ? "rgba(248,220,232,0.95)" : "rgba(185,166,209,0.38)"
+                }
+                strokeWidth={isActive ? 0.55 : 0.38}
                 strokeLinecap="butt"
                 strokeLinejoin="miter"
-                filter="url(#purpose-line-glow)"
+                opacity={dimmed ? 0.28 : isActive ? 1 : 0.72}
               />
-            ) : null}
-            <path
-              d={d}
-              fill="none"
-              stroke={isActive ? "rgba(248,220,232,0.95)" : "rgba(185,166,209,0.38)"}
-              strokeWidth={isActive ? 0.55 : 0.38}
-              strokeLinecap="butt"
-              strokeLinejoin="miter"
-              opacity={dimmed ? 0.28 : isActive ? 1 : 0.72}
-            />
-            <circle
-              cx={pillar.anchor.x + (pillar.side === "left" ? 5.5 : -5.5)}
-              cy={pillar.anchor.y}
-              r={isActive ? 0.72 : 0.45}
-              fill={isActive ? "rgba(248,220,232,0.95)" : "rgba(185,166,209,0.55)"}
-              opacity={dimmed ? 0.35 : 1}
-            />
-          </g>
-        );
-      })}
+              <circle
+                cx={pillar.anchor.x + (pillar.side === "left" ? 5.5 : -5.5)}
+                cy={pillar.anchor.y}
+                r={isActive ? 0.72 : 0.45}
+                fill={
+                  isActive ? "rgba(248,220,232,0.95)" : "rgba(185,166,209,0.55)"
+                }
+                opacity={dimmed ? 0.35 : 1}
+              />
+            </g>
+          );
+        })}
       </g>
     </svg>
   );
@@ -320,8 +330,8 @@ export function OurPurposeSection() {
           </h2>
 
           <p className="mt-6 max-w-5xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px] sm:leading-relaxed">
-            We exist so a real business—school, clinic, realtor, shop, or
-            startup—can grow with technology that fits how they already work.
+            We exist so a real businessschool, clinic, realtor, shop, or
+            startupcan grow with technology that fits how they already work.
             Getting found, answering enquiries, running the day, and using AI
             without theatre. Thoughtful engineering. Honest talk. Tools that
             create value you can see.

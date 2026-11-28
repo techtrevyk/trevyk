@@ -8,7 +8,7 @@ const DEFINES_CARDS = [
     index: "01",
     title: "We Build Our Own Products",
     description:
-      "Our portfolio includes products built to solve real challenges — starting with KIDUART, our School ERP focused on simplifying school operations and improving the learning experience.",
+      "Our portfolio includes products built to solve real challenges  starting with KIDUART, our School ERP focused on simplifying school operations and improving the learning experience.",
     cta: "Explore KIDUART",
     href: "/our-products",
     image: "/images/about/defines-card-01-products.jpg",
@@ -18,7 +18,7 @@ const DEFINES_CARDS = [
     index: "02",
     title: "Custom Engineering for Real Needs",
     description:
-      "We design and build custom websites, applications, and software solutions tailored to how your organization actually works — from early planning to long-term support.",
+      "We design and build custom websites, applications, and software solutions tailored to how your organization actually works  from early planning to long-term support.",
     cta: "Our Engineering Services",
     href: "/what-we-do",
     image: "/images/about/defines-card-02-engineering.jpg",
@@ -28,7 +28,7 @@ const DEFINES_CARDS = [
     index: "03",
     title: "A Connected Partner for Digital Growth",
     description:
-      "We offer a connected set of capabilities across products, engineering, and digital growth support — helping clients move forward with clarity and confidence.",
+      "We offer a connected set of capabilities across products, engineering, and digital growth support  helping clients move forward with clarity and confidence.",
     cta: "Explore Our Capabilities",
     href: "/what-we-do",
     image: "/images/about/defines-card-03-partner.jpg",
@@ -109,7 +109,7 @@ export function WhatDefinesTrevykSection() {
       </h2>
 
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-        We bring product thinking, engineering discipline, and a growth mindset—
+        We bring product thinking, engineering discipline, and a growth mindset
         so schools and businesses get found, convert enquiries, and run on
         systems that keep up, not just software that ships once.
       </p>

@@ -42,7 +42,7 @@ const PILLARS = [
 ];
 
 /**
- * Full-bleed plum surface (same as client reviews) — not the mid-band grid.
+ * Full-bleed plum surface (same as client reviews)  not the mid-band grid.
  * Image slot on the right for a future asset from design.
  */
 export const AboutTeaser: React.FC<AboutTeaserProps> = ({ settings }) => {
@@ -105,7 +105,7 @@ export const AboutTeaser: React.FC<AboutTeaserProps> = ({ settings }) => {
             <figure className="mx-auto w-full max-w-xl lg:mx-0 lg:ml-auto lg:max-w-none">
               <img
                 src="/about.png"
-                alt="Product, systems, and delivery — Trevyk builds ideas into shipped software"
+                alt="Product, systems, and delivery  Trevyk builds ideas into shipped software"
                 width={1152}
                 height={864}
                 loading="lazy"

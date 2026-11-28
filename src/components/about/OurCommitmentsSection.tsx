@@ -30,7 +30,7 @@ const COMMITMENT_ITEMS = [
   {
     title: "Communication That Stays Clear",
     description:
-      "We keep you informed about progress, blockers, changes, and delays — not just when there's a problem, but throughout the journey.",
+      "We keep you informed about progress, blockers, changes, and delays  not just when there's a problem, but throughout the journey.",
     icon: MessageSquareText,
   },
 ] as const;

@@ -9,7 +9,7 @@ type Props = ComponentProps<typeof AppRoutes> & {
   reducedMotion: boolean;
 };
 
-/** Loaded only off home — keeps motion out of the home critical path. */
+/** Loaded only off home  keeps motion out of the home critical path. */
 export function NonHomeRouteShell({
   pathname,
   reducedMotion,
@@ -17,7 +17,11 @@ export function NonHomeRouteShell({
 }: Props) {
   return (
     <LazyAnimatePresence>
-      <PageTransition key={pathname} pathname={pathname} reducedMotion={reducedMotion}>
+      <PageTransition
+        key={pathname}
+        pathname={pathname}
+        reducedMotion={reducedMotion}
+      >
         <Suspense fallback={<PageSectionSkeleton />}>
           <AppRoutes {...routeProps} />
         </Suspense>

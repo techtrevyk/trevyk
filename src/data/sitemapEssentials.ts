@@ -34,19 +34,22 @@ export const SITEMAP_ESSENTIALS: SitemapEssentialPage[] = [
   {
     path: "/ai",
     label: "AI solutions",
-    description: "Agents, RAG, and automation—with ready vs educational scope labelled.",
+    description:
+      "Agents, RAG, and automationwith ready vs educational scope labelled.",
     icon: Brain,
   },
   {
     path: "/portfolio",
     label: "Our work",
-    description: "Three verified projects with clear live / in-build / client status.",
+    description:
+      "Three verified projects with clear live / in-build / client status.",
     icon: Briefcase,
   },
   {
     path: "/solutions",
     label: "Solutions",
-    description: "Industry paths: interior, beauty, manufacturing, and agencies.",
+    description:
+      "Industry paths: interior, beauty, manufacturing, and agencies.",
     icon: LayoutGrid,
   },
   {

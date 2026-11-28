@@ -11,9 +11,9 @@ import { soundEngine } from "../../utils/audioEngine";
 
 const PRACTICE_FACTS = [
   {
-    title: "HQ in Noida — reach worldwide",
+    title: "HQ in Noida  reach worldwide",
     description:
-      "Our practice is headquartered in Noida, India. We work with clients across North and South India and remotely worldwide—timezone-aware delivery, not “only Noida projects.” Local website searches still have a dedicated Noida guide.",
+      "Our practice is headquartered in Noida, India. We work with clients across North and South India and remotely worldwidetimezone-aware delivery, not “only Noida projects.” Local website searches still have a dedicated Noida guide.",
     icon: MapPin,
     href: "/work/remote-software-ai-team",
     cta: "Remote team guide",
@@ -65,8 +65,8 @@ export function EeAtPracticeSection() {
 
       <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
         Search and answer systems reward entities they can check. We publish
-        where we work, what we ship, and how to reach us—with verified remote-first
-        delivery and transparent product status.
+        where we work, what we ship, and how to reach uswith verified
+        remote-first delivery and transparent product status.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">

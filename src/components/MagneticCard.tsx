@@ -10,7 +10,7 @@ interface MagneticCardProps {
 }
 
 /**
- * Pointer-follow tilt — updates transform on the element directly (no React re-render per move).
+ * Pointer-follow tilt  updates transform on the element directly (no React re-render per move).
  */
 export const MagneticCard: React.FC<MagneticCardProps> = ({
   children,

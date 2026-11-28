@@ -58,36 +58,36 @@ function LayerDetailCardInner({
             : "border-[#F8F6FB]/18 ring-[#B9A6D1]/10"
         }`}
       >
-      <div className="flex items-start gap-2.5">
-        <span
-          className="mt-1 h-2 w-2 shrink-0 rounded-full transition-[box-shadow] duration-300"
-          style={{
-            backgroundColor: layer.accent,
-            boxShadow: emphasized
-              ? `0 0 12px ${layer.accent}`
-              : `0 0 6px ${layer.accent}88`,
-          }}
-          aria-hidden
-        />
-        <div>
-          <p className="font-mono-accent text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8A9C2]">
-            {layer.num} {layer.name}
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-[#E7E1F0]">
-            {layer.description}
-          </p>
-        </div>
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {layer.tags.map((tag) => (
+        <div className="flex items-start gap-2.5">
           <span
-            key={tag}
-            className="rounded-full border border-[#B9A6D1]/35 bg-[#2A1830]/45 px-2.5 py-1 font-mono-accent text-[9px] uppercase tracking-wide text-[#B9A6D1]"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+            className="mt-1 h-2 w-2 shrink-0 rounded-full transition-[box-shadow] duration-300"
+            style={{
+              backgroundColor: layer.accent,
+              boxShadow: emphasized
+                ? `0 0 12px ${layer.accent}`
+                : `0 0 6px ${layer.accent}88`,
+            }}
+            aria-hidden
+          />
+          <div>
+            <p className="font-mono-accent text-[10px] font-bold uppercase tracking-[0.2em] text-[#E8A9C2]">
+              {layer.num} {layer.name}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-[#E7E1F0]">
+              {layer.description}
+            </p>
+          </div>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {layer.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-[#B9A6D1]/35 bg-[#2A1830]/45 px-2.5 py-1 font-mono-accent text-[9px] uppercase tracking-wide text-[#B9A6D1]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -182,13 +182,19 @@ export const ArchitectureStackDiagram: React.FC<Props> = ({
   const [routes, setRoutes] = useState<Route[]>([]);
   const [svgSize, setSvgSize] = useState({ w: 1, h: 1 });
 
-  const setLayerAnchor = useCallback((index: number, el: HTMLDivElement | null) => {
-    layerAnchors.current[index] = el;
-  }, []);
+  const setLayerAnchor = useCallback(
+    (index: number, el: HTMLDivElement | null) => {
+      layerAnchors.current[index] = el;
+    },
+    [],
+  );
 
-  const setCardAnchor = useCallback((index: number, el: HTMLDivElement | null) => {
-    cardAnchors.current[index] = el;
-  }, []);
+  const setCardAnchor = useCallback(
+    (index: number, el: HTMLDivElement | null) => {
+      cardAnchors.current[index] = el;
+    },
+    [],
+  );
 
   const measureRoutes = useCallback(() => {
     const root = layoutRef.current;
@@ -213,12 +219,12 @@ export const ArchitectureStackDiagram: React.FC<Props> = ({
       const sy = layerRect.top - rootRect.top + layerRect.height * 0.56;
       const cy = cardRect.top - rootRect.top + cardRect.height / 2;
 
-      /** Stack edge toward the card — line sits behind slabs (z-index) */
+      /** Stack edge toward the card  line sits behind slabs (z-index) */
       const sx = isLeft
         ? layerRect.left - rootRect.left + 6
         : layerRect.right - rootRect.left - 6;
 
-      /** Card inner edge (toward stack) — line terminates behind the card panel */
+      /** Card inner edge (toward stack)  line terminates behind the card panel */
       const cx = isLeft
         ? cardRect.right - rootRect.left - 3
         : cardRect.left - rootRect.left + 3;
@@ -279,7 +285,10 @@ export const ArchitectureStackDiagram: React.FC<Props> = ({
 
           <div className="relative z-20 flex min-w-0 flex-1 flex-col items-end justify-center gap-5 pr-1 xl:gap-6 xl:pr-2">
             {[0, 2, 4].map((i) => (
-              <div key={i} className="w-full max-w-[17.5rem] xl:max-w-[18.5rem]">
+              <div
+                key={i}
+                className="w-full max-w-[17.5rem] xl:max-w-[18.5rem]"
+              >
                 <LayerCard
                   layer={layerByIndex(i)}
                   activeIndex={activeIndex}
@@ -299,7 +308,10 @@ export const ArchitectureStackDiagram: React.FC<Props> = ({
 
           <div className="relative z-20 flex min-w-0 flex-1 flex-col items-start justify-center gap-5 pl-1 xl:gap-6 xl:pl-2">
             {[1, 3].map((i) => (
-              <div key={i} className="w-full max-w-[17.5rem] xl:max-w-[18.5rem]">
+              <div
+                key={i}
+                className="w-full max-w-[17.5rem] xl:max-w-[18.5rem]"
+              >
                 <LayerCard
                   layer={layerByIndex(i)}
                   activeIndex={activeIndex}

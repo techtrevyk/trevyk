@@ -11,7 +11,11 @@ import {
 import { Link } from "react-router-dom";
 import { soundEngine } from "../../utils/audioEngine";
 
-type ScopeLabel = "Ready to scope" | "Feasibility-led" | "Educational" | "Included in delivery";
+type ScopeLabel =
+  | "Ready to scope"
+  | "Feasibility-led"
+  | "Educational"
+  | "Included in delivery";
 
 const BUILD_CARDS: {
   title: string;
@@ -37,7 +41,7 @@ const BUILD_CARDS: {
   {
     title: "RAG & Knowledge Systems",
     description:
-      "Private knowledge bases with citations—so staff get answers from your docs, not guesswork.",
+      "Private knowledge bases with citationsso staff get answers from your docs, not guesswork.",
     bullets: [
       "Document search and Q&A",
       "Citations and source tracking",
@@ -63,7 +67,7 @@ const BUILD_CARDS: {
   {
     title: "Generative AI & LLM Apps",
     description:
-      "Production GenAI on LLM APIs—orchestration, embeddings when needed, evals and cost control.",
+      "Production GenAI on LLM APIsorchestration, embeddings when needed, evals and cost control.",
     bullets: [
       "LangChain-style or lean custom pipelines",
       "Provider APIs with secrets handled properly",
@@ -76,7 +80,7 @@ const BUILD_CARDS: {
   {
     title: "ML & Data Systems",
     description:
-      "Problem framing, features from your operations data, and practical scoring you can run—scoped after we see the labels and refresh path.",
+      "Problem framing, features from your operations data, and practical scoring you can runscoped after we see the labels and refresh path.",
     bullets: [
       "Classification and regression-style workflows",
       "Feature pipelines and holdout evaluation",
@@ -136,7 +140,10 @@ export function AiWhatWeBuildSection() {
       aria-labelledby="ai-what-we-build-heading"
       className="relative scroll-mt-28 border-t border-[#6B4A87]/30 bg-[#120a14] py-14 sm:scroll-mt-32 sm:py-16 lg:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden
+      >
         <div
           className="absolute -left-[20%] top-[8%] h-[55%] w-[45%] opacity-40"
           style={{
@@ -176,7 +183,7 @@ export function AiWhatWeBuildSection() {
 
           <p className="mt-4 text-base leading-relaxed text-[#C4B4D8] sm:text-[17px]">
             Practical systems that automate work, surface answers from your
-            docs, and support growth—each card shows delivery readiness.
+            docs, and support growtheach card shows delivery readiness.
           </p>
         </div>
 

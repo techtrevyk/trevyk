@@ -41,8 +41,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
     { label: "AI agent vs chatbot", path: "/work/ai-agent-vs-chatbot" },
     { label: "RAG vs fine-tuning", path: "/work/rag-vs-fine-tuning" },
     { label: "AI for schools", path: "/work/ai-for-schools" },
-    { label: "Remote software & AI team", path: "/work/remote-software-ai-team" },
-    { label: "Website development Noida", path: "/work/website-development-noida" },
+    {
+      label: "Remote software & AI team",
+      path: "/work/remote-software-ai-team",
+    },
+    {
+      label: "Website development Noida",
+      path: "/work/website-development-noida",
+    },
     { label: "Custom websites", path: "/work/custom-websites" },
     { label: "Web applications", path: "/work/web-applications" },
     { label: "SEO & campaigns", path: "/work/seo" },
@@ -108,9 +114,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenArchitectureModal }) => {
                 {SITE_TAGLINE}
               </p>
               <p className="mt-2.5 text-sm text-[#E7E1F0] leading-relaxed max-w-sm">
-                Technology built around your business—software, websites, AI,
-                and digital growth. HQ in Noida; clients across India and
-                remotely worldwide.
+                Technology built around your businesssoftware, websites, AI, and
+                digital growth. HQ in Noida; clients across India and remotely
+                worldwide.
               </p>
               <p className="mt-3 text-xs text-[#B9A6D1] leading-relaxed max-w-sm">
                 Flagship product:{" "}

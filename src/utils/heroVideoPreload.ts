@@ -1,4 +1,4 @@
-/** Shared hero background preload — one fetch + one hidden video for progress. */
+/** Shared hero background preload  one fetch + one hidden video for progress. */
 
 type ProgressListener = (percent: number) => void;
 
@@ -92,8 +92,11 @@ function markHandoffSession(): void {
 }
 
 function staticHeroPosterReady(): boolean {
-  if (typeof window !== "undefined" && window.__trevykStaticHeroReady) return true;
-  const img = document.getElementById("trevyk-lcp-hero") as HTMLImageElement | null;
+  if (typeof window !== "undefined" && window.__trevykStaticHeroReady)
+    return true;
+  const img = document.getElementById(
+    "trevyk-lcp-hero",
+  ) as HTMLImageElement | null;
   return Boolean(img?.complete && img.naturalWidth > 0);
 }
 
@@ -104,17 +107,26 @@ function posterReadyForHandoff(): boolean {
 function documentReadyForHandoff(): boolean {
   if (typeof document === "undefined") return false;
   if (import.meta.env.DEV) {
-    return document.readyState === "interactive" || document.readyState === "complete";
+    return (
+      document.readyState === "interactive" ||
+      document.readyState === "complete"
+    );
   }
   if (isRepeatHomeVisit()) {
-    return document.readyState === "interactive" || document.readyState === "complete";
+    return (
+      document.readyState === "interactive" ||
+      document.readyState === "complete"
+    );
   }
   return documentLoadComplete;
 }
 
 function removeLcpShellNodes(): void {
   document.getElementById("trevyk-boot")?.remove();
-  if (typeof window !== "undefined" && typeof window.__trevykRemoveLcpShell === "function") {
+  if (
+    typeof window !== "undefined" &&
+    typeof window.__trevykRemoveLcpShell === "function"
+  ) {
     window.__trevykRemoveLcpShell();
     return;
   }
@@ -128,7 +140,12 @@ function removeLcpShellNodes(): void {
 
 /** Hand off static LCP shell → React hero after LCP-friendly delay (lab / first visit). */
 function tryHandoffHtmlLcpShell(): void {
-  if (!posterReadyForHandoff() || !documentReadyForHandoff() || handoffScheduled) return;
+  if (
+    !posterReadyForHandoff() ||
+    !documentReadyForHandoff() ||
+    handoffScheduled
+  )
+    return;
   handoffScheduled = true;
 
   const delay = handoffDelayMs();
@@ -155,7 +172,10 @@ if (typeof window !== "undefined") {
   );
   window.addEventListener("trevyk-static-hero-ready", bump);
   if (import.meta.env.DEV || isRepeatHomeVisit()) {
-    if (document.readyState === "interactive" || document.readyState === "complete") {
+    if (
+      document.readyState === "interactive" ||
+      document.readyState === "complete"
+    ) {
       bump();
     } else {
       document.addEventListener("DOMContentLoaded", bump, { once: true });

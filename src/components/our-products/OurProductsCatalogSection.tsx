@@ -20,7 +20,13 @@ const CARD_WIDTH_LG =
 function KiduartLogoMark() {
   const [failed, setFailed] = useState(false);
   if (failed) {
-    return <GraduationCap className="h-6 w-6 text-[#6B4A87]" strokeWidth={1.65} aria-hidden />;
+    return (
+      <GraduationCap
+        className="h-6 w-6 text-[#6B4A87]"
+        strokeWidth={1.65}
+        aria-hidden
+      />
+    );
   }
   return (
     <img
@@ -35,7 +41,11 @@ function KiduartLogoMark() {
 const TAGS = {
   kiduart: ["Admissions", "Attendance", "Fees", "Exams", "Communication"],
   customSoftware: ["Web Applications", "Internal Tools", "Business Workflows"],
-  aglCreatives: ["Design • Print • Pack", "Product catalogue", "Quote & contact flows"],
+  aglCreatives: [
+    "Design • Print • Pack",
+    "Product catalogue",
+    "Quote & contact flows",
+  ],
 } as const;
 
 function TagPill({ children }: { children: ReactNode }) {
@@ -134,7 +144,7 @@ function productVisualQuadrant(visualSrc: string): string {
   return visualSrc.replace(/\.jpg$/i, "-quadrant.png");
 }
 
-/** Full-card veil over art — text readable, illustration still visible (esp. right). */
+/** Full-card veil over art  text readable, illustration still visible (esp. right). */
 function productArtReadabilityScrim(
   featuredPinkWash?: boolean,
   featured?: boolean,
@@ -188,12 +198,12 @@ function ProductCardBackground({
         <div
           className="pointer-events-none absolute inset-0 z-0"
           aria-hidden
-            style={{
-              background: [
-                "linear-gradient(145deg, rgba(133,88,165,0.45) 0%, rgba(232,169,194,0.32) 45%, rgba(216,146,173,0.28) 100%)",
-                "radial-gradient(ellipse 90% 80% at 72% 28%, rgba(232,169,194,0.38) 0%, rgba(107,74,135,0.25) 55%, transparent 78%)",
-              ].join(", "),
-            }}
+          style={{
+            background: [
+              "linear-gradient(145deg, rgba(133,88,165,0.45) 0%, rgba(232,169,194,0.32) 45%, rgba(216,146,173,0.28) 100%)",
+              "radial-gradient(ellipse 90% 80% at 72% 28%, rgba(232,169,194,0.38) 0%, rgba(107,74,135,0.25) 55%, transparent 78%)",
+            ].join(", "),
+          }}
         />
       ) : null}
       {/* Pink wash behind art (top-right quadrant only) */}
@@ -201,11 +211,7 @@ function ProductCardBackground({
         className="pointer-events-none absolute right-0 top-0 z-[1] h-3/4 w-3/4 overflow-hidden"
         aria-hidden
       >
-        {featuredPinkWash ? (
-          <div
-            className="absolute inset-0"
-          />
-        ) : null}
+        {featuredPinkWash ? <div className="absolute inset-0" /> : null}
         <img
           src={productVisualQuadrant(visualSrc)}
           alt=""
@@ -365,7 +371,11 @@ function ProductCard({
               <SkeletonBlock className="h-6 w-[5.75rem] rounded-full" />
             </div>
           ) : null}
-          <div className={tags?.length || confidential ? "mt-3.5 w-full" : "w-full"}>
+          <div
+            className={
+              tags?.length || confidential ? "mt-3.5 w-full" : "w-full"
+            }
+          >
             <ProductCta cta={cta} />
           </div>
         </div>
@@ -375,7 +385,11 @@ function ProductCard({
         <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-[#1a0f18]/48 p-5 backdrop-blur-[3px] sm:p-6">
           <div className="w-full max-w-[15rem] rounded-2xl border border-[#B9A6D1]/38 bg-[#1E1024]/82 px-5 py-6 text-center shadow-[0_16px_40px_rgba(0,0,0,0.5)] backdrop-blur-md sm:max-w-[16rem] sm:py-7">
             <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-lg border border-[#B9A6D1]/35 bg-[#2A1830]/90 text-[#E8A9C2]">
-              <Lock className="h-[1.125rem] w-[1.125rem]" strokeWidth={1.65} aria-hidden />
+              <Lock
+                className="h-[1.125rem] w-[1.125rem]"
+                strokeWidth={1.65}
+                aria-hidden
+              />
             </div>
             <p className="mt-3 font-heading text-xs font-semibold leading-snug text-[#F8F6FB] sm:text-[13px]">
               Project details are confidential
@@ -425,7 +439,7 @@ export function OurProductsCatalogSection() {
 
           <p className="mt-4 text-base leading-relaxed text-[#C4B4D8] sm:text-[17px]">
             We build focused products and solutions for schools, businesses and
-            organisations — designed to solve real-world problems and add
+            organisations designed to solve real-world problems and add
             long-term value.
           </p>
           <p className="mt-3">
@@ -446,7 +460,7 @@ export function OurProductsCatalogSection() {
             title="KIDUART"
             subtitle="School ERP"
             icon={<KiduartLogoMark />}
-            description="A complete school management platform to streamline admissions, fees, attendance, exams, communication and more — all in one place."
+            description="A complete school management platform to streamline admissions, fees, attendance, exams, communication and more  all in one place."
             tags={TAGS.kiduart}
             visualSrc="/images/our-products/kiduart-card-visual.jpg"
             cta={{
@@ -473,7 +487,7 @@ export function OurProductsCatalogSection() {
             icon={<Globe className="h-5 w-5" strokeWidth={1.65} aria-hidden />}
             title="AGL Creatives"
             subtitle="Web development · Client site"
-            description="A packaging and print brand site for design, commercial printing, and fulfilment — product formats, capabilities, quotes, and contact in one clear journey."
+            description="A packaging and print brand site for design, commercial printing, and fulfilment  product formats, capabilities, quotes, and contact in one clear journey."
             tags={TAGS.aglCreatives}
             visualSrc="/images/our-products/card-web-development.jpg"
             cta={{

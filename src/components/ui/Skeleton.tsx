@@ -19,7 +19,7 @@ export function SkeletonLine({ className = "" }: { className?: string }) {
   return <SkeletonBlock className={`h-3 ${className}`} />;
 }
 
-/** Multi-line text placeholder — widths mimic real copy rhythm. */
+/** Multi-line text placeholder  widths mimic real copy rhythm. */
 export function SkeletonText({
   lines = 3,
   className = "",

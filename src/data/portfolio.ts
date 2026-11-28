@@ -24,20 +24,20 @@ export type PortfolioProject = {
 export const PORTFOLIO_INTRO = {
   eyebrow: "Our work",
   title: "Three projects. Clear status.",
-  lead: "Only work we can stand behind—live product, work in progress, and a shipped client site. Transparent status on every card.",
+  lead: "Only work we can stand behindlive product, work in progress, and a shipped client site. Transparent status on every card.",
 } as const;
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
     id: "kiduart",
-    name: "KIDUART — Kids’ Smart Aura",
+    name: "KIDUART  Kids’ Smart Aura",
     status: "live",
     statusLabel: "Live product",
     classification: "Proprietary school ERP",
     problem:
       "Schools juggle admissions, fees, attendance, exams, and parent updates across spreadsheets and chat threads.",
     solution:
-      "One cloud ERP for the Indian school year—roles that match real staff, modules that follow the calendar, demos on kiduart.com.",
+      "One cloud ERP for the Indian school yearroles that match real staff, modules that follow the calendar, demos on kiduart.com.",
     features: [
       "Admissions & student records",
       "Fees & receipts",
@@ -64,9 +64,9 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     statusLabel: "Under development",
     classification: "Product in build",
     problem:
-      "Academies need one place for batches, memberships, schedules, and coach workflows—without bolting three tools together.",
+      "Academies need one place for batches, memberships, schedules, and coach workflowswithout bolting three tools together.",
     solution:
-      "A management product for sports academies: enrolment, batch planning, attendance for sessions, and staff views—shipping in stages.",
+      "A management product for sports academies: enrolment, batch planning, attendance for sessions, and staff viewsshipping in stages.",
     features: [
       "Batch & membership workflows (in build)",
       "Session scheduling",
@@ -76,7 +76,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     visualSrc: "/images/our-products/card-custom-software.jpg",
     visualAlt: "Sports academy product direction preview",
     visualNote:
-      "Preview imagery for product direction—not a live academy screenshot. Status: under development.",
+      "Preview imagery for product directionnot a live academy screenshot. Status: under development.",
     primaryCta: {
       label: "Ask about this build",
       href: "/contact",
@@ -89,7 +89,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     statusLabel: "Client project",
     classification: "Client website",
     problem:
-      "A packaging and print brand needed a clear public site for formats, capabilities, quotes, and contact—without a cluttered brochure maze.",
+      "A packaging and print brand needed a clear public site for formats, capabilities, quotes, and contactwithout a cluttered brochure maze.",
     solution:
       "A focused marketing site: product formats, print capabilities, quote and contact flows in one journey.",
     features: [

@@ -47,7 +47,10 @@ const NAV: { href: string; label: string }[] = [
   { href: "/work/generative-ai-llm-apps", label: "Generative AI & LLMs" },
   { href: "/work/ml-data-systems", label: "ML & data systems" },
   { href: "/work/remote-software-ai-team", label: "Remote software & AI team" },
-  { href: "/work/website-development-noida", label: "Website development Noida" },
+  {
+    href: "/work/website-development-noida",
+    label: "Website development Noida",
+  },
   { href: "/work/ai-agent-vs-chatbot", label: "AI agent vs chatbot" },
   { href: "/work/rag-vs-fine-tuning", label: "RAG vs fine-tuning" },
   { href: "/work/ai-for-schools", label: "AI for schools" },
@@ -55,7 +58,10 @@ const NAV: { href: string; label: string }[] = [
   { href: "/solutions", label: "Solutions" },
   { href: "/work/interior-architecture", label: "Interior & architecture" },
   { href: "/work/beauty-wellness", label: "Beauty & wellness" },
-  { href: "/work/manufacturing-industrial", label: "Manufacturing & industrial" },
+  {
+    href: "/work/manufacturing-industrial",
+    label: "Manufacturing & industrial",
+  },
   { href: "/work/marketing-agencies", label: "Marketing agencies" },
   { href: "/technology", label: "Technology" },
   { href: "/process", label: "Process" },
@@ -67,9 +73,9 @@ const NAV: { href: string; label: string }[] = [
 
 const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
   "/": {
-    h1: "Technology built around your business — Trevyk Technologies",
+    h1: "Technology built around your business  Trevyk Technologies",
     paragraphs: [
-      "Turning Vision Into Progress. Software, websites, AI, and digital growth tailored to how you operate—so your business can grow with clarity.",
+      "Turning Vision Into Progress. Software, websites, AI, and digital growth tailored to how you operateso your business can grow with clarity.",
       "Trevyk (HQ Noida) works across India and remotely worldwide. We start from your business problem, then choose the right mix: presence, enquiries, systems, and practical AI when it helps.",
       "Explore /portfolio for verified work, discuss a project at /contact, or see Kiduart on kiduart.com.",
     ],
@@ -79,7 +85,7 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     paragraphs: [
       "Presence and SEO so buyers find you. Paths that turn visits into conversations. Software and mobile apps for how the team works. Campaigns when you need reach. AI agents, RAG, and GenAI when repeat work or buried knowledge is the bottleneck. Partnerships for agencies. Kiduart remains the school ERP product lane.",
       "Each guide below is a deep cut you can hand to a founder or ops lead. The story is the same: your business first, tools second.",
-      "From this catalogue, see /portfolio, then /contact—so a search for AI agents or local websites still lands on a form with context.",
+      "From this catalogue, see /portfolio, then /contactso a search for AI agents or local websites still lands on a form with context.",
     ],
   },
   "/ai": {
@@ -95,7 +101,7 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     h1: "How we design systems that stay maintainable",
     paragraphs: [
       "A practical map of Trevyk’s engineering approach: the tools we reach for on websites and web apps, the modular architecture behind products like Kiduart, and how AI services (agents, RAG, LLM APIs, embeddings) plug in without becoming an unmaintainable tangle.",
-      "Websites, web apps, school systems, and AI pipelines are documented at handoff so the next change does not depend on one person remembering the structure. Security controls we actually ship—least privilege, secrets outside prompts, audit logs—sit beside performance hygiene for search experience.",
+      "Websites, web apps, school systems, and AI pipelines are documented at handoff so the next change does not depend on one person remembering the structure. Security controls we actually shipleast privilege, secrets outside prompts, audit logssit beside performance hygiene for search experience.",
       "Stack choices follow the problem: React and TypeScript for product UI, Node or Python for APIs and ML/LLM services, Postgres and object storage for systems of record, vector stores only when retrieval is required. We prefer boring reliability over fashion.",
     ],
   },
@@ -108,40 +114,40 @@ const PAGE_COPY: Record<string, { h1: string; paragraphs: string[] }> = {
     ],
   },
   "/who-we-are": {
-    h1: "Who we are — growth partners with modern tech",
+    h1: "Who we are  growth partners with modern tech",
     paragraphs: [
-      "Trevyk Technologies helps real businesses grow. HQ in Noida, India; clients across India and remotely worldwide. Websites, software, SEO, campaigns, and practical AI—plus Kiduart for schools.",
+      "Trevyk Technologies helps real businesses grow. HQ in Noida, India; clients across India and remotely worldwide. Websites, software, SEO, campaigns, and practical AIplus Kiduart for schools.",
       "Verified milestones: Kiduart live on kiduart.com; three portfolio projects with clear status; remote-first delivery; practical AI with ready vs educational labels. Client stories appear only with written consent.",
       "Turning Vision Into Progress means a clear problem, a measurable next release, and systems that fit real workflows. contact@trevyk.com · WhatsApp +91 88106 64797.",
     ],
   },
   "/portfolio": {
-    h1: "Our work — three verified projects",
+    h1: "Our work  three verified projects",
     paragraphs: [
       "Trevyk publishes only three portfolio projects with clear status: Kiduart school ERP (live product), Sports Academy Management Software (under development), and AGL Creatives (client website).",
-      "Kiduart: admissions, fees, manual attendance, exams, parent communication—demos on kiduart.com. Sports Academy: batch, membership, and coach workflows shipping in stages—not production adoption. AGL Creatives: packaging and print brand site at aglcreatives.in.",
-      "Transparent status on every card. Discuss a project at /contact — contact@trevyk.com",
+      "Kiduart: admissions, fees, manual attendance, exams, parent communicationdemos on kiduart.com. Sports Academy: batch, membership, and coach workflows shipping in stagesnot production adoption. AGL Creatives: packaging and print brand site at aglcreatives.in.",
+      "Transparent status on every card. Discuss a project at /contact  contact@trevyk.com",
     ],
   },
   "/solutions": {
-    h1: "Industry solutions — interior, beauty, manufacturing, agencies",
+    h1: "Industry solutions  interior, beauty, manufacturing, agencies",
     paragraphs: [
       "Trevyk publishes four industry paths so buyers get a sharper brief without dumping sectors on the homepage: interior & architecture, beauty & wellness, manufacturing & industrial, and marketing & technology agencies.",
-      "Each path links to a dedicated /work guide covering websites, software, growth, or white-label partnership. Discuss any sector at /contact — contact@trevyk.com",
+      "Each path links to a dedicated /work guide covering websites, software, growth, or white-label partnership. Discuss any sector at /contact  contact@trevyk.com",
     ],
   },
   "/our-products": {
     h1: "School ERP built for the Indian school year",
     paragraphs: [
       "Kiduart is Trevyk’s cloud school management platform: admissions, fees, attendance, exams, and parent updates for Indian schools. A school that also needs a public website, campaign, or custom AI beside operations can ask Trevyk for that separately.",
-      "Demos are booked on kiduart.com. This page is the product overview on trevyk.in—modules, ownership, and how the product relates to custom engineering.",
+      "Demos are booked on kiduart.com. This page is the product overview on trevyk.inmodules, ownership, and how the product relates to custom engineering.",
       "Custom AI over live student marks or fees inside Kiduart is only described as live when that surface has shipped. Until then, school AI services are scoped on /work/ai-for-schools without overclaiming.",
     ],
   },
   "/contact": {
     h1: "Tell us where growth is stuck. We reply in one business day",
     paragraphs: [
-      "Whether you need more enquiries, cleaner systems, Kiduart for a school, or practical AI beside your work—name the business, city or timezone, and budget band. We reply within one business day.",
+      "Whether you need more enquiries, cleaner systems, Kiduart for a school, or practical AI beside your workname the business, city or timezone, and budget band. We reply within one business day.",
       "Email contact@trevyk.com. WhatsApp +91 88106 64797. HQ Noida; remote-friendly worldwide. Prefer the form so context lands with the request.",
     ],
   },
@@ -167,7 +173,12 @@ function escapeHtml(value: string): string {
     .replace(/"/g, "&quot;");
 }
 
-function replaceOnce(html: string, pattern: RegExp, value: string, label: string): string {
+function replaceOnce(
+  html: string,
+  pattern: RegExp,
+  value: string,
+  label: string,
+): string {
   let hits = 0;
   const next = html.replace(pattern, (_match, open: string, close: string) => {
     hits += 1;
@@ -236,7 +247,9 @@ function bodyFor(route: string): string {
           .join("")
       : "";
 
-  const faqBlockFrom = (faqs: readonly { question: string; answer: string }[]) =>
+  const faqBlockFrom = (
+    faqs: readonly { question: string; answer: string }[],
+  ) =>
     `<h2>Questions buyers ask</h2>${faqs
       .map(
         (faq) =>
@@ -258,7 +271,9 @@ function bodyFor(route: string): string {
   const serviceList =
     route === "/what-we-do"
       ? `<h2>Catalogue</h2>${textList(
-          SERVICES_DATA.map((service) => `${service.title}. ${service.tagline}`),
+          SERVICES_DATA.map(
+            (service) => `${service.title}. ${service.tagline}`,
+          ),
         )}<p><a href="/contact">Ask for a starter plan</a></p>`
       : "";
 
@@ -438,7 +453,8 @@ function render(template: string, route: string): string {
     : "";
 
   if (structured) {
-    if (!html.includes("</head>")) throw new Error("Template is missing </head>");
+    if (!html.includes("</head>"))
+      throw new Error("Template is missing </head>");
     html = html.replace("</head>", `    ${structured}\n  </head>`);
   }
 
@@ -454,7 +470,9 @@ function render(template: string, route: string): string {
     (match) => match[1],
   );
   if (canonicals.length !== 1 || canonicals[0] !== url) {
-    throw new Error(`Canonical mismatch for ${route}: ${canonicals.join(", ")}`);
+    throw new Error(
+      `Canonical mismatch for ${route}: ${canonicals.join(", ")}`,
+    );
   }
   return html;
 }
@@ -474,13 +492,16 @@ function assertSiteUrlForPrerender() {
 
 function main() {
   if (!fs.existsSync(templatePath)) {
-    throw new Error(`Build index.html not found at ${templatePath}. Run vite build first.`);
+    throw new Error(
+      `Build index.html not found at ${templatePath}. Run vite build first.`,
+    );
   }
   assertSiteUrlForPrerender();
   const template = fs.readFileSync(templatePath, "utf8");
   const all = [...routes(), "/404"];
   for (const route of all) {
-    const files = route === "/404" ? [path.join(dist, "404.html")] : outputFiles(route);
+    const files =
+      route === "/404" ? [path.join(dist, "404.html")] : outputFiles(route);
     const html = render(template, route);
     for (const file of files) {
       fs.mkdirSync(path.dirname(file), { recursive: true });

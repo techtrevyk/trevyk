@@ -7,11 +7,9 @@ interface CampusGraphIllustrationProps {
   className?: string;
 }
 
-export const CampusGraphIllustration: React.FC<CampusGraphIllustrationProps> = ({
-  step,
-  reducedMotion = false,
-  className = "",
-}) => {
+export const CampusGraphIllustration: React.FC<
+  CampusGraphIllustrationProps
+> = ({ step, reducedMotion = false, className = "" }) => {
   const count = KIDUART_TEASER_JOURNEY.length;
   const active = ((step % count) + count) % count;
   const activeTitle = KIDUART_TEASER_JOURNEY[active]?.title ?? "Campus";
@@ -21,7 +19,7 @@ export const CampusGraphIllustration: React.FC<CampusGraphIllustrationProps> = (
       <div className="relative overflow-hidden">
         <img
           src="/images/kiduart/campus-graph.jpg"
-          alt="Isometric connected school campus — head office, branches, library, sports, transport, and finance modules linked as one graph"
+          alt="Isometric connected school campus  head office, branches, library, sports, transport, and finance modules linked as one graph"
           className="block w-full aspect-[4/3] object-cover object-center"
           loading="lazy"
           decoding="async"

@@ -35,7 +35,7 @@ export function WhatsAppFloatingButton() {
           soundEngine.playClick("soft");
           trackWhatsAppLead(href, "whatsapp_floating");
         }}
-        aria-label={`Chat on WhatsApp — ${whatsappContact.displayNumber}`}
+        aria-label={`Chat on WhatsApp  ${whatsappContact.displayNumber}`}
         className="group relative flex items-center gap-3 rounded-full border border-[#25D366]/45 bg-gradient-to-r from-[#128C7E] to-[#25D366] px-4 py-3.5 text-left shadow-[0_0_24px_rgba(37,211,102,0.35)] transition-all hover:scale-105 hover:border-[#25D366] hover:shadow-[0_0_32px_rgba(37,211,102,0.5)] active:scale-95 interactive-target sm:px-5"
         data-cursor-label="WHATSAPP"
       >
@@ -47,7 +47,9 @@ export function WhatsAppFloatingButton() {
           <span className="block text-xs font-bold uppercase tracking-wider text-white font-heading">
             WhatsApp
           </span>
-          <span className="block text-[11px] text-white/90">Chat with our team</span>
+          <span className="block text-[11px] text-white/90">
+            Chat with our team
+          </span>
         </div>
       </a>
     </motion.div>

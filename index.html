@@ -6,7 +6,7 @@
     <title>Custom Website, AI Agents, Software & Growth | Trevyk</title>
     <meta
       name="description"
-      content="Trevyk (Noida) builds custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businesses—plus SEO and campaigns. Starter plans. Reply in one business day."
+      content="Trevyk (Noida) builds custom websites, web apps, AI agents, RAG assistants, GenAI/LLM apps, and software for startups and local businessesplus SEO and campaigns. Starter plans. Reply in one business day."
     />
     <meta
       name="keywords"
@@ -28,7 +28,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.trevyk.in/" />
-    <meta property="og:image" content="https://www.trevyk.in/trevyk-logo-on-dark.png" />
+    <meta
+      property="og:image"
+      content="https://www.trevyk.in/trevyk-logo-on-dark.png"
+    />
     <meta property="og:image:alt" content="TREVYK Technologies logo" />
     <meta property="og:locale" content="en_IN" />
 
@@ -39,9 +42,12 @@
     />
     <meta
       name="twitter:description"
-      content="Trevyk builds custom websites, AI agents, RAG assistants, GenAI apps, and software—plus SEO and campaigns. Starter plans. Noida, India."
+      content="Trevyk builds custom websites, AI agents, RAG assistants, GenAI apps, and softwareplus SEO and campaigns. Starter plans. Noida, India."
     />
-    <meta name="twitter:image" content="https://www.trevyk.in/trevyk-logo-on-dark.png" />
+    <meta
+      name="twitter:image"
+      content="https://www.trevyk.in/trevyk-logo-on-dark.png"
+    />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
@@ -52,11 +58,13 @@
     <!-- GA4 stub in HTML for tag checkers; network load waits until after first paint (see body script). -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       window.gtag = window.gtag || gtag;
     </script>
 
-    <!-- Fonts: preconnect only in head (stylesheet is non-blocking — see trevykLoadFonts). -->
+    <!-- Fonts: preconnect only in head (stylesheet is non-blocking  see trevykLoadFonts). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -103,7 +111,11 @@
         overflow: hidden;
         background: #0f0810;
         color: #f8f6fb;
-        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
       }
       .trevyk-static-home__media {
         position: absolute;
@@ -118,7 +130,8 @@
       .trevyk-static-home__gradient {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
+        background:
+          linear-gradient(
             90deg,
             rgba(26, 15, 24, 0.92) 0%,
             rgba(26, 15, 24, 0.78) 38%,
@@ -271,7 +284,10 @@
       (function () {
         var p = location.pathname.replace(/\/$/, "") || "/";
         if (p !== "/") {
-          document.documentElement.classList.add("trevyk-no-static-home", "trevyk-app-ready");
+          document.documentElement.classList.add(
+            "trevyk-no-static-home",
+            "trevyk-app-ready",
+          );
         }
       })();
     </script>
@@ -281,13 +297,19 @@
         <picture>
           <source
             type="image/webp"
-            srcset="/images/hero-office-poster-640.webp 640w, /images/hero-office-poster.webp 1920w"
+            srcset="
+              /images/hero-office-poster-640.webp  640w,
+              /images/hero-office-poster.webp     1920w
+            "
             sizes="100vw"
           />
           <img
             id="trevyk-lcp-hero"
             src="/images/hero-office-poster-640.jpg"
-            srcset="/images/hero-office-poster-640.jpg 640w, /images/hero-office-poster.jpg 1920w"
+            srcset="
+              /images/hero-office-poster-640.jpg  640w,
+              /images/hero-office-poster.jpg     1920w
+            "
             sizes="100vw"
             alt=""
             width="640"
@@ -300,27 +322,61 @@
       <div class="trevyk-static-home__gradient" aria-hidden="true"></div>
       <div class="trevyk-static-home__stage">
         <div class="trevyk-static-home__container">
-          <div class="trevyk-static-home__content" aria-busy="true" aria-label="Loading hero content">
-            <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 0.75rem; width: 11rem"></div>
+          <div
+            class="trevyk-static-home__content"
+            aria-busy="true"
+            aria-label="Loading hero content"
+          >
+            <div
+              class="trevyk-skeleton-bar trevyk-skeleton-bar--pill"
+              style="height: 0.75rem; width: 11rem"
+            ></div>
             <div class="trevyk-skeleton-title" aria-hidden="true">
               <div class="trevyk-skeleton-bar"></div>
               <div class="trevyk-skeleton-bar"></div>
               <div class="trevyk-skeleton-bar"></div>
             </div>
-            <div class="trevyk-skeleton-bar" style="height: 1.25rem; width: 13rem; margin-top: 1rem"></div>
+            <div
+              class="trevyk-skeleton-bar"
+              style="height: 1.25rem; width: 13rem; margin-top: 1rem"
+            ></div>
             <div class="trevyk-skeleton-stack" aria-hidden="true">
-              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
-              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 88%"></div>
+              <div
+                class="trevyk-skeleton-bar"
+                style="height: 0.875rem; width: 100%"
+              ></div>
+              <div
+                class="trevyk-skeleton-bar"
+                style="height: 0.875rem; width: 88%"
+              ></div>
             </div>
             <div class="trevyk-skeleton-stack" aria-hidden="true">
-              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 100%"></div>
-              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 94%"></div>
-              <div class="trevyk-skeleton-bar" style="height: 0.875rem; width: 76%"></div>
+              <div
+                class="trevyk-skeleton-bar"
+                style="height: 0.875rem; width: 100%"
+              ></div>
+              <div
+                class="trevyk-skeleton-bar"
+                style="height: 0.875rem; width: 94%"
+              ></div>
+              <div
+                class="trevyk-skeleton-bar"
+                style="height: 0.875rem; width: 76%"
+              ></div>
             </div>
             <div class="trevyk-skeleton-actions" aria-hidden="true">
-              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 9rem"></div>
-              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 8rem"></div>
-              <div class="trevyk-skeleton-bar trevyk-skeleton-bar--pill" style="height: 2.5rem; width: 7rem"></div>
+              <div
+                class="trevyk-skeleton-bar trevyk-skeleton-bar--pill"
+                style="height: 2.5rem; width: 9rem"
+              ></div>
+              <div
+                class="trevyk-skeleton-bar trevyk-skeleton-bar--pill"
+                style="height: 2.5rem; width: 8rem"
+              ></div>
+              <div
+                class="trevyk-skeleton-bar trevyk-skeleton-bar--pill"
+                style="height: 2.5rem; width: 7rem"
+              ></div>
             </div>
           </div>
         </div>
@@ -330,7 +386,9 @@
     <div id="root">
       <!-- trevyk-static-start -->
       <article class="trevyk-seo-shell">
-        <h1>Custom websites, AI systems, and growth from Trevyk Technologies</h1>
+        <h1>
+          Custom websites, AI systems, and growth from Trevyk Technologies
+        </h1>
         <p>
           Custom websites, web applications, AI agents, RAG assistants,
           GenAI/LLM apps, and software for startups and local businesses, plus
@@ -406,7 +464,10 @@
         document.head.appendChild(s);
       }
       ["scroll", "pointerdown"].forEach(function (ev) {
-        window.addEventListener(ev, trevykLoadFonts, { once: true, passive: true });
+        window.addEventListener(ev, trevykLoadFonts, {
+          once: true,
+          passive: true,
+        });
       });
       setTimeout(trevykLoadFonts, 8000);
       // Load GA soon after first paint so short visits still count (SPA also inits via React).
@@ -416,18 +477,24 @@
         setTimeout(trevykLoadGa, 800);
       }
       ["scroll", "pointerdown", "keydown"].forEach(function (ev) {
-        window.addEventListener(ev, trevykLoadGa, { once: true, passive: true });
+        window.addEventListener(ev, trevykLoadGa, {
+          once: true,
+          passive: true,
+        });
       });
       if ("requestIdleCallback" in window) {
-        requestIdleCallback(function () {
-          if (document.getElementById("trevyk-fonts-mono")) return;
-          var mono = document.createElement("link");
-          mono.id = "trevyk-fonts-mono";
-          mono.rel = "stylesheet";
-          mono.href =
-            "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap";
-          document.head.appendChild(mono);
-        }, { timeout: 14000 });
+        requestIdleCallback(
+          function () {
+            if (document.getElementById("trevyk-fonts-mono")) return;
+            var mono = document.createElement("link");
+            mono.id = "trevyk-fonts-mono";
+            mono.rel = "stylesheet";
+            mono.href =
+              "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap";
+            document.head.appendChild(mono);
+          },
+          { timeout: 14000 },
+        );
       }
     </script>
     <script type="module" src="/src/main.tsx"></script>

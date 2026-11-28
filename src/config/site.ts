@@ -44,7 +44,7 @@ export function normalizeSiteUrl(raw: string): string {
   }
 
   const host = parsed.hostname.toLowerCase();
-  // Apex redirects to www in production — never emit apex in canonicals.
+  // Apex redirects to www in production  never emit apex in canonicals.
   if (host === "trevyk.in" || host === "www.trevyk.in") {
     return CANONICAL_SITE_URL;
   }
@@ -67,7 +67,7 @@ export const WHAT_WE_DO_PATH = "/what-we-do" as const;
 /** Products overview (legacy `/kiduart` redirects here). */
 export const OUR_PRODUCTS_PATH = "/our-products" as const;
 
-/** Approved work showcase (audit P0 — three projects only). */
+/** Approved work showcase (audit P0  three projects only). */
 export const PORTFOLIO_PATH = "/portfolio" as const;
 
 /** Industry solutions hub (detail pages live under /work/*). */

@@ -1,59 +1,70 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, Suspense, lazy } from 'react';
-import { BrowserRouter, useLocation } from 'react-router-dom';
-import type Lenis from 'lenis';
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  Suspense,
+  lazy,
+} from "react";
+import { BrowserRouter, useLocation } from "react-router-dom";
+import type Lenis from "lenis";
 
-import { SiteSettings } from './types';
-import { Cursor } from './components/Cursor';
-import { Navbar } from './components/Navbar';
-import { SiteFooter } from './components/plum/layout/SiteFooter';
-import { BrandGradientBar } from './components/BrandGradientBar';
-import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
-import { SEOManager } from './components/SEOManager';
-import { Analytics } from './components/Analytics';
-import { AppRoutes } from './components/AppRoutes';
-import { RouteLoader } from './components/RouteLoader';
-import { PageSectionSkeleton } from './components/ui/PageSectionSkeleton';
-import { useRouteTransitionOverlay } from './hooks/useRouteTransitionOverlay';
-import { trackChatOpen } from './utils/analytics';
-import { setRouteOverlayPathname } from './utils/routeTransitionOverlay';
-import { soundEngine } from './utils/audioEngine';
-import { isOurProductsPath, isWhoWeArePath } from './config/site';
-import { initSmoothScroll } from './utils/initSmoothScroll';
-import { prefetchCommonRoutesIdle } from './utils/routePrefetch';
-import { scheduleDeferredMediaLoad } from './utils/deferMediaLoad';
+import { SiteSettings } from "./types";
+import { Cursor } from "./components/Cursor";
+import { Navbar } from "./components/Navbar";
+import { SiteFooter } from "./components/plum/layout/SiteFooter";
+import { BrandGradientBar } from "./components/BrandGradientBar";
+import { WhatsAppFloatingButton } from "./components/WhatsAppFloatingButton";
+import { SEOManager } from "./components/SEOManager";
+import { Analytics } from "./components/Analytics";
+import { AppRoutes } from "./components/AppRoutes";
+import { RouteLoader } from "./components/RouteLoader";
+import { PageSectionSkeleton } from "./components/ui/PageSectionSkeleton";
+import { useRouteTransitionOverlay } from "./hooks/useRouteTransitionOverlay";
+import { trackChatOpen } from "./utils/analytics";
+import { setRouteOverlayPathname } from "./utils/routeTransitionOverlay";
+import { soundEngine } from "./utils/audioEngine";
+import { isOurProductsPath, isWhoWeArePath } from "./config/site";
+import { initSmoothScroll } from "./utils/initSmoothScroll";
+import { prefetchCommonRoutesIdle } from "./utils/routePrefetch";
+import { scheduleDeferredMediaLoad } from "./utils/deferMediaLoad";
 
 const SolarFooterStage = lazy(() =>
-  import('./components/plum/sections/SolarFooterStage').then((m) => ({
+  import("./components/plum/sections/SolarFooterStage").then((m) => ({
     default: m.SolarFooterStage,
   })),
 );
 const NonHomeRouteShell = lazy(() =>
-  import('./components/NonHomeRouteShell').then((m) => ({
+  import("./components/NonHomeRouteShell").then((m) => ({
     default: m.NonHomeRouteShell,
   })),
 );
 const ArchitectureModal = lazy(() =>
-  import('./components/ArchitectureModal').then((m) => ({
+  import("./components/ArchitectureModal").then((m) => ({
     default: m.ArchitectureModal,
   })),
 );
 const GeminiChatbot = lazy(() =>
-  import('./components/GeminiChatbot').then((m) => ({
+  import("./components/GeminiChatbot").then((m) => ({
     default: m.GeminiChatbot,
   })),
 );
 
 // Instant scroll reset. useEffect was too late, and html.scroll-smooth made the jump visible as footer-first.
-function ScrollToTop({ lenisRef }: { lenisRef: React.RefObject<Lenis | null> }) {
+function ScrollToTop({
+  lenisRef,
+}: {
+  lenisRef: React.RefObject<Lenis | null>;
+}) {
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
     }
     const root = document.documentElement;
     const previous = root.style.scrollBehavior;
-    root.style.scrollBehavior = 'auto';
+    root.style.scrollBehavior = "auto";
     window.scrollTo(0, 0);
     root.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -86,11 +97,15 @@ function MainAppContent() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
-  const [chatInitialPrompt, setChatInitialPrompt] = useState<string | undefined>(undefined);
+  const [chatInitialPrompt, setChatInitialPrompt] = useState<
+    string | undefined
+  >(undefined);
   const [chatWidgetReady, setChatWidgetReady] = useState(false);
   const [homeSolarStageReady, setHomeSolarStageReady] = useState(false);
   const [homeChromeReady, setHomeChromeReady] = useState(false);
-  const [selectedCubeIndex, setSelectedCubeIndex] = useState<number | null>(null);
+  const [selectedCubeIndex, setSelectedCubeIndex] = useState<number | null>(
+    null,
+  );
   const [hoveredCube, setHoveredCube] = useState<number | null>(null);
 
   const lenisRef = useRef<Lenis | null>(null);
@@ -102,14 +117,20 @@ function MainAppContent() {
       return;
     }
     setHomeChromeReady(false);
-    const cancelChrome = scheduleDeferredMediaLoad(() => setHomeChromeReady(true), {
-      scrollMinY: 64,
-      idleTimeoutMs: 5000,
-    });
-    const cancelSolar = scheduleDeferredMediaLoad(() => setHomeSolarStageReady(true), {
-      scrollMinY: 480,
-      idleTimeoutMs: 14000,
-    });
+    const cancelChrome = scheduleDeferredMediaLoad(
+      () => setHomeChromeReady(true),
+      {
+        scrollMinY: 64,
+        idleTimeoutMs: 5000,
+      },
+    );
+    const cancelSolar = scheduleDeferredMediaLoad(
+      () => setHomeSolarStageReady(true),
+      {
+        scrollMinY: 480,
+        idleTimeoutMs: 14000,
+      },
+    );
     return () => {
       cancelChrome();
       cancelSolar();
@@ -134,7 +155,7 @@ function MainAppContent() {
 
   // Check system prefers-reduced-motion
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mediaQuery.matches) {
       setSettings((prev) => ({ ...prev, reducedMotion: true }));
     }
@@ -143,8 +164,8 @@ function MainAppContent() {
       setSettings((prev) => ({ ...prev, reducedMotion: e.matches }));
     };
 
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   useEffect(() => {
@@ -174,7 +195,7 @@ function MainAppContent() {
       });
     };
 
-    if (typeof requestIdleCallback !== 'undefined') {
+    if (typeof requestIdleCallback !== "undefined") {
       const idleId = requestIdleCallback(start, { timeout: 5500 });
       return () => {
         cancelled = true;
@@ -217,7 +238,10 @@ function MainAppContent() {
   };
 
   return (
-    <div id="trevyk-app" className="relative min-h-screen max-w-[100vw] bg-[#1a0f18] text-[#F8F6FB]">
+    <div
+      id="trevyk-app"
+      className="relative min-h-screen max-w-[100vw] bg-[#1a0f18] text-[#F8F6FB]"
+    >
       {pathname !== "/" && !overlayVisible && (
         <div
           className="trevyk-checkered-bg pointer-events-none fixed inset-0 z-0"
@@ -278,7 +302,7 @@ function MainAppContent() {
         )}
       </main>
 
-      {/* 7. Plum footer — “Next project” band hidden on contact & who-we-are */}
+      {/* 7. Plum footer  “Next project” band hidden on contact & who-we-are */}
       {pathname === "/" ? (
         <div className="relative z-[35]">
           {homeSolarStageReady ? (
@@ -286,7 +310,10 @@ function MainAppContent() {
               <SolarFooterStage />
             </Suspense>
           ) : (
-            <SiteFooter showSolarVideo={false} hideNextProjectCta={hideFooterNextProject} />
+            <SiteFooter
+              showSolarVideo={false}
+              hideNextProjectCta={hideFooterNextProject}
+            />
           )}
         </div>
       ) : (

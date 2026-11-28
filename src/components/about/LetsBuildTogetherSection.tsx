@@ -14,7 +14,7 @@ const AUDIENCE_ITEMS = [
   {
     title: "For Schools",
     description:
-      "Kiduart for operations—and Trevyk when you need growth beside it.",
+      "Kiduart for operationsand Trevyk when you need growth beside it.",
     icon: School,
   },
   {
@@ -25,8 +25,7 @@ const AUDIENCE_ITEMS = [
   },
   {
     title: "For Growth",
-    description:
-      "Stuck on leads or ops? We map a clear, measurable next step.",
+    description: "Stuck on leads or ops? We map a clear, measurable next step.",
     icon: BarChart3,
   },
 ] as const;
@@ -76,8 +75,8 @@ export function LetsBuildTogetherSection() {
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
             Whether you need more serious enquiries, cleaner day-to-day systems,
-            or practical AI beside the work you already do, we&apos;d love to understand
-            your goals and see how we can help.
+            or practical AI beside the work you already do, we&apos;d love to
+            understand your goals and see how we can help.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -124,7 +123,11 @@ export function LetsBuildTogetherSection() {
             {AUDIENCE_ITEMS.map(({ title, description, icon: Icon }) => (
               <div key={title} className="flex flex-col">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#B9A6D1]/35 bg-[#1E1024]/80 text-[#E8A9C2]">
-                  <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.65} aria-hidden />
+                  <Icon
+                    className="h-[1.15rem] w-[1.15rem]"
+                    strokeWidth={1.65}
+                    aria-hidden
+                  />
                 </div>
                 <h4 className="mt-3 font-heading text-sm font-semibold text-[#F8F6FB] sm:text-[15px]">
                   {title}

@@ -66,7 +66,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
       title: "RBAC, export, audit",
       tagline: "Privacy practices you can verify.",
       description:
-        "We ship role-based access, data export, and audit trails—the same class of controls Kiduart publishes and you can verify.",
+        "We ship role-based access, data export, and audit trailsthe same class of controls Kiduart publishes and you can verify.",
       icon: ShieldCheck,
       color: "#6B4A87",
       badge: "Real controls",
@@ -229,7 +229,7 @@ export const StatsTrustSection: React.FC<StatsTrustSectionProps> = ({
           </h2>
 
           <p className="mt-5 text-sm sm:text-base text-[#B9A6D1]/80 leading-relaxed max-w-2xl mx-auto font-sans">
-            Clear fees, verifiable controls, and support terms you can check—the
+            Clear fees, verifiable controls, and support terms you can checkthe
             same honesty standard as Kiduart&apos;s founding-school charter.
           </p>
         </div>

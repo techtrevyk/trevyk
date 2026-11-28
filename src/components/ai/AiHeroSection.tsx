@@ -19,7 +19,7 @@ const HIGHLIGHTS = [
   {
     icon: Library,
     title: "Private knowledge (RAG)",
-    detail: "Answers cited from your docs—not generic web guesses.",
+    detail: "Answers cited from your docsnot generic web guesses.",
   },
   {
     icon: GitBranch,
@@ -71,14 +71,14 @@ export function AiHeroSection() {
               id="ai-hero-heading"
               className="mt-5 font-heading text-[clamp(1.65rem,3.2vw,2.65rem)] font-bold leading-[1.12] tracking-tight text-[#F8F6FB] xl:text-[2.75rem]"
             >
-              Latest AI—used to{" "}
+              Latest AIused to{" "}
               <span className="bg-gradient-to-r from-[#C4A8E8] via-[#E8A9C2] to-[#F8F6FB] bg-clip-text text-transparent">
                 grow how you work.
               </span>
             </h1>
 
             <p className="mt-4 text-[15px] leading-relaxed text-[#E7E1F0] sm:text-base lg:text-[15px] xl:text-[16px]">
-              Agents, RAG over your own docs, GenAI apps, and light automation—so
+              Agents, RAG over your own docs, GenAI apps, and light automationso
               staff get hours back and customers get clearer answers. Practical
               AI solutions scoped to the workflow you already run.
             </p>
@@ -92,7 +92,11 @@ export function AiHeroSection() {
               {HIGHLIGHTS.map(({ icon: Icon, title, detail }) => (
                 <li key={title} className="flex gap-2.5">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#E8A9C2]/30 bg-[#55356a]/75 text-[#F8F6FB] shadow-[0_0_14px_rgba(107,74,135,0.28)]">
-                    <Icon className="h-[1rem] w-[1rem]" strokeWidth={1.65} aria-hidden />
+                    <Icon
+                      className="h-[1rem] w-[1rem]"
+                      strokeWidth={1.65}
+                      aria-hidden
+                    />
                   </div>
                   <div className="min-w-0">
                     <p className="font-heading text-[13px] font-semibold leading-snug text-[#F8F6FB]">

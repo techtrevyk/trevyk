@@ -7,7 +7,7 @@ import { HowWeCanHelpSection } from "../components/what-we-do/HowWeCanHelpSectio
 
 /**
  * Previous catalogue UI (filters, ServiceCard3D, constellation, etc.) is preserved in
- * `ServicesPage.catalogue.legacy.tsx` — not rendered. Restore from that file if needed.
+ * `ServicesPage.catalogue.legacy.tsx`  not rendered. Restore from that file if needed.
  */
 
 interface ServicesPageProps {
@@ -17,7 +17,10 @@ interface ServicesPageProps {
 
 export const ServicesPage: React.FC<ServicesPageProps> = () => {
   return (
-    <div id="services-page" className="relative w-full min-h-screen overflow-hidden pb-28">
+    <div
+      id="services-page"
+      className="relative w-full min-h-screen overflow-hidden pb-28"
+    >
       <WhatWeDoHeroSection />
       <OurServicesSection />
       <WhoWeWorkWithSection />

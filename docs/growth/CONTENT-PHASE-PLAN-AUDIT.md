@@ -8,19 +8,19 @@
 
 ## What the audit says (keep)
 
-| Priority | Item | Notes |
-|----------|------|--------|
-| P0 | Portfolio `/portfolio` (3 projects only) | Needs your approved screenshots + permissions before build |
-| P0 | Homepage: business-led hero + clear CTAs | Do **now** — no industry laundry list |
-| P0 | Tone: less defensive (“not vapour…”) → positive factual | Ongoing, page by page |
-| P0 | Contact form QA + truthful claims | Owner + deploy |
-| P0 | Align AI claims to ready vs educational | Don’t oversell ML/BI |
-| P1 | Industries section / landing pages | **Separate pages later** — not on home hero |
-| P1 | Partnership / catalogue gaps | After portfolio |
-| P2 | Full industry landings | Interior, beauty, manufacturing, agencies |
+| Priority | Item                                                    | Notes                                                      |
+| -------- | ------------------------------------------------------- | ---------------------------------------------------------- |
+| P0       | Portfolio `/portfolio` (3 projects only)                | Needs your approved screenshots + permissions before build |
+| P0       | Homepage: business-led hero + clear CTAs                | Do **now** no industry laundry list                        |
+| P0       | Tone: less defensive (“not vapour…”) → positive factual | Ongoing, page by page                                      |
+| P0       | Contact form QA + truthful claims                       | Owner + deploy                                             |
+| P0       | Align AI claims to ready vs educational                 | Don’t oversell ML/BI                                       |
+| P1       | Industries section / landing pages                      | **Separate pages later** not on home hero                  |
+| P1       | Partnership / catalogue gaps                            | After portfolio                                            |
+| P2       | Full industry landings                                  | Interior, beauty, manufacturing, agencies                  |
 
 **Audit homepage suggestion (adapted):**  
-*Turning Vision Into Progress · Technology built around your business.*  
+_Turning Vision Into Progress · Technology built around your business._  
 CTA: Discuss your project · Explore our work.
 
 ---
@@ -29,14 +29,14 @@ CTA: Discuss your project · Explore our work.
 
 Prioritise pages and LinkedIn around these (buyer + hiring-market signal):
 
-1. **Agentic AI / AI agents** — tool calling, workflows, human-in-the-loop  
-2. **RAG / knowledge assistants** — private docs, citations, vector search  
-3. **GenAI / LLM apps** — API apps, LangChain/LangGraph-style orchestration  
-4. **Business automation / AI integrations** — CRM, ops, support  
-5. **Custom software / web apps** — portals, workflows  
-6. **SEO + digital growth** — enquiries, not vanity traffic  
-7. **Local:** website development Noida (keep as dedicated page only)  
-8. **Remote / hire team** — already have `/work/remote-software-ai-team`
+1. **Agentic AI / AI agents** tool calling, workflows, human-in-the-loop
+2. **RAG / knowledge assistants** private docs, citations, vector search
+3. **GenAI / LLM apps** API apps, LangChain/LangGraph-style orchestration
+4. **Business automation / AI integrations** CRM, ops, support
+5. **Custom software / web apps** portals, workflows
+6. **SEO + digital growth** enquiries, not vanity traffic
+7. **Local:** website development Noida (keep as dedicated page only)
+8. **Remote / hire team** already have `/work/remote-software-ai-team`
 
 Home should **name the outcome** (grow / operate / automate), not list every industry.
 
@@ -44,63 +44,63 @@ Home should **name the outcome** (grow / operate / automate), not list every ind
 
 ## Content principles (all phases)
 
-1. **Minimal:** one idea per block — headline, one short support line, one CTA group.  
-2. **Business first:** “your business” — industries on dedicated pages only.  
-3. **Positive tone:** say what we do; avoid stacked “not X / not Y”.  
-4. **Proof later:** portfolio cards only with approved assets.  
+1. **Minimal:** one idea per block headline, one short support line, one CTA group.
+2. **Business first:** “your business” industries on dedicated pages only.
+3. **Positive tone:** say what we do; avoid stacked “not X / not Y”.
+4. **Proof later:** portfolio cards only with approved assets.
 5. **Crawlable depth:** keep prerender shells honest and short.
 
 ---
 
 ## Phases
 
-### Phase A — Home impact ✅ done (2026-11-28)
+### Phase A Home impact ✅ done (2026-11-28)
 
-- Removed clinic/school/realty lists from hero + GrowthOffer intro.  
-- Short business-led hero + audit CTAs (Discuss your project / Explore our work).  
-- Aligned `home.ts`, SEO `/`, prerender `/`, footer, ServicesTeaser, what-we-do chips.  
+- Removed clinic/school/realty lists from hero + GrowthOffer intro.
+- Short business-led hero + audit CTAs (Discuss your project / Explore our work).
+- Aligned `home.ts`, SEO `/`, prerender `/`, footer, ServicesTeaser, what-we-do chips.
 - HQ Noida + remote stay quiet (footer/meta), not the lead.
 
-### Phase B — Portfolio P0 ✅ shipped structure (2026-11-28)
+### Phase B Portfolio P0 ✅ shipped structure (2026-11-28)
 
-- Route `/portfolio` with **only**: Kiduart (live), Sports Academy (under development), AGL Creatives (client = audit “Agile Creatives”).  
-- Nav “Our work”, home “Explore our work”, footer, sitemap, prerender, llms, guide CTAs → `/portfolio`.  
-- Sports Academy uses product-direction preview imagery + explicit “under development” note (swap when you approve real screens).  
+- Route `/portfolio` with **only**: Kiduart (live), Sports Academy (under development), AGL Creatives (client = audit “Agile Creatives”).
+- Nav “Our work”, home “Explore our work”, footer, sitemap, prerender, llms, guide CTAs → `/portfolio`.
+- Sports Academy uses product-direction preview imagery + explicit “under development” note (swap when you approve real screens).
 - Owner: confirm AGL naming/permission remains OK; swap Sports Academy screens when ready.
 
-### Phase C — Tone + catalogue ✅ done (2026-11-28)
+### Phase C Tone + catalogue ✅ done (2026-11-28)
 
-- Softened defensive phrases (vanity/vapour/theatre → positive factual) on core pages, guides, workPages, trust, AI hub.  
-- What-we-do catalogue: Mobile + Partnerships added; buyer-outcome blurbs; work CTA → `/portfolio`.  
+- Softened defensive phrases (vanity/vapour/theatre → positive factual) on core pages, guides, workPages, trust, AI hub.
+- What-we-do catalogue: Mobile + Partnerships added; buyer-outcome blurbs; work CTA → `/portfolio`.
 - AI hub: Ready / Feasibility-led / Educational / Included-in-delivery scope badges; FAQ updated.
 
-### Phase D — Industries P1/P2 ✅ done (2026-11-28)
+### Phase D Industries P1/P2 ✅ done (2026-11-28)
 
-- `/solutions` hub + “Who we work with” strip on What we do (not home).  
-- Four landings: `/work/interior-architecture`, `/work/beauty-wellness`, `/work/manufacturing-industrial`, `/work/marketing-agencies`.  
+- `/solutions` hub + “Who we work with” strip on What we do (not home).
+- Four landings: `/work/interior-architecture`, `/work/beauty-wellness`, `/work/manufacturing-industrial`, `/work/marketing-agencies`.
 - Wired: guides + CTAs + sitemap + prerender + nav/footer/llms.
 
-### Phase E — Trust & conversion ✅ code shipped (2026-11-28)
+### Phase E Trust & conversion ✅ code shipped (2026-11-28)
 
-- Contact form hardened (need options, city/timezone, success CTAs); NAP → contact@trevyk.com; `generate_lead` for form / WhatsApp / email; analytics init on events.  
-- About: `VerifiedMilestonesSection` (Kiduart, portfolio, remote-first, AI lane)—no invented bios.  
-- **You:** post-deploy Realtime QA + mark `generate_lead` Key event (`PHASE-4-CONVERSION-QA.md`).  
+- Contact form hardened (need options, city/timezone, success CTAs); NAP → contact@trevyk.com; `generate_lead` for form / WhatsApp / email; analytics init on events.
+- About: `VerifiedMilestonesSection` (Kiduart, portfolio, remote-first, AI lane)no invented bios.
+- **You:** post-deploy Realtime QA + mark `generate_lead` Key event (`PHASE-4-CONVERSION-QA.md`).
 - GBP still deferred until address exists.
 
 ---
 
 ## Done vs later (honest)
 
-| Already shipped (keep) | Next |
-|------------------------|------|
-| Phases A–E site work | **You:** deploy + GA4 Realtime QA / Key event |
-| Contact NAP + milestones | GBP when address exists |
-| `/portfolio`, `/solutions`, tone, AI scope | Case-study only with consent |
+| Already shipped (keep)                     | Next                                          |
+| ------------------------------------------ | --------------------------------------------- |
+| Phases A–E site work                       | **You:** deploy + GA4 Realtime QA / Key event |
+| Contact NAP + milestones                   | GBP when address exists                       |
+| `/portfolio`, `/solutions`, tone, AI scope | Case-study only with consent                  |
 
 ---
 
 ## Owner follow-ups (Phase B polish)
 
-1. Swap Sports Academy preview image for approved screens when ready.  
-2. Reconfirm AGL Creatives naming/permission (page uses live brand: AGL Creatives / aglcreatives.in).  
+1. Swap Sports Academy preview image for approved screens when ready.
+2. Reconfirm AGL Creatives naming/permission (page uses live brand: AGL Creatives / aglcreatives.in).
 3. Optional: richer Kiduart module screenshots on the portfolio card.

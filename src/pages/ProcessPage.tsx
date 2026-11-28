@@ -12,7 +12,7 @@ interface ProcessPageProps {
   settings: SiteSettings;
 }
 
-/** Archived — habits block kept for reference, not rendered. */
+/** Archived  habits block kept for reference, not rendered. */
 const HABITS = [
   {
     icon: Terminal,
@@ -33,7 +33,10 @@ const HABITS = [
 
 export const ProcessPage: React.FC<ProcessPageProps> = ({ settings }) => {
   return (
-    <div id="process-page" className="relative w-full min-h-screen overflow-hidden">
+    <div
+      id="process-page"
+      className="relative w-full min-h-screen overflow-hidden"
+    >
       <ProcessHeroSection />
       <ProcessStagesSection />
       <WhatYouCanExpectSection />

@@ -15,7 +15,7 @@ const HALO_SIZE: Record<CursorType, number> = {
 };
 
 /**
- * Custom cursor — position updates via rAF + transform (no React per-frame).
+ * Custom cursor  position updates via rAF + transform (no React per-frame).
  * Hit-testing is throttled so clicks are not blocked by main-thread work.
  */
 export const Cursor: React.FC<CursorProps> = ({ reducedMotion = false }) => {

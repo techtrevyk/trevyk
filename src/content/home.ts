@@ -2,14 +2,14 @@ export const site = {
   name: "Trevyk Technologies",
   shortName: "TREVYK",
   footerWordmark: "Trevyk Technologies",
-  tagline: "Software house — Remote-first, worldwide",
+  tagline: "Software house  Remote-first, worldwide",
   email: "contact@trevyk.com",
   phone: "+91 88106 64797",
   location: "HQ Noida, India · Remote delivery worldwide",
   copyrightYear: 2026,
 } as const;
 
-/** WhatsApp Business — floating launcher + wa.me deep links */
+/** WhatsApp Business  floating launcher + wa.me deep links */
 export const whatsappContact = {
   /** Digits only, with country code (India +91) */
   phoneE164Digits: "918810664797",
@@ -34,10 +34,9 @@ export const hero = {
     "A clear next step with measurable milestones",
   ],
   subtitle: "Trevyk Technologies",
-  lead:
-    "Software, websites, AI, and digital growth—tailored to how you operate.",
+  lead: "Software, websites, AI, and digital growthtailored to how you operate.",
   description:
-    "From the first page people land on, to systems behind enquiries and day-to-day work—including practical AI when it helps.",
+    "From the first page people land on, to systems behind enquiries and day-to-day workincluding practical AI when it helps.",
   primaryCta: { label: "Discuss your project", href: "/contact" },
   secondaryCta: { label: "Explore our work", href: "/portfolio" },
   tertiaryCta: { label: "Kiduart product", href: "/our-products" },
@@ -52,7 +51,7 @@ export const servicesSection = {
   label: "What we do",
   title: "Four disciplines. One team. Zero hand-offs.",
   subtitle:
-    "Design, front end, mobile, and infrastructure live in the same room here — so nothing gets lost between an idea and a deployed product.",
+    "Design, front end, mobile, and infrastructure live in the same room here  so nothing gets lost between an idea and a deployed product.",
   items: [
     {
       number: "01",
@@ -74,7 +73,7 @@ export const servicesSection = {
       number: "03",
       title: "UI/UX Design",
       description:
-        "Interfaces shaped for the person using them — cashier, manager, or customer.",
+        "Interfaces shaped for the person using them  cashier, manager, or customer.",
       stack: ["Figma", "Design systems", "Motion", "Prototyping"],
       href: "/contact",
     },
@@ -97,25 +96,25 @@ export const processSection = {
       index: "01 / 04",
       title: "Discover",
       heading: "We learn the business before we touch the code.",
-      body: "Every engagement starts with the operation itself — how stock moves, how a sale happens, who touches the system and when. We map the real-world process so the software fits it, not the other way around.",
+      body: "Every engagement starts with the operation itself  how stock moves, how a sale happens, who touches the system and when. We map the real-world process so the software fits it, not the other way around.",
     },
     {
       index: "02 / 04",
       title: "Design",
       heading: "Flows first. Pixels second.",
-      body: "We shape each interface around its user — a cashier mid-rush needs different software than an owner reading weekly numbers. Prototypes go in front of you early, in the browser, where they behave like the real thing.",
+      body: "We shape each interface around its user  a cashier mid-rush needs different software than an owner reading weekly numbers. Prototypes go in front of you early, in the browser, where they behave like the real thing.",
     },
     {
       index: "03 / 04",
       title: "Build",
       heading: "Engineered to run, not just to demo.",
-      body: "Typed codebases, realtime data where it matters, and backends designed for reporting from day one. You watch the product grow in staging builds every week — no six-month silence, no surprise reveal.",
+      body: "Typed codebases, realtime data where it matters, and backends designed for reporting from day one. You watch the product grow in staging builds every week  no six-month silence, no surprise reveal.",
     },
     {
       index: "04 / 04",
       title: "Ship & Scale",
       heading: "Launch is the midpoint, not the finish line.",
-      body: "We deploy on cloud infrastructure we operate, monitor what we ship, and stay on as your product grows — new locations, new roles, new companion apps. Most of our clients are on their second or third project with us.",
+      body: "We deploy on cloud infrastructure we operate, monitor what we ship, and stay on as your product grows  new locations, new roles, new companion apps. Most of our clients are on their second or third project with us.",
     },
   ],
 } as const;
@@ -124,13 +123,13 @@ export const workSection = {
   label: "Services",
   title: "What we deliver.",
   subtitle:
-    "One flagship product we build and operate — Kiduart School ERP — plus websites, apps, design, and growth services scoped to your budget.",
+    "One flagship product we build and operate  Kiduart School ERP  plus websites, apps, design, and growth services scoped to your budget.",
   cta: { label: "Book consultation →", href: "/contact" },
   cards: [
     {
       title: "Kiduart School ERP",
       description:
-        "Our announced flagship: admissions, fees, attendance, and parent apps for Indian schools — a live product you can demo.",
+        "Our announced flagship: admissions, fees, attendance, and parent apps for Indian schools  a live product you can demo.",
       stack: ["Next.js", "PostgreSQL", "School ops"],
       image: "/images/services/kiduart-school.jpg",
       imageAlt: "School campus and learning environment",
@@ -140,7 +139,7 @@ export const workSection = {
     {
       title: "Custom websites",
       description:
-        "Marketing sites and company pages built for speed, SEO, and clear calls to action — starter plans available.",
+        "Marketing sites and company pages built for speed, SEO, and clear calls to action  starter plans available.",
       stack: ["Next.js", "TypeScript", "CMS"],
       image: "/images/services/custom-websites.jpg",
       imageAlt: "Developer building a modern website",
@@ -158,7 +157,7 @@ export const workSection = {
     {
       title: "Mobile apps",
       description:
-        "Cross-platform iOS and Android apps for customers, staff, or field teams — built with React Native.",
+        "Cross-platform iOS and Android apps for customers, staff, or field teams  built with React Native.",
       stack: ["React Native", "Expo", "Firebase"],
       image: "/images/services/mobile-apps.jpg",
       imageAlt: "Mobile app on a smartphone",
@@ -167,7 +166,7 @@ export const workSection = {
     {
       title: "UI/UX design",
       description:
-        "Flows and interfaces for the person using them — cashier, manager, teacher, or parent.",
+        "Flows and interfaces for the person using them  cashier, manager, teacher, or parent.",
       stack: ["Figma", "Design systems", "Prototypes"],
       image: "/images/services/ui-ux.jpg",
       imageAlt: "UI design workspace and wireframes",
@@ -176,7 +175,7 @@ export const workSection = {
     {
       title: "Cloud & backend",
       description:
-        "APIs, databases, hosting, and integrations — the infrastructure your product runs on day to day.",
+        "APIs, databases, hosting, and integrations  the infrastructure your product runs on day to day.",
       stack: ["Node.js", "GCP", "Docker"],
       image: "/images/services/cloud-backend.jpg",
       imageAlt: "Cloud infrastructure and server lights",
@@ -196,7 +195,7 @@ export const workSection = {
 
 /**
  * Honest empty proof / case-study slot.
- * Fill `stories` only when written consent is on file — never invent quotes.
+ * Fill `stories` only when written consent is on file  never invent quotes.
  */
 export type ClientStorySlot = {
   organization: string;
@@ -211,11 +210,11 @@ export const testimonialsSection = {
   label: "Proof before polish",
   title: "Client stories will sit here when they are real",
   subtitle:
-    "We publish only reviews a real school or client has approved in writing. Until then this space stays empty — honesty over borrowed credibility.",
-  /** Case-study slots — keep empty until consent; max a few live stories. */
+    "We publish only reviews a real school or client has approved in writing. Until then this space stays empty  honesty over borrowed credibility.",
+  /** Case-study slots  keep empty until consent; max a few live stories. */
   stories: [] as ClientStorySlot[],
   commitments: [
-    "Reviews appear only with written consent—transparent business practices.",
+    "Reviews appear only with written consenttransparent business practices.",
     "No stock photos posing as campuses or clients.",
     "When a story ships, it names the organisation, city, role, and outcome with consent on file.",
   ],
@@ -226,7 +225,7 @@ export const testimonialsSection = {
 
 export const ctaSection = {
   label: "Next project",
-  title: "Your operation deserves software built for it — not around it.",
+  title: "Your operation deserves software built for it  not around it.",
   titleHighlight: "for it",
   body: "Tell us what your business needs to do, and we'll tell you exactly how we'd build it. First call is free, honest, and jargon-optional.",
   cta: { label: "Start a project →", href: "/contact" },
@@ -235,8 +234,7 @@ export const ctaSection = {
 export const footer = {
   brand: {
     tagline: "Turning Vision Into Progress.",
-    body:
-      "We build custom websites, web applications, and AI-powered software that help businesses grow. From strategy to launch and beyond, we turn your ideas into reliable digital products.",
+    body: "We build custom websites, web applications, and AI-powered software that help businesses grow. From strategy to launch and beyond, we turn your ideas into reliable digital products.",
     flagshipLink: { label: "Kiduart School ERP", href: "/our-products" },
     flagshipTail: "for Indian schools.",
     workCta: { label: "Our Work", href: "/portfolio" },
@@ -274,7 +272,10 @@ export const footer = {
     ],
   },
   social: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/trevyk-technologies" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/trevyk-technologies",
+    },
     { label: "Email", href: "mailto:contact@trevyk.com" },
   ],
 } as const;

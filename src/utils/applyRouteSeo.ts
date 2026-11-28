@@ -144,7 +144,7 @@ export function applyRouteSeo(pathname: string) {
     logo: fallbackImage,
     image: image,
     description:
-      "Trevyk Technologies helps businesses grow with modern technology—enquiries, online presence, software, and practical AI. Headquarters in Noida, India; clients across India and remotely worldwide.",
+      "Trevyk Technologies helps businesses grow with modern technologyenquiries, online presence, software, and practical AI. Headquarters in Noida, India; clients across India and remotely worldwide.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",

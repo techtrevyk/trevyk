@@ -1,10 +1,14 @@
 import { PageContainer } from "../plum/ui/PageContainer";
 import { SkeletonBlock, SkeletonHeroTitle, SkeletonText } from "./Skeleton";
 
-/** Route / lazy chunk loading — keeps layout stable instead of empty flash. */
+/** Route / lazy chunk loading  keeps layout stable instead of empty flash. */
 export function PageSectionSkeleton() {
   return (
-    <div className="relative z-10 min-h-[60vh] py-16 md:py-20" aria-busy="true" aria-label="Loading content">
+    <div
+      className="relative z-10 min-h-[60vh] py-16 md:py-20"
+      aria-busy="true"
+      aria-label="Loading content"
+    >
       <PageContainer>
         <SkeletonBlock className="h-3 w-40 rounded-full" />
         <SkeletonHeroTitle />

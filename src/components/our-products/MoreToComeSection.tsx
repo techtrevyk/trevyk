@@ -62,7 +62,11 @@ function PipelineCard({
     <article className="flex min-h-[15.5rem] flex-col rounded-2xl border border-[#B9A6D1]/26 bg-[#1E1024]/88 p-5 shadow-[0_14px_36px_rgba(0,0,0,0.28)] sm:p-5">
       <div className="flex items-start justify-between gap-2">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#E8A9C2]/30 bg-gradient-to-br from-[#6B4A87]/50 to-[#2A1830]/90 text-[#E8A9C2] shadow-[0_0_20px_rgba(107,74,135,0.35)]">
-          <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.65} aria-hidden />
+          <Icon
+            className="h-[1.15rem] w-[1.15rem]"
+            strokeWidth={1.65}
+            aria-hidden
+          />
         </div>
         <span
           className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 font-mono-accent text-[9px] uppercase tracking-wide sm:text-[10px] ${STATUS_STYLES[statusTone]}`}
@@ -158,7 +162,11 @@ export function MoreToComeSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:items-center">
             <div className="flex flex-col gap-4 border-b border-[#B9A6D1]/20 p-6 sm:flex-row sm:items-center lg:col-span-5 lg:border-b-0 lg:border-r lg:p-8">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#E8A9C2]/35 bg-gradient-to-br from-[#6B4A87]/45 to-[#2A1830]/90 text-[#E8A9C2] shadow-[0_0_24px_rgba(107,74,135,0.4)]">
-                <MessageSquare className="h-5 w-5" strokeWidth={1.65} aria-hidden />
+                <MessageSquare
+                  className="h-5 w-5"
+                  strokeWidth={1.65}
+                  aria-hidden
+                />
               </div>
               <div>
                 <p className="font-mono-accent text-[10px] uppercase tracking-[0.18em] text-[#E8A9C2] sm:text-[11px]">
@@ -176,8 +184,8 @@ export function MoreToComeSection() {
             <div className="flex items-center border-b border-[#B9A6D1]/20 p-6 lg:col-span-4 lg:border-b-0 lg:border-r lg:px-6 lg:py-8">
               <p className="text-sm leading-relaxed text-[#C4B4D8] sm:text-[15px]">
                 Whether it&apos;s a custom web application, a SaaS product, or a
-                unique solution for your business or institution — we&apos;d
-                love to discuss it.
+                unique solution for your business or institution we&apos;d love
+                to discuss it.
               </p>
             </div>
 

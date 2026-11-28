@@ -13,7 +13,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/": {
     title: "Technology Built Around Your Business | Trevyk",
     description:
-      "Trevyk builds software, websites, AI, and digital growth around how your business works—so you can operate and grow with clarity. Remote-ready. HQ Noida.",
+      "Trevyk builds software, websites, AI, and digital growth around how your business worksso you can operate and grow with clarity. Remote-ready. HQ Noida.",
     crumb: "Home",
     keywords:
       "custom software development, AI agents RAG GenAI, digital growth, business websites SEO, remote software team, Trevyk Technologies",
@@ -21,7 +21,7 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/what-we-do": {
     title: "End-to-End Business Growth Solutions | Trevyk",
     description:
-      "From being found online to converting enquiries and running day-to-day work—websites, SEO, campaigns, software, mobile, partnerships, and AI. Built around your business goals.",
+      "From being found online to converting enquiries and running day-to-day workwebsites, SEO, campaigns, software, mobile, partnerships, and AI. Built around your business goals.",
     crumb: "What we do",
     keywords:
       "business growth solutions, digital growth for SMBs, AI agents for business, SEO and websites, custom software for growth",
@@ -29,23 +29,24 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/ai": {
     title: "AI That Helps Your Business Move Faster | Trevyk",
     description:
-      "Agents, RAG knowledge assistants, GenAI/LLM apps, and scoped ML—used to cut repeat work, answer from your docs, and support growth. Practical AI with clear delivery boundaries.",
+      "Agents, RAG knowledge assistants, GenAI/LLM apps, and scoped MLused to cut repeat work, answer from your docs, and support growth. Practical AI with clear delivery boundaries.",
     crumb: "AI",
     keywords:
       "AI for business growth, custom AI agents, RAG assistants, generative AI apps, business automation AI, Trevyk AI",
   },
   "/portfolio": {
-    title: "Our Work — Kiduart, Sports Academy, AGL Creatives | Trevyk",
+    title: "Our Work  Kiduart, Sports Academy, AGL Creatives | Trevyk",
     description:
-      "Three verified projects: Kiduart school ERP (live), Sports Academy management software (under development), and AGL Creatives (client site). Clear status—no padded case studies.",
+      "Three verified projects: Kiduart school ERP (live), Sports Academy management software (under development), and AGL Creatives (client site). Clear statusno padded case studies.",
     crumb: "Our work",
     keywords:
       "Trevyk portfolio, Kiduart school ERP, sports academy software, AGL Creatives website, custom software portfolio",
   },
   "/solutions": {
-    title: "Industry Solutions | Interior, Beauty, Manufacturing, Agencies | Trevyk",
+    title:
+      "Industry Solutions | Interior, Beauty, Manufacturing, Agencies | Trevyk",
     description:
-      "Industry paths for interior & architecture, beauty & wellness, manufacturing, and marketing agencies—portfolio sites, booking, ops modules, and white-label partnerships.",
+      "Industry paths for interior & architecture, beauty & wellness, manufacturing, and marketing agenciesportfolio sites, booking, ops modules, and white-label partnerships.",
     crumb: "Solutions",
     keywords:
       "industry software solutions, interior architecture website, beauty wellness booking, manufacturing ERP modules, white label agency development",
@@ -75,24 +76,26 @@ export const ROUTE_SEO: Record<string, RouteSeo> = {
   "/who-we-are": {
     title: "Who We Are | Trevyk Technologies",
     description:
-      "We exist to help real businesses grow with modern technology—presence, enquiries, software, and AI. HQ in Noida; clients across India and worldwide. Honest claims only.",
+      "We exist to help real businesses grow with modern technologypresence, enquiries, software, and AI. HQ in Noida; clients across India and worldwide. Honest claims only.",
     crumb: "Who we are",
     keywords:
       "Who we are Trevyk, business growth partner, Turning Vision Into Progress, Kiduart",
   },
   "/contact": {
-    title: "Contact Trevyk — Let's Grow Your Business",
+    title: "Contact Trevyk  Let's Grow Your Business",
     description:
-      "Tell us your business, city or timezone, and where growth is stuck. Website, SEO, software, or AI—we reply within one business day.",
+      "Tell us your business, city or timezone, and where growth is stuck. Website, SEO, software, or AIwe reply within one business day.",
     crumb: "Contact",
-    keywords: "contact Trevyk, business growth enquiry, AI for business, Kiduart demo",
+    keywords:
+      "contact Trevyk, business growth enquiry, AI for business, Kiduart demo",
   },
   "/sitemap": {
     title: "Site map | Trevyk Technologies",
     description:
       "Every public Trevyk page: portfolio, services, AI solutions, technology, process, about, Kiduart, contact, and guides for websites, software, SEO, AI, campaigns, social media, and video.",
     crumb: "Site map",
-    keywords: "Trevyk sitemap, website services, SEO, custom software, AI agents",
+    keywords:
+      "Trevyk sitemap, website services, SEO, custom software, AI agents",
   },
 };
 
@@ -173,7 +176,7 @@ export function getSocialImageAlt(pathname: string): string {
     return "Painterly diagram of connected AI systems and workflow nodes";
   }
   if (ROUTE_SOCIAL_IMAGES[path]) {
-    return `${SITE_NAME} — ${getRouteSeo(path).crumb}`;
+    return `${SITE_NAME}  ${getRouteSeo(path).crumb}`;
   }
   return `${SITE_NAME} logo`;
 }
@@ -210,7 +213,7 @@ export function breadcrumbJsonLd(pathname: string) {
   };
 }
 
-/** FAQPage `mainEntity` — keep JSON-LD aligned with visible FAQ copy. */
+/** FAQPage `mainEntity`  keep JSON-LD aligned with visible FAQ copy. */
 export function faqPageMainEntity(
   faqs: readonly { question: string; answer: string }[],
 ) {

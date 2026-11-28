@@ -1,14 +1,20 @@
-import { ArrowUpRight, Briefcase, Globe2, Package, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  Briefcase,
+  Globe2,
+  Package,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { ViewportSection } from "../ViewportSection";
 import { soundEngine } from "../../utils/audioEngine";
 
-/** Authentic milestones only — no invented team bios, dates, or client counts. */
+/** Authentic milestones only  no invented team bios, dates, or client counts. */
 const MILESTONES = [
   {
     title: "Kiduart live",
     detail:
-      "School ERP product brand shipping on kiduart.com—admissions through parent updates for Indian schools.",
+      "School ERP product brand shipping on kiduart.comadmissions through parent updates for Indian schools.",
     href: "/our-products",
     cta: "Product overview",
     icon: Package,
@@ -16,7 +22,7 @@ const MILESTONES = [
   {
     title: "Three verified projects",
     detail:
-      "Portfolio publishes Kiduart (live), Sports Academy (under development), and AGL Creatives (client site)—clear status on each card.",
+      "Portfolio publishes Kiduart (live), Sports Academy (under development), and AGL Creatives (client site)clear status on each card.",
     href: "/portfolio",
     cta: "See our work",
     icon: Briefcase,
@@ -32,7 +38,7 @@ const MILESTONES = [
   {
     title: "Practical AI lane",
     detail:
-      "Agents, RAG, and GenAI apps labelled ready-to-scope vs educational—so buyers know what ships when.",
+      "Agents, RAG, and GenAI apps labelled ready-to-scope vs educationalso buyers know what ships when.",
     href: "/ai",
     cta: "AI solutions",
     icon: Sparkles,

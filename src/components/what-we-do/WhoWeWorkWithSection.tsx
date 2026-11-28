@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { INDUSTRY_SOLUTIONS } from "../../data/industries";
 import { soundEngine } from "../../utils/audioEngine";
 
-/** Compact industry strip for What we do — not on the home hero. */
+/** Compact industry strip for What we do  not on the home hero. */
 export function WhoWeWorkWithSection() {
   return (
     <section
@@ -24,9 +24,9 @@ export function WhoWeWorkWithSection() {
               Sector paths when you want a sharper brief
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[#C4B4D8] sm:text-base">
-              Interior studios, beauty & wellness, manufacturing, and agencies—each
-              has a dedicated page. Your business still leads; these just speed
-              up the first conversation.
+              Interior studios, beauty & wellness, manufacturing, and
+              agencieseach has a dedicated page. Your business still leads;
+              these just speed up the first conversation.
             </p>
           </div>
           <Link

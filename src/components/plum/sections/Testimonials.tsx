@@ -80,7 +80,7 @@ export function Testimonials({ overSolar = false }: TestimonialsProps) {
             <div className="flex flex-col justify-between rounded-3xl border border-dashed border-plum-lavender/35 bg-plum-primary/10 p-6 md:p-8">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-plum-lavender">
-                  Case-study slot — empty on purpose
+                  Case-study slot empty on purpose
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-plum-lavender">
                   {slotTemplate}

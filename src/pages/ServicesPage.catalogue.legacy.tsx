@@ -1,5 +1,5 @@
 /**
- * LEGACY — What we do catalogue (filters, ServiceCard3D, constellation).
+ * LEGACY  What we do catalogue (filters, ServiceCard3D, constellation).
  * Not rendered; kept for reference. Wire from ServicesPage.tsx to restore.
  */
 import React, { useState } from "react";
@@ -93,8 +93,8 @@ export const ServicesPageCatalogueLegacy: React.FC<ServicesPageProps> = ({
               <p className="mt-5 text-[#B9A6D1] text-base sm:text-lg leading-relaxed max-w-2xl">
                 Websites, web applications, custom software, SEO, digital
                 marketing, social media, video, and scripts for startups and
-                local businesses. Starter plans are priced with early budgets
-                in mind. Kiduart School ERP stays the product lane.
+                local businesses. Starter plans are priced with early budgets in
+                mind. Kiduart School ERP stays the product lane.
               </p>
             </div>
 
@@ -185,8 +185,8 @@ export const ServicesPageCatalogueLegacy: React.FC<ServicesPageProps> = ({
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[#E7E1F0] sm:text-base">
               Custom websites, web applications, SEO, campaigns, social media,
-              video, and AI are linked from here into longer guides, so this page
-              is not the only place the words live.
+              video, and AI are linked from here into longer guides, so this
+              page is not the only place the words live.
             </p>
             <Link
               to="/ai"

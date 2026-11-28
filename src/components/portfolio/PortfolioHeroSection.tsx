@@ -1,4 +1,9 @@
-import { ArrowUpRight, Briefcase, CheckCircle2, Construction } from "lucide-react";
+import {
+  ArrowUpRight,
+  Briefcase,
+  CheckCircle2,
+  Construction,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { portfolioHeroBackdrop } from "../../config/media";
 import { soundEngine } from "../../utils/audioEngine";
@@ -59,7 +64,7 @@ export function PortfolioHeroSection() {
           </h1>
 
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-            Three projects only—each with a clear status. Live product, product
+            Three projects onlyeach with a clear status. Live product, product
             in build, and a client website.
           </p>
 

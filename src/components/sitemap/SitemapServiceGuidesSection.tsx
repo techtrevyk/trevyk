@@ -34,7 +34,7 @@ export function SitemapServiceGuidesSection() {
           </h2>
 
           <p className="mt-3 text-sm leading-relaxed text-[#B9A6D1] sm:text-[15px]">
-            Deeper guides for the services we want to be found for—each links to
+            Deeper guides for the services we want to be found foreach links to
             the live page on trevyk.in.
           </p>
         </div>

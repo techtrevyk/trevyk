@@ -1,10 +1,10 @@
 # Trevyk Technologies (trevyk.in)
 
-Public marketing site for **Trevyk Technologies** — custom websites, web applications, practical AI (agents, RAG, GenAI/LLM apps, ML), SEO, and growth services from Noida, India. Flagship product: [Kiduart School ERP](https://kiduart.com).
+Public marketing site for **Trevyk Technologies** custom websites, web applications, practical AI (agents, RAG, GenAI/LLM apps, ML), SEO, and growth services from Noida, India. Flagship product: [Kiduart School ERP](https://kiduart.com).
 
-- **Live site:** https://www.trevyk.in  
-- **Contact:** contact@trevyk.com · WhatsApp +91 88106 64797  
-- **LinkedIn:** https://www.linkedin.com/company/trevyk-technologies  
+- **Live site:** https://www.trevyk.in
+- **Contact:** contact@trevyk.com · WhatsApp +91 88106 64797
+- **LinkedIn:** https://www.linkedin.com/company/trevyk-technologies
 - **Growth playbook:** [docs/growth/60-DAY-GROWTH-PLAYBOOK.md](docs/growth/60-DAY-GROWTH-PLAYBOOK.md)
 
 ## Run locally

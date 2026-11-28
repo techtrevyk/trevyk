@@ -69,7 +69,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               Websites, software, and the work that brings customers in.
             </h2>
             <p className="mt-4 text-[#B9A6D1] text-sm sm:text-base leading-relaxed">
-              Custom websites, web apps, SEO, campaigns, social, and video—plus
+              Custom websites, web apps, SEO, campaigns, social, and videoplus
               practical AI when it fits. Starter scopes for early budgets;
               Kiduart if you need a school ERP product.
             </p>
@@ -97,7 +97,7 @@ export const ServicesTeaser: React.FC<ServicesTeaserProps> = ({ settings }) => {
               <figure className="mx-auto w-full max-w-4xl px-2">
                 <img
                   src="/capacities.png"
-                  alt="Product platforms, enterprise engineering, and growth — three delivery lanes"
+                  alt="Product platforms, enterprise engineering, and growth  three delivery lanes"
                   width={1280}
                   height={720}
                   loading="lazy"

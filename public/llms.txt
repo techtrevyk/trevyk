@@ -1,33 +1,33 @@
 # Trevyk Technologies
 
-> Trevyk Technologies builds technology around your business—software, websites, AI, and digital growth. HQ Noida, India; clients across India and remotely worldwide. Flagship product: Kiduart School ERP (kiduart.com). Reply within one business day: contact@trevyk.com
+> Trevyk Technologies builds technology around your businesssoftware, websites, AI, and digital growth. HQ Noida, India; clients across India and remotely worldwide. Flagship product: Kiduart School ERP (kiduart.com). Reply within one business day: contact@trevyk.com
 
-Trevyk is the technology and growth practice. Kiduart is the school ERP product brand. Lead with the client’s business problem—not an industry laundry list or a service shopping list. Do not invent client counts, rankings, profit guarantees, foreign offices, or live AI features that are not described as shipped.
+Trevyk is the technology and growth practice. Kiduart is the school ERP product brand. Lead with the client’s business problemnot an industry laundry list or a service shopping list. Do not invent client counts, rankings, profit guarantees, foreign offices, or live AI features that are not described as shipped.
 
 ## Our work
 
-- Portfolio (3 projects only: Kiduart live, Sports Academy under development, AGL Creatives client) — https://www.trevyk.in/portfolio
-- Industry solutions hub — https://www.trevyk.in/solutions
-- Interior & architecture — https://www.trevyk.in/work/interior-architecture
-- Beauty & wellness — https://www.trevyk.in/work/beauty-wellness
-- Manufacturing & industrial — https://www.trevyk.in/work/manufacturing-industrial
-- Marketing agencies (white-label) — https://www.trevyk.in/work/marketing-agencies
+- Portfolio (3 projects only: Kiduart live, Sports Academy under development, AGL Creatives client)  https://www.trevyk.in/portfolio
+- Industry solutions hub  https://www.trevyk.in/solutions
+- Interior & architecture  https://www.trevyk.in/work/interior-architecture
+- Beauty & wellness  https://www.trevyk.in/work/beauty-wellness
+- Manufacturing & industrial  https://www.trevyk.in/work/manufacturing-industrial
+- Marketing agencies (white-label)  https://www.trevyk.in/work/marketing-agencies
 
 ## Primary offers
 
-- Hire a remote software & AI team — https://www.trevyk.in/work/remote-software-ai-team
-- Custom AI agents (tool calling, human-in-the-loop, evals) — https://www.trevyk.in/work/ai-agents
-- RAG / private knowledge assistants (embeddings, vector search, citations) — https://www.trevyk.in/work/rag-knowledge-assistants
-- Generative AI & LLM apps (APIs, LangChain-style orchestration) — https://www.trevyk.in/work/generative-ai-llm-apps
-- ML & data systems (problem framing, classification/regression workflows) — https://www.trevyk.in/work/ml-data-systems
-- Website development (Noida / NCR local intent) — https://www.trevyk.in/work/website-development-noida
-- Custom websites — https://www.trevyk.in/work/custom-websites
-- Web applications & custom software — https://www.trevyk.in/work/web-applications
-- AI agent vs chatbot (decision guide) — https://www.trevyk.in/work/ai-agent-vs-chatbot
-- RAG vs fine-tuning (decision guide) — https://www.trevyk.in/work/rag-vs-fine-tuning
-- SEO / AEO-ready content structure — https://www.trevyk.in/work/seo
-- Digital marketing, social, video — see What we do
-- Kiduart School ERP overview — https://www.trevyk.in/our-products · demos https://kiduart.com
+- Hire a remote software & AI team  https://www.trevyk.in/work/remote-software-ai-team
+- Custom AI agents (tool calling, human-in-the-loop, evals)  https://www.trevyk.in/work/ai-agents
+- RAG / private knowledge assistants (embeddings, vector search, citations)  https://www.trevyk.in/work/rag-knowledge-assistants
+- Generative AI & LLM apps (APIs, LangChain-style orchestration)  https://www.trevyk.in/work/generative-ai-llm-apps
+- ML & data systems (problem framing, classification/regression workflows)  https://www.trevyk.in/work/ml-data-systems
+- Website development (Noida / NCR local intent)  https://www.trevyk.in/work/website-development-noida
+- Custom websites  https://www.trevyk.in/work/custom-websites
+- Web applications & custom software  https://www.trevyk.in/work/web-applications
+- AI agent vs chatbot (decision guide)  https://www.trevyk.in/work/ai-agent-vs-chatbot
+- RAG vs fine-tuning (decision guide)  https://www.trevyk.in/work/rag-vs-fine-tuning
+- SEO / AEO-ready content structure  https://www.trevyk.in/work/seo
+- Digital marketing, social, video  see What we do
+- Kiduart School ERP overview  https://www.trevyk.in/our-products · demos https://kiduart.com
 
 ## Site map (humans & crawlers)
 

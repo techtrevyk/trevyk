@@ -123,7 +123,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
   return (
     <div id="contact-page" className="relative w-full overflow-x-hidden">
-      {/* Hero — mirrored photo (desk/laptop on right); copy left-aligned */}
+      {/* Hero  mirrored photo (desk/laptop on right); copy left-aligned */}
       <section
         aria-labelledby="contact-hero-heading"
         className="relative min-h-[min(100dvh,920px)] w-full overflow-hidden pt-28 sm:pt-32 lg:pt-36"
@@ -162,16 +162,20 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             </h1>
 
             <p className="mt-5 max-w-md text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-              Business type, city or timezone, and what you want more of—
+              Business type, city or timezone, and what you want more of
               enquiries, clarity, or systems that keep up. We reply within one
-              business day—with a practical next-step plan.
+              business daywith a practical next-step plan.
             </p>
 
             <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
               {HIGHLIGHTS.map(({ icon: Icon, line1, line2 }) => (
                 <li key={line1} className="flex flex-col items-start gap-2">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#B9A6D1]/35 bg-[#1E1024]/75 text-[#E8A9C2]">
-                    <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.65} aria-hidden />
+                    <Icon
+                      className="h-[1.15rem] w-[1.15rem]"
+                      strokeWidth={1.65}
+                      aria-hidden
+                    />
                   </div>
                   <p className="font-heading text-[11px] font-semibold leading-snug text-[#E8A9C2] sm:text-xs">
                     {line1}
@@ -187,7 +191,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
         </div>
       </section>
 
-      {/* Form — checkered site grid shows through (no solid band / card fill) */}
+      {/* Form  checkered site grid shows through (no solid band / card fill) */}
       <section
         aria-labelledby="contact-form-heading"
         className="relative z-[1] border-t border-[#6B4A87]/25 py-14 sm:py-16 lg:py-20"
@@ -212,182 +216,183 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             />
 
             <div className="relative z-10 p-6 sm:p-8 lg:p-9">
-            <div className="mb-6 text-center sm:text-left">
-              <h2
-                id="contact-form-heading"
-                className="font-heading text-xl font-semibold text-[#F8F6FB] sm:text-2xl"
-              >
-                Send us a message
-              </h2>
-              <p className="mt-1.5 text-sm text-[#B9A6D1]">
-                We usually reply within one business day.
-              </p>
-            </div>
-
-            {submitted ? (
-              <div className="py-10 text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#E8A9C2]/35 bg-[#341C3C] text-[#E8A9C2]">
-                  <Check className="h-7 w-7" aria-hidden />
-                </div>
-                <h3 className="mt-4 font-heading text-xl font-bold text-[#F8F6FB]">
-                  Message sent
-                </h3>
-                <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-[#B9A6D1]">
-                  Thank you{formData.name ? `, ${formData.name}` : ""}. We reply
-                  within one business day with a practical next-step plan.
+              <div className="mb-6 text-center sm:text-left">
+                <h2
+                  id="contact-form-heading"
+                  className="font-heading text-xl font-semibold text-[#F8F6FB] sm:text-2xl"
+                >
+                  Send us a message
+                </h2>
+                <p className="mt-1.5 text-sm text-[#B9A6D1]">
+                  We usually reply within one business day.
                 </p>
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={buildWhatsAppChatUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() =>
-                      trackWhatsAppLead(
-                        buildWhatsAppChatUrl(),
-                        "contact_success_whatsapp",
-                      )
-                    }
-                    className="rounded-xl bg-gradient-to-r from-[#E8A9C2] to-[#d892ad] px-5 py-2.5 font-heading text-xs font-semibold text-[#1E1024]"
-                  >
-                    Prefer WhatsApp now
-                  </a>
-                  <Link
-                    to="/portfolio"
-                    onClick={() => soundEngine.playClick("soft")}
-                    className="rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830] px-5 py-2.5 font-heading text-xs font-semibold text-[#E8A9C2] hover:border-[#E8A9C2]"
-                  >
-                    Browse our work
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      soundEngine.playClick("soft");
-                      setSubmitted(false);
-                    }}
-                    className="rounded-xl border border-[#B9A6D1]/25 px-5 py-2.5 font-mono-accent text-xs text-[#B9A6D1] hover:text-[#E8A9C2]"
-                  >
-                    Send another
-                  </button>
-                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Field
-                  label="Full name *"
-                  icon={User}
-                  required
-                  placeholder="e.g. Dr. Rakesh Verma"
-                  value={formData.name}
-                  onChange={(v) => setFormData({ ...formData, name: v })}
-                />
-                <Field
-                  label="Work email *"
-                  icon={Mail}
-                  type="email"
-                  required
-                  placeholder="you@organisation.com"
-                  value={formData.email}
-                  onChange={(v) => setFormData({ ...formData, email: v })}
-                />
-                <div>
-                  <label className="mb-1.5 block font-mono-accent text-[11px] uppercase tracking-wide text-[#B9A6D1]">
-                    Phone (optional)
-                  </label>
-                  <div className="flex overflow-hidden rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830]/90 focus-within:border-[#E8A9C2]">
-                    <span className="flex items-center border-r border-[#B9A6D1]/25 px-3 font-mono-accent text-xs text-[#E8A9C2]">
-                      +91
-                    </span>
-                    <div className="relative min-w-0 flex-1">
-                      <Phone className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#B9A6D1]/70" />
-                      <input
-                        type="tel"
-                        placeholder="98765 43210"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="w-full bg-transparent py-2.5 pl-9 pr-3 text-sm text-[#F8F6FB] placeholder-[#B9A6D1]/45 focus:outline-none"
-                      />
-                    </div>
+
+              {submitted ? (
+                <div className="py-10 text-center">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#E8A9C2]/35 bg-[#341C3C] text-[#E8A9C2]">
+                    <Check className="h-7 w-7" aria-hidden />
+                  </div>
+                  <h3 className="mt-4 font-heading text-xl font-bold text-[#F8F6FB]">
+                    Message sent
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-[#B9A6D1]">
+                    Thank you{formData.name ? `, ${formData.name}` : ""}. We
+                    reply within one business day with a practical next-step
+                    plan.
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                    <a
+                      href={buildWhatsAppChatUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackWhatsAppLead(
+                          buildWhatsAppChatUrl(),
+                          "contact_success_whatsapp",
+                        )
+                      }
+                      className="rounded-xl bg-gradient-to-r from-[#E8A9C2] to-[#d892ad] px-5 py-2.5 font-heading text-xs font-semibold text-[#1E1024]"
+                    >
+                      Prefer WhatsApp now
+                    </a>
+                    <Link
+                      to="/portfolio"
+                      onClick={() => soundEngine.playClick("soft")}
+                      className="rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830] px-5 py-2.5 font-heading text-xs font-semibold text-[#E8A9C2] hover:border-[#E8A9C2]"
+                    >
+                      Browse our work
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        soundEngine.playClick("soft");
+                        setSubmitted(false);
+                      }}
+                      className="rounded-xl border border-[#B9A6D1]/25 px-5 py-2.5 font-mono-accent text-xs text-[#B9A6D1] hover:text-[#E8A9C2]"
+                    >
+                      Send another
+                    </button>
                   </div>
                 </div>
-
-                <PlumSelect
-                  label="What do you need help with?"
-                  required
-                  value={need}
-                  options={NEED_SELECT_OPTIONS}
-                  onChange={setNeed}
-                />
-
-                <Field
-                  label={need === "kiduart" ? "School *" : "Organisation *"}
-                  icon={Building2}
-                  required
-                  placeholder={
-                    need === "kiduart"
-                      ? "e.g. Delhi Public School, Noida"
-                      : "Your company or trust name"
-                  }
-                  value={formData.organization}
-                  onChange={(v) =>
-                    setFormData({ ...formData, organization: v })
-                  }
-                />
-
-                <Field
-                  label="City or timezone"
-                  icon={MapPin}
-                  placeholder="e.g. Noida · IST, or London · GMT"
-                  value={formData.location}
-                  onChange={(v) => setFormData({ ...formData, location: v })}
-                />
-
-                <div>
-                  <label className="mb-1.5 block font-mono-accent text-[11px] uppercase tracking-wide text-[#B9A6D1]">
-                    Project details *
-                  </label>
-                  <textarea
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <Field
+                    label="Full name *"
+                    icon={User}
                     required
-                    rows={3}
-                    maxLength={MESSAGE_MAX}
-                    placeholder="Where growth or ops is stuck, timeline, and budget band if known…"
-                    value={formData.scope}
-                    onChange={(e) =>
-                      setFormData({ ...formData, scope: e.target.value })
-                    }
-                    className="w-full resize-none rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830]/90 px-4 py-3 text-sm text-[#F8F6FB] placeholder-[#B9A6D1]/45 focus:border-[#E8A9C2] focus:outline-none"
+                    placeholder="e.g. Dr. Rakesh Verma"
+                    value={formData.name}
+                    onChange={(v) => setFormData({ ...formData, name: v })}
                   />
-                  <p className="mt-1 text-right font-mono-accent text-[10px] text-[#B9A6D1]/80">
-                    {formData.scope.length}/{MESSAGE_MAX}
-                  </p>
-                </div>
+                  <Field
+                    label="Work email *"
+                    icon={Mail}
+                    type="email"
+                    required
+                    placeholder="you@organisation.com"
+                    value={formData.email}
+                    onChange={(v) => setFormData({ ...formData, email: v })}
+                  />
+                  <div>
+                    <label className="mb-1.5 block font-mono-accent text-[11px] uppercase tracking-wide text-[#B9A6D1]">
+                      Phone (optional)
+                    </label>
+                    <div className="flex overflow-hidden rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830]/90 focus-within:border-[#E8A9C2]">
+                      <span className="flex items-center border-r border-[#B9A6D1]/25 px-3 font-mono-accent text-xs text-[#E8A9C2]">
+                        +91
+                      </span>
+                      <div className="relative min-w-0 flex-1">
+                        <Phone className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#B9A6D1]/70" />
+                        <input
+                          type="tel"
+                          placeholder="98765 43210"
+                          value={formData.phone}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
+                          className="w-full bg-transparent py-2.5 pl-9 pr-3 text-sm text-[#F8F6FB] placeholder-[#B9A6D1]/45 focus:outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E8A9C2] to-[#d892ad] py-3.5 font-heading text-sm font-semibold text-[#1E1024] shadow-[0_10px_28px_rgba(232,169,194,0.28)] transition hover:brightness-105 disabled:opacity-50"
-                >
-                  <Send className="h-4 w-4" aria-hidden />
-                  {isSubmitting ? "Sending…" : "Send message"}
-                </button>
-                <p className="text-center text-[11px] leading-relaxed text-[#B9A6D1]/90">
-                  We use this only to reply about your enquiry. Prefer email?{" "}
-                  <a
-                    href="mailto:contact@trevyk.com"
-                    onClick={() => trackEmailLead("contact_form_mailto")}
-                    className="text-[#E8A9C2] underline-offset-2 hover:underline"
+                  <PlumSelect
+                    label="What do you need help with?"
+                    required
+                    value={need}
+                    options={NEED_SELECT_OPTIONS}
+                    onChange={setNeed}
+                  />
+
+                  <Field
+                    label={need === "kiduart" ? "School *" : "Organisation *"}
+                    icon={Building2}
+                    required
+                    placeholder={
+                      need === "kiduart"
+                        ? "e.g. Delhi Public School, Noida"
+                        : "Your company or trust name"
+                    }
+                    value={formData.organization}
+                    onChange={(v) =>
+                      setFormData({ ...formData, organization: v })
+                    }
+                  />
+
+                  <Field
+                    label="City or timezone"
+                    icon={MapPin}
+                    placeholder="e.g. Noida · IST, or London · GMT"
+                    value={formData.location}
+                    onChange={(v) => setFormData({ ...formData, location: v })}
+                  />
+
+                  <div>
+                    <label className="mb-1.5 block font-mono-accent text-[11px] uppercase tracking-wide text-[#B9A6D1]">
+                      Project details *
+                    </label>
+                    <textarea
+                      required
+                      rows={3}
+                      maxLength={MESSAGE_MAX}
+                      placeholder="Where growth or ops is stuck, timeline, and budget band if known…"
+                      value={formData.scope}
+                      onChange={(e) =>
+                        setFormData({ ...formData, scope: e.target.value })
+                      }
+                      className="w-full resize-none rounded-xl border border-[#B9A6D1]/35 bg-[#2A1830]/90 px-4 py-3 text-sm text-[#F8F6FB] placeholder-[#B9A6D1]/45 focus:border-[#E8A9C2] focus:outline-none"
+                    />
+                    <p className="mt-1 text-right font-mono-accent text-[10px] text-[#B9A6D1]/80">
+                      {formData.scope.length}/{MESSAGE_MAX}
+                    </p>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#E8A9C2] to-[#d892ad] py-3.5 font-heading text-sm font-semibold text-[#1E1024] shadow-[0_10px_28px_rgba(232,169,194,0.28)] transition hover:brightness-105 disabled:opacity-50"
                   >
-                    contact@trevyk.com
-                  </a>
-                </p>
-                {submitError ? (
-                  <p className="text-center text-xs leading-relaxed text-red-300">
-                    {submitError}
+                    <Send className="h-4 w-4" aria-hidden />
+                    {isSubmitting ? "Sending…" : "Send message"}
+                  </button>
+                  <p className="text-center text-[11px] leading-relaxed text-[#B9A6D1]/90">
+                    We use this only to reply about your enquiry. Prefer email?{" "}
+                    <a
+                      href="mailto:contact@trevyk.com"
+                      onClick={() => trackEmailLead("contact_form_mailto")}
+                      className="text-[#E8A9C2] underline-offset-2 hover:underline"
+                    >
+                      contact@trevyk.com
+                    </a>
                   </p>
-                ) : null}
-              </form>
-            )}
+                  {submitError ? (
+                    <p className="text-center text-xs leading-relaxed text-red-300">
+                      {submitError}
+                    </p>
+                  ) : null}
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -425,7 +430,11 @@ const DIRECT_CHANNELS = [
   },
 ] as const;
 
-function ReachDirectlySection({ align = "start" }: { align?: "start" | "end" }) {
+function ReachDirectlySection({
+  align = "start",
+}: {
+  align?: "start" | "end";
+}) {
   const isEnd = align === "end";
 
   return (
@@ -480,9 +489,7 @@ function DirectChannelItem({
   const isWhatsApp = href.includes("wa.me") || href.includes("whatsapp");
 
   return (
-    <li
-      className={`min-w-0 `}
-    >
+    <li className={`min-w-0 `}>
       <a
         href={href}
         target={external ? "_blank" : undefined}
@@ -491,7 +498,9 @@ function DirectChannelItem({
         onClick={() => {
           if (isWhatsApp) trackWhatsAppLead(href, "contact_whatsapp_card");
           else if (href.startsWith("mailto:"))
-            trackEmailLead(`contact_card_${title.toLowerCase().replace(/\s+/g, "_")}`);
+            trackEmailLead(
+              `contact_card_${title.toLowerCase().replace(/\s+/g, "_")}`,
+            );
         }}
       >
         <div

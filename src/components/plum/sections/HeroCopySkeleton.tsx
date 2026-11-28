@@ -1,9 +1,17 @@
-import { SkeletonBlock, SkeletonHeroTitle, SkeletonText } from "../../ui/Skeleton";
+import {
+  SkeletonBlock,
+  SkeletonHeroTitle,
+  SkeletonText,
+} from "../../ui/Skeleton";
 
-/** Reserved hero copy block — matches HeroScroll layout (static shell + React). */
+/** Reserved hero copy block  matches HeroScroll layout (static shell + React). */
 export function HeroCopySkeleton() {
   return (
-    <div className="max-w-xl" aria-busy="true" aria-label="Loading hero content">
+    <div
+      className="max-w-xl"
+      aria-busy="true"
+      aria-label="Loading hero content"
+    >
       <SkeletonBlock className="h-3 w-44 rounded-full" />
       <SkeletonHeroTitle />
       <SkeletonBlock className="mt-4 h-5 w-52 rounded-md" />

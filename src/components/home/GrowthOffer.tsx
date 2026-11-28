@@ -31,7 +31,7 @@ const CARDS: GrowthCard[] = [
     kicker: "Websites",
     title: "Websites built to get found",
     caption:
-      "SEO-ready custom sites for any market—plus a dedicated Noida page when local search is the job.",
+      "SEO-ready custom sites for any marketplus a dedicated Noida page when local search is the job.",
     bullets: ["Crawlable pages", "Starter-plan scopes"],
     href: "/work/custom-websites",
     icon: Globe,
@@ -127,7 +127,7 @@ export const GrowthOffer: React.FC = () => {
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-lg">
             Presence that brings the right visitors. Paths that turn interest
             into conversations. Software for daily work. Practical AI when it
-            saves real hours. You choose the mix—we keep the plan clear.
+            saves real hours. You choose the mixwe keep the plan clear.
           </p>
         </div>
 
@@ -173,7 +173,9 @@ export const GrowthOffer: React.FC = () => {
                     >
                       <ArrowRight className="h-3.5 w-3.5 text-[#E8A9C2] transition-transform group-hover:translate-x-0.5" />
                     </span>
-                    <span className="sr-only">Explore {card.kicker.toLowerCase()}</span>
+                    <span className="sr-only">
+                      Explore {card.kicker.toLowerCase()}
+                    </span>
                   </div>
 
                   <div className="flex flex-1 flex-col px-1.5 pb-1 pt-4 sm:px-2 sm:pt-5">

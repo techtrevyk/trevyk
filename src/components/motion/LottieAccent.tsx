@@ -27,7 +27,7 @@ interface LottieAccentProps {
 }
 
 /**
- * Lightweight Lottie accent — loads JSON on demand, pauses offscreen.
+ * Lightweight Lottie accent  loads JSON on demand, pauses offscreen.
  */
 export const LottieAccent: React.FC<LottieAccentProps> = ({
   preset,
@@ -47,7 +47,7 @@ export const LottieAccent: React.FC<LottieAccentProps> = ({
     if (!el || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { rootMargin: "80px", threshold: 0.05 }
+      { rootMargin: "80px", threshold: 0.05 },
     );
     io.observe(el);
     return () => io.disconnect();

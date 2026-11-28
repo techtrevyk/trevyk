@@ -34,7 +34,7 @@ export const ArchitectureStackHero: React.FC<Props> = ({
       >
         {ARCHITECTURE_TEASER_LAYERS.map((layer) => {
           const active = activeIndex === layer.index;
-          /** Fixed stack order — never promote hovered layer above others */
+          /** Fixed stack order  never promote hovered layer above others */
           const zIndex = 20 - layer.index;
 
           return (
@@ -98,7 +98,9 @@ export const ArchitectureStackHero: React.FC<Props> = ({
         })}
       </div>
 
-      <p className="sr-only">Hover a layer to inspect architecture tier details</p>
+      <p className="sr-only">
+        Hover a layer to inspect architecture tier details
+      </p>
     </div>
   );
 };

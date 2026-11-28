@@ -1,5 +1,5 @@
 ---
-description: Trevyk 60-day SEO/AEO/GEO growth agent context — always read the playbook before marketing or content work
+description: Trevyk 60-day SEO/AEO/GEO growth agent context  always read the playbook before marketing or content work
 alwaysApply: true
 ---
 
@@ -8,7 +8,7 @@ alwaysApply: true
 Before SEO, content, analytics, or AI-visibility work:
 
 1. Read and update `docs/growth/60-DAY-GROWTH-PLAYBOOK.md` (status, checkboxes, next actions).
-2. Prefer honest claims — no fabricated testimonials, client counts, or guaranteed rankings/citations.
+2. Prefer honest claims no fabricated testimonials, client counts, or guaranteed rankings/citations.
 3. Canonical host is `https://www.trevyk.in`. Keep NAP/email/LinkedIn aligned.
 4. New money pages need: `guides.ts` + `workPages.ts` + `serviceProjectCta.ts` + `public/sitemap.xml` + hero image under `public/images/work/`.
 5. Ship crawlable depth in prerender shells (`scripts/prerender-html.ts` PAGE_COPY + guide sections/FAQs), not only SPA UI.

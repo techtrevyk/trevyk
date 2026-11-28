@@ -48,7 +48,7 @@ class SplineErrorBoundary extends Component<
 }
 
 /**
- * One lazy Spline wow moment — mounts only when near viewport.
+ * One lazy Spline wow moment  mounts only when near viewport.
  * Falls back to WowAccent layers on reducedMotion / error.
  */
 export const SplineMount: React.FC<SplineMountProps> = ({
@@ -76,7 +76,7 @@ export const SplineMount: React.FC<SplineMountProps> = ({
           setLoaded(false);
         }
       },
-      { rootMargin: "120px", threshold: 0.05 }
+      { rootMargin: "120px", threshold: 0.05 },
     );
     io.observe(el);
     return () => io.disconnect();

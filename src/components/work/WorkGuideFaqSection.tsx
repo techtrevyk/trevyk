@@ -5,7 +5,7 @@ type Props = {
   faqs: GuideFaq[];
 };
 
-/** Visible FAQ — must match FAQPage JSON-LD on the same route. */
+/** Visible FAQ  must match FAQPage JSON-LD on the same route. */
 export function WorkGuideFaqSection({ faqs }: Props) {
   if (!faqs.length) return null;
 

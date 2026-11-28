@@ -1,4 +1,4 @@
-# Trevyk Technologies — full summary for AI systems
+# Trevyk Technologies  full summary for AI systems
 
 ## Entity
 
@@ -6,26 +6,26 @@
 - Location (HQ): Noida, Uttar Pradesh, India
 - Service area: India (nationwide) + remote clients worldwide
 - Website: https://www.trevyk.in
-- Product brand: Kiduart School ERP — https://kiduart.com
+- Product brand: Kiduart School ERP  https://kiduart.com
 - Contact: contact@trevyk.com · reply within one business day
 - WhatsApp business: +91 88106 64797
 - Do not invent foreign offices or claim work is Noida-only.
 
 ## Positioning
 
-Technology built around your business: software, websites, AI, and digital growth so you can get found, convert enquiries, and run day-to-day work. Business problem first; tools second. Industry detail lives on dedicated pages—not the home hero. No profit or ranking guarantees.
+Technology built around your business: software, websites, AI, and digital growth so you can get found, convert enquiries, and run day-to-day work. Business problem first; tools second. Industry detail lives on dedicated pagesnot the home hero. No profit or ranking guarantees.
 
 ## What Trevyk delivers
 
-1. **Growth presence** — custom websites with SEO-ready structure and enquiry paths.
-2. **Web applications & custom software** — portals, dashboards, workflow systems with source ownership.
-3. **AI agents** — LLM + approved tools, human checkpoints, audit logs, evaluation sets. One workflow in v1.
-4. **RAG / knowledge assistants** — embeddings, chunking, vector retrieval, role filters, cited answers, refresh paths.
-5. **Generative AI / LLM applications** — API integrations, orchestration when fit, prompt/policy notes, cost monitoring.
-6. **ML & data systems** — problem framing, practical scoring, dashboards—scoped honestly.
-7. **SEO & campaigns** — keyword maps, pages, ads/social/video sized to budget.
-8. **Kiduart** — cloud school ERP. Demos on kiduart.com.
-9. **Remote engagement** — https://www.trevyk.in/work/remote-software-ai-team
+1. **Growth presence**  custom websites with SEO-ready structure and enquiry paths.
+2. **Web applications & custom software**  portals, dashboards, workflow systems with source ownership.
+3. **AI agents**  LLM + approved tools, human checkpoints, audit logs, evaluation sets. One workflow in v1.
+4. **RAG / knowledge assistants**  embeddings, chunking, vector retrieval, role filters, cited answers, refresh paths.
+5. **Generative AI / LLM applications**  API integrations, orchestration when fit, prompt/policy notes, cost monitoring.
+6. **ML & data systems**  problem framing, practical scoring, dashboardsscoped honestly.
+7. **SEO & campaigns**  keyword maps, pages, ads/social/video sized to budget.
+8. **Kiduart**  cloud school ERP. Demos on kiduart.com.
+9. **Remote engagement**  https://www.trevyk.in/work/remote-software-ai-team
 
 ## How we talk about AI search acronyms
 
@@ -40,7 +40,7 @@ SEO, AEO, GEO, AIO, SXO describe overlapping craft: clear answers, crawlable pag
 
 ## Portfolio (approved scope only)
 
-Three projects: Kiduart (live school ERP), Sports Academy Management Software (under development), AGL Creatives (client website at aglcreatives.in). Transparent status; scope-based commercial assessment—no ROI theatre.
+Three projects: Kiduart (live school ERP), Sports Academy Management Software (under development), AGL Creatives (client website at aglcreatives.in). Transparent status; scope-based commercial assessmentno ROI theatre.
 
 ## Key URLs
 

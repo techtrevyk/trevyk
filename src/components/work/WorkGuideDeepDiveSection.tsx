@@ -5,7 +5,7 @@ type Props = {
   guide: Guide;
 };
 
-/** Visible long-form copy from `guides.ts` — matches prerender / JSON-LD source. */
+/** Visible long-form copy from `guides.ts`  matches prerender / JSON-LD source. */
 export function WorkGuideDeepDiveSection({ guide }: Props) {
   return (
     <section

@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { whatWeDoHeroBackdrop } from "../../config/media";
 import { soundEngine } from "../../utils/audioEngine";
 
-/** Spread around the laptop — top / mid / bottom on each side (xl+). */
+/** Spread around the laptop  top / mid / bottom on each side (xl+). */
 const FLOATING_OFFERS = [
   {
     title: "Get found",
@@ -26,7 +26,8 @@ const FLOATING_OFFERS = [
     title: "Convert enquiries",
     description: "Clear offers, forms, and follow-up paths",
     icon: Code2,
-    className: "left-0 top-[40%] -translate-x-[4%] xl:left-[1%] xl:translate-x-0",
+    className:
+      "left-0 top-[40%] -translate-x-[4%] xl:left-[1%] xl:translate-x-0",
   },
   {
     title: "Run the day",
@@ -38,11 +39,12 @@ const FLOATING_OFFERS = [
     title: "Campaigns & content",
     description: "Ads, social, and scripts sized to budget",
     icon: PenLine,
-    className: "right-0 top-[6%] translate-x-[6%] xl:top-[5%] xl:translate-x-[10%]",
+    className:
+      "right-0 top-[6%] translate-x-[6%] xl:top-[5%] xl:translate-x-[10%]",
   },
   {
     title: "AI that works",
-    description: "Agents, RAG, GenAI—when the job needs them",
+    description: "Agents, RAG, GenAIwhen the job needs them",
     icon: Bot,
     className: "right-0 top-[40%] translate-x-[8%] xl:translate-x-[12%]",
   },
@@ -50,7 +52,8 @@ const FLOATING_OFFERS = [
     title: "Growth together",
     description: "One plan across presence, leads, and systems",
     icon: BarChart3,
-    className: "right-0 top-[72%] translate-x-[5%] xl:top-[70%] xl:translate-x-[10%]",
+    className:
+      "right-0 top-[72%] translate-x-[5%] xl:top-[70%] xl:translate-x-[10%]",
   },
 ] as const;
 
@@ -169,7 +172,11 @@ export function WhatWeDoHeroSection() {
               {HIGHLIGHTS.map(({ icon: Icon, line1, line2 }) => (
                 <li key={line1} className="flex flex-col items-start gap-2">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#B9A6D1]/35 bg-[#1E1024]/80 text-[#E8A9C2]">
-                    <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.65} aria-hidden />
+                    <Icon
+                      className="h-[1.15rem] w-[1.15rem]"
+                      strokeWidth={1.65}
+                      aria-hidden
+                    />
                   </div>
                   <p className="font-heading text-[11px] font-semibold leading-snug text-[#E8A9C2] sm:text-xs">
                     {line1}
@@ -205,7 +212,9 @@ export function WhatWeDoHeroSection() {
                 <Icon className="h-4 w-4" aria-hidden />
               </div>
               <div>
-                <p className="font-heading text-sm font-semibold text-[#F8F6FB]">{title}</p>
+                <p className="font-heading text-sm font-semibold text-[#F8F6FB]">
+                  {title}
+                </p>
                 <p className="text-xs text-[#C4B4D8]">{description}</p>
               </div>
             </li>

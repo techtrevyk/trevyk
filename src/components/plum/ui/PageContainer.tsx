@@ -1,6 +1,6 @@
 import { forwardRef, type ComponentProps } from "react";
 
-/** Shared max width + horizontal padding — one vertical rhythm sitewide */
+/** Shared max width + horizontal padding  one vertical rhythm sitewide */
 export const PageContainer = forwardRef<HTMLDivElement, ComponentProps<"div">>(
   function PageContainer({ className = "", ...props }, ref) {
     return (

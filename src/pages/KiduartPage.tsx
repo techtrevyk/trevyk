@@ -9,12 +9,15 @@ interface KiduartPageProps {
 }
 
 /**
- * `/our-products` — hero + product catalog.
+ * `/our-products`  hero + product catalog.
  * Previous page body lives in `KiduartPage.legacy.tsx` (KiduartPageLegacy).
  */
 export const KiduartPage: React.FC<KiduartPageProps> = () => {
   return (
-    <div id="kiduart-page" className="relative w-full min-h-screen overflow-hidden">
+    <div
+      id="kiduart-page"
+      className="relative w-full min-h-screen overflow-hidden"
+    >
       <OurProductsHeroSection />
       <OurProductsCatalogSection />
       <MoreToComeSection />

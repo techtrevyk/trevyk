@@ -125,9 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-[#B9A6D1]/10 bg-transparent backdrop-blur-md shadow-[inset_0_1px_0_rgba(248,246,251,0.06)]"
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-[#B9A6D1]/10 bg-transparent backdrop-blur-md shadow-[inset_0_1px_0_rgba(248,246,251,0.06)]">
         <div
           className="pointer-events-none absolute inset-0 bg-[#1a0f18]/[0.03] supports-[backdrop-filter]:bg-[#1a0f18]/[0.02]"
           aria-hidden
@@ -158,52 +156,53 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="hidden items-center justify-center gap-0.5 lg:col-start-2 lg:flex xl:gap-2"
             aria-label="Main Desktop Navigation"
           >
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <NavLink
-                    key={link.label}
-                    to={link.path}
-                    onClick={() => {
-                      beginRouteTransition();
-                      soundEngine.playClick("soft");
-                    }}
-                    onMouseEnter={() => {
-                      prefetchRoute(link.path);
-                      soundEngine.playHover();
-                    }}
-                    className={`group relative flex shrink-0 items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium outline-none transition-colors focus:outline-none focus-visible:outline-none xl:gap-1.5 xl:px-2.5 xl:text-[13px] ${
-                      isActive
-                        ? "text-[#F8F6FB]"
-                        : "text-[#E7E1F0]/78 hover:text-[#F8F6FB]"
-                    }`}
-                  >
-                    <span className="relative inline-block pb-1">
-                      {link.label}
-                      <span
-                        className={`pointer-events-none absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#E8A9C2] via-[#4A3058] to-[#E8A9C2] transition-[width] duration-300 ease-out ${
-                          isActive ? "w-full opacity-100" : "w-0 opacity-90 group-hover:w-full"
-                        }`}
-                        aria-hidden
-                      />
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <NavLink
+                  key={link.label}
+                  to={link.path}
+                  onClick={() => {
+                    beginRouteTransition();
+                    soundEngine.playClick("soft");
+                  }}
+                  onMouseEnter={() => {
+                    prefetchRoute(link.path);
+                    soundEngine.playHover();
+                  }}
+                  className={`group relative flex shrink-0 items-center gap-1 rounded-md px-2 py-1.5 text-[11px] font-medium outline-none transition-colors focus:outline-none focus-visible:outline-none xl:gap-1.5 xl:px-2.5 xl:text-[13px] ${
+                    isActive
+                      ? "text-[#F8F6FB]"
+                      : "text-[#E7E1F0]/78 hover:text-[#F8F6FB]"
+                  }`}
+                >
+                  <span className="relative inline-block pb-1">
+                    {link.label}
+                    <span
+                      className={`pointer-events-none absolute bottom-0 left-1/2 h-[2px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#E8A9C2] via-[#4A3058] to-[#E8A9C2] transition-[width] duration-300 ease-out ${
+                        isActive
+                          ? "w-full opacity-100"
+                          : "w-0 opacity-90 group-hover:w-full"
+                      }`}
+                      aria-hidden
+                    />
+                  </span>
+                  {link.badge ? (
+                    <span className="hidden rounded px-1.5 py-0.5 font-mono-accent text-[9px] uppercase text-[#E8A9C2]/85 xl:inline">
+                      {link.badge}
                     </span>
-                    {link.badge ? (
-                      <span className="hidden rounded px-1.5 py-0.5 font-mono-accent text-[9px] uppercase text-[#E8A9C2]/85 xl:inline">
-                        {link.badge}
-                      </span>
-                    ) : null}
-                    {/* Active dot — replaced by gradient underline; restore if needed:
+                  ) : null}
+                  {/* Active dot  replaced by gradient underline; restore if needed:
                     {isActive && (
                       <motion.div layoutId="active-nav-dot" ... />
                     )}
                     */}
-                  </NavLink>
-                );
-              })}
+                </NavLink>
+              );
+            })}
           </nav>
 
           <div className="hidden shrink-0 items-center justify-end space-x-2 lg:col-start-3 lg:flex xl:space-x-3">
-
             {/* Audio Toggle */}
             <button
               id="sound-toggle-btn"
@@ -232,7 +231,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Motion (eye) toggle — removed from header; prefers-reduced-motion still respected via OS setting in App */}
+            {/* Motion (eye) toggle  removed from header; prefers-reduced-motion still respected via OS setting in App */}
 
             {/* Architecture Modal CTA */}
             <MagneticButton

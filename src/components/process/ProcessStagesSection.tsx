@@ -44,13 +44,17 @@ const PROCESS_STAGES: ProcessStage[] = [
     detailLead:
       "We start by understanding your business, goals and challenges. We discuss your requirements, constraints and success metrics to define a clear and realistic scope for the project.",
     detailFollowUp:
-      "Whether you need Kiduart, a custom website, a web app, or growth work, we clarify who uses the system day to day, what must ship first, and what can wait — so everyone agrees before design or code begins.",
-    outcome: "You receive a short written scope and a recommended path forward.",
+      "Whether you need Kiduart, a custom website, a web app, or growth work, we clarify who uses the system day to day, what must ship first, and what can wait  so everyone agrees before design or code begins.",
+    outcome:
+      "You receive a short written scope and a recommended path forward.",
     bullets: [
       { icon: Users, text: "Understand your business and objectives" },
       { icon: FileText, text: "Discuss requirements and constraints" },
       { icon: Target, text: "Define scope and success metrics" },
-      { icon: Lightbulb, text: "Align on product vs custom build where relevant" },
+      {
+        icon: Lightbulb,
+        text: "Align on product vs custom build where relevant",
+      },
     ],
   },
   {
@@ -59,7 +63,7 @@ const PROCESS_STAGES: ProcessStage[] = [
     summary: "Define scope, priorities, timeline and deliverables.",
     icon: Calendar,
     detailLead:
-      "We translate scope into a plan you can review without jargon — milestones, owners, and what “done” means at each step.",
+      "We translate scope into a plan you can review without jargon  milestones, owners, and what “done” means at each step.",
     detailFollowUp:
       "Roles and access are sketched early. If you are replacing spreadsheets or legacy tools, we map a parallel-run period so cutover is not a guess.",
     outcome: "Agreed plan, kickoff checklist, and visible risks up front.",
@@ -79,7 +83,8 @@ const PROCESS_STAGES: ProcessStage[] = [
       "We ship usable slices, not a big-bang dump at the end. You see working increments and join demos built around your real workflows.",
     detailFollowUp:
       "Tests focus where they protect fees, attendance, or access. You get change notes so staff know what moved between reviews.",
-    outcome: "Staging environment, review notes, and demos you can share internally.",
+    outcome:
+      "Staging environment, review notes, and demos you can share internally.",
     bullets: [
       { icon: Code2, text: "Regular demos and review checkpoints" },
       { icon: Users, text: "Collaboration with your team" },
@@ -93,10 +98,11 @@ const PROCESS_STAGES: ProcessStage[] = [
     summary: "Test, refine and deploy with confidence.",
     icon: Rocket,
     detailLead:
-      "Go-live happens when numbers and roles match what you expect — not when a calendar date says so.",
+      "Go-live happens when numbers and roles match what you expect  not when a calendar date says so.",
     detailFollowUp:
       "We run parallel checks where it matters, walk staff through the live system, and keep a rollback path if something does not reconcile.",
-    outcome: "Go-live checklist, support contact, and confidence the baseline is right.",
+    outcome:
+      "Go-live checklist, support contact, and confidence the baseline is right.",
     bullets: [
       { icon: Target, text: "Testing against real workflows" },
       { icon: Rocket, text: "Controlled deployment" },
@@ -110,10 +116,11 @@ const PROCESS_STAGES: ProcessStage[] = [
     summary: "Ongoing support and future improvements.",
     icon: Headphones,
     detailLead:
-      "We stay available after launch — fixes from daily use, prioritised improvements, and optional next modules once the baseline is stable.",
+      "We stay available after launch  fixes from daily use, prioritised improvements, and optional next modules once the baseline is stable.",
     detailFollowUp:
       "You get business-day response for product and project questions, with clear support expectations in writing.",
-    outcome: "Named support channel and a backlog shaped by real operator feedback.",
+    outcome:
+      "Named support channel and a backlog shaped by real operator feedback.",
     bullets: [
       { icon: Headphones, text: "Business-day support channel" },
       { icon: Users, text: "Improvements from operator feedback" },
@@ -234,7 +241,11 @@ export function ProcessStagesSection() {
                     <div
                       className={`mt-3 ${isActive ? STAGE_ICON_BOX_ACTIVE : STAGE_ICON_BOX}`}
                     >
-                      <Icon className="h-5 w-5" strokeWidth={1.65} aria-hidden />
+                      <Icon
+                        className="h-5 w-5"
+                        strokeWidth={1.65}
+                        aria-hidden
+                      />
                     </div>
                     <h3 className="mt-3 font-heading text-sm font-bold leading-snug text-[#F8F6FB]">
                       {stage.title}
@@ -267,7 +278,11 @@ export function ProcessStagesSection() {
               </div>
               <div className="mt-4 flex items-center gap-3">
                 <div className={DETAIL_HERO_ICON}>
-                  <ActiveIcon className="h-6 w-6" strokeWidth={1.65} aria-hidden />
+                  <ActiveIcon
+                    className="h-6 w-6"
+                    strokeWidth={1.65}
+                    aria-hidden
+                  />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-[#F8F6FB] sm:text-[1.65rem]">
                   {active.title}
@@ -293,9 +308,15 @@ export function ProcessStagesSection() {
               {active.bullets.map(({ icon: BulletIcon, text }) => (
                 <li key={text} className="flex items-start gap-3">
                   <div className={BULLET_ICON_BOX}>
-                    <BulletIcon className="h-4 w-4" strokeWidth={1.65} aria-hidden />
+                    <BulletIcon
+                      className="h-4 w-4"
+                      strokeWidth={1.65}
+                      aria-hidden
+                    />
                   </div>
-                  <p className="pt-1.5 text-sm leading-snug text-[#E7E1F0]">{text}</p>
+                  <p className="pt-1.5 text-sm leading-snug text-[#E7E1F0]">
+                    {text}
+                  </p>
                 </li>
               ))}
             </ul>

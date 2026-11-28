@@ -214,7 +214,7 @@ const CHARTER = [
   },
 ];
 
-/** Archived our-products body (pre catalog redesign). Not routed — restore from here if needed. */
+/** Archived our-products body (pre catalog redesign). Not routed  restore from here if needed. */
 export const KiduartPageLegacy: React.FC<KiduartPageProps> = ({ settings }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [demoRequested, setDemoRequested] = useState(false);
@@ -249,7 +249,8 @@ export const KiduartPageLegacy: React.FC<KiduartPageProps> = ({ settings }) => {
           organization: demoForm.institution,
           institution: demoForm.institution,
           phone: demoForm.phone,
-          scope: "Kiduart demo / walkthrough request from trevyk.in/our-products",
+          scope:
+            "Kiduart demo / walkthrough request from trevyk.in/our-products",
         }),
       });
       const data = await res.json().catch(() => ({}));
@@ -272,7 +273,10 @@ export const KiduartPageLegacy: React.FC<KiduartPageProps> = ({ settings }) => {
   };
 
   return (
-    <div id="kiduart-page" className="relative w-full min-h-screen overflow-hidden">
+    <div
+      id="kiduart-page"
+      className="relative w-full min-h-screen overflow-hidden"
+    >
       <OurProductsHeroSection />
 
       <div

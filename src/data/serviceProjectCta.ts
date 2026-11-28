@@ -16,7 +16,7 @@ const DEFAULT_SECONDARY = {
   href: "/portfolio",
 } as const;
 
-/** Per `/work/:slug` — add new guides here when pages ship. */
+/** Per `/work/:slug`  add new guides here when pages ship. */
 const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
   "custom-websites": {
     kicker: "Ready to get started?",
@@ -134,7 +134,7 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     headlineHighlight: "remote team",
     headlineAfter: "?",
     description:
-      "Tell us your city or timezone, the problem, and budget band. We'll say whether a website, web app, or AI path fits—and how we collaborate remotely.",
+      "Tell us your city or timezone, the problem, and budget band. We'll say whether a website, web app, or AI path fitsand how we collaborate remotely.",
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "AI solutions hub", href: "/ai" },
   },
@@ -154,7 +154,7 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     headlineHighlight: "agent vs chatbot",
     headlineAfter: "?",
     description:
-      "Describe one repeatable task. We'll say whether answers, tools, or a human process fit—and point you to the right build guide.",
+      "Describe one repeatable task. We'll say whether answers, tools, or a human process fitand point you to the right build guide.",
     primaryCta: { label: "Discuss your project", href: "/contact" },
     secondaryCta: { label: "AI agents guide", href: "/work/ai-agents" },
   },
@@ -166,7 +166,10 @@ const CTA_BY_SLUG: Record<string, Omit<ServiceProjectCtaContent, "slug">> = {
     description:
       "Share corpus size, how often docs change, and who may see what. We'll recommend a default path before any training spend.",
     primaryCta: { label: "Discuss your project", href: "/contact" },
-    secondaryCta: { label: "RAG guide", href: "/work/rag-knowledge-assistants" },
+    secondaryCta: {
+      label: "RAG guide",
+      href: "/work/rag-knowledge-assistants",
+    },
   },
   "interior-architecture": {
     kicker: "Interior & architecture",
@@ -230,7 +233,9 @@ function fallbackFromGuide(slug: string): ServiceProjectCtaContent | null {
 }
 
 /** CTA block for any published `/work/:slug` guide. */
-export function getServiceProjectCtaContent(slug: string): ServiceProjectCtaContent | null {
+export function getServiceProjectCtaContent(
+  slug: string,
+): ServiceProjectCtaContent | null {
   const preset = CTA_BY_SLUG[slug];
   if (preset) {
     return { slug, ...preset };

@@ -9,7 +9,8 @@ import {
 import { soundEngine } from "../../utils/audioEngine";
 
 function statusTone(status: PortfolioStatus): string {
-  if (status === "live") return "border-[#7dcea0]/45 bg-[#1a2e24]/90 text-[#a8e6c1]";
+  if (status === "live")
+    return "border-[#7dcea0]/45 bg-[#1a2e24]/90 text-[#a8e6c1]";
   if (status === "under-development")
     return "border-[#E8A9C2]/45 bg-[#2A1830]/95 text-[#E8A9C2]";
   return "border-[#B9A6D1]/45 bg-[#1E1024]/90 text-[#D8CCE6]";
@@ -166,7 +167,7 @@ export function PortfolioProjectsSection() {
 
         <div className="mt-12 flex flex-col items-center gap-4 text-center sm:mt-14">
           <p className="max-w-lg text-sm leading-relaxed text-[#B9A6D1]">
-            Need something in this lane—or a different workflow? Tell us the
+            Need something in this laneor a different workflow? Tell us the
             business problem; we reply within one business day.
           </p>
           <Link

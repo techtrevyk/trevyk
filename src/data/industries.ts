@@ -1,5 +1,5 @@
 /**
- * Industry solutions hub — Phase D.
+ * Industry solutions hub  Phase D.
  * Detail lives on /work/* money pages; hub never dumps industries onto home.
  */
 export type IndustrySolution = {
@@ -14,7 +14,7 @@ export type IndustrySolution = {
 export const SOLUTIONS_HUB = {
   eyebrow: "Solutions by industry",
   title: "Built around how your sector works",
-  lead: "Four focused paths—websites, software, growth, and partnerships. Pick your industry for a clear starting brief, then discuss scope.",
+  lead: "Four focused pathswebsites, software, growth, and partnerships. Pick your industry for a clear starting brief, then discuss scope.",
 } as const;
 
 export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
@@ -41,7 +41,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     name: "Manufacturing & Industrial",
     shortName: "Manufacturing",
     blurb:
-      "ERP-style modules, inventory, HRMS-adjacent workflows, and integrations that match the floor—not a generic template.",
+      "ERP-style modules, inventory, HRMS-adjacent workflows, and integrations that match the floornot a generic template.",
     outcomes: ["Ops modules", "Inventory & HRMS", "Automation"],
     href: "/work/manufacturing-industrial",
   },

@@ -1,4 +1,10 @@
-import { ArrowUpRight, Building2, Factory, Handshake, Sparkles } from "lucide-react";
+import {
+  ArrowUpRight,
+  Building2,
+  Factory,
+  Handshake,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { portfolioHeroBackdrop } from "../../config/media";
 import { soundEngine } from "../../utils/audioEngine";
@@ -59,8 +65,8 @@ export function SolutionsHeroSection() {
           </h1>
 
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
-            Four sectors where we already know the workflows. Your business still
-            leads—these pages just make the first conversation sharper.
+            Four sectors where we already know the workflows. Your business
+            still leadsthese pages just make the first conversation sharper.
           </p>
 
           <ul className="mt-10 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">

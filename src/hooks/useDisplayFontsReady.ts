@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-/** Hero headline + body — keep list short so ready resolves fast. */
+/** Hero headline + body  keep list short so ready resolves fast. */
 const HERO_DISPLAY_FACES = [
   '600 1em "Space Grotesk"',
   '700 1em "Space Grotesk"',
@@ -15,7 +15,9 @@ function heroFontsCheck(): boolean {
 async function ensureHeroFonts(): Promise<boolean> {
   if (typeof document === "undefined" || !document.fonts) return true;
   if (heroFontsCheck()) return true;
-  await Promise.all(HERO_DISPLAY_FACES.map((face) => document.fonts.load(face)));
+  await Promise.all(
+    HERO_DISPLAY_FACES.map((face) => document.fonts.load(face)),
+  );
   return heroFontsCheck();
 }
 

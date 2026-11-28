@@ -1,4 +1,4 @@
-# LinkedIn post — remote software & AI team
+# LinkedIn post remote software & AI team
 
 **When:** Same week as Post B or instead of a pure Noida-only post.
 
@@ -6,7 +6,7 @@
 
 HQ in Noida. Clients are not limited to Noida.
 
-We work with startups and growing companies across India—and remotely worldwide—on custom websites, web apps, AI agents, RAG assistants, and GenAI/LLM apps.
+We work with startups and growing companies across Indiaand remotely worldwideon custom websites, web apps, AI agents, RAG assistants, and GenAI/LLM apps.
 
 If you need capability (not geography theatre):  
 https://www.trevyk.in/work/remote-software-ai-team

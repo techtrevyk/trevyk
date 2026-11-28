@@ -1,17 +1,17 @@
-# Phase E / Phase 4 — Conversion QA (GA4 + contact)
+# Phase E / Phase 4 Conversion QA (GA4 + contact)
 
 **Property:** GA4 `G-CH828R29RV` · Site: https://www.trevyk.in  
 **Canonical contact:** contact@trevyk.com · WhatsApp +91 88106 64797 · HQ Noida (remote-first)
 
 ## Events wired in code (2026-11-28)
 
-| Action | Event | Params |
-|--------|--------|--------|
-| Contact form success | `generate_lead` | `method=contact_form`, `lane=<need>` |
-| AI discuss form success | `generate_lead` | `method=contact_form`, `lane=services` |
-| WhatsApp floating button | `generate_lead` + outbound `click` | `method=whatsapp`, `lane=whatsapp_floating` |
-| Contact WhatsApp card / success CTA | `generate_lead` + outbound `click` | `method=whatsapp`, `lane=contact_*` |
-| Contact mailto links | `generate_lead` | `method=email`, `lane=contact_*` |
+| Action                              | Event                              | Params                                      |
+| ----------------------------------- | ---------------------------------- | ------------------------------------------- |
+| Contact form success                | `generate_lead`                    | `method=contact_form`, `lane=<need>`        |
+| AI discuss form success             | `generate_lead`                    | `method=contact_form`, `lane=services`      |
+| WhatsApp floating button            | `generate_lead` + outbound `click` | `method=whatsapp`, `lane=whatsapp_floating` |
+| Contact WhatsApp card / success CTA | `generate_lead` + outbound `click` | `method=whatsapp`, `lane=contact_*`         |
+| Contact mailto links                | `generate_lead`                    | `method=email`, `lane=contact_*`            |
 
 `trackEvent` now calls `initAnalytics()` so leads fire even if page_view ran late.
 

@@ -12,7 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { soundEngine } from "../../utils/audioEngine";
 
-/** Buyer-need catalogue — Phase C: mobile + partnerships prominence. */
+/** Buyer-need catalogue  Phase C: mobile + partnerships prominence. */
 const SERVICE_CARDS = [
   {
     title: "Web Development",
@@ -26,7 +26,7 @@ const SERVICE_CARDS = [
   {
     title: "Web Applications",
     description:
-      "Portals and workflow apps your team can run day to day—with source you keep.",
+      "Portals and workflow apps your team can run day to daywith source you keep.",
     icon: LayoutGrid,
     image: "/images/what-we-do/services/service-web-applications-v2.jpg",
     imagePosition: "85% center",
@@ -53,7 +53,7 @@ const SERVICE_CARDS = [
   {
     title: "UI/UX Design",
     description:
-      "Interfaces shaped for the people who use them—clear, modern, and easy to ship.",
+      "Interfaces shaped for the people who use themclear, modern, and easy to ship.",
     icon: Palette,
     image: "/images/what-we-do/services/service-ui-ux-v2.jpg",
     imagePosition: "88% center",
@@ -62,7 +62,7 @@ const SERVICE_CARDS = [
   {
     title: "SEO & Digital Growth",
     description:
-      "Relevant traffic and enquiries—pages, campaigns, and content sized to your budget.",
+      "Relevant traffic and enquiriespages, campaigns, and content sized to your budget.",
     icon: BarChart3,
     image: "/images/what-we-do/services/service-seo-marketing-v2.jpg",
     imagePosition: "85% center",
@@ -71,7 +71,7 @@ const SERVICE_CARDS = [
   {
     title: "AI & Automation",
     description:
-      "Agents, RAG, and GenAI apps for real workflows—with humans in the loop where risk is high.",
+      "Agents, RAG, and GenAI apps for real workflowswith humans in the loop where risk is high.",
     icon: Bot,
     image: "/images/what-we-do/services/service-ai-automation-v2.jpg",
     imagePosition: "88% center",
@@ -125,14 +125,21 @@ export function OurServicesSection() {
           </h2>
 
           <p className="mt-4 text-base leading-relaxed text-[#C4B4D8] sm:text-[17px]">
-            From custom software to scalable web applications, we help businesses
-            and organisations turn ideas into real-world solutions.
+            From custom software to scalable web applications, we help
+            businesses and organisations turn ideas into real-world solutions.
           </p>
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4 xl:gap-5">
           {SERVICE_CARDS.map(
-            ({ title, description, icon: Icon, image, imagePosition, href }) => (
+            ({
+              title,
+              description,
+              icon: Icon,
+              image,
+              imagePosition,
+              href,
+            }) => (
               <li key={title}>
                 <article className="group relative flex min-h-[17.5rem] flex-col overflow-hidden rounded-2xl border border-[#B9A6D1]/28 shadow-[0_16px_40px_rgba(0,0,0,0.35)] sm:min-h-[18.5rem]">
                   <img

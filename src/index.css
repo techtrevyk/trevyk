@@ -57,7 +57,7 @@
   }
 
   /*
-   * Kill stray focus rings (mouse click / router nav) — especially header links.
+   * Kill stray focus rings (mouse click / router nav)  especially header links.
    * Form fields keep intentional border styling via component classes.
    */
   :where(
@@ -85,7 +85,6 @@
     --tw-ring-shadow: 0 0 #0000 !important;
     --tw-ring-offset-shadow: 0 0 #0000 !important;
   }
-
 }
 
 /* Custom noise grain background */
@@ -261,8 +260,8 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Home mid band — dark plum + engineering grid (checkbox-style) */
-/* Products & Services — wave fills section width (cover); height = content height only */
+/* Home mid band  dark plum + engineering grid (checkbox-style) */
+/* Products & Services  wave fills section width (cover); height = content height only */
 .home-products-services-band {
   position: relative;
   isolation: isolate;
@@ -295,11 +294,7 @@
   background-color: #1a0f18;
   background-image:
     linear-gradient(rgba(185, 166, 209, 0.085) 1px, transparent 1px),
-    linear-gradient(
-      90deg,
-      rgba(185, 166, 209, 0.085) 1px,
-      transparent 1px
-    ),
+    linear-gradient(90deg, rgba(185, 166, 209, 0.085) 1px, transparent 1px),
     radial-gradient(
       ellipse 70% 45% at 18% 8%,
       rgba(107, 74, 135, 0.2),
@@ -326,11 +321,7 @@
   background-color: var(--background);
   background-image:
     linear-gradient(rgba(185, 166, 209, 0.085) 1px, transparent 1px),
-    linear-gradient(
-      90deg,
-      rgba(185, 166, 209, 0.085) 1px,
-      transparent 1px
-    ),
+    linear-gradient(90deg, rgba(185, 166, 209, 0.085) 1px, transparent 1px),
     radial-gradient(
       ellipse 70% 45% at 18% 8%,
       rgba(107, 74, 135, 0.2),
@@ -342,17 +333,17 @@
       transparent 55%
     ),
     linear-gradient(180deg, #160a1c 0%, #1a0f18 35%, #1e1024 100%);
-  background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%, 100% 100%;
+  background-size:
+    32px 32px,
+    32px 32px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
 }
 
-/* Growth offer — card wells: Technology deep dive purple (#6B4A87 → #8558A5) */
+/* Growth offer  card wells: Technology deep dive purple (#6B4A87 → #8558A5) */
 .growth-card-photo {
-  background: linear-gradient(
-    155deg,
-    #6b4a87 0%,
-    #5c4080 42%,
-    #4a3358 100%
-  );
+  background: linear-gradient(155deg, #6b4a87 0%, #5c4080 42%, #4a3358 100%);
 }
 
 .growth-card-photo__img {
@@ -509,13 +500,22 @@
 
 @keyframes trevyk-build-together-bg-drift {
   0% {
-    background-position: 0% 40%, 100% 60%, 0% 50%;
+    background-position:
+      0% 40%,
+      100% 60%,
+      0% 50%;
   }
   50% {
-    background-position: 100% 60%, 0% 40%, 100% 50%;
+    background-position:
+      100% 60%,
+      0% 40%,
+      100% 50%;
   }
   100% {
-    background-position: 0% 40%, 100% 60%, 0% 50%;
+    background-position:
+      0% 40%,
+      100% 60%,
+      0% 50%;
   }
 }
 
@@ -536,7 +536,8 @@
 
 .trevyk-build-together-live-bg {
   background-color: #1a0f18;
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       ellipse 85% 70% at 18% 42%,
       rgba(60, 35, 82, 0.62) 0%,
       rgba(63, 23, 76, 0.372) 52%,
@@ -560,7 +561,10 @@
       #2a1830 88%,
       #1e1024 100%
     );
-  background-size: 200% 200%, 220% 220%, 320% 320%;
+  background-size:
+    200% 200%,
+    220% 220%,
+    320% 320%;
   background-repeat: no-repeat;
   animation: trevyk-build-together-bg-drift 16s ease-in-out infinite;
 }
@@ -578,7 +582,8 @@
 }
 
 .trevyk-build-together-live-bg__vignette {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       to bottom,
       rgba(15, 8, 16, 0.42) 0%,
       transparent 22%,
@@ -601,11 +606,14 @@
   }
 
   .trevyk-build-together-live-bg {
-    background-position: 40% 50%, 60% 50%, 35% 50%;
+    background-position:
+      40% 50%,
+      60% 50%,
+      35% 50%;
   }
 }
 
-/* Contact form card — dark plum base, moving gradient, corner glow blobs */
+/* Contact form card  dark plum base, moving gradient, corner glow blobs */
 @keyframes trevyk-contact-form-plum-drift {
   0%,
   100% {
@@ -648,15 +656,9 @@
 
 .trevyk-contact-form-card-bg {
   background-color: #1a0f18;
-  background-image: linear-gradient(
-      rgba(185, 166, 209, 0.07) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(185, 166, 209, 0.07) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(rgba(185, 166, 209, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 166, 209, 0.07) 1px, transparent 1px),
     linear-gradient(
       125deg,
       #120a14 0%,

@@ -1,10 +1,7 @@
-/** Sync route-transition overlay — show before React paints the next route. */
+/** Sync route-transition overlay  show before React paints the next route. */
 
 import { entryLoader } from "../config/media";
-import {
-  dismissTrevykBoot,
-  markHomeHeroVideoWarm,
-} from "./heroVideoPreload";
+import { dismissTrevykBoot, markHomeHeroVideoWarm } from "./heroVideoPreload";
 import { isHomePath } from "./homeEntryGate";
 
 export const ROUTE_LOADER_ID = "trevyk-route-loader";

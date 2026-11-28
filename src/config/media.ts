@@ -1,16 +1,16 @@
 /** Video assets in `public/videos/`. */
 export const media = {
-  /** Hero — office background (home) */
+  /** Hero  office background (home) */
   heroOffice: "/videos/hero-office-loop.mp4",
   heroOfficeReverse: "/videos/hero-office-reverse.mp4",
-  /** LCP still — extracted from hero video; video loads after first paint. */
+  /** LCP still  extracted from hero video; video loads after first paint. */
   heroOfficePoster: "/images/hero-office-poster.jpg",
   heroOfficePoster640: "/images/hero-office-poster-640.jpg",
   heroOfficePosterWebp: "/images/hero-office-poster.webp",
   heroOfficePoster640Webp: "/images/hero-office-poster-640.webp",
   homeMidWaveWebp: "/images/futuristic-purple-wave.webp",
   homeMidWaveJpg: "/images/futuristic-purple-wave-1920.jpg",
-  /** How we work — full-section rotating earth background */
+  /** How we work  full-section rotating earth background */
   processGlobe: "/videos/process-globe-bg.mp4",
   footerSolar: "/videos/solar.mp4",
   /** Route-change loader (short logo loop). */
@@ -18,7 +18,7 @@ export const media = {
     "/images/kiduart/Trevyk_Technologies_logo_animation_1080p_20261020233711.mp4",
 } as const;
 
-/** Route-change logo loader — fast playback, short minimum visible time. */
+/** Route-change logo loader  fast playback, short minimum visible time. */
 export const entryLoader = {
   background: "#2A1830",
   playbackRate: 8,
@@ -30,7 +30,7 @@ export const entryLoader = {
 } as const;
 
 /**
- * Who we are — hero (`/companyIntro.png`) overlays. Tune here only.
+ * Who we are  hero (`/companyIntro.png`) overlays. Tune here only.
  */
 export const whoWeAreHeroBackdrop = {
   washOpacity: 0.38,
@@ -41,12 +41,12 @@ export const whoWeAreHeroBackdrop = {
   ],
 } as const;
 
-/** Process — hero (`/images/process/processhero.png`). */
+/** Process  hero (`/images/process/processhero.png`). */
 export const processHeroBackdrop = {
   image: "/images/process/processhero.png",
 } as const;
 
-/** Contact — full-page split backdrop (`/images/contact/hero-backdrop.jpg`). */
+/** Contact  full-page split backdrop (`/images/contact/hero-backdrop.jpg`). */
 export const contactHeroBackdrop = {
   image: "/images/contact/hero-backdrop.jpg",
   washOpacity: 0.28,
@@ -57,7 +57,7 @@ export const contactHeroBackdrop = {
   ],
 } as const;
 
-/** Our products — hero (`/images/our-products/hero-backdrop.jpg`) overlays. */
+/** Our products  hero (`/images/our-products/hero-backdrop.jpg`) overlays. */
 export const ourProductsHeroBackdrop = {
   image: "/images/our-products/hero-backdrop.jpg",
   washOpacity: 0.32,
@@ -68,7 +68,7 @@ export const ourProductsHeroBackdrop = {
   ],
 } as const;
 
-/** Portfolio — hero (`/images/work/portfolio-hero.jpg`) overlays. */
+/** Portfolio  hero (`/images/work/portfolio-hero.jpg`) overlays. */
 export const portfolioHeroBackdrop = {
   image: "/images/work/portfolio-hero.jpg",
   washOpacity: 0.34,
@@ -79,12 +79,12 @@ export const portfolioHeroBackdrop = {
   ],
 } as const;
 
-/** Technology — modular architecture diagram (`/images/modulararchitechture.png`). */
+/** Technology  modular architecture diagram (`/images/modulararchitechture.png`). */
 export const technologyModularArchitecture = {
   image: "/images/modulararchitechture.png",
 } as const;
 
-/** Work guides — hero backdrop overlays (`/images/work/{slug}-hero.jpg`). */
+/** Work guides  hero backdrop overlays (`/images/work/{slug}-hero.jpg`). */
 export const workHeroBackdrop = {
   washOpacity: 0.35,
   washRgb: "26, 16, 36",
@@ -94,19 +94,19 @@ export const workHeroBackdrop = {
   ],
 } as const;
 
-/** Technology — “Build with Trevyk” dark plum band. */
+/** Technology  “Build with Trevyk” dark plum band. */
 export const technologyBuildBand = {
   base: "#120a14",
 } as const;
 
-/** Stack + modular band — matches diagram PNG edge color (~#070510). */
+/** Stack + modular band  matches diagram PNG edge color (~#070510). */
 export const technologyDarkBand = {
   base: "#070510",
   gridOpacity: 0.04,
   gridSizePx: 48,
 } as const;
 
-/** Technology — hero (`/images/technology/hero-backdrop.jpg`). Art on the right; copy on the left. */
+/** Technology  hero (`/images/technology/hero-backdrop.jpg`). Art on the right; copy on the left. */
 export const technologyHeroBackdrop = {
   image: "/images/technology/hero-backdrop.jpg",
   washOpacity: 0.22,
@@ -117,7 +117,7 @@ export const technologyHeroBackdrop = {
   ],
 } as const;
 
-/** What we do — hero (`/images/what-we-do/hero-backdrop.jpg`) overlays. */
+/** What we do  hero (`/images/what-we-do/hero-backdrop.jpg`) overlays. */
 export const whatWeDoHeroBackdrop = {
   image: "/images/what-we-do/hero-backdrop.jpg",
   washOpacity: 0.42,

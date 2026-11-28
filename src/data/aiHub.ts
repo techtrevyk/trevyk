@@ -8,7 +8,7 @@ export const AI_HUB_FAQS = [
   {
     question: "Which AI work is ready to scope vs educational?",
     answer:
-      "Ready to scope: agents, RAG assistants, GenAI/LLM apps, and workflow automation with human gates. Feasibility-led: ML scoring after we see labels and refresh paths. Educational: comparison guides (agent vs chatbot, RAG vs fine-tuning). Security and governance ship as part of delivery—not a standalone product.",
+      "Ready to scope: agents, RAG assistants, GenAI/LLM apps, and workflow automation with human gates. Feasibility-led: ML scoring after we see labels and refresh paths. Educational: comparison guides (agent vs chatbot, RAG vs fine-tuning). Security and governance ship as part of deliverynot a standalone product.",
   },
   {
     question: "Do you build LangChain or LangGraph-style agents?",
@@ -18,7 +18,7 @@ export const AI_HUB_FAQS = [
   {
     question: "Do you sell separate AEO or GEO packages?",
     answer:
-      "No. Clear answers and crawlable structure support both classic SEO and AI-answer surfaces. See the SEO guide. We focus on relevant discovery—not citation guarantees.",
+      "No. Clear answers and crawlable structure support both classic SEO and AI-answer surfaces. See the SEO guide. We focus on relevant discoverynot citation guarantees.",
   },
   {
     question: "How is cost determined?",

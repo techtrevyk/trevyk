@@ -24,7 +24,7 @@ type ScrollScrubVideoProps = {
   staticLcpSizes?: string;
   label?: string;
   onPosterReady?: () => void;
-  /** When set with `staticLcpPoster`, MP4 loads after scroll / interaction / idle — not on first paint. */
+  /** When set with `staticLcpPoster`, MP4 loads after scroll / interaction / idle  not on first paint. */
   deferVideoLoad?: boolean;
 };
 
@@ -72,8 +72,12 @@ export function ScrollScrubVideo({
   const syncTime = useCallback(
     (p: number) => {
       const video = videoRef.current;
-      if (!video || !scrub || !video.duration || Number.isNaN(video.duration)) return;
-      const t = Math.min(video.duration - 0.04, Math.max(0, p * video.duration));
+      if (!video || !scrub || !video.duration || Number.isNaN(video.duration))
+        return;
+      const t = Math.min(
+        video.duration - 0.04,
+        Math.max(0, p * video.duration),
+      );
       if (Math.abs(video.currentTime - t) > 0.05) {
         video.currentTime = t;
       }
@@ -166,8 +170,11 @@ export function ScrollScrubVideo({
             />
           ) : null}
           <p className="relative font-mono text-xs leading-relaxed text-plum-lavender">
-            Add <span className="text-plum-accent">{src.replace("/videos/", "")}</span> under{" "}
-            <span className="text-plum-neutral">public/videos/</span>
+            Add{" "}
+            <span className="text-plum-accent">
+              {src.replace("/videos/", "")}
+            </span>{" "}
+            under <span className="text-plum-neutral">public/videos/</span>
           </p>
         </div>
       )}

@@ -14,7 +14,7 @@ const USE_CASES = [
   {
     title: "Customer Support",
     description:
-      "Deflect repeat questions with assistants grounded in your policies, products and past tickets—escalate when a human should take over.",
+      "Deflect repeat questions with assistants grounded in your policies, products and past ticketsescalate when a human should take over.",
     tags: ["AI Assistants", "Knowledge Retrieval", "24/7 Support"],
     icon: Headphones,
     href: "/work/ai-agents",
@@ -30,7 +30,7 @@ const USE_CASES = [
   {
     title: "AI-Enabled Applications",
     description:
-      "Embed intelligence in the products you ship—search, copilots and smart forms that fit your UX and permissions model.",
+      "Embed intelligence in the products you shipsearch, copilots and smart forms that fit your UX and permissions model.",
     tags: ["Custom Applications", "AI Integrations", "Product Features"],
     icon: Code2,
     href: "/work/web-applications",
@@ -46,7 +46,7 @@ const USE_CASES = [
   {
     title: "Data & Decision Support",
     description:
-      "Summarise operational data, surface anomalies and package insights leaders can act on—without another spreadsheet swamp.",
+      "Summarise operational data, surface anomalies and package insights leaders can act onwithout another spreadsheet swamp.",
     tags: ["Data Analysis", "Custom Reports", "Predictive Insights"],
     icon: BarChart3,
     href: "/contact",
@@ -94,7 +94,10 @@ export function AiUseCasesSection() {
       aria-labelledby="ai-use-cases-heading"
       className="relative border-t border-[#6B4A87]/30 bg-[#1E1024] py-14 sm:py-16 lg:py-20"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden
+      >
         <div
           className="absolute -left-[15%] top-[20%] h-[45%] w-[40%] opacity-35"
           style={{
@@ -145,7 +148,11 @@ export function AiUseCasesSection() {
                 </Link>
 
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#E8A9C2]/30 bg-[#55356a]/85 text-[#F8F6FB] shadow-[0_0_16px_rgba(107,74,135,0.3)]">
-                  <Icon className="h-[1.2rem] w-[1.2rem]" strokeWidth={1.65} aria-hidden />
+                  <Icon
+                    className="h-[1.2rem] w-[1.2rem]"
+                    strokeWidth={1.65}
+                    aria-hidden
+                  />
                 </div>
 
                 <h3 className="mt-4 pr-10 font-heading text-lg font-semibold leading-snug text-[#F8F6FB] sm:text-xl">

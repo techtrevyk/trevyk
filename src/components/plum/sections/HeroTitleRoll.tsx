@@ -1,13 +1,18 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useDisplayFontsReady } from "../../../hooks/useDisplayFontsReady";
 import { SkeletonHeroTitle } from "../../ui/Skeleton";
 
 const SWITCH_MS = 5000;
 const FADE_MS = 420;
 
-/** Minimum slot height (~3 lines at hero clamp) — prevents clip if measure is early. */
-const TITLE_SLOT_MIN_CLASS =
-  "min-h-[calc(3*1.12*clamp(2rem,5.5vw,3.75rem))]";
+/** Minimum slot height (~3 lines at hero clamp)  prevents clip if measure is early. */
+const TITLE_SLOT_MIN_CLASS = "min-h-[calc(3*1.12*clamp(2rem,5.5vw,3.75rem))]";
 
 type HeroTitleRollProps = {
   lines: readonly string[];
@@ -17,7 +22,9 @@ const lineClass =
   "font-display text-[clamp(2rem,5.5vw,3.75rem)] font-semibold leading-[1.12] tracking-tight text-plum-neutral [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]";
 
 function readLineHeights(refs: (HTMLSpanElement | null)[]): number[] {
-  return refs.map((el) => (el ? Math.ceil(el.getBoundingClientRect().height) : 0));
+  return refs.map((el) =>
+    el ? Math.ceil(el.getBoundingClientRect().height) : 0,
+  );
 }
 
 export function HeroTitleRoll({ lines }: HeroTitleRollProps) {
@@ -76,7 +83,9 @@ export function HeroTitleRoll({ lines }: HeroTitleRollProps) {
     heights.every((h) => h > 0);
   const rollReady = heightsReady && fontsReady && lines.length > 1;
   const displayReady =
-    lines.length > 0 && fontsReady && (lines.length === 1 ? true : heightsReady);
+    lines.length > 0 &&
+    fontsReady &&
+    (lines.length === 1 ? true : heightsReady);
   const viewportHeight = rollReady ? Math.max(...heights) : 0;
 
   if (lines.length === 0) return null;
@@ -119,7 +128,9 @@ export function HeroTitleRoll({ lines }: HeroTitleRollProps) {
           }}
           aria-live="polite"
         >
-          <span className={`${lineClass} block w-full max-w-xl`}>{lines[index]}</span>
+          <span className={`${lineClass} block w-full max-w-xl`}>
+            {lines[index]}
+          </span>
         </h1>
       ) : (
         <h1 className={`${lineClass} w-full max-w-xl`}>{lines[0]}</h1>

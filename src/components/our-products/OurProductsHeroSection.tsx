@@ -67,7 +67,7 @@ export function OurProductsHeroSection() {
 
           <p className="mt-5 text-base leading-relaxed text-[#E7E1F0] sm:text-[17px]">
             We build focused products and solutions for schools, businesses and
-            organisations — designed to solve real-world problems and create
+            organisations designed to solve real-world problems and create
             long-term value.
           </p>
 
@@ -100,13 +100,13 @@ export function OurProductsHeroSection() {
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
 
-            <div
-              className="hidden items-center gap-4 sm:flex"
-              aria-hidden
-            >
+            <div className="hidden items-center gap-4 sm:flex" aria-hidden>
               <span className="h-10 w-px bg-[#B9A6D1]/35" />
               <div className="flex items-center gap-3 text-[#B9A6D1]">
-                <Mouse className="h-5 w-5 shrink-0 text-[#E8A9C2]/80" strokeWidth={1.5} />
+                <Mouse
+                  className="h-5 w-5 shrink-0 text-[#E8A9C2]/80"
+                  strokeWidth={1.5}
+                />
                 <span className="font-mono-accent text-[11px] uppercase tracking-[0.14em]">
                   Scroll to explore
                 </span>
